@@ -24,31 +24,31 @@ GOTO:menuLOOP
 ::-----------------------------------------------------------
 
 :menu_1   Copy Hunger Games World 
-set source=C:\SpigotMC\worlds\hungerGames\*.*
+set source=C:\SpigotMC\MinecraftWorlds\hungerGames\*.*
 GOTO:copyFiles
 
 :menu_2   Copy Asteroids Bed Wars World
-set source=C:\SpigotMC\worlds\asteroidBedWars\*.*
+set source=C:\SpigotMC\MinecraftWorlds\asteroidBedWars\*.*
 GOTO:copyFiles
 
 :menu_3   Copy Garden Bed Wars World
-set source=C:\SpigotMC\worlds\gardenBedWars\*.*
+set source=C:\SpigotMC\MinecraftWorlds\gardenBedWars\*.*
 GOTO:copyFiles
 
 :menu_4   Copy Castle1
-set source=C:\SpigotMC\worlds\Castle1\*.*
+set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
 GOTO:copyFiles
 
 :menu_6   bedWars #1
-set source=C:\SpigotMC\worlds\bedWars\*.*
+set source=C:\SpigotMC\MinecraftWorlds\bedWars\*.*
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
-set source=C:\SpigotMC\worlds\ruinBedWars\*.*
+set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
 GOTO:copyFiles
 
 :menu_8   Our bed wars
-set source=C:\SpigotMC\worlds\ourBedWars\*.*
+set source=C:\SpigotMC\MinecraftWorlds\ourBedWars\*.*
 copy C:\SpigotMC\worlds\ourBedWars\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
 GOTO:copyFiles
 
