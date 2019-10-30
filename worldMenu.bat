@@ -3,6 +3,10 @@ REM.-- Prepare the Command Processor
 SETLOCAL ENABLEEXTENSIONS
 SETLOCAL ENABLEDELAYEDEXPANSION
 set destination=C:\SpigotMC\world\
+set blocklyroot=C:\
+set worldsroot=C:\SpigotMC
+set arduinoroot=C:\
+
 
 :menuLOOP
 echo.
@@ -56,6 +60,27 @@ GOTO:menuLOOP
 :menu_A   Murder Mystery
 set source=C:\SpigotMC\worlds\VictEnglandMM\*.*
 GOTO:copyFiles
+
+:menu_B   Set Backups as destination
+set blocklyroot=C:\backups
+set worldsroot=C:\backups
+set arduinoroot=C:\backups
+GOTO:menuLoop
+
+:menu_C   Git Arduino 
+cd %arduinoroot%
+git clone https://github.com/Paulware/Arduino
+GOTO:menuLoop
+
+:menu_D   Git BlocklyScriptcraft
+cd %blocklyroot%
+git clone https://github.com/Paulware/BlocklyScriptcraft
+GOTO:menuLoop
+
+:menu_E   Git MinecraftWorlds
+cd %worldsroot%
+git clone https://github.com/Paulware/MinecraftWorlds
+GOTO:menuLoop
 
 :menu_
 
