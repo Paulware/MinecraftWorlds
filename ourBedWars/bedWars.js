@@ -90,14 +90,14 @@ exports.bedWarRules = function () {
   var blockList;
   var found;
   var teamColor;
-  var players;
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
-  restoreBed();
   events.playerDeath( function (event) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
     getWinningTeam();
   });
   events.projectileHit( function (event) {
+    console.log ("Got a Projectile hit event yo");
+    console.log (event.entity.location);
     event.entity.world.createExplosion (event.entity.location,1);
   });
   events.blockBreak( function (event) {
@@ -111,14 +111,19 @@ exports.bedWarRules = function () {
     }
   });
   events.blockExplode( function (event) {
-    destroyBlocks=['AIR','WHITE_WOOL','BED'];
+    destroyBlocks=['AIR','WHITE_WOOL','BED','null'];
     blockList=event.blockList();
     console.log ("blocklist.length " + blockList.length);
     found=false;
     for (var i=0; i<parseInt(blockList.length); i++) {
       block=blockList[i].getType().toString();
-      if ((block.indexOf (destroyBlocks[i])) > -1){
-        found=true;
+      for (var j=0; j<parseInt(destroyBlocks.length); j++) {
+        if ((block.indexOf (destroyBlocks[j])) > -1){
+          found=true;
+          break;
+        }
+      }
+      if (found){
         break;
       }
     }
@@ -165,15 +170,12 @@ exports.bedWarRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "save -off");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
-  players=server.getOnlinePlayers();
-  for (var i=0; i<parseInt(players.length); i++) {
-    players[i].removeMetadata ("teamcolor", __plugin );
-  }
   if ((self.name) != "CONSOLE"){
+    self.removeMetadata ("teamcolor", __plugin );
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
   }
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
 };
 
 exports.bedWarRespawn  = function (player) {
@@ -190,9 +192,11 @@ exports.bedWarRespawn  = function (player) {
     block=server.worlds[0].getBlockAt (location);
     if ((block.getType().toString().indexOf ( 'BED') > -1)){
       player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1));
+      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,16));
       player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,16));
       player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.WHITE_WOOL,32));
-      eval ("color = org.bukkit.Color." + teamColor.toUpperCase());
+      eval ( "color = org.bukkit.Color." + teamColor);
       var player = player;
       var items = require ('items');
       var helmet = items.leatherHelmet(1);
