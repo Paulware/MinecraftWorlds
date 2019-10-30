@@ -1,4 +1,16 @@
 {
+  "minecraft:recipes/building_blocks/purple_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/lime_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/magenta_concrete_powder": {
     "criteria": {
       "has_sand": "2019-10-10 16:42:46 -0500"
@@ -17,6 +29,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/black_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/stone_bricks_from_stone_stonecutting": {
     "criteria": {
       "has_stone": "2019-10-10 16:41:09 -0500"
@@ -26,6 +44,18 @@
   "minecraft:recipes/combat/golden_chestplate": {
     "criteria": {
       "has_gold_ingot": "2019-10-10 16:43:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_bed": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/green_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -53,9 +83,27 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/brown_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_pressure_plate": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/decorations/crafting_table": {
     "criteria": {
       "has_planks": "2019-10-10 16:41:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/magenta_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -101,9 +149,27 @@
     },
     "done": true
   },
+  "minecraft:recipes/redstone/birch_button": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/diamond_sword": {
     "criteria": {
       "has_diamond": "2019-10-10 16:39:52 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cyan_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -149,6 +215,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/light_blue_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/decorations/yellow_glazed_terracotta": {
     "criteria": {
       "has_yellow_terracotta": "2019-10-10 16:35:03 -0500"
@@ -170,6 +242,12 @@
   "minecraft:recipes/building_blocks/emerald_block": {
     "criteria": {
       "has_at_least_9_emerald": "2019-10-10 16:44:34 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/gray_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -239,6 +317,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/birch_slab": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/black_concrete_powder": {
     "criteria": {
       "has_sand": "2019-10-10 16:42:46 -0500"
@@ -251,9 +335,21 @@
     },
     "done": true
   },
+  "minecraft:recipes/redstone/birch_fence_gate": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/redstone/stone_button": {
     "criteria": {
       "has_stone": "2019-10-10 16:41:09 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_banner": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -284,6 +380,12 @@
   "minecraft:recipes/building_blocks/light_blue_concrete_powder": {
     "criteria": {
       "has_sand": "2019-10-10 16:42:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/yellow_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
     },
     "done": true
   },
@@ -389,6 +491,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/blue_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/diamond_chestplate": {
     "criteria": {
       "has_diamond": "2019-10-10 16:39:52 -0500"
@@ -438,6 +546,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/orange_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/tools/iron_hoe": {
     "criteria": {
       "has_iron_ingot": "2019-10-10 16:43:17 -0500"
@@ -465,6 +579,12 @@
   "minecraft:recipes/decorations/barrel": {
     "criteria": {
       "has_planks": "2019-10-10 16:41:06 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/snow_block": {
+    "criteria": {
+      "has_snowball": "2019-10-30 08:43:40 -0500"
     },
     "done": true
   },
@@ -498,6 +618,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/birch_sign": {
+    "criteria": {
+      "has_birch_planks": "2019-10-30 08:27:37 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/redstone/stone_pressure_plate": {
     "criteria": {
       "has_stone": "2019-10-10 16:41:09 -0500"
@@ -507,6 +633,12 @@
   "minecraft:recipes/decorations/stone_brick_walls_from_stone_stonecutting": {
     "criteria": {
       "has_stone": "2019-10-10 16:41:09 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/birch_stairs": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
     },
     "done": true
   },
@@ -546,9 +678,21 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/pink_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/tools/diamond_shovel": {
     "criteria": {
       "has_diamond": "2019-10-10 16:39:52 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_trapdoor": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
     },
     "done": true
   },
@@ -576,9 +720,21 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/white_carpet": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/stone_stairs": {
     "criteria": {
       "has_stone": "2019-10-10 16:41:09 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_door": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
     },
     "done": true
   },
@@ -606,15 +762,39 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/light_gray_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/decorations/oak_fence": {
     "criteria": {
       "has_planks": "2019-10-10 16:41:06 -0500"
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/red_wool": {
+    "criteria": {
+      "has_white_wool": "2019-10-30 08:26:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/snow": {
+    "criteria": {
+      "has_snowball": "2019-10-30 08:43:40 -0500"
+    },
+    "done": true
+  },
   "minecraft:story/smelt_iron": {
     "criteria": {
       "iron": "2019-10-10 16:43:17 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/birch_fence": {
+    "criteria": {
+      "has_planks": "2019-10-30 08:27:37 -0500"
     },
     "done": true
   },
