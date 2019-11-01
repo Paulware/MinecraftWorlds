@@ -107,7 +107,7 @@ exports.bedWarRules = function () {
     if ((block.indexOf ( 'BED')) > -1){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Destroyed\"]");
     }
-    else if ((block.indexOf ( 'WOOL')) == -1){
+    else if ((block.indexOf ( 'WOOL')) == -1 && (block.indexOf ( 'OAK')) == -1){
       event.cancelled = true;
     }
   });
