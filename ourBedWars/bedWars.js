@@ -90,6 +90,7 @@ exports.bedWarRules = function () {
   var blockList;
   var found;
   var teamColor;
+  var players;
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
   events.playerDeath( function (event) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
@@ -111,7 +112,7 @@ exports.bedWarRules = function () {
     }
   });
   events.blockExplode( function (event) {
-    destroyBlocks=['AIR','WHITE_WOOL','BED','null'];
+    destroyBlocks=['AIR','WHITE_WOOL','BED','null','OAK'];
     blockList=event.blockList();
     console.log ("blocklist.length " + blockList.length);
     found=false;
@@ -172,8 +173,9 @@ exports.bedWarRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
-  if ((self.name) != "CONSOLE"){
-    self.removeMetadata ("teamcolor", __plugin );
+  players=server.getOnlinePlayers();
+  for (var i=0; i<parseInt(players.length); i++) {
+    players[i].removeMetadata ("teamcolor", __plugin );
   }
 };
 
