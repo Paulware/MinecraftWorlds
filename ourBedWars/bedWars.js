@@ -174,7 +174,6 @@ exports.bedWarRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   if ((self.name) != "CONSOLE"){
     self.removeMetadata ("teamcolor", __plugin );
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
   }
 };
 
