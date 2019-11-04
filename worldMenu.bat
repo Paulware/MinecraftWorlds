@@ -67,21 +67,32 @@ set worldsroot=C:\backups
 set arduinoroot=C:\backups
 GOTO:menuLoop
 
-:menu_C   Git Arduino 
+:menu_C   git clone Arduino 
 cd %arduinoroot%
 git clone https://github.com/Paulware/Arduino
 GOTO:menuLoop
 
-:menu_D   Git BlocklyScriptcraft
+:menu_D   git clone BlocklyScriptcraft
 cd %blocklyroot%
 git clone https://github.com/Paulware/BlocklyScriptcraft
 GOTO:menuLoop
 
-:menu_E   Git MinecraftWorlds
+:menu_E   git clone MinecraftWorlds
 cd %worldsroot%
 git clone https://github.com/Paulware/MinecraftWorlds
 GOTO:menuLoop
 
+:menu_F   git pull --all 
+cd C:\SpigotMC\MinecraftWorlds
+git pull --all 
+
+cd C:\BlocklyScriptcraft\BlocklyScriptcraft
+git pull --all
+
+cd C:\Arduino
+git pull --all 
+
+cd c:\
 :menu_
 
 :menu_T   Tip
