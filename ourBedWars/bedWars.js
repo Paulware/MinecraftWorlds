@@ -81,7 +81,7 @@ exports.cancelWorldSave = function () {
 };
 
 exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED":{  x:-38,y:62,z:-80},"ORANGE":{  x:80,y:62,z:38},"WHITE":{  x:-38,y:62,z:80}};
-exports.cancelWorldSave();
+//exports.cancelWorldSave();
 
 exports.bedWarRules = function () {
   //Instantiations;
