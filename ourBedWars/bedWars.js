@@ -92,6 +92,31 @@ exports.bedWarRules = function () {
   var teamColor;
   var players;
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
+  events.potionSplash( function (event) {
+    potion=event.getPotion();
+    name=event.getPotion().getItem().getItemMeta().getDisplayName();
+    entities=event.getAffectedEntities();
+    for (var i=0; i<parseInt(entities.length); i++) {
+      location=entities[i].location;
+      x=parseInt(location.x-3);
+      y=parseInt(location.y-3);
+      z=parseInt(location.z-3);
+      if ((name) == "MakeCage"){
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " minecraft:oak_fence outline";
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
+        entities[i].sendMessage ( "You are now caged");
+      }
+      else if ((name) == "DestroyCage"){
+        y=parseInt(location.y);
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " minecraft:air";
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
+        entities[i].sendMessage ( "You are now free")
+      }
+      else {
+        entities[i].sendMessage ( "You were splashed by [" + name + "]");
+      }
+    }
+  });  
   events.playerDeath( function (event) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
     getWinningTeam();

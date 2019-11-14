@@ -39,10 +39,6 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
 GOTO:copyFiles
 
-:menu_6   bedWars #1
-set source=C:\SpigotMC\MinecraftWorlds\bedWars\*.*
-GOTO:copyFiles
-
 :menu_7   Copy Ruin bed wars
 set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
 GOTO:copyFiles
