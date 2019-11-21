@@ -46,6 +46,7 @@ GOTO:copyFiles
 :menu_8   Our bed wars
 set source=C:\SpigotMC\MinecraftWorlds\ourBedWars\*.*
 copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
+copy C:\SpigotMC\MinecraftWorlds\ourBedWars\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
 GOTO:copyFiles
 
 :menu_9   Run the server
