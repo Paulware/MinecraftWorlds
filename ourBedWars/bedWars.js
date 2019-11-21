@@ -85,38 +85,24 @@ exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED
 
 exports.bedWarRules = function () {
   //Instantiations;
+  var name;
+  var entities;
+  var location;
+  var x;
+  var y;
+  var z;
+  var command;
   var block;
   var destroyBlocks;
   var blockList;
   var found;
   var teamColor;
+  var teamColors;
+  var minecart;
+  var directions = [org.bukkit.block.BlockFace.SOUTH,org.bukkit.block.BlockFace.SOUTH_SOUTH_WEST,org.bukkit.block.BlockFace.SOUTH_WEST,org.bukkit.block.BlockFace.WEST_SOUTH_WEST,org.bukkit.block.BlockFace.WEST,org.bukkit.block.BlockFace.WEST_NORTH_WEST,org.bukkit.block.BlockFace.NORTH_WEST,org.bukkit.block.BlockFace.NORTH_NORTH_WEST,org.bukkit.block.BlockFace.NORTH,org.bukkit.block.BlockFace.NORTH_NORTH_EAST,org.bukkit.block.BlockFace.NORTH_EAST,org.bukkit.block.BlockFace.EAST_NORTH_EAST,org.bukkit.block.BlockFace.EAST,org.bukkit.block.BlockFace.EAST_SOUTH_EAST,org.bukkit.block.BlockFace.SOUTH_EAST,org.bukkit.block.BlockFace.SOUTH_SOUTH_EAST];
+  var looking;
   var players;
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
-  events.potionSplash( function (event) {
-    potion=event.getPotion();
-    name=event.getPotion().getItem().getItemMeta().getDisplayName();
-    entities=event.getAffectedEntities();
-    for (var i=0; i<parseInt(entities.length); i++) {
-      location=entities[i].location;
-      x=parseInt(location.x-3);
-      y=parseInt(location.y-3);
-      z=parseInt(location.z-3);
-      if ((name) == "MakeCage"){
-        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " minecraft:oak_fence outline";
-        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
-        entities[i].sendMessage ( "You are now caged");
-      }
-      else if ((name) == "DestroyCage"){
-        y=parseInt(location.y);
-        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " minecraft:air";
-        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
-        entities[i].sendMessage ( "You are now free")
-      }
-      else {
-        entities[i].sendMessage ( "You were splashed by [" + name + "]");
-      }
-    }
-  });  
   events.playerDeath( function (event) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
     getWinningTeam();
@@ -126,10 +112,33 @@ exports.bedWarRules = function () {
     console.log (event.entity.location);
     event.entity.world.createExplosion (event.entity.location,1);
   });
+  events.potionSplash( function (event) {
+    name=event.getPotion();
+    entities=event.getAffectedEntities();
+    for (var i=0; i<parseInt(entities.length); i++) {
+      location=entities[i].location;
+      x=parseInt(location.x-3);
+      y=parseInt(location.y-3);
+      z=parseInt(location.z-3);
+      if ((name) == "MakeCage"){
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " (y+6) + " " + (z+6) + " oak_fence outline";
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
+      }
+      else if ((name) == "DestroyCage"){
+        y=parseInt(location.y);
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " (y+6) + " " + (z+6) + " air";
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
+      }
+      else {
+        entitites[i].sendMessage("Your were splashed by: [" + name + "]" )
+      }
+    }
+  });
   events.blockBreak( function (event) {
-    block=event.block.getType().toString();
+    block=event.block.getType();
+    block=block.toString();
     console.log ("Block broken: " + block);
-    if ((block.indexOf ( 'BED')) > -1){
+    if ((block.toString().indexOf ( 'BED')) > -1){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Destroyed\"]");
     }
     else if ((block.indexOf ( 'WOOL')) == -1 && (block.indexOf ( 'OAK')) == -1){
@@ -142,9 +151,9 @@ exports.bedWarRules = function () {
     console.log ("blocklist.length " + blockList.length);
     found=false;
     for (var i=0; i<parseInt(blockList.length); i++) {
-      block=blockList[i].getType().toString();
+      block=blockList[i].getType();
       for (var j=0; j<parseInt(destroyBlocks.length); j++) {
-        if ((block.indexOf (destroyBlocks[j])) > -1){
+        if ((block.toString().indexOf (destroyBlocks[j])) > -1){
           found=true;
           break;
         }
@@ -155,8 +164,8 @@ exports.bedWarRules = function () {
     }
     if (found){
       for (var i=0; i<parseInt(blockList.length); i++) {
-        block=blockList[i].getType().toString();
-        if ((block.indexOf ( 'BED')) > -1){
+        block=blockList[i].getType();
+        if ((block.toString().indexOf ( 'BED')) > -1){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Exploded\"]");
         }
         else {
@@ -172,13 +181,38 @@ exports.bedWarRules = function () {
   events.playerInteract( function (event) {
     block=event.getClickedBlock();
     if ((block) != (null)){
-      if ((block.getType()) == "OAK_SIGN"){
+      if ((block.getType().toString()) == "OAK_SIGN"){
         teamColor=(block.state.getLine(1)).toUpperCase();
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
         event.player.setMetadata ("teamcolor", fd );
-        console.log ("Players teamColor set to: " + teamColor);
-        event.player.setHealth (0.0);
+        teamColors=["RED","BLUE","ORANGE","WHITE"];
+        if (teamColors.indexOf (teamColor) > -1){
+          console.log ("Players teamColor set to: " + teamColor);
+          event.player.setHealth (0.0);
+        }
+        else {
+          console.log ("Ignoring team color: " + teamColor + " teams:" + teamColors.toString());
+        }
       }
+    }
+    if (event.player.getMetadata("minecart").length > 0){
+      minecart=event.player.getMetadata("minecart")[0].value();
+      if (! (minecart.isEmpty())){
+        looking=directions[parseInt(((event.player).getLocation().getYaw() + 368.0 ) / 22.5) % 16];
+        looking=looking.toString();
+      }
+      console.log ("Player changing direction to " + looking);
+      if (["EAST","WEST","NORTH","SOUTH"].indexOf (looking) > -1){
+        location=minecart.getLocation();
+        fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,looking);
+        event.player.setMetadata ("turndirection", fd );
+      }
+      else {
+        console.log ("Ignoring this direction:" + looking);
+      }
+    }
+    else {
+      console.log ("player.minecart does not exist");
     }
   });
   events.playerRespawn( function (event) {
@@ -202,6 +236,7 @@ exports.bedWarRules = function () {
   for (var i=0; i<parseInt(players.length); i++) {
     players[i].removeMetadata ("teamcolor", __plugin );
   }
+  autoMinecartGame();
 };
 
 exports.bedWarRespawn  = function (player) {
@@ -212,6 +247,9 @@ exports.bedWarRespawn  = function (player) {
   var color;
   var entity;
   var TeleportCause;
+  if (player.getMetadata("turndirection").length > 0){
+    player.removeMetadata ("turndirection", __plugin );
+  }
   if (player.getMetadata("teamcolor").length > 0){
     teamColor=player.getMetadata("teamcolor")[0].value();
     location=new org.bukkit.Location(server.worlds[0], locations[teamColor].x, locations[teamColor].y, locations[teamColor].z);
