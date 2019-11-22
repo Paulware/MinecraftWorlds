@@ -85,6 +85,8 @@ exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED
 
 exports.bedWarRules = function () {
   //Instantiations;
+  var blocks;
+  var entity;
   var name;
   var entities;
   var location;
@@ -108,12 +110,20 @@ exports.bedWarRules = function () {
     getWinningTeam();
   });
   events.projectileHit( function (event) {
-    console.log ("Got a Projectile hit event yo");
-    console.log (event.entity.location);
-    event.entity.world.createExplosion (event.entity.location,1);
+    blocks=["SPLASH_POTION"];
+    entity=event.entity.getType().toString();
+    console.log ("Got a project hit event for " + entity);
+    if (blocks.indexOf (entity) == -1){
+      event.entity.world.createExplosion (event.entity.location,1);
+    }
+    else {
+      console.log ("No explosion for: " + entity);
+    }
   });
   events.potionSplash( function (event) {
-    name=event.getPotion();
+    console.log ("Get name of potion");
+    name=event.getPotion().getItem().getItemMeta().getDisplayName();
+    console.log ("potion name: [" + name + "]");
     entities=event.getAffectedEntities();
     for (var i=0; i<parseInt(entities.length); i++) {
       location=entities[i].location;
@@ -121,16 +131,16 @@ exports.bedWarRules = function () {
       y=parseInt(location.y-3);
       z=parseInt(location.z-3);
       if ((name) == "MakeCage"){
-        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " (y+6) + " " + (z+6) + " oak_fence outline";
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " oak_fence outline";
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
       }
       else if ((name) == "DestroyCage"){
         y=parseInt(location.y);
-        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " (y+6) + " " + (z+6) + " air";
+        command="fill " + x + " " + y + " " + z + " " + (x+6) + " " + (y+6) + " " + (z+6) + " air";
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), command);
       }
       else {
-        entitites[i].sendMessage("Your were splashed by: [" + name + "]" )
+        entities[i].sendMessage("You were splashed by: [" + name + "]" )
       }
     }
   });
@@ -146,7 +156,7 @@ exports.bedWarRules = function () {
     }
   });
   events.blockExplode( function (event) {
-    destroyBlocks=['AIR','WHITE_WOOL','BED','null','OAK'];
+    destroyBlocks=['AIR','WHITE_WOOL','BED','null','OAK','RAIL','COBBLESTONE'];
     blockList=event.blockList();
     console.log ("blocklist.length " + blockList.length);
     found=false;
@@ -217,6 +227,9 @@ exports.bedWarRules = function () {
   });
   events.playerRespawn( function (event) {
     bedWarRespawn (event.player);
+  });
+  events.vehicleBlockCollision( function (event) {
+    event.vehicle.world.createExplosion (event.vehicle.location,10)
   });
   var test= setInterval (function () {
     if ((server.worlds[0].getTime()) > 5000){
