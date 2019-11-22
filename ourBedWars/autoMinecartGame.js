@@ -91,7 +91,7 @@ exports.addRail = function (location,slope) {
   var sign;
   console.log ("addRail at :" + location);
   loc=location.add(0,-1,0);
-  server.worlds[0].getBlockAt (loc).setType (org.bukkit.Material.COBBLESTONE);
+  server.worlds[0].getBlockAt (loc).setType (org.bukkit.Material.GLOWSTONE);
   loc=location.add(0,1,0);
   server.worlds[0].getBlockAt (loc).setType (org.bukkit.Material.RAIL);
   loc=location.add(0,1,0);

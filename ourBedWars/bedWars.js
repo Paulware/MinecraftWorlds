@@ -95,6 +95,7 @@ exports.bedWarRules = function () {
   var z;
   var command;
   var block;
+  var breakBlocks;
   var destroyBlocks;
   var blockList;
   var found;
@@ -145,31 +146,34 @@ exports.bedWarRules = function () {
     }
   });
   events.blockBreak( function (event) {
-    block=event.block.getType();
-    block=block.toString();
+    block=event.block.getType().toString();
+    breakBlocks=["WHITE_WOOL","RED_BED", "BLUE_BED", "ORANGE_BED", "WHITE_BED"];
     console.log ("Block broken: " + block);
-    if ((block.toString().indexOf ( 'BED')) > -1){
-      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Destroyed\"]");
+    if (breakBlocks.indexOf(block) > -1){
+      if (block.indexOf ( "BED" ) > -1){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Destroyed\"]");
+      }
+      else {
+        console.log (block + " broken");
+      }
     }
-    else if ((block.indexOf ( 'WOOL')) == -1 && (block.indexOf ( 'OAK')) == -1){
+    else {
+      console.log ("Cancelling block broken event");
       event.cancelled = true;
     }
   });
   events.blockExplode( function (event) {
-    destroyBlocks=['AIR','WHITE_WOOL','BED','null','OAK','RAIL','COBBLESTONE'];
+    destroyBlocks=['AIR','WHITE_WOOL','BED','RAIL','COBBLESTONE'];
     blockList=event.blockList();
     console.log ("blocklist.length " + blockList.length);
     found=false;
     for (var i=0; i<parseInt(blockList.length); i++) {
-      block=blockList[i].getType();
-      for (var j=0; j<parseInt(destroyBlocks.length); j++) {
-        if ((block.toString().indexOf (destroyBlocks[j])) > -1){
+      if (blockList[i] != null){
+        block=blockList[i].getType().toString();
+        if (destroyBlocks.indexOf(block) > -1){
           found=true;
           break;
         }
-      }
-      if (found){
-        break;
       }
     }
     if (found){
@@ -183,9 +187,12 @@ exports.bedWarRules = function () {
         }
       }
     }
-    else {
-      console.log ("Cancelling explode event due to " + block);
+    else if (blockList.length > 0){
+      console.log ("Cancelling explode event due to [" + block + "]");
       event.cancelled = true;
+    }
+    else {
+      console.log ("No cancel and no blocks exploded");
     }
   });
   events.playerInteract( function (event) {
@@ -229,7 +236,9 @@ exports.bedWarRules = function () {
     bedWarRespawn (event.player);
   });
   events.vehicleBlockCollision( function (event) {
-    event.vehicle.world.createExplosion (event.vehicle.location,10)
+    console.log ("Vehicle collision detected, explosion created at" + event.vehicle.location);
+    location=event.vehicle.location.add(0,3,0);
+    event.vehicle.world.createExplosion (location,14.0)
   });
   var test= setInterval (function () {
     if ((server.worlds[0].getTime()) > 5000){
