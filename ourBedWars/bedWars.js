@@ -98,7 +98,8 @@ exports.bedWarRules = function () {
   var breakBlocks;
   var destroyBlocks;
   var blockList;
-  var found;
+  var destroyBlock;
+  var bedBlock;
   var teamColor;
   var teamColors;
   var minecart;
@@ -163,28 +164,26 @@ exports.bedWarRules = function () {
     }
   });
   events.blockExplode( function (event) {
-    destroyBlocks=['AIR','WHITE_WOOL','BED','RAIL','COBBLESTONE'];
+    destroyBlocks=['AIR','WHITE_WOOL','WHITE_BED', 'RED_BED','ORANGE_BED','BLUE_BED','RAIL','COBBLESTONE','SAND'];
     blockList=event.blockList();
     console.log ("blocklist.length " + blockList.length);
-    found=false;
+    destroyBlock=true;
+    bedBlock=null;
     for (var i=0; i<parseInt(blockList.length); i++) {
       if (blockList[i] != null){
         block=blockList[i].getType().toString();
-        if (destroyBlocks.indexOf(block) > -1){
-          found=true;
+        if (destroyBlocks.indexOf(block) == -1){
+          destroyBlock=false;
           break;
+        }
+        else if (block.indexOf ( 'BED') > -1){
+          bedBlock=blockList[i];
         }
       }
     }
-    if (found){
-      for (var i=0; i<parseInt(blockList.length); i++) {
-        block=blockList[i].getType();
-        if ((block.toString().indexOf ( 'BED')) > -1){
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + block + " Exploded\"]");
-        }
-        else {
-          console.log ("Not cancelling the explode event on a " + block + " block");
-        }
+    if (destroyBlock){
+      if (bedBlock != null){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\"" + bedBlock.getType() + " Exploded\"]");
       }
     }
     else if (blockList.length > 0){
@@ -228,9 +227,6 @@ exports.bedWarRules = function () {
         console.log ("Ignoring this direction:" + looking);
       }
     }
-    else {
-      console.log ("player.minecart does not exist");
-    }
   });
   events.playerRespawn( function (event) {
     bedWarRespawn (event.player);
@@ -238,7 +234,7 @@ exports.bedWarRules = function () {
   events.vehicleBlockCollision( function (event) {
     console.log ("Vehicle collision detected, explosion created at" + event.vehicle.location);
     location=event.vehicle.location.add(0,3,0);
-    event.vehicle.world.createExplosion (location,14.0)
+    event.vehicle.world.createExplosion (location,5.0)
   });
   var test= setInterval (function () {
     if ((server.worlds[0].getTime()) > 5000){
