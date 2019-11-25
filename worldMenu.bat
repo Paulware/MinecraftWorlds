@@ -35,8 +35,9 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\gardenBedWars\*.*
 GOTO:copyFiles
 
-:menu_4   Copy Castle1
+:menu_4   Copy Castle Mob Control
 set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
+copy C:\SpigotMC\MinecraftWorlds\Castle1\controlMob.js C:\SpigotMC\scriptcraft\plugins\controlMob.js
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
