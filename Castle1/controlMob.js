@@ -184,7 +184,7 @@ exports.controlMob = function () {
     if ((item) == (org.bukkit.Material.POTION)){
       name=event.getItem().getItemMeta().getDisplayName();
       potions=["wither"];
-      if (potion.indexOf ( name ) > -1){
+      if (potions.indexOf ( name ) > -1){
         player=event.player;
         console.log (player.name + " consumed " + name );
         controlCritter (name,player);
