@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="HBRYngKOkP1aZ:-)D6z7" x="963" y="-912">
+  <block type="scriptcraftfunction" id="HBRYngKOkP1aZ:-)D6z7" x="1038" y="-1112">
     <field name="nameOfFunction">dropChest()</field>
     <statement name="FUNCTIONCODE">
       <block type="consolelog" id="V3C[{=/a~TM.CGFwOt5u">
@@ -61,10 +61,10 @@
                                 <field name="VARNAME">stack</field>
                                 <value name="EXPRESSION">
                                   <block type="itemstack" id="W3n5zR%v]BVhSFi3bNJ)">
-                                    <field name="COUNT">1</field>
+                                    <field name="COUNT">16</field>
                                     <value name="ITEM">
-                                      <block type="materialtype" id="{_1)4)L-:g/=s8YWPO[p">
-                                        <field name="MATERIAL">BOW</field>
+                                      <block type="eggtype" id="jzjJU#zwyZr4nFj`7+kW">
+                                        <field name="MATERIAL">ENDERMITE_SPAWN_EGG</field>
                                       </block>
                                     </value>
                                   </block>
@@ -109,10 +109,10 @@
                                                         <field name="VARNAME">stack</field>
                                                         <value name="EXPRESSION">
                                                           <block type="itemstack" id="hy39@P.1L,krIIK{m5g/">
-                                                            <field name="COUNT">2</field>
+                                                            <field name="COUNT">16</field>
                                                             <value name="ITEM">
-                                                              <block type="materialtype" id=":%/:4k.p$sKoD_rl^))|">
-                                                                <field name="MATERIAL">ENCHANTED_GOLDEN_APPLE</field>
+                                                              <block type="eggtype" id=":uCP`#OdN]QNuyiSG_R-">
+                                                                <field name="MATERIAL">VEX_SPAWN_EGG</field>
                                                               </block>
                                                             </value>
                                                           </block>
@@ -121,175 +121,196 @@
                                                           <block type="runexpression" id="-CX/tR.CR(l6FR[(2(g(">
                                                             <field name="EXPRESSION">inventory.addItem(stack)</field>
                                                             <next>
-                                                              <block type="addpotion" id="lV#Bb_xT@g}RJw2id7K*">
-                                                                <field name="POTION">SPLASH_POTION</field>
-                                                                <field name="COUNT">5</field>
+                                                              <block type="addpotion" id="V9zyNZ6DFa{79[Zrc=pA">
+                                                                <field name="POTION">POTION</field>
+                                                                <field name="COUNT">10</field>
                                                                 <value name="NAME">
-                                                                  <block type="varname" id="g,_.Qzs.%aub)DrdVpSb">
-                                                                    <field name="VARNAME">"destroy"</field>
+                                                                  <block type="varname" id="4]!5=8w#/h*|E0Kt}l$0">
+                                                                    <field name="VARNAME">"up"</field>
                                                                   </block>
                                                                 </value>
                                                                 <next>
-                                                                  <block type="runexpression" id="`qXar-=3bQ*dm$|2ICz`">
+                                                                  <block type="runexpression" id=";0}e8)OErV`3e@knKGVD">
                                                                     <field name="EXPRESSION">inventory.addItem(stack)</field>
                                                                     <next>
-                                                                      <block type="addpotion" id="Q[VHMj4V`8m;kt/1[^E2">
+                                                                      <block type="addpotion" id="lV#Bb_xT@g}RJw2id7K*">
                                                                         <field name="POTION">SPLASH_POTION</field>
                                                                         <field name="COUNT">5</field>
                                                                         <value name="NAME">
-                                                                          <block type="varname" id="TNZBHWM2vKlU`@kZ*A29">
-                                                                            <field name="VARNAME">"control"</field>
+                                                                          <block type="varname" id="g,_.Qzs.%aub)DrdVpSb">
+                                                                            <field name="VARNAME">"destroy"</field>
                                                                           </block>
                                                                         </value>
                                                                         <next>
-                                                                          <block type="runexpression" id="/1$g0+sR%.-F69K%*?b4">
+                                                                          <block type="runexpression" id="`qXar-=3bQ*dm$|2ICz`">
                                                                             <field name="EXPRESSION">inventory.addItem(stack)</field>
                                                                             <next>
-                                                                              <block type="addpotion" id="Uop5`2c=)JXy2t4P-1je">
-                                                                                <field name="POTION">POTION</field>
+                                                                              <block type="addpotion" id="Q[VHMj4V`8m;kt/1[^E2">
+                                                                                <field name="POTION">SPLASH_POTION</field>
                                                                                 <field name="COUNT">5</field>
                                                                                 <value name="NAME">
-                                                                                  <block type="varname" id="r~7zXHA6h^Fs!/e[`C9@">
-                                                                                    <field name="VARNAME">"wither"</field>
+                                                                                  <block type="varname" id="TNZBHWM2vKlU`@kZ*A29">
+                                                                                    <field name="VARNAME">"control"</field>
                                                                                   </block>
                                                                                 </value>
                                                                                 <next>
-                                                                                  <block type="runexpression" id="j/*j*w6f?-VE!2Pu^xVj">
+                                                                                  <block type="runexpression" id="/1$g0+sR%.-F69K%*?b4">
                                                                                     <field name="EXPRESSION">inventory.addItem(stack)</field>
                                                                                     <next>
-                                                                                      <block type="setvariablevalue" id="Uv+:97=drM@x6vF-%bOR">
-                                                                                        <field name="VARNAME">eggs</field>
-                                                                                        <value name="EXPRESSION">
-                                                                                          <block type="lists_create_with" id="D9?Ra3.@{1wLGf{{~3:s">
-                                                                                            <mutation items="19"></mutation>
-                                                                                            <value name="ADD0">
-                                                                                              <block type="eggtype" id="k#EH8dIT~c?vbb:Z^ca4">
-                                                                                                <field name="MATERIAL">BLAZE_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD1">
-                                                                                              <block type="eggtype" id="6McaXM(^44$)dS/}R~)g">
-                                                                                                <field name="MATERIAL">ENDERMAN_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD2">
-                                                                                              <block type="eggtype" id="jzjJU#zwyZr4nFj`7+kW">
-                                                                                                <field name="MATERIAL">ENDERMITE_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD3">
-                                                                                              <block type="eggtype" id="/=FX(_v.c*aZ_a1Dxq[b">
-                                                                                                <field name="MATERIAL">WOLF_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD4">
-                                                                                              <block type="eggtype" id="=F%rbo*Pd.Lhqr?Rl`)o">
-                                                                                                <field name="MATERIAL">CREEPER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD5">
-                                                                                              <block type="eggtype" id="dt#)[WJ.erqC{YlAV0c}">
-                                                                                                <field name="MATERIAL">GHAST_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD6">
-                                                                                              <block type="eggtype" id="7ZtE?z|jmmF$kN?iqqi*">
-                                                                                                <field name="MATERIAL">HUSK_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD7">
-                                                                                              <block type="eggtype" id=":uCP`#OdN]QNuyiSG_R-">
-                                                                                                <field name="MATERIAL">VEX_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD8">
-                                                                                              <block type="eggtype" id="f${J-}b1ND5z0XvnF(W{">
-                                                                                                <field name="MATERIAL">LLAMA_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD9">
-                                                                                              <block type="eggtype" id="TGXY_YrnF]lu[LoEq6eE">
-                                                                                                <field name="MATERIAL">SHULKER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD10">
-                                                                                              <block type="eggtype" id="V_fik)=pfq:7PpEuRiE8">
-                                                                                                <field name="MATERIAL">ZOMBIE_PIGMAN_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD11">
-                                                                                              <block type="eggtype" id="_=51N,=:5Q9KD`7rS;xb">
-                                                                                                <field name="MATERIAL">ZOMBIE_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD12">
-                                                                                              <block type="eggtype" id="{%9wbs|GXSx~{;~1K{VJ">
-                                                                                                <field name="MATERIAL">RAVAGER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD13">
-                                                                                              <block type="eggtype" id="1GGqt;kd-DcXF,jOoL#m">
-                                                                                                <field name="MATERIAL">POLAR_BEAR_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD14">
-                                                                                              <block type="eggtype" id="D9=UzvVm)(Nq8;nT.%i#">
-                                                                                                <field name="MATERIAL">ZOMBIE_VILLAGER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD15">
-                                                                                              <block type="eggtype" id="T;emJ`${u~5W0DblrqD]">
-                                                                                                <field name="MATERIAL">PILLAGER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD16">
-                                                                                              <block type="eggtype" id="kl!V_UuDlw$?1#bJLMAo">
-                                                                                                <field name="MATERIAL">VINDICATOR_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD17">
-                                                                                              <block type="eggtype" id="h62UWutV+OC6ChYwZQ~`">
-                                                                                                <field name="MATERIAL">CAVE_SPIDER_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="ADD18">
-                                                                                              <block type="eggtype" id="G~-`OIcR(`c5zqC?VuVL">
-                                                                                                <field name="MATERIAL">SKELETON_HORSE_SPAWN_EGG</field>
-                                                                                              </block>
-                                                                                            </value>
+                                                                                      <block type="addpotion" id="Uop5`2c=)JXy2t4P-1je">
+                                                                                        <field name="POTION">POTION</field>
+                                                                                        <field name="COUNT">5</field>
+                                                                                        <value name="NAME">
+                                                                                          <block type="varname" id="r~7zXHA6h^Fs!/e[`C9@">
+                                                                                            <field name="VARNAME">"wither"</field>
                                                                                           </block>
                                                                                         </value>
                                                                                         <next>
-                                                                                          <block type="controls_repeat_ext" id="jopaq39Y]reBq@wpwnCt">
-                                                                                            <field name="VAR">i</field>
-                                                                                            <value name="TIMES">
-                                                                                              <shadow type="math_number" id="+c1l`~EmD?_Mj[o:Q2c:">
-                                                                                                <field name="NUM">10</field>
-                                                                                              </shadow>
-                                                                                              <block type="varname" id="Z9VKv]*{mm1d{5{z*Yo2">
-                                                                                                <field name="VARNAME">eggs.length</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <statement name="DO">
-                                                                                              <block type="setvariablevalue" id="3i}z/$}xyQ4swu7:wW4!">
-                                                                                                <field name="VARNAME">stack</field>
+                                                                                          <block type="runexpression" id="j/*j*w6f?-VE!2Pu^xVj">
+                                                                                            <field name="EXPRESSION">inventory.addItem(stack)</field>
+                                                                                            <next>
+                                                                                              <block type="setvariablevalue" id="Uv+:97=drM@x6vF-%bOR">
+                                                                                                <field name="VARNAME">eggs</field>
                                                                                                 <value name="EXPRESSION">
-                                                                                                  <block type="itemstack" id="+r]haasL2k=e%Br:pjD$">
-                                                                                                    <field name="COUNT">1</field>
-                                                                                                    <value name="ITEM">
-                                                                                                      <block type="varname" id="{Q)N8^mkl{ffqJEsIh83">
-                                                                                                        <field name="VARNAME">eggs[i]</field>
+                                                                                                  <block type="lists_create_with" id="D9?Ra3.@{1wLGf{{~3:s">
+                                                                                                    <mutation items="20"></mutation>
+                                                                                                    <value name="ADD0">
+                                                                                                      <block type="materialtype" id="84!zdG[Z~;Vo^YB{j#un">
+                                                                                                        <field name="MATERIAL">ELYTRA</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD1">
+                                                                                                      <block type="eggtype" id="k#EH8dIT~c?vbb:Z^ca4">
+                                                                                                        <field name="MATERIAL">BLAZE_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD2">
+                                                                                                      <block type="eggtype" id="6McaXM(^44$)dS/}R~)g">
+                                                                                                        <field name="MATERIAL">ENDERMAN_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD3">
+                                                                                                      <block type="materialtype" id="{_1)4)L-:g/=s8YWPO[p">
+                                                                                                        <field name="MATERIAL">BOW</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD4">
+                                                                                                      <block type="eggtype" id="/=FX(_v.c*aZ_a1Dxq[b">
+                                                                                                        <field name="MATERIAL">WOLF_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD5">
+                                                                                                      <block type="eggtype" id="=F%rbo*Pd.Lhqr?Rl`)o">
+                                                                                                        <field name="MATERIAL">CREEPER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD6">
+                                                                                                      <block type="eggtype" id="dt#)[WJ.erqC{YlAV0c}">
+                                                                                                        <field name="MATERIAL">GHAST_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD7">
+                                                                                                      <block type="eggtype" id="7ZtE?z|jmmF$kN?iqqi*">
+                                                                                                        <field name="MATERIAL">HUSK_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD8">
+                                                                                                      <block type="materialtype" id=":%/:4k.p$sKoD_rl^))|">
+                                                                                                        <field name="MATERIAL">ENCHANTED_GOLDEN_APPLE</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD9">
+                                                                                                      <block type="eggtype" id="f${J-}b1ND5z0XvnF(W{">
+                                                                                                        <field name="MATERIAL">LLAMA_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD10">
+                                                                                                      <block type="eggtype" id="TGXY_YrnF]lu[LoEq6eE">
+                                                                                                        <field name="MATERIAL">SHULKER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD11">
+                                                                                                      <block type="eggtype" id="V_fik)=pfq:7PpEuRiE8">
+                                                                                                        <field name="MATERIAL">ZOMBIE_PIGMAN_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD12">
+                                                                                                      <block type="eggtype" id="_=51N,=:5Q9KD`7rS;xb">
+                                                                                                        <field name="MATERIAL">ZOMBIE_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD13">
+                                                                                                      <block type="eggtype" id="{%9wbs|GXSx~{;~1K{VJ">
+                                                                                                        <field name="MATERIAL">RAVAGER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD14">
+                                                                                                      <block type="eggtype" id="1GGqt;kd-DcXF,jOoL#m">
+                                                                                                        <field name="MATERIAL">POLAR_BEAR_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD15">
+                                                                                                      <block type="eggtype" id="D9=UzvVm)(Nq8;nT.%i#">
+                                                                                                        <field name="MATERIAL">ZOMBIE_VILLAGER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD16">
+                                                                                                      <block type="eggtype" id="T;emJ`${u~5W0DblrqD]">
+                                                                                                        <field name="MATERIAL">PILLAGER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD17">
+                                                                                                      <block type="eggtype" id="kl!V_UuDlw$?1#bJLMAo">
+                                                                                                        <field name="MATERIAL">VINDICATOR_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD18">
+                                                                                                      <block type="eggtype" id="h62UWutV+OC6ChYwZQ~`">
+                                                                                                        <field name="MATERIAL">CAVE_SPIDER_SPAWN_EGG</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="ADD19">
+                                                                                                      <block type="eggtype" id="G~-`OIcR(`c5zqC?VuVL">
+                                                                                                        <field name="MATERIAL">SKELETON_HORSE_SPAWN_EGG</field>
                                                                                                       </block>
                                                                                                     </value>
                                                                                                   </block>
                                                                                                 </value>
                                                                                                 <next>
-                                                                                                  <block type="runexpression" id="~!xv.Y:5h0F^!B;x1O-Q">
-                                                                                                    <field name="EXPRESSION">inventory.addItem(stack)</field>
+                                                                                                  <block type="controls_repeat_ext" id="jopaq39Y]reBq@wpwnCt">
+                                                                                                    <field name="VAR">i</field>
+                                                                                                    <value name="TIMES">
+                                                                                                      <shadow type="math_number" id="+c1l`~EmD?_Mj[o:Q2c:">
+                                                                                                        <field name="NUM">10</field>
+                                                                                                      </shadow>
+                                                                                                      <block type="varname" id="Z9VKv]*{mm1d{5{z*Yo2">
+                                                                                                        <field name="VARNAME">eggs.length</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <statement name="DO">
+                                                                                                      <block type="setvariablevalue" id="3i}z/$}xyQ4swu7:wW4!">
+                                                                                                        <field name="VARNAME">stack</field>
+                                                                                                        <value name="EXPRESSION">
+                                                                                                          <block type="itemstack" id="+r]haasL2k=e%Br:pjD$">
+                                                                                                            <field name="COUNT">1</field>
+                                                                                                            <value name="ITEM">
+                                                                                                              <block type="varname" id="{Q)N8^mkl{ffqJEsIh83">
+                                                                                                                <field name="VARNAME">eggs[i]</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="runexpression" id="~!xv.Y:5h0F^!B;x1O-Q">
+                                                                                                            <field name="EXPRESSION">inventory.addItem(stack)</field>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </statement>
                                                                                                   </block>
                                                                                                 </next>
                                                                                               </block>
-                                                                                            </statement>
+                                                                                            </next>
                                                                                           </block>
                                                                                         </next>
                                                                                       </block>
@@ -575,6 +596,21 @@
                             <field name="VARNAME">player</field>
                           </block>
                         </value>
+                        <next>
+                          <block type="setplayerdata" id="AXT8p~Uv`L1!B@/ti^P_">
+                            <field name="KEY">teamColor</field>
+                            <value name="VALUE">
+                              <block type="varname" id="8c8%Ab=(d-m]Sr$AA3Z3">
+                                <field name="VARNAME">"Blue"</field>
+                              </block>
+                            </value>
+                            <value name="PLAYER">
+                              <block type="varname" id="rR.bkN0~eAu*b_CVT4LH">
+                                <field name="VARNAME">player</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
                       </block>
                     </statement>
                   </block>
@@ -715,70 +751,57 @@
                             <field name="VARNAME">target</field>
                             <field name="EXPRESSION">event.getEntity()</field>
                             <next>
-                              <block type="controls_if" id="8@o$yxx~L0;u_cv)zHvP">
+                              <block type="controls_if" id="0o;J#EN.qk6+BZ|aEwaf">
                                 <value name="IF0">
-                                  <block type="varname" id="HWw7aysa;f;ek)?kMK_m">
+                                  <block type="varname" id="H,{R5lZ8SmCZ4XjdS-xx">
                                     <field name="VARNAME">event.getDamager != null</field>
                                   </block>
                                 </value>
                                 <statement name="DO0">
-                                  <block type="controls_if" id="x4Xyb)y${_L.hI}AF3Q3">
-                                    <value name="IF0">
-                                      <block type="isplayer" id="a8]r=uFa;=5/wY{OaPGn">
-                                        <value name="PLAYER">
-                                          <block type="varname" id="70]su:oijH{1tw)}8:Pw">
-                                            <field name="VARNAME">target</field>
+                                  <block type="setvariable" id="={Sn/^0=@u3GvFR]9##X">
+                                    <field name="VARNAME">attacker</field>
+                                    <field name="EXPRESSION">event.getDamager()</field>
+                                    <next>
+                                      <block type="controls_if" id="$asOOL7T]%,n^Xg;))_.">
+                                        <mutation elseif="1"></mutation>
+                                        <value name="IF0">
+                                          <block type="varname" id="{hN2jk2k_(}T*8;Z^+iS">
+                                            <field name="VARNAME">onSameTeam(target,attacker)</field>
                                           </block>
                                         </value>
-                                      </block>
-                                    </value>
-                                    <statement name="DO0">
-                                      <block type="setvariable" id="O:WJwtG*DQZd2tg}d3~Z">
-                                        <field name="VARNAME">attacker</field>
-                                        <field name="EXPRESSION">event.getDamager()</field>
-                                        <next>
-                                          <block type="controls_if" id="FQ,gL+1q?D16rDqyU@Zl">
-                                            <mutation else="1"></mutation>
-                                            <value name="IF0">
-                                              <block type="varname" id="g`51_EjrGn:q71aCCiGd">
-                                                <field name="VARNAME">oneOfMine(target,attacker)</field>
+                                        <statement name="DO0">
+                                          <block type="consolelog" id="7YsE9fl}+Q*rxe{sJ~FP">
+                                            <value name="NAME">
+                                              <block type="varname" id="ZCJEW,}t;b4azxyI_g(]">
+                                                <field name="VARNAME">"Bad team minion behave!, Is this possible?"</field>
                                               </block>
                                             </value>
-                                            <statement name="DO0">
-                                              <block type="consolelog" id="M}uGY}s8c?DgElFnj0[?">
-                                                <value name="NAME">
-                                                  <block type="varname" id="iTYKdSTfU[XyIn.Lmdb*">
-                                                    <field name="VARNAME">"My minion attacked me (how is this possible)"</field>
-                                                  </block>
-                                                </value>
+                                            <next>
+                                              <block type="runexpression" id="sy}pjhXl.)R1)2D5l^|m">
+                                                <field name="EXPRESSION">attacker.setTarget(null)</field>
                                                 <next>
-                                                  <block type="controls_if" id="A7ri;UZD`!gN;vf}3A(|">
-                                                    <value name="IF0">
-                                                      <block type="varname" id="T3HI]Lhf:Q!nG=LMpoOf">
-                                                        <field name="VARNAME">entity.setAI != null</field>
-                                                      </block>
-                                                    </value>
-                                                    <statement name="DO0">
-                                                      <block type="runexpression" id="=?[Mz~/v4qb|:UfO%NhL">
-                                                        <field name="EXPRESSION">entity.setAI(false)</field>
-                                                      </block>
-                                                    </statement>
-                                                    <next>
-                                                      <block type="eventcancel" id="#Fh##FlyBj$o`dJ8C7yJ"></block>
-                                                    </next>
-                                                  </block>
+                                                  <block type="eventcancel" id="``mj#WHsxHT?PSNR!Dn1"></block>
                                                 </next>
                                               </block>
-                                            </statement>
-                                            <statement name="ELSE">
-                                              <block type="runexpression" id="{uW+Keqjj#%a=U+.w9DC">
-                                                <field name="EXPRESSION">defendMe (target,attacker)</field>
-                                              </block>
-                                            </statement>
+                                            </next>
                                           </block>
-                                        </next>
+                                        </statement>
+                                        <value name="IF1">
+                                          <block type="isplayer" id="s8g7v5Z~;x!2,MKRA(=t">
+                                            <value name="PLAYER">
+                                              <block type="varname" id="Hk$cO+*bqYr@eS;e[~)n">
+                                                <field name="VARNAME">target</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO1">
+                                          <block type="functionCall" id="A5ig2qMtk+NBG5j7L|Az">
+                                            <field name="FUNCTIONNAME">defendMe (target,attacker)</field>
+                                          </block>
+                                        </statement>
                                       </block>
-                                    </statement>
+                                    </next>
                                   </block>
                                 </statement>
                               </block>
@@ -801,23 +824,18 @@
                                         <mutation elseif="1"></mutation>
                                         <value name="IF0">
                                           <block type="varname" id="V0c^08o5X19tOH@sQuHO">
-                                            <field name="VARNAME">oneOfMine(target,attacker)</field>
+                                            <field name="VARNAME">onSameTeam(target,attacker)</field>
                                           </block>
                                         </value>
                                         <statement name="DO0">
                                           <block type="consolelog" id="h]bO8gEv7[3(-Fj+|[8l">
                                             <value name="NAME">
                                               <block type="varname" id="@`g?`U`|;Om}DomR9xUL">
-                                                <field name="VARNAME">"Bad minion targetting me, get back!"</field>
+                                                <field name="VARNAME">"Bad team minion behave!"</field>
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="runexpression" id="sMosipB%`=n7C*ZecJFv">
-                                                <field name="EXPRESSION">entity.setAI(false)</field>
-                                                <next>
-                                                  <block type="eventcancel" id="Y5O5{94gtL^PlW4fPhW/"></block>
-                                                </next>
-                                              </block>
+                                              <block type="eventcancel" id="Y5O5{94gtL^PlW4fPhW/"></block>
                                             </next>
                                           </block>
                                         </statement>
@@ -872,7 +890,7 @@
                                             <next>
                                               <block type="setvariable" id="svEJ1F~qOUgn7zJU:fc1">
                                                 <field name="VARNAME">potions</field>
-                                                <field name="EXPRESSION">["wither"]</field>
+                                                <field name="EXPRESSION">["wither","up"]</field>
                                                 <next>
                                                   <block type="controls_if" id="p83^N/b[01eD[o4UL7d(">
                                                     <mutation else="1"></mutation>
@@ -886,17 +904,85 @@
                                                         <field name="VARNAME">player</field>
                                                         <field name="EXPRESSION">event.player</field>
                                                         <next>
-                                                          <block type="consolelog" id="mVcNZ7nsj)oMPLi=6TEl">
-                                                            <value name="NAME">
-                                                              <block type="varname" id="xjhO{=qd2(as(;`.,KJp">
-                                                                <field name="VARNAME">player.name + " consumed " + name </field>
+                                                          <block type="controls_if" id="ckX5H=%D3fhe/LG0*2wu">
+                                                            <mutation elseif="1"></mutation>
+                                                            <value name="IF0">
+                                                              <block type="varname" id="QPyNYC1B;R8ok,Ufx=8J">
+                                                                <field name="VARNAME">name=="wither"</field>
                                                               </block>
                                                             </value>
-                                                            <next>
-                                                              <block type="functionCall" id="117tC]anGlTUkha-lhTy">
-                                                                <field name="FUNCTIONNAME">controlCritter (name,player)</field>
+                                                            <statement name="DO0">
+                                                              <block type="consolelog" id="mVcNZ7nsj)oMPLi=6TEl">
+                                                                <value name="NAME">
+                                                                  <block type="varname" id="xjhO{=qd2(as(;`.,KJp">
+                                                                    <field name="VARNAME">player.name + " consumed " + name </field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="functionCall" id="117tC]anGlTUkha-lhTy">
+                                                                    <field name="FUNCTIONNAME">controlCritter (name,player)</field>
+                                                                  </block>
+                                                                </next>
                                                               </block>
-                                                            </next>
+                                                            </statement>
+                                                            <value name="IF1">
+                                                              <block type="varname" id="FVPCwUE0X%PN0B^65|.X">
+                                                                <field name="VARNAME">name=="up"</field>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO1">
+                                                              <block type="teleport" id="/S[MlkjkmgB]rw8$)w7(">
+                                                                <value name="ENTITY">
+                                                                  <block type="varname" id="H|?%D^@[EQS%WE;TM+u;">
+                                                                    <field name="VARNAME">player</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="LOCATION">
+                                                                  <block type="varname" id="^AL/oX%pe,uP7oAz@2w[">
+                                                                    <field name="VARNAME">player.location.add(0,70,0)</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="setvariablevalue" id="TNb2i/ef[1{1sue7?v7m">
+                                                                    <field name="VARNAME">stack</field>
+                                                                    <value name="EXPRESSION">
+                                                                      <block type="itemstack" id="-32arlin(eW,IaeszZ8b">
+                                                                        <field name="COUNT">32</field>
+                                                                        <value name="ITEM">
+                                                                          <block type="materialtype" id="LP+8nLMa-TuHmOV?4!$V">
+                                                                            <field name="MATERIAL">SNOWBALL</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="runexpression" id="rJ9b(x,)RwRBIT8uvk#T">
+                                                                        <field name="EXPRESSION">player.inventory.addItem(stack)</field>
+                                                                        <next>
+                                                                          <block type="addpotioneffect" id="=hIe$v^yf0HV|]o:J;|o">
+                                                                            <value name="EFFECT">
+                                                                              <block type="whicheffect" id="VN2tmmJb+5[(7^co1j6k">
+                                                                                <field name="EFFECT">slow_falling</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="PLAYER">
+                                                                              <block type="varname" id="1Cza^fQNZ%s4T!/Z9D3F">
+                                                                                <field name="VARNAME">player</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="DURATION">
+                                                                              <block type="varname" id="iWgLmltu6vHrk~szc)?[">
+                                                                                <field name="VARNAME">120</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
                                                           </block>
                                                         </next>
                                                       </block>
@@ -988,7 +1074,7 @@
                                                                 </value>
                                                                 <statement name="DO0">
                                                                   <block type="runexpression" id="kzgm5kw/pg5SV]HH.txh">
-                                                                    <field name="EXPRESSION">entities[i].setAI(false)</field>
+                                                                    <field name="EXPRESSION">entities[i].setTarget(null)</field>
                                                                   </block>
                                                                 </statement>
                                                               </block>
@@ -1349,77 +1435,102 @@
                                                 <field name="VARNAME">projectile</field>
                                                 <value name="EXPRESSION">
                                                   <block type="varname" id="vvf`T;f$RAPF3IVaP)aX">
-                                                    <field name="VARNAME">event.getEntity()</field>
+                                                    <field name="VARNAME">event.getEntity().toString()</field>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="setvariablevalue" id="?x_jJ:!6?d@:D!-VPoO(">
-                                                    <field name="VARNAME">shooter</field>
-                                                    <value name="EXPRESSION">
-                                                      <block type="varname" id="E+8,68!{83uKeRKH]#EN">
-                                                        <field name="VARNAME">event.entity.getShooter()</field>
-                                                      </block>
-                                                    </value>
+                                                  <block type="setvariable" id="mF:*UGxXE_rO+-?rF=kN">
+                                                    <field name="VARNAME">exploders</field>
+                                                    <field name="EXPRESSION">["CraftSnowball","CraftLlamaSpit"]</field>
                                                     <next>
-                                                      <block type="setvariable" id="b4Ay(HO=eIDm1E3MDjJ]">
-                                                        <field name="VARNAME">target</field>
-                                                        <field name="EXPRESSION">event.getHitEntity()</field>
+                                                      <block type="setvariablevalue" id="?x_jJ:!6?d@:D!-VPoO(">
+                                                        <field name="VARNAME">shooter</field>
+                                                        <value name="EXPRESSION">
+                                                          <block type="varname" id="E+8,68!{83uKeRKH]#EN">
+                                                            <field name="VARNAME">event.entity.getShooter()</field>
+                                                          </block>
+                                                        </value>
                                                         <next>
-                                                          <block type="controls_if" id="8jvUH~e:8CIX.@8D)){.">
-                                                            <value name="IF0">
-                                                              <block type="varname" id="]=P1v8g,#^rt~pvT7b[[">
-                                                                <field name="VARNAME">target != null</field>
-                                                              </block>
-                                                            </value>
-                                                            <statement name="DO0">
-                                                              <block type="controls_if" id="Nq8Sp6BQzDXXKGUFB[(~">
-                                                                <mutation else="1"></mutation>
+                                                          <block type="setvariable" id="b4Ay(HO=eIDm1E3MDjJ]">
+                                                            <field name="VARNAME">target</field>
+                                                            <field name="EXPRESSION">event.getHitEntity()</field>
+                                                            <next>
+                                                              <block type="controls_if" id="8jvUH~e:8CIX.@8D)){.">
                                                                 <value name="IF0">
-                                                                  <block type="varname" id="z=9^GpmJkiO(^.VrOHb3">
-                                                                    <field name="VARNAME">oneOfMine (target,shooter)</field>
+                                                                  <block type="varname" id="]=P1v8g,#^rt~pvT7b[[">
+                                                                    <field name="VARNAME">target != null</field>
                                                                   </block>
                                                                 </value>
                                                                 <statement name="DO0">
-                                                                  <block type="consolelog" id=",S[FDTJHKC2]S=fp-S,*">
-                                                                    <value name="NAME">
-                                                                      <block type="varname" id="V=0p8t{Z]1;37ZVhqE4M">
-                                                                        <field name="VARNAME">"I hit by my own minions projectile (perhaps bad aim)"</field>
-                                                                      </block>
-                                                                    </value>
-                                                                    <next>
-                                                                      <block type="eventcancel" id="Vr60IK1k#iVqODzc%`Je"></block>
-                                                                    </next>
-                                                                  </block>
-                                                                </statement>
-                                                                <statement name="ELSE">
-                                                                  <block type="controls_if" id=";IWW[VBcaH8B^ugaI$CJ">
+                                                                  <block type="controls_if" id="Nq8Sp6BQzDXXKGUFB[(~">
+                                                                    <mutation else="1"></mutation>
                                                                     <value name="IF0">
-                                                                      <block type="isplayer" id="$/cJkabeD,/*6}.o*/mq">
-                                                                        <value name="PLAYER">
-                                                                          <block type="varname" id="Uy]j6c]PlkUYj0{#[kd2">
-                                                                            <field name="VARNAME">shooter</field>
-                                                                          </block>
-                                                                        </value>
+                                                                      <block type="varname" id="z=9^GpmJkiO(^.VrOHb3">
+                                                                        <field name="VARNAME">onSameTeam (target,shooter)</field>
                                                                       </block>
                                                                     </value>
                                                                     <statement name="DO0">
-                                                                      <block type="consolelog" id="/2xya/A9gJb5g!FvfRST">
+                                                                      <block type="consolelog" id=",S[FDTJHKC2]S=fp-S,*">
                                                                         <value name="NAME">
-                                                                          <block type="varname" id="xW0%Q)?#?s^lbp?IL@s[">
-                                                                            <field name="VARNAME">"projectile:[" + projectile + "] shot by " + shooter</field>
+                                                                          <block type="varname" id="V=0p8t{Z]1;37ZVhqE4M">
+                                                                            <field name="VARNAME">"I hit by my own minions projectile (perhaps bad aim)"</field>
                                                                           </block>
                                                                         </value>
                                                                         <next>
-                                                                          <block type="functionCall" id="[v%?=7E+ZdbVDz7K?-4r">
-                                                                            <field name="FUNCTIONNAME">defendMe (shooter,target)</field>
-                                                                          </block>
+                                                                          <block type="eventcancel" id="Vr60IK1k#iVqODzc%`Je"></block>
                                                                         </next>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <statement name="ELSE">
+                                                                      <block type="controls_if" id=";IWW[VBcaH8B^ugaI$CJ">
+                                                                        <value name="IF0">
+                                                                          <block type="isplayer" id="$/cJkabeD,/*6}.o*/mq">
+                                                                            <value name="PLAYER">
+                                                                              <block type="varname" id="Uy]j6c]PlkUYj0{#[kd2">
+                                                                                <field name="VARNAME">target</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO0">
+                                                                          <block type="consolelog" id="/2xya/A9gJb5g!FvfRST">
+                                                                            <value name="NAME">
+                                                                              <block type="varname" id="xW0%Q)?#?s^lbp?IL@s[">
+                                                                                <field name="VARNAME">"projectile:[" + projectile + "] shot by " + shooter</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="functionCall" id="[v%?=7E+ZdbVDz7K?-4r">
+                                                                                <field name="FUNCTIONNAME">defendMe (target,shooter)</field>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </statement>
                                                                       </block>
                                                                     </statement>
                                                                   </block>
                                                                 </statement>
+                                                                <next>
+                                                                  <block type="controls_if" id="^KST4IC6Rw?sDVm]xmf%">
+                                                                    <value name="IF0">
+                                                                      <block type="varname" id="?aL,]qq!N%N~GstJ@YIn">
+                                                                        <field name="VARNAME">exploders.indexOf (projectile) &gt; -1</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="explosion" id="(lJXiO4RFHUo=?`4ZbK9">
+                                                                        <field name="SIZE">1.5</field>
+                                                                        <value name="LOCATION">
+                                                                          <block type="varname" id="VWHG_JX%(}xem+,Xx?Y=">
+                                                                            <field name="VARNAME">event.entity.location</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </next>
                                                               </block>
-                                                            </statement>
+                                                            </next>
                                                           </block>
                                                         </next>
                                                       </block>
@@ -1449,7 +1560,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="]^~-6q~z7z9qH82u4nU2" x="938" y="663">
+  <block type="scriptcraftfunction" id="]^~-6q~z7z9qH82u4nU2" x="1020" y="533">
     <field name="nameOfFunction">addControlCritter (entity, player)</field>
     <statement name="FUNCTIONCODE">
       <block type="controls_if" id="JAyfRAWdBrIh0wmgh3sT">
@@ -1473,98 +1584,143 @@
           </block>
         </statement>
         <statement name="ELSE">
-          <block type="functionCall" id="XpZ1ca-4!:=V4X-{:wz0">
-            <field name="FUNCTIONNAME">modEntity (entity)</field>
+          <block type="setplayerdata" id="IjVmOIWeaL%M6;9TYPPr">
+            <field name="KEY">teamColor</field>
+            <value name="VALUE">
+              <block type="varname" id="YVX[1(+0fp%))X!PY}`m">
+                <field name="VARNAME">"Blue"</field>
+              </block>
+            </value>
+            <value name="PLAYER">
+              <block type="varname" id="J-iw%t!.[PmG`8a)+t}V">
+                <field name="VARNAME">entity</field>
+              </block>
+            </value>
             <next>
-              <block type="controls_if" id=",(W-MVsdrde;F0lO^~f#">
-                <mutation else="1"></mutation>
-                <value name="IF0">
-                  <block type="existsplayerdata" id="HJDuda4ui0(Gh+AAB(?Y">
-                    <field name="KEY">entities</field>
-                    <value name="PLAYER">
-                      <block type="varname" id="#BbBD]jjjnfr`qB4G4r]">
-                        <field name="VARNAME">player</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <statement name="DO0">
-                  <block type="setvariablevalue" id="x+4Vh}^^6H7;w`.0k!I|">
-                    <field name="VARNAME">entities</field>
-                    <value name="EXPRESSION">
-                      <block type="getplayerdata" id="{[l4`Iv@2N3Bw(P]vleg">
-                        <field name="KEY">entities</field>
-                        <value name="PLAYER">
-                          <block type="varname" id=":w9[IToUIAIN7$bB?jJ]">
-                            <field name="VARNAME">player</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                  </block>
-                </statement>
-                <statement name="ELSE">
-                  <block type="setvariable" id="Lf]s|1U.M$DnBrW+WftE">
-                    <field name="VARNAME">entities</field>
-                    <field name="EXPRESSION">[]</field>
-                  </block>
-                </statement>
+              <block type="functionCall" id="XpZ1ca-4!:=V4X-{:wz0">
+                <field name="FUNCTIONNAME">modEntity (entity)</field>
                 <next>
-                  <block type="runexpression" id="UsC%XS7[KP$eC66GYrJ/">
-                    <field name="EXPRESSION">entities.push (entity)</field>
-                    <next>
-                      <block type="setplayerdata" id="UyZ|;.p.$qpf__;AcO8*">
+                  <block type="controls_if" id=",(W-MVsdrde;F0lO^~f#">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="existsplayerdata" id="HJDuda4ui0(Gh+AAB(?Y">
                         <field name="KEY">entities</field>
-                        <value name="VALUE">
-                          <block type="varname" id="OZhK@^aE4hNW`T(lw-kf">
-                            <field name="VARNAME">entities</field>
-                          </block>
-                        </value>
                         <value name="PLAYER">
-                          <block type="varname" id="^Sx_/OiP.0,Ey35VFp#C">
+                          <block type="varname" id="#BbBD]jjjnfr`qB4G4r]">
                             <field name="VARNAME">player</field>
                           </block>
                         </value>
-                        <next>
-                          <block type="controls_repeat_ext" id="P2~y@lktF@T=!t?jaU}5">
-                            <field name="VAR">i</field>
-                            <value name="TIMES">
-                              <shadow type="math_number" id="U`2A.VLuK%~srz7{s*G.">
-                                <field name="NUM">10</field>
-                              </shadow>
-                              <block type="varname" id="-`mWqf).z#)!0BPk7der">
-                                <field name="VARNAME">entities.length</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="setvariablevalue" id="x+4Vh}^^6H7;w`.0k!I|">
+                        <field name="VARNAME">entities</field>
+                        <value name="EXPRESSION">
+                          <block type="getplayerdata" id="{[l4`Iv@2N3Bw(P]vleg">
+                            <field name="KEY">entities</field>
+                            <value name="PLAYER">
+                              <block type="varname" id=":w9[IToUIAIN7$bB?jJ]">
+                                <field name="VARNAME">player</field>
                               </block>
                             </value>
-                            <statement name="DO">
-                              <block type="consolelog" id="X!$2W;LLeUS)U[;_@}/q">
-                                <value name="NAME">
-                                  <block type="varname" id="a[`@$)FMbCvCuiV^fyK[">
-                                    <field name="VARNAME">"entities[" + i + "]:" + entities[i]</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="setvariable" id="Lf]s|1U.M$DnBrW+WftE">
+                        <field name="VARNAME">entities</field>
+                        <field name="EXPRESSION">[]</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="runexpression" id="!4+$oXQ=,@^c??4k+*3[">
+                        <field name="EXPRESSION">entity.setTarget(null)</field>
+                        <next>
+                          <block type="runexpression" id="UsC%XS7[KP$eC66GYrJ/">
+                            <field name="EXPRESSION">entities.push (entity)</field>
+                            <next>
+                              <block type="setplayerdata" id="UyZ|;.p.$qpf__;AcO8*">
+                                <field name="KEY">entities</field>
+                                <value name="VALUE">
+                                  <block type="varname" id="OZhK@^aE4hNW`T(lw-kf">
+                                    <field name="VARNAME">entities</field>
                                   </block>
                                 </value>
-                              </block>
-                            </statement>
-                            <next>
-                              <block type="setvariablevalue" id="OfUvWZbEDAw.uu!RqZQ!">
-                                <field name="VARNAME">entities</field>
-                                <value name="EXPRESSION">
-                                  <block type="getplayerdata" id="0v?qA71TAy_Nu?82*BH~">
-                                    <field name="KEY">entities</field>
-                                    <value name="PLAYER">
-                                      <block type="varname" id="6ws}U:x/p]M`lB?k#+O*">
-                                        <field name="VARNAME">player</field>
-                                      </block>
-                                    </value>
+                                <value name="PLAYER">
+                                  <block type="varname" id="^Sx_/OiP.0,Ey35VFp#C">
+                                    <field name="VARNAME">player</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="consolelog" id="]qy%]VC[cAwW*=(uh+pI">
-                                    <value name="NAME">
-                                      <block type="varname" id="Yj{y2UOxU.9ffH#%yix$">
-                                        <field name="VARNAME">"addControlCritter, " + player.name + " controls " + entities.length + " entities under his control"</field>
+                                  <block type="controls_repeat_ext" id="P2~y@lktF@T=!t?jaU}5">
+                                    <field name="VAR">i</field>
+                                    <value name="TIMES">
+                                      <shadow type="math_number" id="U`2A.VLuK%~srz7{s*G.">
+                                        <field name="NUM">10</field>
+                                      </shadow>
+                                      <block type="varname" id="-`mWqf).z#)!0BPk7der">
+                                        <field name="VARNAME">entities.length</field>
                                       </block>
                                     </value>
+                                    <statement name="DO">
+                                      <block type="setvariable" id="m}+;zn7NLX(hd1-%ZmBg">
+                                        <field name="VARNAME">health</field>
+                                        <field name="EXPRESSION">entities[i].getHealth()</field>
+                                        <next>
+                                          <block type="controls_if" id="S=:#ZcW-}v8YLiPD8_Ue">
+                                            <mutation else="1"></mutation>
+                                            <value name="IF0">
+                                              <block type="varname" id="]W,$h~v|zAq-V`HA^j]H">
+                                                <field name="VARNAME">health == 0</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="consolelog" id="h/..TIy5iR?q}eMt|V!E">
+                                                <value name="NAME">
+                                                  <block type="varname" id="6_W(|l46ZYrSh3qKvzpU">
+                                                    <field name="VARNAME">"DEAD entities[" + i + "]:" + entities[i]</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <statement name="ELSE">
+                                              <block type="consolelog" id="X!$2W;LLeUS)U[;_@}/q">
+                                                <value name="NAME">
+                                                  <block type="varname" id="a[`@$)FMbCvCuiV^fyK[">
+                                                    <field name="VARNAME">"H:" + health + " entities[" + i + "]:" + entities[i]</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="setvariablevalue" id="OfUvWZbEDAw.uu!RqZQ!">
+                                        <field name="VARNAME">entities</field>
+                                        <value name="EXPRESSION">
+                                          <block type="getplayerdata" id="0v?qA71TAy_Nu?82*BH~">
+                                            <field name="KEY">entities</field>
+                                            <value name="PLAYER">
+                                              <block type="varname" id="6ws}U:x/p]M`lB?k#+O*">
+                                                <field name="VARNAME">player</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="consolelog" id="]qy%]VC[cAwW*=(uh+pI">
+                                            <value name="NAME">
+                                              <block type="varname" id="Yj{y2UOxU.9ffH#%yix$">
+                                                <field name="VARNAME">"addControlCritter, " + player.name + " controls " + entities.length + " entities under his control"</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
                                   </block>
                                 </next>
                               </block>
@@ -1582,7 +1738,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="fa))?1dYa,FuSuzSGm#n" x="938" y="1313">
+  <block type="scriptcraftfunction" id="fa))?1dYa,FuSuzSGm#n" x="959" y="1347">
     <field name="nameOfFunction">controlCritter(name,player)</field>
     <statement name="FUNCTIONCODE">
       <block type="setvariable" id="ClzvHwZ45b,zNDh~CH]A">
@@ -1850,6 +2006,120 @@
                 <field name="RETURNVARIABLE">mine</field>
               </block>
             </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id="L2!a^SVZEr,uQI9xOaB#" x="938" y="2813">
+    <field name="nameOfFunction">onSameTeam(entity1,entity2) </field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariable" id="Us(9=qx1R)D7P)#}j;aY">
+        <field name="VARNAME">onTheTeam</field>
+        <field name="EXPRESSION">false</field>
+        <next>
+          <block type="controls_if" id="K`]%}IQD$IEp1QZgcduA">
+            <value name="IF0">
+              <block type="logic_operation" id="C}pOxSVE[GM{c{;Aj9g7">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <block type="islivingentity" id="8(!t;Fbsc19fU`iA{2@;">
+                    <value name="ENTITY">
+                      <block type="varname" id="3E0,Kb$j{G~rhx]p=)=o">
+                        <field name="VARNAME">entity1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="islivingentity" id="ff?TZf82s(qfT#KfoeGT">
+                    <value name="ENTITY">
+                      <block type="varname" id="RFjVG~_%.K]m8#p8/ZFH">
+                        <field name="VARNAME">entity2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_if" id="Y]:ko$GF=z;t2?5X#a7Y">
+                <value name="IF0">
+                  <block type="existsplayerdata" id="^%O=(7OglYjjy3B3iP#%">
+                    <field name="KEY">teamColor</field>
+                    <value name="PLAYER">
+                      <block type="varname" id="-3sx;C*@=4;+Ovh!2=OX">
+                        <field name="VARNAME">entity1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if" id=".UC^nNC(MZ]oT.]G/UZA">
+                    <value name="IF0">
+                      <block type="existsplayerdata" id="g!Z(KPqD~8EDPdbJ[2@2">
+                        <field name="KEY">teamColor</field>
+                        <value name="PLAYER">
+                          <block type="varname" id="95OCylngy.Ili;,YNae~">
+                            <field name="VARNAME">entity2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="setvariablevalue" id="k5jhP#=aGoz!~pMuy6K3">
+                        <field name="VARNAME">team1</field>
+                        <value name="EXPRESSION">
+                          <block type="getplayerdata" id="ZBwPJf*aX1HZa0xc%*[P">
+                            <field name="KEY">teamColor</field>
+                            <value name="PLAYER">
+                              <block type="varname" id="HP6X*|.#1/c]Y[kkZ/Ws">
+                                <field name="VARNAME">entity1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setvariablevalue" id="{p##8m*JLwyljRQ]Z;?=">
+                            <field name="VARNAME">team2</field>
+                            <value name="EXPRESSION">
+                              <block type="getplayerdata" id="(4Z|2mkR5=M4uGdENDs-">
+                                <field name="KEY">teamColor</field>
+                                <value name="PLAYER">
+                                  <block type="varname" id="jW6C]Z-LIyACVAG]C1Ch">
+                                    <field name="VARNAME">entity2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="setvariable" id="B4w/:9[hKu#+yMA?.MS!">
+                                <field name="VARNAME">onTheTeam</field>
+                                <field name="EXPRESSION">team1==team2</field>
+                                <next>
+                                  <block type="consolelog" id="x,FU=6Z1!(gEnSs5%69P">
+                                    <value name="NAME">
+                                      <block type="varname" id="T5w%`yh[8Kb_}RRu60_0">
+                                        <field name="VARNAME">"onSameTeam compare [team1,team2]: [" + team1 + "," + team2 + "] " + onTheTeam</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="returnVariable" id=")m6LE)Fv6F2fNCB+lD4p">
+                    <field name="RETURNVARIABLE">onTheTeam</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
           </block>
         </next>
       </block>
