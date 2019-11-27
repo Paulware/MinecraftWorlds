@@ -51,6 +51,24 @@ exports.dropChest = function () {
   meta.setDisplayName('up');
   newItems.setItemMeta(meta);
   inventory.addItem(newItems);
+  // Add POTION to inventory
+  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,10);
+  var meta = newItems.getItemMeta();
+  meta.setDisplayName('ride');
+  newItems.setItemMeta(meta);
+  inventory.addItem(newItems);
+  // Add POTION to inventory
+  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,5);
+  var meta = newItems.getItemMeta();
+  meta.setDisplayName('wither');
+  newItems.setItemMeta(meta);
+  inventory.addItem(newItems);
+  // Add POTION to inventory
+  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,2);
+  var meta = newItems.getItemMeta();
+  meta.setDisplayName('giant');
+  newItems.setItemMeta(meta);
+  inventory.addItem(newItems);
   // Add SPLASH_POTION to inventory
   var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,5);
   var meta = newItems.getItemMeta();
@@ -63,18 +81,14 @@ exports.dropChest = function () {
   meta.setDisplayName('control');
   newItems.setItemMeta(meta);
   inventory.addItem(newItems);
-  // Add POTION to inventory
-  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,5);
-  var meta = newItems.getItemMeta();
-  meta.setDisplayName('wither');
-  newItems.setItemMeta(meta);
-  inventory.addItem(newItems);
   eggs=[org.bukkit.Material.ELYTRA, org.bukkit.Material.BLAZE_SPAWN_EGG, org.bukkit.Material.ENDERMAN_SPAWN_EGG, org.bukkit.Material.BOW, org.bukkit.Material.WOLF_SPAWN_EGG, org.bukkit.Material.CREEPER_SPAWN_EGG, org.bukkit.Material.GHAST_SPAWN_EGG, org.bukkit.Material.HUSK_SPAWN_EGG, org.bukkit.Material.ENCHANTED_GOLDEN_APPLE, org.bukkit.Material.LLAMA_SPAWN_EGG, org.bukkit.Material.SHULKER_SPAWN_EGG, org.bukkit.Material.ZOMBIE_PIGMAN_SPAWN_EGG, org.bukkit.Material.ZOMBIE_SPAWN_EGG, org.bukkit.Material.RAVAGER_SPAWN_EGG, org.bukkit.Material.POLAR_BEAR_SPAWN_EGG, org.bukkit.Material.ZOMBIE_VILLAGER_SPAWN_EGG, org.bukkit.Material.PILLAGER_SPAWN_EGG, org.bukkit.Material.VINDICATOR_SPAWN_EGG, org.bukkit.Material.CAVE_SPIDER_SPAWN_EGG, org.bukkit.Material.SKELETON_HORSE_SPAWN_EGG];
   for (var i=0; i<parseInt(eggs.length); i++) {
     stack=new org.bukkit.inventory.ItemStack (eggs[i],1);
     inventory.addItem(stack)
   }
 };
+
+exports.critterCount=0
 
 exports.nearestPlayer  = function (location) {
   //Instantiations;
@@ -101,52 +115,92 @@ exports.controlMob = function () {
   //Instantiations;
   var players;
   var player;
+  var entity;
   var inventory;
+  var meta;
+  var stack;
   var creature;
   var location;
   var reason;
   var target;
   var attacker;
   var lockTarget;
-  var health;
   var item;
   var name;
   var potions;
-  var entity;
   var TeleportCause;
-  var stack;
   var entities;
   var count;
+  var myRide;
+  var arrow;
   var x;
   var z;
   var block;
+  var vector;
   var projectile;
   var exploders;
   var shooter;
   players=server.getOnlinePlayers();
   for (var i=0; i<parseInt(players.length); i++) {
     player=players[i];
+    player.removeMetadata ("myride", __plugin );
     if (player.getMetadata("entities").length > 0){
       player.removeMetadata ("entities", __plugin );
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"Blue");
       player.setMetadata ("teamcolor", fd );
     }
   }
+  events.itemDespawn( function (event) {
+    entity=event.getEntity();
+    if (entity instanceof org.bukkit.entity.LivingEntity){
+      console.log ("Cancelling item despawn event for " + entity);
+      event.cancelled = true;
+    }
+  });
   events.playerRespawn( function (event) {
     inventory=event.player.getInventory();
     inventory.clear()
+    stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+    meta = stack.getItemMeta()
+    meta.setDisplayName ("Staff of Skull");
+    stack.setItemMeta(meta);
+    inventory.addItem (stack);
+    stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+    meta = stack.getItemMeta()
+    meta.setDisplayName ("Staff of Arrow");
+    stack.setItemMeta(meta);
+    inventory.addItem (stack);
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.RAVAGER_SPAWN_EGG,5));
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.BOW,1));
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,64));
     // Add SPLASH_POTION to inventory
     var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,5);
     var meta = newItems.getItemMeta();
     meta.setDisplayName('control');
     newItems.setItemMeta(meta);
     inventory.addItem(newItems);
+    // Add SPLASH_POTION to inventory
+    var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,10);
+    var meta = newItems.getItemMeta();
+    meta.setDisplayName('ride');
+    newItems.setItemMeta(meta);
+    inventory.addItem(newItems);
     inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ENCHANTED_GOLDEN_APPLE,2));
-    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ELYTRA,1));
     inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32));
     inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ENDERMITE_SPAWN_EGG,16));
-    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.BOW,1));
-    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,64));
+    // Add POTION to inventory
+    var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,1);
+    var meta = newItems.getItemMeta();
+    meta.setDisplayName('giant');
+    newItems.setItemMeta(meta);
+    inventory.addItem(newItems);
+    // Add POTION to inventory
+    var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,1);
+    var meta = newItems.getItemMeta();
+    meta.setDisplayName('wither');
+    newItems.setItemMeta(meta);
+    inventory.addItem(newItems);
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ELYTRA,1));
   });
   events.creatureSpawn( function (event) {
     creature=event.getEntity();
@@ -167,6 +221,7 @@ exports.controlMob = function () {
       attacker=event.getDamager();
       lockTarget=(!(attacker instanceof org.bukkit.entity.LivingEntity))?null:(attacker.getMetadata == null)?null:(attacker.getMetadata("locktarget").length == 0)?null:attacker.getMetadata("locktarget")[0].value();
       if (onSameTeam(target,attacker)){
+        console.log ("Damaged by same team how is this possible?");
         if (lockTarget != null){
           if (lockTarget.health > 0){
             console.log ("Reset to target:" + lockTarget);
@@ -203,14 +258,7 @@ exports.controlMob = function () {
         attacker=event.entity;
         lockTarget=(!(attacker instanceof org.bukkit.entity.LivingEntity))?null:(attacker.getMetadata == null)?null:(attacker.getMetadata("locktarget").length == 0)?null:attacker.getMetadata("locktarget")[0].value();
         if ((lockTarget != target) && (lockTarget != null)){
-          health=1;
-          if (target.getHealth == null){
-            console.log ("Cannot get health of this entity " + target);
-          }
-          else {
-            health=target.getHealth();
-          }
-          if (target.getHealth() > 0){
+          if (target.health > 0){
             console.log ("Order violation go back to " + lockTarget);
             attacker.setTarget(lockTarget)
           }
@@ -222,20 +270,18 @@ exports.controlMob = function () {
     item=event.getItem().getType();
     if ((item) == (org.bukkit.Material.POTION)){
       name=event.getItem().getItemMeta().getDisplayName();
-      potions=["wither","up"];
+      potions=["wither","giant"];
       if (potions.indexOf ( name ) > -1){
         player=event.player;
-        if (name=="wither"){
-          console.log (player.name + " consumed " + name );
-          controlCritter (name,player);
-        }
-        else if (name=="up"){
-          entity = player;
-          entity.teleport(player.location.add(0,70,0), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32);
-          player.inventory.addItem(stack)
-          player.addPotionEffect(new org.bukkit.potion.PotionEffect (org.bukkit.potion.PotionEffectType.SLOW_FALLING,2400, 1));
-        }
+        console.log (player.name + " consumed " + name );
+        controlCritter (name,player);
+      }
+      else if (name=="up"){
+        entity = player;
+        entity.teleport(player.location.add(0,70,0), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32);
+        player.inventory.addItem(stack)
+        player.addPotionEffect(new org.bukkit.potion.PotionEffect (org.bukkit.potion.PotionEffectType.SLOW_FALLING,2400, 1));
       }
       else {
         console.log ("This potion is not recognized [" + name + "]");
@@ -246,7 +292,7 @@ exports.controlMob = function () {
     name=event.getPotion().getItem().getItemMeta().getDisplayName();
     console.log ("This potion was splashed: [" + name + "]" );
     entities=event.getAffectedEntities();
-    player=event.entity.getShooter();
+    player=event.getEntity().getShooter();
     if (name=="control"){
       console.log (entities.length + " entities were splashed");
       for (var i=0; i<parseInt(entities.length); i++) {
@@ -266,15 +312,42 @@ exports.controlMob = function () {
       }
       console.log ("This potion was splashed: [" + name + "]" );
     }
+    else if (name=="ride"){
+      for (var i=0; i<parseInt(entities.length); i++) {
+        if (entities[i] != player){
+          console.log (entities[i].toString + " ridden by:" + player.name);
+          entities[i].setPassenger(player)
+          console.log ("set myRide");
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,entities[i]);
+          player.setMetadata ("myride", fd );
+          console.log ("done");
+        }
+      }
+    }
     else {
       controlCritter (name,player);
     }
   });
+  events.vehicleExit( function (event) {
+    console.log ("A Vehicle was exited yo");
+  });
+  events.playerInteract( function (event) {
+    player=event.player;
+    myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
+    if (myRide != null){
+      console.log ("I am riding here!");
+      myRide.setVelocity(player.getLocation().getDirection().multiply(2))
+      myRide.getHandle().yaw = player.getLocation().getYaw()
+      arrow=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
+      myRide.launchProjectile(arrow.getClass())
+      myRide.setAI(true)
+    }
+    console.log ("Right click yo");
+  });
   events.playerMove( function (event) {
     player=event.player;
-    entities=[];
-    if (player.getMetadata("entities").length > 0){
-      entities=player.getMetadata("entities")[0].value();
+    entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
+    if (entities != null){
       for (var i=0; i<parseInt(entities.length); i++) {
         location=player.location;
         x=parseInt (Math.random () * (5-3)) + 3;
@@ -283,18 +356,15 @@ exports.controlMob = function () {
         location = new org.bukkit.Location (server.worlds[0], parseInt(location.x), parseInt(location.y), parseInt(location.z)+z);
         entity=entities[i];
         block=server.worlds[0].getBlockAt (location);
-        if ((block.getType()) == "SOIL"){
-          console.log ("Not teleporting player due to soil there");
-        }
-        else {
-          if (entity.getTarget != null){
-            target=entity.getTarget();
-            if (target == null){
-              entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-            }
+        if (entity.getTarget != null){
+          target=entity.getTarget();
+          if (target == null){
+            vector=player.location.add (5,0,5).toVector().subtract(entity.location.toVector());
+            entity.setVelocity(vector);
           }
         }
       }
+      checkDespawns(player);
     }
   });
   events.projectileHit( function (event) {
@@ -326,14 +396,22 @@ exports.controlMob = function () {
 
 exports.addControlCritter  = function (entity, player) {
   //Instantiations;
+  var name;
   var entities;
   if (entity instanceof org.bukkit.entity.Player){
     console.log ("addControlCritter, cannot control another player yo");
   }
   else {
-    entity.setCustomName ('name')
+    entity.setCustomName ('name' + exports.critterCount)
+    entity.setCustomNameVisible(true)
+    exports.critterCount=exports.critterCount+1
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"Blue");
     entity.setMetadata ("teamcolor", fd );
+    name=entity.toString();
+    if (name=="CraftEndermite"){
+      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,120000 + (new Date().getTime()));
+      entity.setMetadata ("despawntimeout", fd );
+    }
     modEntity (entity);
     if (player.getMetadata("entities").length > 0){
       entities=player.getMetadata("entities")[0].value();
@@ -376,6 +454,9 @@ exports.controlCritter = function (name,player) {
     // spawn creature
     var location = location;
     var entity = server.worlds[0].spawnEntity(location,creature);
+    if (name == "wither"){
+      entity.setAI(false)
+    }
     addControlCritter (entity,player)
   }
 };
@@ -437,21 +518,61 @@ exports.onSameTeam = function (entity1,entity2)  {
 exports.showEntities  = function (player) {
   //Instantiations;
   var entities;
+  var entity;
   var health;
+  var name;
+  var timeout;
+  var despawnTimeout;
+  var millis;
   entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
   if (entities != null){
     console.log (player.name + " has " + entities.length + " entities ");
     for (var i=0; i<parseInt(entities.length); i++) {
-      health=entities[i].health;
-      if (health == 0){
-        console.log ("DEAD entities[" + i + "]:" + entities[i] + " delete the dead entity");
+      entity=entities[i];
+      health=entity.health;
+      name=entity.toString();
+      timeout="No timeout";
+      if (name=="CraftEndermite"){
+        despawnTimeout=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
+        millis=new Date().getTime();
+        timeout="Timeout in " +( (despawnTimeout - millis) /1000) + " seconds";
+      }
+      if (health > 0){
+        console.log (timeout + " H:" + health + " entities[" + i + "]:" + entities[i] + " " + entities[i].location);
+      }
+      else {
+        console.log (timeout + " DEAD entities[" + i + "]:" + entities[i] + " delete the dead entity");
         entities.splice(i,1)
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,entities);
         player.setMetadata ("entities", fd );
         break;
       }
-      else {
-        console.log ("H:" + health + " entities[" + i + "]:" + entities[i]);
+    }
+  }
+};
+
+exports.checkDespawns  = function (player) {
+  //Instantiations;
+  var entities;
+  var entity;
+  var name;
+  var timeout;
+  entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
+  if (entities != null){
+    for (var i=0; i<parseInt(entities.length); i++) {
+      entity=entities[i];
+      name=entity.toString();
+      if (name=="CraftEndermite"){
+        timeout=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
+        if ((new Date().getTime()) > (timeout)){
+          entity=server.worlds[0].spawnEntity(entity.location,org.bukkit.entity.EntityType.ENDERMITE);
+          entity.setHealth (entities[i].health)
+          entity.setCustomName (entities[i].getCustomName())
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,(new Date().getTime()) + 120000);
+          entity.setMetadata ("despawntimeout", fd );
+          entities[i] = entity
+          console.log ("New endermite spawned");
+        }
       }
     }
   }
