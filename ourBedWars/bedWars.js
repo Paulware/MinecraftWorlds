@@ -1,3 +1,20 @@
+exports.getWinningTeam = function () {
+  //Instantiations;
+  var teams;
+  var msg;
+  if ((exports.destroyedBeds()) > 0){
+    teams=exports.countTeams();
+    if ((teams.length) == 1){
+      console.log ("got a winning team of : " + teams[0]);
+      msg="Team " + teams[0] + " have won!";
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\""+ msg + "\"]");
+    }
+    else {
+      console.log ("winning teams: " + teams);
+    }
+  }
+};
+
 exports.countTeams = function () {
   //Instantiations;
   var players;
@@ -21,20 +38,71 @@ exports.countTeams = function () {
   return teams;
 };
 
-exports.getWinningTeam = function () {
+exports.bedWarRespawn  = function (player) {
   //Instantiations;
-  var teams;
-  var msg;
-  if ((exports.destroyedBeds()) > 0){
-    teams=exports.countTeams();
-    if ((teams.length) == 1){
-      console.log ("got a winning team of : " + teams[0]);
-      msg="Team " + teams[0] + " have won!";
-      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tellraw @a [\""+ msg + "\"]");
+  var teamColor;
+  var location;
+  var block;
+  var inventory;
+  var color;
+  var entity;
+  var TeleportCause;
+  if (player.getMetadata("turndirection").length > 0){
+    player.removeMetadata ("turndirection", __plugin );
+  }
+  teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
+  if (teamColor != null){
+    location=new org.bukkit.Location(server.worlds[0], locations[teamColor].x, locations[teamColor].y, locations[teamColor].z);
+    block=server.worlds[0].getBlockAt (location);
+    if ((block.getType().toString().indexOf ( 'BED') > -1)){
+      player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+      inventory=player.inventory;
+      inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1));
+      inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,16));
+      inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,16));
+      inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.WHITE_WOOL,32));
+      eval ( "color = org.bukkit.Color." + teamColor);
+      var player = player;
+      var items = require ('items');
+      var helmet = items.leatherHelmet(1);
+      var helmetMeta = helmet.itemMeta;
+      helmetMeta.color = color;
+      helmet.itemMeta = helmetMeta;
+      player.equipment.helmet = helmet;
+      var boots = items.leatherBoots(1);
+      var bootsMeta = boots.itemMeta;
+      bootsMeta.color = color;
+      boots.itemMeta = bootsMeta;
+      player.equipment.boots = boots;
+      var chest = items.leatherChestplate(1);
+      var chestMeta = chest.itemMeta;
+      chestMeta.color = color;
+      chest.itemMeta = chestMeta;
+      player.equipment.chestplate = chest;
+      var legs = items.leatherLeggings(1);
+      var legsMeta = legs.itemMeta;
+      legsMeta.color = color;
+      legs.itemMeta = legsMeta;
+      player.equipment.leggings = legs;
     }
     else {
-      console.log ("winning teams: " + teams);
+      player.sendMessage ("Sorry " + teamColor + " bed is destroyed. you are now a spectactor");
+      player.setGameMode(org.bukkit.GameMode.SPECTATOR);
     }
+    setTimeout (function () {
+      player.sendMessage ("Teleport to base " + location);
+      location = new org.bukkit.Location (server.worlds[0], parseInt(location.x), parseInt(location.y)+5, parseInt(location.z));
+      entity = player;
+      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    },100);
+  }
+  else {
+    setTimeout (function () {
+      location=new org.bukkit.Location(server.worlds[0], locations["LOBBY"].x, locations["LOBBY"].y, locations["LOBBY"].z);
+      entity = player;
+      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      player.sendMessage ("Teleport to lobby ");
+    },100);
   }
 };
 
@@ -56,6 +124,14 @@ exports.destroyedBeds = function () {
   return count;
 };
 
+exports.cancelWorldSave = function () {
+  events.worldSave( function (event) {
+    console.log ("Got a world save event, cancelling it.");
+    event.cancelled = true;
+  });
+};
+
+exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED":{  x:-38,y:62,z:-80},"ORANGE":{  x:80,y:62,z:38},"WHITE":{  x:-38,y:62,z:80}};
 exports.restoreBed = function (color) {
   //Instantiations;
   var colors;
@@ -73,28 +149,24 @@ exports.restoreBed = function (color) {
   }
 };
 
-exports.cancelWorldSave = function () {
-  events.worldSave( function (event) {
-    console.log ("Got a world save event, cancelling it.");
-    event.cancelled = true;
-  });
-};
-
-exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED":{  x:-38,y:62,z:-80},"ORANGE":{  x:80,y:62,z:38},"WHITE":{  x:-38,y:62,z:80}};
 //exports.cancelWorldSave();
 
 exports.bedWarRules = function () {
   //Instantiations;
+  var player;
+  var name;
+  var loc;
+  var location;
+  var block;
+  var data;
+  var sign;
   var blocks;
   var entity;
-  var name;
   var entities;
-  var location;
   var x;
   var y;
   var z;
   var command;
-  var block;
   var breakBlocks;
   var destroyBlocks;
   var blockList;
@@ -107,6 +179,19 @@ exports.bedWarRules = function () {
   var looking;
   var players;
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
+  events.playerMove( function (event) {
+    player=event.player;
+    name=(player.getItemInHand()== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    if (name == "Staff of Dynamite"){
+      loc=new org.bukkit.Location(server.worlds[0], player.location.x, player.location.y, player.location.z);
+      server.worlds[0].getBlockAt (loc.add(1,-1,0)).setType (org.bukkit.Material.TNT);
+      server.worlds[0].getBlockAt (loc.add(2,-1,0)).setType (org.bukkit.Material.REDSTONE_TORCH);
+    }
+    else if (name == "scaffold"){
+      loc=new org.bukkit.Location(server.worlds[0], player.location.x, player.location.y, player.location.z);
+      server.worlds[0].getBlockAt (loc.add(0,-1,0)).setType (org.bukkit.Material.OAK_WOOD);
+    }
+  });
   events.playerDeath( function (event) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
     getWinningTeam();
@@ -116,7 +201,7 @@ exports.bedWarRules = function () {
     entity=event.entity.getType().toString();
     console.log ("Got a project hit event for " + entity);
     if (blocks.indexOf (entity) == -1){
-      event.entity.world.createExplosion (event.entity.location,1);
+      server.worlds[0].createExplosion (event.entity.location,1.5);
     }
     else {
       console.log ("No explosion for: " + entity);
@@ -249,76 +334,10 @@ exports.bedWarRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   players=server.getOnlinePlayers();
   for (var i=0; i<parseInt(players.length); i++) {
     players[i].removeMetadata ("teamcolor", __plugin );
   }
   autoMinecartGame();
-};
-
-exports.bedWarRespawn  = function (player) {
-  //Instantiations;
-  var teamColor;
-  var location;
-  var block;
-  var color;
-  var entity;
-  var TeleportCause;
-  if (player.getMetadata("turndirection").length > 0){
-    player.removeMetadata ("turndirection", __plugin );
-  }
-  if (player.getMetadata("teamcolor").length > 0){
-    teamColor=player.getMetadata("teamcolor")[0].value();
-    location=new org.bukkit.Location(server.worlds[0], locations[teamColor].x, locations[teamColor].y, locations[teamColor].z);
-    block=server.worlds[0].getBlockAt (location);
-    if ((block.getType().toString().indexOf ( 'BED') > -1)){
-      player.setGameMode(org.bukkit.GameMode.SURVIVAL);
-      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1));
-      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,16));
-      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,16));
-      player.inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.WHITE_WOOL,32));
-      eval ( "color = org.bukkit.Color." + teamColor);
-      var player = player;
-      var items = require ('items');
-      var helmet = items.leatherHelmet(1);
-      var helmetMeta = helmet.itemMeta;
-      helmetMeta.color = color;
-      helmet.itemMeta = helmetMeta;
-      player.equipment.helmet = helmet;
-      var boots = items.leatherBoots(1);
-      var bootsMeta = boots.itemMeta;
-      bootsMeta.color = color;
-      boots.itemMeta = bootsMeta;
-      player.equipment.boots = boots;
-      var chest = items.leatherChestplate(1);
-      var chestMeta = chest.itemMeta;
-      chestMeta.color = color;
-      chest.itemMeta = chestMeta;
-      player.equipment.chestplate = chest;
-      var legs = items.leatherLeggings(1);
-      var legsMeta = legs.itemMeta;
-      legsMeta.color = color;
-      legs.itemMeta = legsMeta;
-      player.equipment.leggings = legs;
-    }
-    else {
-      player.sendMessage ("Sorry " + teamColor + " bed is destroyed. You are now a spectator");
-      player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-    }
-    setTimeout (function () {
-      player.sendMessage ("Teleport to base " + location);
-      location = new org.bukkit.Location (server.worlds[0], parseInt(location.x), parseInt(location.y)+5, parseInt(location.z));
-      entity = player;
-      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-    },100);
-  }
-  else {
-    setTimeout (function () {
-      location=new org.bukkit.Location(server.worlds[0], locations["LOBBY"].x, locations["LOBBY"].y, locations["LOBBY"].z);
-      entity = player;
-      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-      player.sendMessage ("Teleport to lobby");
-    },100);
-  }
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say \"deop @a\"");
 };
