@@ -1,0 +1,33 @@
+{
+  "minecraft:recipes/misc/charcoal": {
+    "criteria": {
+      "has_log": "2019-11-29 20:47:04 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/light_gray_dye_from_oxeye_daisy": {
+    "criteria": {
+      "has_red_flower": "2019-11-29 20:48:24 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oak_planks": {
+    "criteria": {
+      "has_log": "2019-11-29 20:47:04 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/flower_banner_pattern": {
+    "criteria": {
+      "has_oxeye_daisy": "2019-11-29 20:48:24 -0600"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:plains": "2019-11-29 20:44:25 -0600"
+    },
+    "done": false
+  },
+  "DataVersion": 1976
+}
