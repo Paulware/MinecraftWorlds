@@ -4235,56 +4235,84 @@
                               </block>
                             </value>
                             <next>
-                              <block type="updateinventory" id="cr4s-M/U}}IsN@^sGI14">
+                              <block type="updateinventory" id="hMu2mAPR!EXkHLP+%0-~">
                                 <value name="ITEMSTACK">
-                                  <block type="itemstack" id="Vz$IP{Jm(-0FB$y6iEeE">
-                                    <field name="COUNT">16</field>
+                                  <block type="itemstack" id="*lsAREx:|IwfU,]fI%F[">
+                                    <field name="COUNT">1</field>
                                     <value name="ITEM">
-                                      <block type="materialtype" id="D1j/)Ux|ky~IS^;$vL_j">
-                                        <field name="MATERIAL">ELYTRA</field>
+                                      <block type="materialtype" id="Ns1^b6/|jDhEh9VLL2VC">
+                                        <field name="MATERIAL">BOW</field>
                                       </block>
                                     </value>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="armorset" id="EMDa(Bp?[cOuK`l,}=Q+">
-                                    <value name="COLOR">
-                                      <block type="getcolor" id="vVq|4fO8G5cGnV}^izg~">
-                                        <field name="COLOR">WHITE</field>
-                                      </block>
-                                    </value>
-                                    <value name="PLAYER">
-                                      <block type="varname" id="]VA]Jq]Q,epaddnfHPVo">
-                                        <field name="VARNAME">player</field>
+                                  <block type="updateinventory" id="_0S.UjVG=+I$!~A/q;$Y">
+                                    <value name="ITEMSTACK">
+                                      <block type="itemstack" id="j@l~/3ZM][$7aUK*fbn2">
+                                        <field name="COUNT">64</field>
+                                        <value name="ITEM">
+                                          <block type="materialtype" id="Q%jCbqiuu-FEe=e$Z|-`">
+                                            <field name="MATERIAL">ARROW</field>
+                                          </block>
+                                        </value>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="runexpression" id="CT7:!ZAEsiRmDNBhrs|e">
-                                        <field name="EXPRESSION">exports.kingDefender = player</field>
+                                      <block type="updateinventory" id="cr4s-M/U}}IsN@^sGI14">
+                                        <value name="ITEMSTACK">
+                                          <block type="itemstack" id="Vz$IP{Jm(-0FB$y6iEeE">
+                                            <field name="COUNT">16</field>
+                                            <value name="ITEM">
+                                              <block type="materialtype" id="D1j/)Ux|ky~IS^;$vL_j">
+                                                <field name="MATERIAL">ELYTRA</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
                                         <next>
-                                          <block type="servercommand" id="/7~?.6I|UN~K1?qS!qKH">
-                                            <field name="COMMAND">"say \"" + player.name + " is now King Defender \""</field>
+                                          <block type="armorset" id="EMDa(Bp?[cOuK`l,}=Q+">
+                                            <value name="COLOR">
+                                              <block type="getcolor" id="vVq|4fO8G5cGnV}^izg~">
+                                                <field name="COLOR">WHITE</field>
+                                              </block>
+                                            </value>
+                                            <value name="PLAYER">
+                                              <block type="varname" id="]VA]Jq]Q,epaddnfHPVo">
+                                                <field name="VARNAME">player</field>
+                                              </block>
+                                            </value>
                                             <next>
-                                              <block type="consolelog" id="@u61V(es0/_0g@O^y-Va">
-                                                <value name="NAME">
-                                                  <block type="varname" id="UPzfCfGPEDZVr`GUdro?">
-                                                    <field name="VARNAME">"Give king attacker a bunch of gear yo"</field>
-                                                  </block>
-                                                </value>
+                                              <block type="runexpression" id="CT7:!ZAEsiRmDNBhrs|e">
+                                                <field name="EXPRESSION">exports.kingDefender = player</field>
                                                 <next>
-                                                  <block type="teleport" id="(*oDyLpxVOEepi04%d|^">
-                                                    <value name="ENTITY">
-                                                      <block type="varname" id="ZW*aJEd/1vMU)`7swL01">
-                                                        <field name="VARNAME">player</field>
+                                                  <block type="servercommand" id="/7~?.6I|UN~K1?qS!qKH">
+                                                    <field name="COMMAND">"say \"" + player.name + " is now King Defender \""</field>
+                                                    <next>
+                                                      <block type="consolelog" id="@u61V(es0/_0g@O^y-Va">
+                                                        <value name="NAME">
+                                                          <block type="varname" id="UPzfCfGPEDZVr`GUdro?">
+                                                            <field name="VARNAME">"Give king attacker a bunch of gear yo"</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="teleport" id="(*oDyLpxVOEepi04%d|^">
+                                                            <value name="ENTITY">
+                                                              <block type="varname" id="ZW*aJEd/1vMU)`7swL01">
+                                                                <field name="VARNAME">player</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="LOCATION">
+                                                              <block type="absolutelocation" id="(d.wKiC,H`n2_MRpmkpN">
+                                                                <field name="X">-587</field>
+                                                                <field name="Y">5</field>
+                                                                <field name="Z">532</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
                                                       </block>
-                                                    </value>
-                                                    <value name="LOCATION">
-                                                      <block type="absolutelocation" id="(d.wKiC,H`n2_MRpmkpN">
-                                                        <field name="X">-587</field>
-                                                        <field name="Y">5</field>
-                                                        <field name="Z">532</field>
-                                                      </block>
-                                                    </value>
+                                                    </next>
                                                   </block>
                                                 </next>
                                               </block>
