@@ -923,6 +923,8 @@ exports.kingMaker  = function (player, attacker) {
     meta.setDisplayName('up');
     newItems.setItemMeta(meta);
     inventory.addItem(newItems);
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.BOW,1));
+    inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,64));
     inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ELYTRA,16));
     color = org.bukkit.Color.WHITE;
     var player = player;
