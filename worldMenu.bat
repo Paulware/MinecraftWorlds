@@ -15,7 +15,6 @@ echo.
 for /f "tokens=1,2,* delims=_ " %%A in ('"findstr /b /c:":menu_" "%~f0""') do echo.  %%B  %%C
 set choice=
 echo.&set /p choice=Make a choice or hit ENTER to quit: ||GOTO:EOF
-echo.Server should be off yo
 echo.&call:menu_%choice%
 GOTO:menuLOOP
 
@@ -107,6 +106,5 @@ rmdir %destination% /q /s
 mkdir %destination%
 
 echo xcopy %source% %destination% /E 
-pause
 xcopy %source% %destination% /E
 GOTO:EOF
