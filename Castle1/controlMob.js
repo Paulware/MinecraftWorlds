@@ -770,11 +770,6 @@ exports.getAttackerGear = function (inventory) {
   meta.setDisplayName('control');
   newItems.setItemMeta(meta);
   inventory.addItem(newItems);
-  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,16);
-  var meta = newItems.getItemMeta();
-  meta.setDisplayName('heal');
-  newItems.setItemMeta(meta);
-  inventory.addItem(newItems);
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.VEX_SPAWN_EGG,16));
   eggs=[org.bukkit.Material.ELYTRA, org.bukkit.Material.BLAZE_SPAWN_EGG, org.bukkit.Material.ENDERMAN_SPAWN_EGG, org.bukkit.Material.BOW, org.bukkit.Material.WOLF_SPAWN_EGG, org.bukkit.Material.CREEPER_SPAWN_EGG, org.bukkit.Material.GHAST_SPAWN_EGG, org.bukkit.Material.HUSK_SPAWN_EGG, org.bukkit.Material.ENCHANTED_GOLDEN_APPLE, org.bukkit.Material.LLAMA_SPAWN_EGG, org.bukkit.Material.SHULKER_SPAWN_EGG, org.bukkit.Material.ZOMBIE_PIGMAN_SPAWN_EGG, org.bukkit.Material.ZOMBIE_SPAWN_EGG, org.bukkit.Material.RAVAGER_SPAWN_EGG, org.bukkit.Material.POLAR_BEAR_SPAWN_EGG, org.bukkit.Material.ZOMBIE_VILLAGER_SPAWN_EGG, org.bukkit.Material.PILLAGER_SPAWN_EGG, org.bukkit.Material.VINDICATOR_SPAWN_EGG, org.bukkit.Material.CAVE_SPIDER_SPAWN_EGG, org.bukkit.Material.SKELETON_HORSE_SPAWN_EGG];
   for (var i=0; i<parseInt(eggs.length); i++) {
@@ -943,6 +938,8 @@ exports.kingMaker  = function (player, attacker) {
   //Instantiations;
   var inventory;
   var color;
+  var meta;
+  var stack;
   var location;
   var entity;
   var TeleportCause;
@@ -977,6 +974,11 @@ exports.kingMaker  = function (player, attacker) {
     dropChest(player);
   }
   else {
+    stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+    meta = stack.getItemMeta()
+    meta.setDisplayName ("teleport");
+    stack.setItemMeta(meta);
+    inventory.addItem (stack);
     var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,32);
     var meta = newItems.getItemMeta();
     meta.setDisplayName('destroy');
