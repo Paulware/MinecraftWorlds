@@ -178,6 +178,11 @@ exports.controlMob = function () {
     target=event.getEntity();
     if (event.getDamager != null){
       attacker=event.getDamager();
+      // Change Arrow damage to 5 hearts
+      if (attacker.toString() == "CraftTippedArrow"){
+        console.log ("Increasing arrow damage to 5 hearts");
+        event.setDamage(10)
+      }
       if (attacker.getShooter != null){
         attacker=attacker.getShooter();
       }
