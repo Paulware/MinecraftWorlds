@@ -212,6 +212,7 @@ exports.controlMob = function () {
     }
   });
   events.playerItemConsume( function (event) {
+    player=event.player;
     item=event.getItem().getType();
     if ((item) == (org.bukkit.Material.POTION)){
       name=event.getItem().getItemMeta().getDisplayName();
@@ -312,9 +313,9 @@ exports.controlMob = function () {
     console.log ("A Vehicle was exited yo");
   });
   events.playerInteract( function (event) {
+    player=event.player;
     block=event.getClickedBlock();
     if (block != null){
-      player=event.player;
       myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
       blockType=block.getType();
       if (blockType.toString() == "OAK_SIGN"){
