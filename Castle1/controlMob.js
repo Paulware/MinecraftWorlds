@@ -1080,24 +1080,21 @@ exports.isAvailable  = function (entity) {
   var target;
   available=true;
   if (entity.getTarget == null){
-    console.log ("entity available because target.getTarget is null");
+    console.log (entity + " available because target.getTarget is null");
   }
   else {
     target=entity.getTarget();
     if (target == null){
-      console.log ("entity available because target is null");
+      console.log (entity + "available because target is null");
     }
     else {
       if (target.isDead()){
-        console.log ("entity available because target is dead, and should no longer be a target");
+        console.log (entity + " available because target is dead, and should no longer be a target");
       }
       else {
         available=false;
       }
     }
-  }
-  if (available){
-    console.log (entity + " is available");
   }
   return available;
 };
