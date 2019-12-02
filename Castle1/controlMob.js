@@ -64,13 +64,15 @@ exports.controlMob = function () {
   var entities;
   var location;
   var entity;
+  var xOffset;
+  var zOffset;
+  var loc;
   var vector;
   var name;
   var creature;
   var reason;
   var target;
   var attacker;
-  var lockTarget;
   var item;
   var TeleportCause;
   var stack;
@@ -133,8 +135,11 @@ exports.controlMob = function () {
       for (var i=0; i<parseInt(entities.length); i++) {
         entity=entities[i];
         if (isAvailable(entity)){
-          vector=location.toVector().subtract(entity.location.toVector());
-          name=vector.multiply (0.1);
+          xOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("xoffset").length == 0)?null:entity.getMetadata("xoffset")[0].value();
+          zOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("zoffset").length == 0)?null:entity.getMetadata("zoffset")[0].value();
+          loc=new org.bukkit.Location(server.worlds[0], location.x + xOffset, location.y, location.z+zOffset);
+          vector=loc.toVector().subtract(entity.location.toVector());
+          vector=vector.multiply (0.1);
           entity.setVelocity(vector);
         }
       }
@@ -173,60 +178,32 @@ exports.controlMob = function () {
     target=event.getEntity();
     if (event.getDamager != null){
       attacker=event.getDamager();
-      if (attacker != null){
-        if (target instanceof org.bukkit.entity.Player){
-          console.log ("Player could be damaged yo " + attacker);
-        }
-        else {
-          console.log ("Entity will be damaged by " + attacker);
-        }
+      if (attacker.getShooter != null){
+        attacker=attacker.getShooter();
       }
-      lockTarget=(!(attacker instanceof org.bukkit.entity.LivingEntity))?null:(attacker.getMetadata == null)?null:(attacker.getMetadata("locktarget").length == 0)?null:attacker.getMetadata("locktarget")[0].value();
       if (onSameTeam(target,attacker)){
         console.log ("Damaged by same team how is this possible?");
-        if (lockTarget != null){
-          if (lockTarget.health > 0){
-            console.log ("Reset to target:" + lockTarget);
-            attacker.setTarget(lockTarget)
-          }
-          else {
-            console.log (lockTarget + " is dead" );
-          }
-        }
-        else {
-          console.log ("Same team, cancel the event");
-        }
         event.cancelled = true;
       }
       else if (target instanceof org.bukkit.entity.Player){
-        console.log ("Entity damage triggering...");
-        defendMe (target,attacker);
+        if (attacker instanceof org.bukkit.entity.LivingEntity){
+          console.log (attacker + " entity damage triggering...");
+          defendMe (target,attacker);
+        }
+        else {
+          console.log ("Getting attacked by a non-living entity, I need to find the shooter");
+        }
       }
     }
   });
   events.entityTarget( function (event) {
-    if (false){
-      target=event.target;
-      attacker=event.entity;
-      if (onSameTeam(target,attacker)){
-        if (lockTarget != null){
-          attacker.setTarget(lockTarget)
-        }
-        event.cancelled = true;
-      }
-      else {
-        // Not sure why this occasionally is true
-        if (target != null){
-          attacker=event.entity;
-          lockTarget=(!(attacker instanceof org.bukkit.entity.LivingEntity))?null:(attacker.getMetadata == null)?null:(attacker.getMetadata("locktarget").length == 0)?null:attacker.getMetadata("locktarget")[0].value();
-          if ((lockTarget != target) && (lockTarget != null)){
-            if (target.health > 0){
-              console.log ("Order violation go back to " + lockTarget);
-              attacker.setTarget(lockTarget)
-            }
-          }
-        }
-      }
+    target=event.target;
+    attacker=event.entity;
+    if (attacker.getShooter != null){
+      attacker=attacker.getShooter();
+    }
+    if (onSameTeam(target,attacker)){
+      event.cancelled = true;
     }
   });
   events.playerItemConsume( function (event) {
@@ -259,7 +236,8 @@ exports.controlMob = function () {
       console.log (entities.length + " entities were splashed");
       for (var i=0; i<parseInt(entities.length); i++) {
         if (! (onSameTeam(player,entities[i]))){
-          addControlCritter (entities[i],player)
+          addControlCritter(entities[i],player);
+          entities[i].setTarget(null)
         }
       }
     }
@@ -307,13 +285,15 @@ exports.controlMob = function () {
         var entities;
         var location;
         var entity;
+        var xOffset;
+        var zOffset;
+        var loc;
         var vector;
         var name;
         var creature;
         var reason;
         var target;
         var attacker;
-        var lockTarget;
         var item;
         var TeleportCause;
         var stack;
@@ -437,7 +417,7 @@ exports.controlMob = function () {
     target=event.getHitEntity();
     if (target != null){
       if (onSameTeam (target,shooter)){
-        console.log (target + " and " + shooter + " are on same team?");
+        console.log ("Cancelling projectile " + target + " and " + shooter + " are on same team.");
         event.cancelled = true;
       }
       else {
@@ -644,6 +624,25 @@ exports.onSameTeam = function (entity1,entity2)  {
     onTheTeam=(team1) == (team2);
   }
   return onTheTeam;
+};
+
+exports.assignTeamColor  = function (player,entity) {
+  //Instantiations;
+  var teamColor;
+  var xOffset;
+  var zOffset;
+  teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
+  console.log ("Setting entities teamColor to : " + teamColor);
+  fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
+  entity.setMetadata ("teamcolor", fd );
+  xOffset=parseInt (Math.random () * (10-(-10))) + (-10);
+  console.log ("Set xOffset to:" + xOffset);
+  fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,xOffset);
+  entity.setMetadata ("xoffset", fd );
+  console.log ("Set xOffset to:" + xOffset);
+  zOffset=parseInt (Math.random () * (10-(-10))) + (-10);
+  fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,zOffset);
+  entity.setMetadata ("zoffset", fd );
 };
 
 exports.controlCritter = function (name,player) {
@@ -1061,41 +1060,27 @@ exports.checkDespawns  = function (player) {
   }
 };
 
-exports.assignTeamColor  = function (player,entity) {
-  //Instantiations;
-  var teamColor;
-  teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
-  console.log ("Setting entities teamColor to : " + teamColor);
-  fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
-  entity.setMetadata ("teamcolor", fd );
-};
-
 exports.isAvailable  = function (entity) {
   //Instantiations;
-  var target;
   var available;
-  target=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("locktarget").length == 0)?null:entity.getMetadata("locktarget")[0].value();
+  var target;
   available=true;
   if (entity.getTarget == null){
     console.log ("entity available because target.getTarget is null");
   }
   else {
-    if (target == entity.getTarget()){
-      if (target == null){
-        console.log ("entity available because target is null");
-      }
-      else {
-        if (target.isDead()){
-          console.log ("entity available because target is dead, and should no longer be a target");
-        }
-        else {
-          console.log ("entity still on target " + target);
-          available=false;
-        }
-      }
+    target=entity.getTarget();
+    if (target == null){
+      console.log ("entity available because target is null");
     }
     else {
-      console.log ("Original target is no longer targetted" );
+      if (target.isDead()){
+        console.log ("entity available because target is dead, and should no longer be a target");
+      }
+      else {
+        console.log ("entity still on target " + target);
+        available=false;
+      }
     }
   }
   if (available){
