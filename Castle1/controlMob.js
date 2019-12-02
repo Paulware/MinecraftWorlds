@@ -60,18 +60,14 @@ exports.controlMob = function () {
   var inventory;
   var teamColor;
   var entities;
-  var location;
-  var entity;
-  var xOffset;
-  var zOffset;
-  var loc;
-  var vector;
   var name;
   var creature;
+  var location;
   var reason;
   var target;
   var attacker;
   var item;
+  var entity;
   var TeleportCause;
   var stack;
   var count;
@@ -80,6 +76,7 @@ exports.controlMob = function () {
   var blockType;
   var team;
   var targetLocation;
+  var vector;
   var yaw;
   var diff;
   var projectile;
@@ -119,28 +116,10 @@ exports.controlMob = function () {
   });
   events.playerMove( function (event) {
     player=event.player;
-    entities=server.worlds[0].getNearbyEntities (player.location,5,5,5);
-    for (var i=0; i<parseInt(entities.length); i++) {
-      if (isEnemy(player,entities[i]) ){
-        console.log ("Found bad guy near me.." + entities[i]);
-        defendMe (player,entities[i]);
-        break;
-      }
-    }
+    defendMyArea (player);
     entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
     if (entities != null){
-      location=new org.bukkit.Location(server.worlds[0], player.location.x + 5, player.location.y, player.location.z + 5);
-      for (var i=0; i<parseInt(entities.length); i++) {
-        entity=entities[i];
-        if (isAvailable(entity)){
-          xOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("xoffset").length == 0)?null:entity.getMetadata("xoffset")[0].value();
-          zOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("zoffset").length == 0)?null:entity.getMetadata("zoffset")[0].value();
-          loc=new org.bukkit.Location(server.worlds[0], location.x + xOffset, location.y, location.z+zOffset);
-          vector=loc.toVector().subtract(entity.location.toVector());
-          vector=vector.multiply (0.1);
-          entity.setVelocity(vector);
-        }
-      }
+      assembleEntities (player.location,entities);
       checkDespawns(player);
     }
     name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
@@ -178,7 +157,7 @@ exports.controlMob = function () {
       attacker=event.getDamager();
       if (attacker != null){
         // Change Arrow damage to 5 hearts
-        if (attacker.toString() == "CraftTippedArrow"){
+        if (attacker instanceof org.bukkit.entity.Arrow){
           console.log ("Increasing arrow damage to 5 hearts");
           event.setDamage(10)
         }
@@ -289,18 +268,14 @@ exports.controlMob = function () {
         var inventory;
         var teamColor;
         var entities;
-        var location;
-        var entity;
-        var xOffset;
-        var zOffset;
-        var loc;
-        var vector;
         var name;
         var creature;
+        var location;
         var reason;
         var target;
         var attacker;
         var item;
+        var entity;
         var TeleportCause;
         var stack;
         var count;
@@ -524,6 +499,38 @@ exports.handleRespawn  = function (player,teamColor) {
     setTimeout (function () {
       player.teleport(king.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },100);
+  }
+};
+
+exports.defendMyArea  = function (player) {
+  //Instantiations;
+  var entities;
+  entities=server.worlds[0].getNearbyEntities (player.location,5,5,5);
+  for (var i=0; i<parseInt(entities.length); i++) {
+    if (isEnemy(player,entities[i]) ){
+      console.log ("Found bad guy near me.." + entities[i]);
+      defendMe (player,entities[i]);
+      break;
+    }
+  }
+};
+
+exports.assembleEntities = function (location,entities) {
+  //Instantiations;
+  var entity;
+  var xOffset;
+  var zOffset;
+  var vector;
+  for (var i=0; i<parseInt(entities.length); i++) {
+    entity=entities[i];
+    if (isAvailable(entity)){
+      xOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("xoffset").length == 0)?null:entity.getMetadata("xoffset")[0].value();
+      zOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("zoffset").length == 0)?null:entity.getMetadata("zoffset")[0].value();
+      loc=new org.bukkit.Location(server.worlds[0], location.x + xOffset, 4, location.z+zOffset);
+      vector=loc.toVector().subtract(entity.location.toVector());
+      vector=vector.multiply (0.1);
+      entity.setVelocity(vector);
+    }
   }
 };
 
