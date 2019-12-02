@@ -19,8 +19,6 @@ exports.defendMe  = function (player, target) {
           if (isAvailable(entity)){
             if (target instanceof org.bukkit.entity.LivingEntity){
               if (entity.setTarget != null){
-                fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,target);
-                entity.setMetadata ("locktarget", fd );
                 entity.setTarget (target);
               }
             }
@@ -178,25 +176,27 @@ exports.controlMob = function () {
     target=event.getEntity();
     if (event.getDamager != null){
       attacker=event.getDamager();
-      // Change Arrow damage to 5 hearts
-      if (attacker.toString() == "CraftTippedArrow"){
-        console.log ("Increasing arrow damage to 5 hearts");
-        event.setDamage(10)
-      }
-      if (attacker.getShooter != null){
-        attacker=attacker.getShooter();
-      }
-      if (onSameTeam(target,attacker)){
-        console.log ("Damaged by same team how is this possible?");
-        event.cancelled = true;
-      }
-      else if (target instanceof org.bukkit.entity.Player){
-        if (attacker instanceof org.bukkit.entity.LivingEntity){
-          console.log (attacker + " entity damage triggering...");
-          defendMe (target,attacker);
+      if (attacker != null){
+        // Change Arrow damage to 5 hearts
+        if (attacker.toString() == "CraftTippedArrow"){
+          console.log ("Increasing arrow damage to 5 hearts");
+          event.setDamage(10)
         }
-        else {
-          console.log ("Getting attacked by a non-living entity, I need to find the shooter");
+        if (attacker.getShooter != null){
+          attacker=attacker.getShooter();
+        }
+        if (onSameTeam(target,attacker)){
+          console.log ("Damaged by same team how is this possible?");
+          event.cancelled = true;
+        }
+        else if (target instanceof org.bukkit.entity.Player){
+          if (attacker instanceof org.bukkit.entity.LivingEntity){
+            console.log (attacker + " entity damage triggering...");
+            defendMe (target,attacker);
+          }
+          else {
+            console.log ("Getting attacked by a non-living entity, I need to find the shooter");
+          }
         }
       }
     }
@@ -315,8 +315,8 @@ exports.controlMob = function () {
   events.playerInteract( function (event) {
     player=event.player;
     block=event.getClickedBlock();
+    myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
     if (block != null){
-      myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
       blockType=block.getType();
       if (blockType.toString() == "OAK_SIGN"){
         team=block.state.getLine(1);
@@ -391,6 +391,7 @@ exports.controlMob = function () {
         }
       }
       else {
+        console.log ("set rotation " + yaw);
         // Allow Rotation
         myRide.setAI(false)
         myRide.setRotation(yaw, player.location.getPitch())
@@ -641,7 +642,7 @@ exports.assignTeamColor  = function (player,entity) {
   console.log ("Setting entities teamColor to : " + teamColor);
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
   entity.setMetadata ("teamcolor", fd );
-  xOffset=parseInt (Math.random () * (10-(-10))) + (-10);
+  xOffset=parseInt (Math.random () * (8-(-8))) + (-8);
   console.log ("Set xOffset to:" + xOffset);
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,xOffset);
   entity.setMetadata ("xoffset", fd );
@@ -814,14 +815,25 @@ exports.getKingAttackerGear = function (inventory) {
   //Instantiations;
   var meta;
   var stack;
+  stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+  meta = stack.getItemMeta()
+  meta.setDisplayName ("skull");
+  stack.setItemMeta(meta);
+  inventory.addItem (stack);
+  stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+  meta = stack.getItemMeta()
+  meta.setDisplayName ("teleport");
+  stack.setItemMeta(meta);
+  inventory.addItem (stack);
+  inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.RAVAGER_SPAWN_EGG,16));
+  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,10);
+  var meta = newItems.getItemMeta();
+  meta.setDisplayName('ride');
+  newItems.setItemMeta(meta);
+  inventory.addItem(newItems);
   var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,32);
   var meta = newItems.getItemMeta();
   meta.setDisplayName('snowman');
-  newItems.setItemMeta(meta);
-  inventory.addItem(newItems);
-  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,5);
-  var meta = newItems.getItemMeta();
-  meta.setDisplayName('wither');
   newItems.setItemMeta(meta);
   inventory.addItem(newItems);
   var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.POTION,10);
@@ -852,13 +864,12 @@ exports.getKingAttackerGear = function (inventory) {
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,64));
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.BOW,1));
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ENDERMITE_SPAWN_EGG,64));
-  inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.RAVAGER_SPAWN_EGG,16));
-  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,10);
+  inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.CAVE_SPIDER_SPAWN_EGG,64));
+  var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,5);
   var meta = newItems.getItemMeta();
-  meta.setDisplayName('ride');
+  meta.setDisplayName('wither');
   newItems.setItemMeta(meta);
   inventory.addItem(newItems);
-  inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.CAVE_SPIDER_SPAWN_EGG,64));
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.HUSK_SPAWN_EGG,64));
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.ZOMBIE_SPAWN_EGG,64));
   inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.WOLF_SPAWN_EGG,64));
@@ -874,22 +885,12 @@ exports.getKingAttackerGear = function (inventory) {
   inventory.addItem(newItems);
   stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
   meta = stack.getItemMeta()
-  meta.setDisplayName ("teleport");
-  stack.setItemMeta(meta);
-  inventory.addItem (stack);
-  stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
-  meta = stack.getItemMeta()
   meta.setDisplayName ("fire");
   stack.setItemMeta(meta);
   inventory.addItem (stack);
   stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
   meta = stack.getItemMeta()
   meta.setDisplayName ("arrow");
-  stack.setItemMeta(meta);
-  inventory.addItem (stack);
-  stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
-  meta = stack.getItemMeta()
-  meta.setDisplayName ("skull");
   stack.setItemMeta(meta);
   inventory.addItem (stack);
   stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
@@ -1084,7 +1085,6 @@ exports.isAvailable  = function (entity) {
         console.log ("entity available because target is dead, and should no longer be a target");
       }
       else {
-        console.log ("entity still on target " + target);
         available=false;
       }
     }
