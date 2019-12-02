@@ -2442,7 +2442,7 @@
             </value>
             <value name="RADIUS">
               <block type="math_number" id="`DA1gF^lo3ZNObW5ps/7">
-                <field name="NUM">5</field>
+                <field name="NUM">8</field>
               </block>
             </value>
           </block>
@@ -4942,7 +4942,7 @@
               <block type="consolelog" id="?iiWj4U8x,6{YAD2Ou3f">
                 <value name="NAME">
                   <block type="varname" id="S=_Y=X}0pBRB;/Nrg~F3">
-                    <field name="VARNAME">"entity available because target.getTarget is null"</field>
+                    <field name="VARNAME">entity + " available because target.getTarget is null"</field>
                   </block>
                 </value>
               </block>
@@ -4963,7 +4963,7 @@
                       <block type="consolelog" id="efobm0V@3+|4p:Er=tNT">
                         <value name="NAME">
                           <block type="varname" id=".}jxw_AmLx377;kE%jJ]">
-                            <field name="VARNAME">"entity available because target is null"</field>
+                            <field name="VARNAME">entity + "available because target is null"</field>
                           </block>
                         </value>
                       </block>
@@ -4980,7 +4980,7 @@
                           <block type="consolelog" id="%NF`NCw+UgDZBAr0jn!:">
                             <value name="NAME">
                               <block type="varname" id="G(m{2Q./$UN@3ol]iLmU">
-                                <field name="VARNAME">"entity available because target is dead, and should no longer be a target"</field>
+                                <field name="VARNAME">entity + " available because target is dead, and should no longer be a target"</field>
                               </block>
                             </value>
                           </block>
@@ -5007,26 +5007,8 @@
               </block>
             </statement>
             <next>
-              <block type="controls_if" id="FT=Nj)L421#W]C{;6yiq">
-                <value name="IF0">
-                  <block type="varname" id="?`ze|6IUYAweUgV//k2T">
-                    <field name="VARNAME">available</field>
-                  </block>
-                </value>
-                <statement name="DO0">
-                  <block type="consolelog" id="rHnmDGSL_Oi)cSmj=a%d">
-                    <value name="NAME">
-                      <block type="varname" id="2C/#*/}N9]KJUgJ+}h|t">
-                        <field name="VARNAME">entity + " is available"</field>
-                      </block>
-                    </value>
-                  </block>
-                </statement>
-                <next>
-                  <block type="returnVariable" id="j5uKd0x7|b,@9^/p?Jkn">
-                    <field name="RETURNVARIABLE">available</field>
-                  </block>
-                </next>
+              <block type="returnVariable" id="j5uKd0x7|b,@9^/p?Jkn">
+                <field name="RETURNVARIABLE">available</field>
               </block>
             </next>
           </block>
