@@ -72,15 +72,7 @@ exports.controlMob = function () {
   var stack;
   var block;
   var myRide;
-  var team;
-  var targetLocation;
-  var vector;
-  var yaw;
-  var diff;
   var projectile;
-  var action;
-  var destinationVector;
-  var speed;
   var exploders;
   var shooter;
   exports.kingAttacker = null
@@ -260,100 +252,14 @@ exports.controlMob = function () {
     console.log ("A Vehicle was exited yo");
   });
   events.playerInteract( function (event) {
-    console.log ("Click and clack");
     player=event.player;
     block=event.getClickedBlock();
     myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
     if (block != null){
-      if ((block.getType()) == (org.bukkit.Material.OAK_SIGN)){
-        team=block.state.getLine(1);
-        if (team=="Seige Attack"){
-          console.log ("Attack the castle yo");
-          player.teleport(new org.bukkit.Location(server.worlds[0], -816, 4, 551), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"attacker");
-          player.setMetadata ("teamcolor", fd );
-          if (exports.kingAttacker == null){
-            kingMaker (player, true);
-          }
-        }
-        else if (team=="Castle Defense"){
-          console.log ("Defend the castle king");
-          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"defender");
-          player.setMetadata ("teamcolor", fd );
-          if (exports.kingDefender == null){
-            kingMaker (player, false);
-          }
-          else {
-            player.teleport(new org.bukkit.Location(server.worlds[0], -586, 4, 533), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          }
-        }
-      }
+      teamSelection (block, player);
     }
     if (myRide != null){
-      console.log ("I am riding here!");
-      block=player.getTargetBlock(null,200);
-      // Keep y on ground (no flying)
-      targetLocation=new org.bukkit.Location(server.worlds[0], block.x, 4, block.z);
-      vector=targetLocation.toVector().subtract(player.location.toVector());
-      yaw=vectorToYaw (vector);
-      diff=Math.abs ( yaw - myRide.getLocation().getYaw());
-      console.log ("yaw:" + yaw + " current Yaw:" + myRide.getLocation().getYaw() + " diff:" + diff);
-      if ((diff) < 10){
-        name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
-        if (name=="skull"){
-          console.log ("shoot a skull yo");
-          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
-          myRide.launchProjectile(projectile.getClass())
-        }
-        else if (name=="arrow"){
-          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
-          myRide.launchProjectile(projectile.getClass())
-        }
-        else if (name=="bullet"){
-          entities=server.worlds[0].getNearbyEntities (block.location,10,10,10);
-          console.log ("Shoot a shulker bullet yo");
-          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.SHULKER_BULLET);
-          if (entities.length > 0){
-            projectile.setTarget(entities[0]);
-            myRide.launchProjectile(projectile.getClass())
-          }
-          else {
-            console.log ("Could not find an entity for the shulker bullet yo");
-          }
-        }
-        else if (name=="fireball"){
-          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.FIREBALL);
-          myRide.launchProjectile(projectile.getClass())
-        }
-        else if (name=="trident"){
-          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.TRIDENT);
-          myRide.launchProjectile(projectile.getClass())
-        }
-        else {
-          action=event.getAction();
-          console.log ("Nothing in hand... " );
-          destinationVector=(!(myRide instanceof org.bukkit.entity.LivingEntity))?null:(myRide.getMetadata == null)?null:(myRide.getMetadata("destination").length == 0)?null:myRide.getMetadata("destination")[0].value();
-          if (destinationVector ==null){
-            console.log ("Setting destination vector = " + vector);
-            fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,vector);
-            myRide.setMetadata ("destination", fd );
-          }
-          else {
-            console.log ("Moving along vector:" + vector);
-            speed=vector.length();
-            myRide.setVelocity(destinationVector);
-            // AI true is required for ravager to move
-            myRide.setAI(true)
-          }
-        }
-      }
-      else {
-        fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,null);
-        myRide.setMetadata ("destination", fd );
-        console.log ("set rotation " + yaw);
-        myRide.setAI(false)
-        myRide.setRotation(yaw, player.location.getPitch())
-      }
+      handleMyRide (myRide,player);
     }
     name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
     if (name == "teleport"){
@@ -717,6 +623,35 @@ exports.splashControl = function (entities,player) {
   }
 };
 
+exports.createLandmine  = function (location) {
+  //Instantiations;
+  var block;
+  var data;
+  var sign;
+  var state;
+  location=location.add (0,-2,0);
+  console.log ("Create landmine at:" + location);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.REPEATING_COMMAND_BLOCK);
+  block = server.worlds[0].getBlockAt (location);
+  state = block.getState();
+  state.setCommand("execute if entity @e[distance=..3] run setblock ~4 ~ ~ redstone_block");
+  state.update();
+  location=location.add (1,0,0);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.REDSTONE_BLOCK);
+  location=location.add (2,0,0);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.COMMAND_BLOCK);
+  block = server.worlds[0].getBlockAt (location);
+  state = block.getState();
+  state.setCommand("summon tnt ~-3 ~7 ~ {fuse:0}");
+  state.update();
+  location=location.add (2,0,0);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.COMMAND_BLOCK);
+  block = server.worlds[0].getBlockAt (location);
+  state = block.getState();
+  state.setCommand("say \"fill all air\"");
+  state.update();
+};
+
 exports.splashRide  = function (entities,player) {
   for (var i=0; i<parseInt(entities.length); i++) {
     if (entities[i] != player){
@@ -735,6 +670,77 @@ exports.splashRide  = function (entities,player) {
       console.log ("ride done");
       break;
     }
+  }
+};
+
+exports.handleMyRide  = function (myRide,player) {
+  //Instantiations;
+  var block;
+  var targetLocation;
+  var vector;
+  var yaw;
+  var diff;
+  var name;
+  var projectile;
+  var entities;
+  var loc;
+  var pitch;
+  block=player.getTargetBlock(null,200);
+  // Y ok for shooting in the air
+  targetLocation=new org.bukkit.Location(server.worlds[0], block.location.x, block.location.y, block.location.z);
+  console.log ("I am riding, looking at: " + block.location + " targetting: " + targetLocation);
+  vector=targetLocation.toVector().subtract(player.location.toVector());
+  yaw=vectorToYaw (vector);
+  diff=Math.abs ( yaw - myRide.getLocation().getYaw());
+  console.log ("yaw:" + yaw + " current Yaw:" + myRide.getLocation().getYaw() + " diff:" + diff);
+  if ((diff) < 10){
+    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    if (name=="skull"){
+      console.log ("shoot a skull yo");
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
+      myRide.launchProjectile(projectile.getClass())
+    }
+    else if (name=="arrow"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+      myRide.launchProjectile(projectile.getClass())
+    }
+    else if (name=="bullet"){
+      entities=server.worlds[0].getNearbyEntities (block.location,10,10,10);
+      console.log ("Shoot a shulker bullet yo");
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.SHULKER_BULLET);
+      if (entities.length > 0){
+        projectile.setTarget(entities[0]);
+        myRide.launchProjectile(projectile.getClass())
+      }
+      else {
+        console.log ("Could not find an entity for the shulker bullet yo");
+      }
+    }
+    else if (name=="fireball"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.FIREBALL);
+      myRide.launchProjectile(projectile.getClass())
+    }
+    else if (name=="trident"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.TRIDENT);
+      myRide.launchProjectile(projectile.getClass())
+    }
+    else {
+      console.log ("Nothing in hand, proceed to " + targetLocation + " from " + myRide.location);
+      vector=targetLocation.toVector().subtract(myRide.location.toVector());
+      loc=player.location;
+      loc=loc.add (vector.normalize());
+      // Keep vehicle on ground (y=4)
+      loc=new org.bukkit.Location(server.worlds[0], loc.x, 4, loc.z);
+      pitch=player.location.getPitch();
+      teleportRide (myRide,player,loc,pitch,yaw);
+      console.log ("Done, set AI false");
+    }
+  }
+  else {
+    console.log ("set rotation " + yaw);
+    // Allow Rotation
+    myRide.setAI(false)
+    myRide.setRotation(yaw, player.location.getPitch())
   }
 };
 
@@ -928,33 +934,54 @@ exports.getKingAttackerGear = function (inventory) {
   inventory.addItem (stack);
 };
 
-exports.createLandmine  = function (location) {
+exports.teamSelection  = function (block, player) {
   //Instantiations;
-  var block;
-  var data;
-  var sign;
-  var state;
-  location=location.add (0,-2,0);
-  console.log ("Create landmine at:" + location);
-  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.REPEATING_COMMAND_BLOCK);
-  block = server.worlds[0].getBlockAt (location);
-  state = block.getState();
-  state.setCommand("execute if entity @e[distance=..3] run setblock ~4 ~ ~ redstone_block");
-  state.update();
-  location=location.add (1,0,0);
-  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.REDSTONE_BLOCK);
-  location=location.add (2,0,0);
-  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.COMMAND_BLOCK);
-  block = server.worlds[0].getBlockAt (location);
-  state = block.getState();
-  state.setCommand("summon tnt ~-3 ~7 ~ {fuse:0}");
-  state.update();
-  location=location.add (2,0,0);
-  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.COMMAND_BLOCK);
-  block = server.worlds[0].getBlockAt (location);
-  state = block.getState();
-  state.setCommand("say \"fill all air\"");
-  state.update();
+  var team;
+  var location;
+  var entity;
+  var TeleportCause;
+  if ((block.getType()) == (org.bukkit.Material.OAK_SIGN)){
+    team=block.state.getLine(1);
+    if (team=="Seige Attack"){
+      console.log ("Attack the castle yo");
+      player.teleport(new org.bukkit.Location(server.worlds[0], -816, 4, 551), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"attacker");
+      player.setMetadata ("teamcolor", fd );
+      if (exports.kingAttacker == null){
+        kingMaker (player, true);
+      }
+    }
+    else if (team=="Castle Defense"){
+      console.log ("Defend the castle king");
+      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"defender");
+      player.setMetadata ("teamcolor", fd );
+      if (exports.kingDefender == null){
+        kingMaker (player, false);
+      }
+      else {
+        player.teleport(new org.bukkit.Location(server.worlds[0], -586, 4, 533), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      }
+    }
+    else {
+      console.log ("\nERR!\nUnknown team: " + team + "\n");
+    }
+  }
+};
+
+exports.teleportRide  = function (vehicle,passenger,location,pitch,yaw) {
+  //Instantiations;
+  var entity;
+  var TeleportCause;
+  console.log ("Teleport " + passenger.name + "  to : " + location);
+  // Allow Rotation
+  vehicle.setAI(false)
+  passenger.vehicle=null;
+  vehicle.setPassenger(null);
+  location.setYaw (yaw)
+  location.setPitch(pitch)
+  passenger.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  vehicle.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  vehicle.setPassenger(passenger);
 };
 
 exports.kingMaker  = function (player, attacker) {
