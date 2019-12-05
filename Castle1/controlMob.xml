@@ -123,23 +123,8 @@
                                                   </block>
                                                 </value>
                                                 <statement name="DO0">
-                                                  <block type="setplayerdata" id="O{^NplFovfS%o;i|3dNQ" disabled="true">
-                                                    <field name="KEY">lockTarget</field>
-                                                    <value name="VALUE">
-                                                      <block type="varname" id="o+#@6GBE!Ui0VLcKxZ8(">
-                                                        <field name="VARNAME">target</field>
-                                                      </block>
-                                                    </value>
-                                                    <value name="PLAYER">
-                                                      <block type="varname" id="aRpAeMRXh%XadL/]@#JI">
-                                                        <field name="VARNAME">entity</field>
-                                                      </block>
-                                                    </value>
-                                                    <next>
-                                                      <block type="runexpression" id="4w/E)2P`pB%w.Dv_#|Ok">
-                                                        <field name="EXPRESSION">entity.setTarget (target);</field>
-                                                      </block>
-                                                    </next>
+                                                  <block type="runexpression" id="4w/E)2P`pB%w.Dv_#|Ok">
+                                                    <field name="EXPRESSION">entity.setTarget (target);</field>
                                                   </block>
                                                 </statement>
                                               </block>
@@ -1540,7 +1525,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="g(e*mtyfvkPe~.Xg]m)C" x="162" y="312">
+  <block type="scriptcraftfunction" id="g(e*mtyfvkPe~.Xg]m)C" x="88" y="513">
     <field name="nameOfFunction">handleRespawn (player,teamColor)</field>
     <statement name="FUNCTIONCODE">
       <block type="controls_if" id="r`rn]zSPFQu7d6ztte,g">
@@ -1682,7 +1667,7 @@
             </value>
             <statement name="DO1">
               <block type="sendmessage" id="HBsf[!|W!H?~,cx7(Jdf">
-                <field name="MESSAGE">Sorry your king is dead, you are now a spectator</field>
+                <field name="MESSAGE">"Sorry your king is dead, you are now a spectator"</field>
                 <value name="PLAYER">
                   <block type="varname" id="g(jGakRs~/l8L:TuslR^">
                     <field name="VARNAME">player</field>
@@ -3377,34 +3362,69 @@
                                                         <field name="VARNAME">loc</field>
                                                         <field name="EXPRESSION">player.location</field>
                                                         <next>
-                                                          <block type="setvariable" id="PKY)(bAo2T}ofr;]/zwd">
-                                                            <field name="VARNAME">loc</field>
-                                                            <field name="EXPRESSION">loc.add (vector.normalize())</field>
-                                                            <next>
-                                                              <block type="setvariablevalue" id="o-{iWbHPINoe|T/]S].n">
-                                                                <field name="VARNAME">loc</field>
-                                                                <comment pinned="false" h="80" w="160">Keep vehicle on ground (y=4)</comment>
-                                                                <value name="EXPRESSION">
-                                                                  <block type="absolutelocation" id="{JpJS#),HCOx^w#R=7{q">
-                                                                    <field name="X">loc.x</field>
-                                                                    <field name="Y">4</field>
-                                                                    <field name="Z">loc.z</field>
+                                                          <block type="setvariablevalue" id="MFM8QVpzQFF9)UB*P`92">
+                                                            <field name="VARNAME">vector</field>
+                                                            <value name="EXPRESSION">
+                                                              <block type="multiplyvector" id="#7%#^YH7V.Lo(dr=cnOZ">
+                                                                <field name="SCALAR">2.0</field>
+                                                                <value name="VECTOR">
+                                                                  <block type="varname" id="b0=^o}J~_]1iJIi|BeLC">
+                                                                    <field name="VARNAME">vector.normalize()</field>
                                                                   </block>
                                                                 </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="setvariable" id="PKY)(bAo2T}ofr;]/zwd">
+                                                                <field name="VARNAME">loc</field>
+                                                                <field name="EXPRESSION">loc.add (vector.normalize())</field>
                                                                 <next>
-                                                                  <block type="setvariable" id="764l7J{jezH#`@hu;)Pi">
-                                                                    <field name="VARNAME">pitch</field>
-                                                                    <field name="EXPRESSION">player.location.getPitch()</field>
+                                                                  <block type="setvariablevalue" id="o-{iWbHPINoe|T/]S].n">
+                                                                    <field name="VARNAME">loc</field>
+                                                                    <comment pinned="false" h="80" w="160">Keep vehicle on ground (y=4)</comment>
+                                                                    <value name="EXPRESSION">
+                                                                      <block type="absolutelocation" id="{JpJS#),HCOx^w#R=7{q">
+                                                                        <field name="X">loc.x</field>
+                                                                        <field name="Y">4</field>
+                                                                        <field name="Z">loc.z</field>
+                                                                      </block>
+                                                                    </value>
                                                                     <next>
-                                                                      <block type="functionCall" id="yNG(53[)J3)IzR_cap4/">
-                                                                        <field name="FUNCTIONNAME">teleportRide (myRide,player,loc,pitch,yaw)</field>
+                                                                      <block type="setvariable" id="764l7J{jezH#`@hu;)Pi">
+                                                                        <field name="VARNAME">pitch</field>
+                                                                        <field name="EXPRESSION">player.location.getPitch()</field>
                                                                         <next>
-                                                                          <block type="consolelog" id="hB=vIJ}%ZPLwUpv{^Rd8">
-                                                                            <value name="NAME">
-                                                                              <block type="varname" id=";9OK`#rx12g)*b;AA{eC">
-                                                                                <field name="VARNAME">"Done, set AI false"</field>
+                                                                          <block type="functionCall" id="yNG(53[)J3)IzR_cap4/">
+                                                                            <field name="FUNCTIONNAME">teleportRide (myRide,player,loc,pitch,yaw)</field>
+                                                                            <next>
+                                                                              <block type="consolelog" id="hB=vIJ}%ZPLwUpv{^Rd8">
+                                                                                <value name="NAME">
+                                                                                  <block type="varname" id=";9OK`#rx12g)*b;AA{eC">
+                                                                                    <field name="VARNAME">"Done, set AI false"</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="runexpression" id="Jca]/.Oh!oNmN*tHH=DL" disabled="true">
+                                                                                    <field name="EXPRESSION">myRide.setAI(true)</field>
+                                                                                    <comment pinned="false" h="80" w="160">Allow Rotation</comment>
+                                                                                    <next>
+                                                                                      <block type="setvectorvelocity" id="Y?Ps397cJ4#7-b~~E?4*" disabled="true">
+                                                                                        <value name="ENTITY">
+                                                                                          <block type="varname" id="QL!1tfbw!-s6Sm*Ha6F2">
+                                                                                            <field name="VARNAME">myRide</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="VECTOR">
+                                                                                          <block type="varname" id="ikCt$`?_gZK;6][[0{F6">
+                                                                                            <field name="VARNAME">vector.normalize()</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
                                                                               </block>
-                                                                            </value>
+                                                                            </next>
                                                                           </block>
                                                                         </next>
                                                                       </block>
@@ -4584,96 +4604,6 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="ynymYG?j*n,$~HM}__O}" x="-562" y="5513">
-    <field name="nameOfFunction">teleportRide (vehicle,passenger,location,pitch,yaw)</field>
-    <statement name="FUNCTIONCODE">
-      <block type="consolelog" id="8vkW:|5QkUu(Xo7Qk8r1">
-        <value name="NAME">
-          <block type="varname" id="0|@X]3=PlT7T5[ucsn4N">
-            <field name="VARNAME">"Teleport " + passenger.name + "  to : " + location</field>
-          </block>
-        </value>
-        <next>
-          <block type="runexpression" id="K[hgdz:`5%(|yn7T;)[(">
-            <field name="EXPRESSION">vehicle.setAI(false)</field>
-            <comment pinned="false" h="80" w="160">Allow Rotation</comment>
-            <next>
-              <block type="setvariable" id=".P*Wn2fhqB=IBByh/%5d">
-                <field name="VARNAME">passenger.vehicle</field>
-                <field name="EXPRESSION">null</field>
-                <next>
-                  <block type="setride" id="7x%M@z.nl_J3s~.yQ2f/">
-                    <value name="VEHICLE">
-                      <block type="varname" id="w86hrSdAXQ[iAfXw)Bwh">
-                        <field name="VARNAME">vehicle</field>
-                      </block>
-                    </value>
-                    <value name="PASSENGER">
-                      <block type="varname" id="#!C@JZkubVDuTb6.tu01">
-                        <field name="VARNAME">null</field>
-                      </block>
-                    </value>
-                    <next>
-                      <block type="runexpression" id=".HI7|%59p_4;%@7G=eRe">
-                        <field name="EXPRESSION">location.setYaw (yaw)</field>
-                        <next>
-                          <block type="runexpression" id="TJd;8CuPC|@rcc|r*94!">
-                            <field name="EXPRESSION">location.setPitch(pitch)</field>
-                            <next>
-                              <block type="teleport" id="qF?:qOS8QW+H{7|cRmg*">
-                                <value name="ENTITY">
-                                  <block type="varname" id="X|,(v83{a1@!Su]Bt#2V">
-                                    <field name="VARNAME">passenger</field>
-                                  </block>
-                                </value>
-                                <value name="LOCATION">
-                                  <block type="varname" id="t9nR2D6_QgPM:=D+LxRD">
-                                    <field name="VARNAME">location</field>
-                                  </block>
-                                </value>
-                                <next>
-                                  <block type="teleport" id="d)^pU@qfQ!)T]2FQA=;2">
-                                    <value name="ENTITY">
-                                      <block type="varname" id="S!*{LGw-xD-gFxdzM7Vi">
-                                        <field name="VARNAME">vehicle</field>
-                                      </block>
-                                    </value>
-                                    <value name="LOCATION">
-                                      <block type="varname" id=";kWZ}FJPH8g)8xG/JFF(">
-                                        <field name="VARNAME">location</field>
-                                      </block>
-                                    </value>
-                                    <next>
-                                      <block type="setride" id="sO2Osj(=-PBR`J-D2Op*">
-                                        <value name="VEHICLE">
-                                          <block type="varname" id="V0};5QU.d_B;m4G0B3^c">
-                                            <field name="VARNAME">vehicle</field>
-                                          </block>
-                                        </value>
-                                        <value name="PASSENGER">
-                                          <block type="varname" id="gXh#[BPd{{?7{8hI[|U6">
-                                            <field name="VARNAME">passenger</field>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </next>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
   <block type="scriptcraftfunction" id="xSuSbF!t8eVoZMx#l_};" x="213" y="5537">
     <field name="nameOfFunction">kingMaker (player, attacker)</field>
     <statement name="FUNCTIONCODE">
@@ -4906,6 +4836,96 @@
                 </next>
               </block>
             </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id="ynymYG?j*n,$~HM}__O}" x="-562" y="5588">
+    <field name="nameOfFunction">teleportRide (vehicle,passenger,location,pitch,yaw)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="consolelog" id="8vkW:|5QkUu(Xo7Qk8r1">
+        <value name="NAME">
+          <block type="varname" id="0|@X]3=PlT7T5[ucsn4N">
+            <field name="VARNAME">"Teleport " + passenger.name + "  to : " + location</field>
+          </block>
+        </value>
+        <next>
+          <block type="runexpression" id="K[hgdz:`5%(|yn7T;)[(">
+            <field name="EXPRESSION">vehicle.setAI(false)</field>
+            <comment pinned="false" h="80" w="160">Allow Rotation</comment>
+            <next>
+              <block type="setvariable" id=".P*Wn2fhqB=IBByh/%5d">
+                <field name="VARNAME">passenger.vehicle</field>
+                <field name="EXPRESSION">null</field>
+                <next>
+                  <block type="setride" id="7x%M@z.nl_J3s~.yQ2f/">
+                    <value name="VEHICLE">
+                      <block type="varname" id="w86hrSdAXQ[iAfXw)Bwh">
+                        <field name="VARNAME">vehicle</field>
+                      </block>
+                    </value>
+                    <value name="PASSENGER">
+                      <block type="varname" id="#!C@JZkubVDuTb6.tu01">
+                        <field name="VARNAME">null</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="runexpression" id=".HI7|%59p_4;%@7G=eRe">
+                        <field name="EXPRESSION">location.setYaw (yaw)</field>
+                        <next>
+                          <block type="runexpression" id="TJd;8CuPC|@rcc|r*94!">
+                            <field name="EXPRESSION">location.setPitch(pitch)</field>
+                            <next>
+                              <block type="teleport" id="qF?:qOS8QW+H{7|cRmg*">
+                                <value name="ENTITY">
+                                  <block type="varname" id="X|,(v83{a1@!Su]Bt#2V">
+                                    <field name="VARNAME">passenger</field>
+                                  </block>
+                                </value>
+                                <value name="LOCATION">
+                                  <block type="varname" id="t9nR2D6_QgPM:=D+LxRD">
+                                    <field name="VARNAME">location</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="teleport" id="d)^pU@qfQ!)T]2FQA=;2">
+                                    <value name="ENTITY">
+                                      <block type="varname" id="S!*{LGw-xD-gFxdzM7Vi">
+                                        <field name="VARNAME">vehicle</field>
+                                      </block>
+                                    </value>
+                                    <value name="LOCATION">
+                                      <block type="varname" id=";kWZ}FJPH8g)8xG/JFF(">
+                                        <field name="VARNAME">location</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="setride" id="sO2Osj(=-PBR`J-D2Op*">
+                                        <value name="VEHICLE">
+                                          <block type="varname" id="V0};5QU.d_B;m4G0B3^c">
+                                            <field name="VARNAME">vehicle</field>
+                                          </block>
+                                        </value>
+                                        <value name="PASSENGER">
+                                          <block type="varname" id="gXh#[BPd{{?7{8hI[|U6">
+                                            <field name="VARNAME">passenger</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
           </block>
         </next>
       </block>

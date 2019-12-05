@@ -730,6 +730,7 @@ exports.handleMyRide  = function (myRide,player) {
       console.log ("Nothing in hand, proceed to " + targetLocation + " from " + myRide.location);
       vector=targetLocation.toVector().subtract(myRide.location.toVector());
       loc=player.location;
+      vector=vector.normalize().multiply (2.0);
       loc=loc.add (vector.normalize());
       // Keep vehicle on ground (y=4)
       loc=new org.bukkit.Location(server.worlds[0], loc.x, 4, loc.z);
@@ -970,22 +971,6 @@ exports.teamSelection  = function (block, player) {
   }
 };
 
-exports.teleportRide  = function (vehicle,passenger,location,pitch,yaw) {
-  //Instantiations;
-  var entity;
-  var TeleportCause;
-  console.log ("Teleport " + passenger.name + "  to : " + location);
-  // Allow Rotation
-  vehicle.setAI(false)
-  passenger.vehicle=null;
-  vehicle.setPassenger(null);
-  location.setYaw (yaw)
-  location.setPitch(pitch)
-  passenger.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-  vehicle.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-  vehicle.setPassenger(passenger);
-};
-
 exports.kingMaker  = function (player, attacker) {
   //Instantiations;
   var inventory;
@@ -1088,6 +1073,22 @@ exports.kingMaker  = function (player, attacker) {
     console.log ("Give king attacker a bunch of gear yo");
     player.teleport(new org.bukkit.Location(server.worlds[0], -587, 5, 532), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   }
+};
+
+exports.teleportRide  = function (vehicle,passenger,location,pitch,yaw) {
+  //Instantiations;
+  var entity;
+  var TeleportCause;
+  console.log ("Teleport " + passenger.name + "  to : " + location);
+  // Allow Rotation
+  vehicle.setAI(false)
+  passenger.vehicle=null;
+  vehicle.setPassenger(null);
+  location.setYaw (yaw)
+  location.setPitch(pitch)
+  passenger.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  vehicle.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  vehicle.setPassenger(passenger);
 };
 
 exports.checkDespawns  = function (player) {
