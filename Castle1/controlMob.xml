@@ -4653,155 +4653,155 @@
               </block>
             </statement>
             <statement name="ELSE">
-              <block type="nameastack" id="n8gD:iz_!Y2ka?0tU2/a">
-                <field name="NAME">"teleport"</field>
-                <value name="STACK">
-                  <block type="itemstack" id=")Fc$LC+U}3W:0z~/C+/g">
-                    <field name="COUNT">1</field>
-                    <value name="ITEM">
-                      <block type="materialtype" id="g0ABA7bvustE4A8{VttN">
-                        <field name="MATERIAL">STICK</field>
-                      </block>
-                    </value>
+              <block type="addpotion" id="e*}Qp]%y!$!*IcknB,Br">
+                <field name="COUNT">16</field>
+                <field name="POTION">SPLASH_POTION</field>
+                <value name="NAME">
+                  <block type="varname" id="ElOwA5k0mIQ;KsC`i1rD">
+                    <field name="VARNAME">"control"</field>
                   </block>
                 </value>
                 <next>
-                  <block type="updateinventory" id="?+lqU8U65nx%w*ZXWc:J">
-                    <value name="ITEMSTACK">
-                      <block type="varname" id="YVa1$sE91[07,[oYt-{w">
-                        <field name="VARNAME">stack</field>
+                  <block type="addpotion" id="^@0YqRFc-7Dd%|ZTW6]L">
+                    <field name="COUNT">32</field>
+                    <field name="POTION">SPLASH_POTION</field>
+                    <value name="NAME">
+                      <block type="varname" id="!%Dydrp9KNzA2=zF9}c1">
+                        <field name="VARNAME">"destroy"</field>
                       </block>
                     </value>
                     <next>
-                      <block type="addpotion" id="e*}Qp]%y!$!*IcknB,Br">
-                        <field name="COUNT">16</field>
+                      <block type="addpotion" id="`T~hAB4-,HEdpBY}+!3#">
+                        <field name="COUNT">64</field>
                         <field name="POTION">SPLASH_POTION</field>
                         <value name="NAME">
-                          <block type="varname" id="ElOwA5k0mIQ;KsC`i1rD">
-                            <field name="VARNAME">"control"</field>
+                          <block type="varname" id="a--IpTTQs!l/{0=5t{!b">
+                            <field name="VARNAME">"landmine"</field>
                           </block>
                         </value>
                         <next>
-                          <block type="addpotion" id="^@0YqRFc-7Dd%|ZTW6]L">
-                            <field name="COUNT">32</field>
-                            <field name="POTION">SPLASH_POTION</field>
+                          <block type="addpotion" id=":AHR#v$|g0[dWUI{bb(@">
+                            <field name="COUNT">16</field>
+                            <field name="POTION">POTION</field>
                             <value name="NAME">
-                              <block type="varname" id="!%Dydrp9KNzA2=zF9}c1">
-                                <field name="VARNAME">"destroy"</field>
+                              <block type="text" id="PHvX|5WE|A_p0`oQ.{eL">
+                                <field name="TEXT">heal</field>
                               </block>
                             </value>
                             <next>
-                              <block type="addpotion" id="`T~hAB4-,HEdpBY}+!3#">
-                                <field name="COUNT">64</field>
-                                <field name="POTION">SPLASH_POTION</field>
+                              <block type="addpotion" id="dY2WI+}J7[mhT+R-rUkr">
+                                <field name="COUNT">16</field>
+                                <field name="POTION">POTION</field>
                                 <value name="NAME">
-                                  <block type="varname" id="a--IpTTQs!l/{0=5t{!b">
-                                    <field name="VARNAME">"landmine"</field>
+                                  <block type="text" id=".u-)Y38d[^nFf$`t`cEJ">
+                                    <field name="TEXT">up</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="addpotion" id=":AHR#v$|g0[dWUI{bb(@">
-                                    <field name="COUNT">16</field>
-                                    <field name="POTION">POTION</field>
-                                    <value name="NAME">
-                                      <block type="text" id="PHvX|5WE|A_p0`oQ.{eL">
-                                        <field name="TEXT">heal</field>
+                                  <block type="updateinventory" id="hMu2mAPR!EXkHLP+%0-~">
+                                    <value name="ITEMSTACK">
+                                      <block type="itemstack" id="*lsAREx:|IwfU,]fI%F[">
+                                        <field name="COUNT">1</field>
+                                        <value name="ITEM">
+                                          <block type="materialtype" id="Ns1^b6/|jDhEh9VLL2VC">
+                                            <field name="MATERIAL">BOW</field>
+                                          </block>
+                                        </value>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="addpotion" id="dY2WI+}J7[mhT+R-rUkr">
-                                        <field name="COUNT">16</field>
-                                        <field name="POTION">POTION</field>
-                                        <value name="NAME">
-                                          <block type="text" id=".u-)Y38d[^nFf$`t`cEJ">
-                                            <field name="TEXT">up</field>
+                                      <block type="updateinventory" id="OVO(fCl5r}49=%MW1z43">
+                                        <value name="ITEMSTACK">
+                                          <block type="itemstack" id="m}9X$J*Z(ac]+~xv?{q3">
+                                            <field name="COUNT">16</field>
+                                            <value name="ITEM">
+                                              <block type="materialtype" id="cRtp{2XJgOg$#=g/TZ.f">
+                                                <field name="MATERIAL">SNOWBALL</field>
+                                              </block>
+                                            </value>
                                           </block>
                                         </value>
                                         <next>
-                                          <block type="updateinventory" id="hMu2mAPR!EXkHLP+%0-~">
+                                          <block type="updateinventory" id="_0S.UjVG=+I$!~A/q;$Y">
                                             <value name="ITEMSTACK">
-                                              <block type="itemstack" id="*lsAREx:|IwfU,]fI%F[">
-                                                <field name="COUNT">1</field>
+                                              <block type="itemstack" id="j@l~/3ZM][$7aUK*fbn2">
+                                                <field name="COUNT">64</field>
                                                 <value name="ITEM">
-                                                  <block type="materialtype" id="Ns1^b6/|jDhEh9VLL2VC">
-                                                    <field name="MATERIAL">BOW</field>
+                                                  <block type="materialtype" id="Q%jCbqiuu-FEe=e$Z|-`">
+                                                    <field name="MATERIAL">ARROW</field>
                                                   </block>
                                                 </value>
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="updateinventory" id="OVO(fCl5r}49=%MW1z43">
+                                              <block type="updateinventory" id="cr4s-M/U}}IsN@^sGI14">
                                                 <value name="ITEMSTACK">
-                                                  <block type="itemstack" id="m}9X$J*Z(ac]+~xv?{q3">
+                                                  <block type="itemstack" id="Vz$IP{Jm(-0FB$y6iEeE">
                                                     <field name="COUNT">16</field>
                                                     <value name="ITEM">
-                                                      <block type="materialtype" id="cRtp{2XJgOg$#=g/TZ.f">
-                                                        <field name="MATERIAL">SNOWBALL</field>
+                                                      <block type="materialtype" id="D1j/)Ux|ky~IS^;$vL_j">
+                                                        <field name="MATERIAL">ELYTRA</field>
                                                       </block>
                                                     </value>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="updateinventory" id="_0S.UjVG=+I$!~A/q;$Y">
-                                                    <value name="ITEMSTACK">
-                                                      <block type="itemstack" id="j@l~/3ZM][$7aUK*fbn2">
-                                                        <field name="COUNT">64</field>
-                                                        <value name="ITEM">
-                                                          <block type="materialtype" id="Q%jCbqiuu-FEe=e$Z|-`">
-                                                            <field name="MATERIAL">ARROW</field>
-                                                          </block>
-                                                        </value>
+                                                  <block type="armorset" id="EMDa(Bp?[cOuK`l,}=Q+">
+                                                    <value name="COLOR">
+                                                      <block type="getcolor" id="vVq|4fO8G5cGnV}^izg~">
+                                                        <field name="COLOR">WHITE</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="PLAYER">
+                                                      <block type="varname" id="]VA]Jq]Q,epaddnfHPVo">
+                                                        <field name="VARNAME">player</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="updateinventory" id="cr4s-M/U}}IsN@^sGI14">
-                                                        <value name="ITEMSTACK">
-                                                          <block type="itemstack" id="Vz$IP{Jm(-0FB$y6iEeE">
-                                                            <field name="COUNT">16</field>
-                                                            <value name="ITEM">
-                                                              <block type="materialtype" id="D1j/)Ux|ky~IS^;$vL_j">
-                                                                <field name="MATERIAL">ELYTRA</field>
-                                                              </block>
-                                                            </value>
-                                                          </block>
-                                                        </value>
+                                                      <block type="runexpression" id="CT7:!ZAEsiRmDNBhrs|e">
+                                                        <field name="EXPRESSION">exports.kingDefender = player</field>
                                                         <next>
-                                                          <block type="armorset" id="EMDa(Bp?[cOuK`l,}=Q+">
-                                                            <value name="COLOR">
-                                                              <block type="getcolor" id="vVq|4fO8G5cGnV}^izg~">
-                                                                <field name="COLOR">WHITE</field>
-                                                              </block>
-                                                            </value>
-                                                            <value name="PLAYER">
-                                                              <block type="varname" id="]VA]Jq]Q,epaddnfHPVo">
-                                                                <field name="VARNAME">player</field>
-                                                              </block>
-                                                            </value>
+                                                          <block type="servercommand" id="/7~?.6I|UN~K1?qS!qKH">
+                                                            <field name="COMMAND">"say \"" + player.name + " is now King Defender \""</field>
                                                             <next>
-                                                              <block type="runexpression" id="CT7:!ZAEsiRmDNBhrs|e">
-                                                                <field name="EXPRESSION">exports.kingDefender = player</field>
+                                                              <block type="consolelog" id="@u61V(es0/_0g@O^y-Va">
+                                                                <value name="NAME">
+                                                                  <block type="varname" id="UPzfCfGPEDZVr`GUdro?">
+                                                                    <field name="VARNAME">"Give king attacker a bunch of gear yo"</field>
+                                                                  </block>
+                                                                </value>
                                                                 <next>
-                                                                  <block type="servercommand" id="/7~?.6I|UN~K1?qS!qKH">
-                                                                    <field name="COMMAND">"say \"" + player.name + " is now King Defender \""</field>
+                                                                  <block type="teleport" id="(*oDyLpxVOEepi04%d|^">
+                                                                    <value name="ENTITY">
+                                                                      <block type="varname" id="ZW*aJEd/1vMU)`7swL01">
+                                                                        <field name="VARNAME">player</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="LOCATION">
+                                                                      <block type="absolutelocation" id="(d.wKiC,H`n2_MRpmkpN">
+                                                                        <field name="X">-587</field>
+                                                                        <field name="Y">5</field>
+                                                                        <field name="Z">532</field>
+                                                                      </block>
+                                                                    </value>
                                                                     <next>
-                                                                      <block type="consolelog" id="@u61V(es0/_0g@O^y-Va">
-                                                                        <value name="NAME">
-                                                                          <block type="varname" id="UPzfCfGPEDZVr`GUdro?">
-                                                                            <field name="VARNAME">"Give king attacker a bunch of gear yo"</field>
+                                                                      <block type="nameastack" id="n8gD:iz_!Y2ka?0tU2/a">
+                                                                        <field name="NAME">"teleport"</field>
+                                                                        <value name="STACK">
+                                                                          <block type="itemstack" id=")Fc$LC+U}3W:0z~/C+/g">
+                                                                            <field name="COUNT">1</field>
+                                                                            <value name="ITEM">
+                                                                              <block type="materialtype" id="g0ABA7bvustE4A8{VttN">
+                                                                                <field name="MATERIAL">STICK</field>
+                                                                              </block>
+                                                                            </value>
                                                                           </block>
                                                                         </value>
                                                                         <next>
-                                                                          <block type="teleport" id="(*oDyLpxVOEepi04%d|^">
-                                                                            <value name="ENTITY">
-                                                                              <block type="varname" id="ZW*aJEd/1vMU)`7swL01">
-                                                                                <field name="VARNAME">player</field>
-                                                                              </block>
-                                                                            </value>
-                                                                            <value name="LOCATION">
-                                                                              <block type="absolutelocation" id="(d.wKiC,H`n2_MRpmkpN">
-                                                                                <field name="X">-587</field>
-                                                                                <field name="Y">5</field>
-                                                                                <field name="Z">532</field>
+                                                                          <block type="updateinventory" id="?+lqU8U65nx%w*ZXWc:J">
+                                                                            <value name="ITEMSTACK">
+                                                                              <block type="varname" id="YVa1$sE91[07,[oYt-{w">
+                                                                                <field name="VARNAME">stack</field>
                                                                               </block>
                                                                             </value>
                                                                           </block>

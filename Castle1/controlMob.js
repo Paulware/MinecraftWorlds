@@ -975,11 +975,11 @@ exports.kingMaker  = function (player, attacker) {
   //Instantiations;
   var inventory;
   var color;
-  var meta;
-  var stack;
   var location;
   var entity;
   var TeleportCause;
+  var meta;
+  var stack;
   inventory=player.inventory;
   if (attacker){
     color = org.bukkit.Color.AQUA;
@@ -1011,11 +1011,6 @@ exports.kingMaker  = function (player, attacker) {
     dropChest(player);
   }
   else {
-    stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
-    meta = stack.getItemMeta()
-    meta.setDisplayName ("teleport");
-    stack.setItemMeta(meta);
-    inventory.addItem (stack);
     var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,16);
     var meta = newItems.getItemMeta();
     meta.setDisplayName('control');
@@ -1072,6 +1067,11 @@ exports.kingMaker  = function (player, attacker) {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say \"" + player.name + " is now King Defender \"");
     console.log ("Give king attacker a bunch of gear yo");
     player.teleport(new org.bukkit.Location(server.worlds[0], -587, 5, 532), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    stack = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);
+    meta = stack.getItemMeta()
+    meta.setDisplayName ("teleport");
+    stack.setItemMeta(meta);
+    inventory.addItem (stack);
   }
 };
 
