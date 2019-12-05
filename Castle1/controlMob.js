@@ -189,6 +189,8 @@ exports.controlMob = function () {
       name=event.getItem().getItemMeta().getDisplayName();
       if (name=="up"){
         player.teleport(player.location.add(0,70,0), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.FIREWORK_ROCKET,16);
+        player.inventory.addItem(stack)
         stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32);
         player.inventory.addItem(stack)
         player.addPotionEffect(new org.bukkit.potion.PotionEffect (org.bukkit.potion.PotionEffectType.SLOW_FALLING,2400, 1));
@@ -1029,6 +1031,11 @@ exports.kingMaker  = function (player, attacker) {
     meta.setDisplayName ("teleport");
     stack.setItemMeta(meta);
     inventory.addItem (stack);
+    var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,16);
+    var meta = newItems.getItemMeta();
+    meta.setDisplayName('control');
+    newItems.setItemMeta(meta);
+    inventory.addItem(newItems);
     var newItems = new org.bukkit.inventory.ItemStack (org.bukkit.Material.SPLASH_POTION,32);
     var meta = newItems.getItemMeta();
     meta.setDisplayName('destroy');
