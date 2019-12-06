@@ -30,8 +30,8 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\asteroidBedWars\*.*
 GOTO:copyFiles
 
-:menu_3   Copy Garden Bed Wars World
-set source=C:\SpigotMC\MinecraftWorlds\gardenBedWars\*.*
+:menu_3   Copy Air Wars World
+set source=C:\SpigotMC\MinecraftWorlds\airWars\*.*
 GOTO:copyFiles
 
 :menu_4   Copy Castle Mob Control
