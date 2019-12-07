@@ -1,3 +1,5 @@
+exports.vectorToYaw = function(motion) {     var dx = motion.getX();     var dz = motion.getZ();     var yaw = 0;     yaw = (motion.getX == null) ? 0 : (motion.getZ == null) ? 0 : ((dx != 0) ? ((dx < 0) ? 1.5 * Math.PI : 0.5 * Math.PI) - Math.atan(dz/dx) : (dz < 0) ? Math.PI : 0) * (-1 * 180 / Math.PI);     if (yaw < -180) {        yaw = yaw + 360;     } else if (yaw > 180) {        yaw = yaw - 360;     }      console.log ( "Got a yaw of : " + yaw );            return yaw; }
+
 exports.defendMe  = function (player, target) {
   //Instantiations;
   var entities;
@@ -77,6 +79,7 @@ exports.controlMob = function () {
   var shooter;
   exports.kingAttacker = null
   exports.kingDefender = null
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
