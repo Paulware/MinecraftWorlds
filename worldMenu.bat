@@ -37,6 +37,8 @@ GOTO:copyFiles
 :menu_4   Copy Castle Mob Control
 set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
 copy C:\SpigotMC\MinecraftWorlds\Castle1\controlMob.js C:\SpigotMC\scriptcraft\plugins\controlMob.js
+copy C:\SpigotMC\MinecraftWorlds\Castle1\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
