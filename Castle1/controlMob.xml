@@ -2583,7 +2583,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="Gv)V!QbNl1Xeq~12xMgp" x="-1287" y="3063">
+  <block type="scriptcraftfunction" id="Gv)V!QbNl1Xeq~12xMgp" x="-1162" y="3088">
     <field name="nameOfFunction">showEntities (player)</field>
     <statement name="FUNCTIONCODE">
       <block type="setvariablevalue" id=".qRC8vSf0/z+qxE735-u">
@@ -3081,9 +3081,17 @@
                       </block>
                     </value>
                     <next>
-                      <block type="setvariable" id="9Y`QkQQ%ezuQz*9qocr}">
+                      <block type="setvariablevalue" id="{LGd**j[KH:#mI-![Bo_">
                         <field name="VARNAME">yaw</field>
-                        <field name="EXPRESSION">vectorToYaw (vector)</field>
+                        <value name="EXPRESSION">
+                          <block type="vectortoyaw" id="ZWaB,8S-fYDGxG7wJkS9">
+                            <value name="VECTOR">
+                              <block type="varname" id="q1.!d/x~^GOnZpb.jqFU">
+                                <field name="VARNAME">vector</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
                         <next>
                           <block type="setvariable" id="+JNt.-_r?0Elvn}@IRcO">
                             <field name="VARNAME">diff</field>
