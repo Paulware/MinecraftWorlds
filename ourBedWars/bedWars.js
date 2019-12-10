@@ -92,15 +92,13 @@ exports.bedWarRespawn  = function (player) {
     setTimeout (function () {
       player.sendMessage ("Teleport to base " + location);
       location = new org.bukkit.Location (server.worlds[0], parseInt(location.x), parseInt(location.y)+5, parseInt(location.z));
-      entity = player;
-      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      player.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },100);
   }
   else {
     setTimeout (function () {
       location=new org.bukkit.Location(server.worlds[0], locations["LOBBY"].x, locations["LOBBY"].y, locations["LOBBY"].z);
-      entity = player;
-      entity.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      player.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       player.sendMessage ("Teleport to lobby ");
     },100);
   }
@@ -160,6 +158,7 @@ exports.bedWarRules = function () {
   var block;
   var data;
   var sign;
+  var projectile;
   var blocks;
   var entity;
   var entities;
@@ -181,7 +180,7 @@ exports.bedWarRules = function () {
   server.worlds[0].setSpawnLocation(new org.bukkit.Location(server.worlds[0], -4, 117, 12));
   events.playerMove( function (event) {
     player=event.player;
-    name=(player.getItemInHand()== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
     if (name == "Staff of Dynamite"){
       loc=new org.bukkit.Location(server.worlds[0], player.location.x, player.location.y, player.location.z);
       server.worlds[0].getBlockAt (loc.add(1,-1,0)).setType (org.bukkit.Material.TNT);
@@ -190,6 +189,10 @@ exports.bedWarRules = function () {
     else if (name == "scaffold"){
       loc=new org.bukkit.Location(server.worlds[0], player.location.x, player.location.y, player.location.z);
       server.worlds[0].getBlockAt (loc.add(0,-1,0)).setType (org.bukkit.Material.OAK_WOOD);
+    }
+    else if (name == "arrows"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+      player.launchProjectile(projectile.getClass());
     }
   });
   events.playerDeath( function (event) {
@@ -209,7 +212,7 @@ exports.bedWarRules = function () {
   });
   events.potionSplash( function (event) {
     console.log ("Get name of potion");
-    name=event.getPotion().getItem().getItemMeta().getDisplayName();
+    name=event.getPotion().getItemMeta().getDisplayName();
     console.log ("potion name: [" + name + "]");
     entities=event.getAffectedEntities();
     for (var i=0; i<parseInt(entities.length); i++) {
