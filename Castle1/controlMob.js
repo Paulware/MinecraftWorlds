@@ -681,7 +681,7 @@ exports.handleMyRide  = function (myRide,player) {
   var block;
   var targetLocation;
   var vector;
-function finalVecAdjust (v){return (v<-180) ? v+360 : (v>180 ) ? v-360 : v; };
+  function finalVecAdjust (v){return (v<-180) ? v+360 : (v>180 ) ? v-360 : v; };
   var yaw;
   var diff;
   var name;
@@ -694,7 +694,7 @@ function finalVecAdjust (v){return (v<-180) ? v+360 : (v>180 ) ? v-360 : v; };
   targetLocation=new org.bukkit.Location(server.worlds[0], block.location.x, block.location.y, block.location.z);
   console.log ("I am riding, looking at: " + block.location + " targetting: " + targetLocation);
   vector=targetLocation.toVector().subtract(player.location.toVector());
-  yaw=finalVecAdjust((motion.getX==null) ? 0 : (motion.getZ==null) ? 0 : ((motion.getX()!= 0) ? ((motion.getX()<0) ? 1.5*Math.PI : 0.5*Math.PI) - Math.atan(motion.getZ()/motion.getX()) : (motion.getZ()<0) ? Math.PI : 0) * (-1*180/Math.PI));
+  yaw=finalVecAdjust((vector.getX==null) ? 0 : (vector.getZ==null) ? 0 : ((vector.getX()!= 0) ? ((vector.getX()<0) ? 1.5*Math.PI : 0.5*Math.PI) - Math.atan(vector.getZ()/vector.getX()) : (vector.getZ()<0) ? Math.PI : 0) * (-1*180/Math.PI));
   diff=Math.abs ( yaw - myRide.getLocation().getYaw());
   console.log ("yaw:" + yaw + " current Yaw:" + myRide.getLocation().getYaw() + " diff:" + diff);
   if ((diff) < 10){
