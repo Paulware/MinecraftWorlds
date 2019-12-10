@@ -681,7 +681,7 @@ exports.handleMyRide  = function (myRide,player) {
   var block;
   var targetLocation;
   var vector;
-  var function finalVecAdjust (v){return (v<-180) ? v+360 : (v>180 ) ? v-360 : v; };
+function finalVecAdjust (v){return (v<-180) ? v+360 : (v>180 ) ? v-360 : v; };
   var yaw;
   var diff;
   var name;
