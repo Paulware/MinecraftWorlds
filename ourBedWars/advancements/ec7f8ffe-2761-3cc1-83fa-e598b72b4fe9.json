@@ -1,10 +1,4 @@
 {
-  "minecraft:recipes/decorations/campfire": {
-    "criteria": {
-      "has_stick": "2019-12-04 21:05:27 -0600"
-    },
-    "done": true
-  },
   "minecraft:recipes/redstone/birch_door": {
     "criteria": {
       "has_planks": "2019-12-04 20:58:11 -0600"
@@ -23,7 +17,7 @@
     },
     "done": true
   },
-  "minecraft:recipes/combat/wooden_sword": {
+  "minecraft:recipes/decorations/campfire": {
     "criteria": {
       "has_stick": "2019-12-04 21:05:27 -0600"
     },
@@ -32,6 +26,12 @@
   "minecraft:recipes/building_blocks/birch_slab": {
     "criteria": {
       "has_planks": "2019-12-04 20:58:11 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/wooden_sword": {
+    "criteria": {
+      "has_stick": "2019-12-04 21:05:27 -0600"
     },
     "done": true
   },
@@ -59,27 +59,27 @@
     },
     "done": true
   },
-  "minecraft:recipes/decorations/barrel": {
-    "criteria": {
-      "has_planks": "2019-12-04 20:58:11 -0600"
-    },
-    "done": true
-  },
   "minecraft:recipes/building_blocks/snow_block": {
     "criteria": {
       "has_snowball": "2019-12-04 20:53:04 -0600"
     },
     "done": true
   },
-  "minecraft:recipes/tools/wooden_shovel": {
+  "minecraft:recipes/decorations/barrel": {
     "criteria": {
-      "has_stick": "2019-12-04 21:05:27 -0600"
+      "has_planks": "2019-12-04 20:58:11 -0600"
     },
     "done": true
   },
   "minecraft:recipes/redstone/birch_fence_gate": {
     "criteria": {
       "has_planks": "2019-12-04 20:58:11 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_shovel": {
+    "criteria": {
+      "has_stick": "2019-12-04 21:05:27 -0600"
     },
     "done": true
   },
@@ -95,12 +95,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/tools/wooden_hoe": {
-    "criteria": {
-      "has_stick": "2019-12-04 21:05:27 -0600"
-    },
-    "done": true
-  },
   "minecraft:recipes/redstone/birch_trapdoor": {
     "criteria": {
       "has_planks": "2019-12-04 20:58:11 -0600"
@@ -110,6 +104,12 @@
   "minecraft:recipes/decorations/birch_sign": {
     "criteria": {
       "has_birch_planks": "2019-12-04 20:58:11 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2019-12-04 21:05:27 -0600"
     },
     "done": true
   },

@@ -49,6 +49,8 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\ourBedWars\*.*
 copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
 copy C:\SpigotMC\MinecraftWorlds\ourBedWars\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
+copy C:\SpigotMC\MinecraftWorlds\Castle1\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
 GOTO:copyFiles
 
 :menu_9   Run the server
