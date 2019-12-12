@@ -32,6 +32,10 @@ GOTO:copyFiles
 
 :menu_3   Copy Air Wars World
 set source=C:\SpigotMC\MinecraftWorlds\airWars\*.*
+copy C:\SpigotMC\MinecraftWorlds\airWars\airWars.js C:\SpigotMC\scriptcraft\plugins\airWars.js
+copy C:\SpigotMC\MinecraftWorlds\airWars\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\airWars\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\airWars\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
 :menu_4   Copy Castle Mob Control
@@ -39,6 +43,7 @@ set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
 copy C:\SpigotMC\MinecraftWorlds\Castle1\controlMob.js C:\SpigotMC\scriptcraft\plugins\controlMob.js
 copy C:\SpigotMC\MinecraftWorlds\Castle1\bukkit.yml C:\SpigotMC\bukkit.yml
 copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
@@ -49,8 +54,9 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\ourBedWars\*.*
 copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
 copy C:\SpigotMC\MinecraftWorlds\ourBedWars\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
-copy C:\SpigotMC\MinecraftWorlds\Castle1\bukkit.yml C:\SpigotMC\bukkit.yml
-copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\ourBedWars\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\ourBedWars\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
 :menu_9   Run the server
