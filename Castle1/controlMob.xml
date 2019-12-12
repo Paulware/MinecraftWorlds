@@ -884,56 +884,76 @@
                                                                                                       </block>
                                                                                                     </value>
                                                                                                     <next>
-                                                                                                      <block type="setvariablevalue" id="PKtGKRy95hq],7W}VOuW">
-                                                                                                        <field name="VARNAME">stack</field>
-                                                                                                        <value name="EXPRESSION">
-                                                                                                          <block type="itemstack" id="(0AVuUEm-5Zx#h-_EH)G">
-                                                                                                            <field name="COUNT">16</field>
+                                                                                                      <block type="sethotbar" id="J%jgWO(m~sSqwA;BRa4V">
+                                                                                                        <field name="SLOT">0</field>
+                                                                                                        <value name="PLAYER">
+                                                                                                          <block type="varname" id="@(Soz-4N}cbpPXg:L_nL">
+                                                                                                            <field name="VARNAME">player</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <value name="STACK">
+                                                                                                          <block type="itemstack" id="cN4Y]Q(#dz6gH[47cv3O">
+                                                                                                            <field name="COUNT">1</field>
                                                                                                             <value name="ITEM">
-                                                                                                              <block type="materialtype" id="Py=CPd_Nxi0eNQNCf_Eq">
-                                                                                                                <field name="MATERIAL">FIREWORK_ROCKET</field>
+                                                                                                              <block type="materialtype" id="ir^dj@8a0TMhW{[61uZj">
+                                                                                                                <field name="MATERIAL">LEGACY_ELYTRA</field>
                                                                                                               </block>
                                                                                                             </value>
                                                                                                           </block>
                                                                                                         </value>
                                                                                                         <next>
-                                                                                                          <block type="runexpression" id="#390,7u8Qq@^$Keh3!4i">
-                                                                                                            <field name="EXPRESSION">player.inventory.addItem(stack)</field>
+                                                                                                          <block type="sethotbar" id="tcf+Ge|cPD_CIh{_1wqv">
+                                                                                                            <field name="SLOT">1</field>
+                                                                                                            <value name="PLAYER">
+                                                                                                              <block type="varname" id="nA|IG;.`URDhwH{5%-}:">
+                                                                                                                <field name="VARNAME">player</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <value name="STACK">
+                                                                                                              <block type="itemstack" id="vK8sbBum!]6;uJu5BgPW">
+                                                                                                                <field name="COUNT">16</field>
+                                                                                                                <value name="ITEM">
+                                                                                                                  <block type="materialtype" id="6q4`vhKfgFOh(lj@Efp,">
+                                                                                                                    <field name="MATERIAL">FIREWORK_ROCKET</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </value>
                                                                                                             <next>
-                                                                                                              <block type="setvariablevalue" id="TNb2i/ef[1{1sue7?v7m">
-                                                                                                                <field name="VARNAME">stack</field>
-                                                                                                                <value name="EXPRESSION">
-                                                                                                                  <block type="itemstack" id="-32arlin(eW,IaeszZ8b">
+                                                                                                              <block type="sethotbar" id="D%s0F-Xc#9=4Q45DTz}f">
+                                                                                                                <field name="SLOT">2</field>
+                                                                                                                <value name="PLAYER">
+                                                                                                                  <block type="varname" id="L)oCC-EE/Nix!-!@3Ub|">
+                                                                                                                    <field name="VARNAME">player</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <value name="STACK">
+                                                                                                                  <block type="itemstack" id="-%{:1]6fj7HUfYD*M*fc">
                                                                                                                     <field name="COUNT">32</field>
                                                                                                                     <value name="ITEM">
-                                                                                                                      <block type="materialtype" id="LP+8nLMa-TuHmOV?4!$V">
+                                                                                                                      <block type="materialtype" id="):f2GT/v)G@ye%/f~4zF">
                                                                                                                         <field name="MATERIAL">SNOWBALL</field>
                                                                                                                       </block>
                                                                                                                     </value>
                                                                                                                   </block>
                                                                                                                 </value>
                                                                                                                 <next>
-                                                                                                                  <block type="runexpression" id="rJ9b(x,)RwRBIT8uvk#T">
-                                                                                                                    <field name="EXPRESSION">player.inventory.addItem(stack)</field>
-                                                                                                                    <next>
-                                                                                                                      <block type="addpotioneffect" id="=hIe$v^yf0HV|]o:J;|o">
-                                                                                                                        <value name="EFFECT">
-                                                                                                                          <block type="whicheffect" id="VN2tmmJb+5[(7^co1j6k">
-                                                                                                                            <field name="EFFECT">slow_falling</field>
-                                                                                                                          </block>
-                                                                                                                        </value>
-                                                                                                                        <value name="PLAYER">
-                                                                                                                          <block type="varname" id="1Cza^fQNZ%s4T!/Z9D3F">
-                                                                                                                            <field name="VARNAME">player</field>
-                                                                                                                          </block>
-                                                                                                                        </value>
-                                                                                                                        <value name="DURATION">
-                                                                                                                          <block type="varname" id="iWgLmltu6vHrk~szc)?[">
-                                                                                                                            <field name="VARNAME">120</field>
-                                                                                                                          </block>
-                                                                                                                        </value>
+                                                                                                                  <block type="addpotioneffect" id="=hIe$v^yf0HV|]o:J;|o">
+                                                                                                                    <value name="EFFECT">
+                                                                                                                      <block type="whicheffect" id="VN2tmmJb+5[(7^co1j6k">
+                                                                                                                        <field name="EFFECT">slow_falling</field>
                                                                                                                       </block>
-                                                                                                                    </next>
+                                                                                                                    </value>
+                                                                                                                    <value name="PLAYER">
+                                                                                                                      <block type="varname" id="1Cza^fQNZ%s4T!/Z9D3F">
+                                                                                                                        <field name="VARNAME">player</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <value name="DURATION">
+                                                                                                                      <block type="varname" id="iWgLmltu6vHrk~szc)?[">
+                                                                                                                        <field name="VARNAME">120</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
                                                                                                                   </block>
                                                                                                                 </next>
                                                                                                               </block>

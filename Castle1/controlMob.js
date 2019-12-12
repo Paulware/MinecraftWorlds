@@ -69,7 +69,6 @@ exports.controlMob = function () {
   var item;
   var entity;
   var TeleportCause;
-  var stack;
   var block;
   var myRide;
   var projectile;
@@ -190,10 +189,9 @@ exports.controlMob = function () {
       name=event.getItem().getItemMeta().getDisplayName();
       if (name=="up"){
         player.teleport(player.location.add(0,70,0), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.FIREWORK_ROCKET,16);
-        player.inventory.addItem(stack)
-        stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32);
-        player.inventory.addItem(stack)
+        player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
+        player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.FIREWORK_ROCKET,16) );
+        player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,32) );
         player.addPotionEffect(new org.bukkit.potion.PotionEffect (org.bukkit.potion.PotionEffectType.SLOW_FALLING,2400, 1));
       }
       else if (name=="heal"){
@@ -245,7 +243,6 @@ exports.controlMob = function () {
         var item;
         var entity;
         var TeleportCause;
-        var stack;
       // spawn eval ("org.bukkit.entity.EntityType." + name.toUpperCase())
       var location = location;
       var entity = server.worlds[0].spawnEntity(location,eval ("org.bukkit.entity.EntityType." + name.toUpperCase()));
