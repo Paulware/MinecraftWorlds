@@ -53,6 +53,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2019-12-12 10:25:40 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/redstone/birch_button": {
     "criteria": {
       "has_planks": "2019-12-04 20:58:11 -0600"
@@ -127,6 +133,7 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:beach": "2019-12-12 10:23:45 -0600",
       "minecraft:plains": "2019-12-04 20:56:54 -0600"
     },
     "done": false
