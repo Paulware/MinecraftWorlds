@@ -1,0 +1,64 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="m?sE|,{8mvga20#z;Q[1" x="-762" y="38">
+    <field name="nameOfFunction">airWars</field>
+    <statement name="FUNCTIONCODE">
+      <block type="eventlistener" id="2gK0TK|g1tG_SS7{z%%(">
+        <field name="LISTENERTYPE">playerItemConsume</field>
+        <statement name="LISTENERCODE">
+          <block type="setvariable" id=".$I}59zG2tVYVQhuNY2D">
+            <field name="VARNAME">player</field>
+            <field name="EXPRESSION">event.player</field>
+            <next>
+              <block type="setvariable" id="t]~gc!DL}Ej9xH!1FC3o">
+                <field name="VARNAME">item</field>
+                <field name="EXPRESSION">event.getItem().getType()</field>
+                <next>
+                  <block type="controls_if" id="o%v37--g%qMSpIAxfN`Z">
+                    <value name="IF0">
+                      <block type="logic_compare" id="*HCSY3%Mo|d^z9#Os4sg">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="varname" id="Be|-)(nNlc:HPUh8iLG(">
+                            <field name="VARNAME">item</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="materialtype" id="XImuo@$jz*wk6)TYRs[v">
+                            <field name="MATERIAL">POTION</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="setvariablevalue" id="E^x~9VrfM*ZP@!jm0|_n">
+                        <field name="VARNAME">name</field>
+                        <value name="EXPRESSION">
+                          <block type="nameofitem" id="8E1z3{QVMY18dxL[;2kn">
+                            <value name="ITEM">
+                              <block type="varname" id="1_Y?N5LveK_6jZUW,3*9">
+                                <field name="VARNAME">item</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="consolelog" id="MgYe6IgpvGQFas:Q)7(}">
+                            <value name="NAME">
+                              <block type="varname" id="jYU8Nv-MBPT,qX9b*yup">
+                                <field name="VARNAME">"Consumed item with name:[" + name + "]" </field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
