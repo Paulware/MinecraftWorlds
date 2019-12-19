@@ -7,7 +7,6 @@ set blocklyroot=C:\
 set worldsroot=C:\SpigotMC
 set arduinoroot=C:\
 
-
 :menuLOOP
 echo.
 echo.= Menu =================================================
@@ -77,15 +76,12 @@ GOTO:menuLoop
 :menu_C   git clone Arduino 
 cd %arduinoroot%
 git clone https://github.com/Paulware/Arduino
-GOTO:menuLoop
 
-:menu_D   git clone BlocklyScriptcraft
 cd %blocklyroot%
 git clone https://github.com/Paulware/BlocklyScriptcraft
-GOTO:menuLoop
 
-:menu_E   git clone MinecraftWorlds
 cd %worldsroot%
+mkdir c:\SpigotMC
 git clone https://github.com/Paulware/MinecraftWorlds
 GOTO:menuLoop
 
