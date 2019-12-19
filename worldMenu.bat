@@ -25,8 +25,8 @@ GOTO:menuLOOP
 set source=C:\SpigotMC\MinecraftWorlds\hungerGames\*.*
 GOTO:copyFiles
 
-:menu_2   Copy Asteroids Bed Wars World
-set source=C:\SpigotMC\MinecraftWorlds\asteroidBedWars\*.*
+:menu_2   Copy TNT Cannon
+set source=C:\SpigotMC\MinecraftWorlds\tntCannon\*.*
 GOTO:copyFiles
 
 :menu_3   Copy Air Wars World
