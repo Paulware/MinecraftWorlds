@@ -27,6 +27,7 @@ GOTO:copyFiles
 
 :menu_2   Copy TNT Cannon
 set source=C:\SpigotMC\MinecraftWorlds\tntCannon\*.*
+copy C:\SpigotMC\MinecraftWorlds\tntCannon\startGame.js C:\SpigotMC\scriptcraft\plugins\startGame.js
 GOTO:copyFiles
 
 :menu_3   Copy Air Wars World
