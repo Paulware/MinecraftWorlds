@@ -49,6 +49,7 @@ GOTO:copyFiles
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach\*.*
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\startGame.js C:\SpigotMC\scriptcraft\plugins\startGame.js
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\readme.txt C:\SpigotMC\scriptcraft\plugins\readme.txt
+GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
 set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
