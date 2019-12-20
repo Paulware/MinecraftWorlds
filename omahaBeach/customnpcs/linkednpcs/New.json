@@ -1,0 +1,305 @@
+{
+    "NPCData": {
+        "ReturnToStart": 1b,
+        "NpcInv": [
+        ],
+        "PotionEffect": 0,
+        "Size": 5,
+        "stopAndInteract": 1b,
+        "Resistances": {
+            "Arrow": 1.0f,
+            "Explosion": 1.0f,
+            "Knockback": 1.0f,
+            "Melee": 1.0f
+        },
+        "BossBar": 0b,
+        "RespawnTime": 0,
+        "NpcAngrySound": "bff:mob.american.attack",
+        "ReactsToFire": 0b,
+        "IgnoreCobweb": 0b,
+        "PositionOffsetZ": 5.0f,
+        "PositionOffsetY": 5.0f,
+        "PositionOffsetX": 5.0f,
+        "LootMode": 0,
+        "TransformHasAI": 0b,
+        "AttackStrenght": 5,
+        "MovingPatern": 0,
+        "NpcLines": {
+            "Lines": [
+            ]
+        },
+        "DefendFaction": 1b,
+        "FireIndirect": 0,
+        "NpcVisible": 0,
+        "FindShelter": 2,
+        "TacticalVariant": 0,
+        "Orientation": 0,
+        "KnockBack": 0,
+        "TransformHasJob": 0b,
+        "CanDespawn": 0b,
+        "BurnInSun": 0b,
+        "StandingState": 0,
+        "AttackInvisible": 0b,
+        "WalkingRange": 10,
+        "ShotCount": 1,
+        "pDur": 5,
+        "StartPosNew": [688,50,448],
+        "AttackRange": 2,
+        "NpcKillLines": {
+            "Lines": [
+            ]
+        },
+        "PotionImmune": 0b,
+        "AvoidsSun": 0b,
+        "Texture": "ctb:textures/entity/humans/normal/normal1.png",
+        "NpcJob": 5,
+        "BurstCount": 8,
+        "NpcAttackLines": {
+            "Lines": [
+            ]
+        },
+        "pSpeed": 50,
+        "pArea": 0,
+        "pImpact": 0,
+        "MoveState": 0,
+        "RangeAndMelee": 0,
+        "pRender3D": 0b,
+        "CombatRegen": 0,
+        "pEffect": 0,
+        "DistanceToMelee": 4,
+        "NpcStepSound": "",
+        "FireRate": 4,
+        "pEffAmp": 0,
+        "ImmuneToFire": 0b,
+        "NpcKilledLines": {
+            "Lines": [
+            ]
+        },
+        "DisablePitch": 0b,
+        "pPhysics": 0b,
+        "TransformHasInv": 0b,
+        "NpcInteractLines": {
+            "Lines": [
+            ]
+        },
+        "pSpin": 0b,
+        "NpcHurtSound": "bff:mob.nazi.hurt",
+        "pTrail": 0,
+        "CreatureType": 0,
+        "TransformHasDisplay": 0b,
+        "NoFallDamage": 0b,
+        "TransformHasRole": 0b,
+        "Name": "American (Pre-War, Garand) Moving Path",
+        "Weapons": [
+            {
+                "Slot": 0b,
+                "id": "ctb:garand",
+                "Count": 1b,
+                "tag": {
+                    "rsightAttach": "",
+                    "fsightAttach": "",
+                    "ammo": 0,
+                    "mgItem": 0b,
+                    "triggerAttach": "",
+                    "secAmmo": 0,
+                    "skin": "",
+                    "gripAttach": "",
+                    "blood": 0,
+                    "mode": 0,
+                    "usingGScope": 1,
+                    "reload": 55,
+                    "ammoType": 25,
+                    "pammoType": 25,
+                    "firing": 0b,
+                    "usingGL": 0,
+                    "barrelAttach": "",
+                    "stockAttach": "",
+                    "bolted": 1b,
+                    "mud": 0,
+                    "jammed": 0b
+                },
+                "Damage": 0s
+            },
+            {
+                "Slot": 1b,
+                "id": "customnpcs:npcBronzeBullet",
+                "Count": 1b,
+                "Damage": 0s
+            }
+        ],
+        "NpcIdleSound": "",
+        "NPCDialogOptions": [
+        ],
+        "AggroRange": 64,
+        "DirectLOS": 1b,
+        "HealthRegen": 1,
+        "minDelay": 30,
+        "DoorInteract": 2,
+        "MoveSpeed": 5,
+        "TransformEditingModus": 0b,
+        "UsingSkinUrl": 0b,
+        "SkinUrl": "",
+        "CanSwim": 1b,
+        "MaxHealth": 20,
+        "HideBodyWhenKilled": 0b,
+        "AttackSpeed": 20,
+        "PotionDuration": 5,
+        "DropChance": [
+            {
+                "Integer": 100,
+                "Slot": 0
+            },
+            {
+                "Integer": 100,
+                "Slot": 1
+            },
+            {
+                "Integer": 100,
+                "Slot": 2
+            },
+            {
+                "Integer": 100,
+                "Slot": 3
+            },
+            {
+                "Integer": 100,
+                "Slot": 4
+            },
+            {
+                "Integer": 100,
+                "Slot": 5
+            },
+            {
+                "Integer": 100,
+                "Slot": 6
+            },
+            {
+                "Integer": 100,
+                "Slot": 7
+            },
+            {
+                "Integer": 100,
+                "Slot": 8
+            }
+        ],
+        "maxDelay": 40,
+        "Role": 0,
+        "FactionPoints": {
+            "DecreaseFaction1Points": 0b,
+            "OptionFaction2Points": 100,
+            "OptionFactions1": -1,
+            "OptionFactions2": -1,
+            "OptionFaction1Points": 100,
+            "DecreaseFaction2Points": 0b
+        },
+        "pDamage": 6,
+        "AimWhileShooting": 1b,
+        "AttackOtherFactions": 1b,
+        "CanDrown": 1b,
+        "pSize": 1,
+        "CanSprint": 0b,
+        "CanLeap": 0b,
+        "TransformIsActive": 0b,
+        "ModelData": {
+            "LegsConfig": {
+                "ScaleZ": 1.0f,
+                "TransZ": 0.0f,
+                "TransY": 0.0f,
+                "TransX": 0.0f,
+                "ScaleY": 1.0f,
+                "ScaleX": 1.0f
+            },
+            "BodyConfig": {
+                "ScaleZ": 1.0f,
+                "TransZ": 0.0f,
+                "TransY": 0.0f,
+                "TransX": 0.0f,
+                "ScaleY": 1.0f,
+                "ScaleX": 1.0f
+            },
+            "EntityClass": "ctb.entity.EntitySoldier",
+            "LegParts": {
+                "Type": -1b,
+                "PlayerTexture": 1b,
+                "Color": 16777215
+            },
+            "Parts": [
+            ],
+            "Breasts": 0b,
+            "Headwear": 2b,
+            "ArmsConfig": {
+                "ScaleZ": 1.0f,
+                "TransZ": 0.0f,
+                "TransY": 0.0f,
+                "TransX": 0.0f,
+                "ScaleY": 1.0f,
+                "ScaleX": 1.0f
+            },
+            "ExtraData": {
+            },
+            "HeadConfig": {
+                "ScaleZ": 1.0f,
+                "TransZ": 0.0f,
+                "TransY": 0.0f,
+                "TransX": 0.0f,
+                "ScaleY": 1.0f,
+                "ScaleX": 1.0f
+            }
+        },
+        "MovingState": 2,
+        "MovingPos": 0,
+        "PotionAmp": 0,
+        "OnAttack": 0,
+        "TacticalRadius": 8,
+        "MaxExp": 0,
+        "OrderedLines": 0b,
+        "pGlows": 0b,
+        "TransformHasAdvanced": 0b,
+        "TransformHasStats": 0b,
+        "FiringSound": "ctb:garandFire",
+        "Accuracy": 95,
+        "MinExp": 0,
+        "Armor": [
+            {
+                "Slot": 0b,
+                "id": "ctb:usHelm",
+                "Count": 1b,
+                "Damage": 0s
+            },
+            {
+                "Slot": 1b,
+                "id": "ctb:usTunicRifleman",
+                "Count": 1b,
+                "Damage": 0s
+            },
+            {
+                "Slot": 2b,
+                "id": "ctb:usBLegs",
+                "Count": 1b,
+                "Damage": 0s
+            },
+            {
+                "Slot": 3b,
+                "id": "ctb:usBoots",
+                "Count": 1b,
+                "Damage": 0s
+            }
+        ],
+        "CloakTexture": "",
+        "GlowTexture": "",
+        "MaxFiringRange": 64,
+        "pXlr8": 0b,
+        "pExplode": 0b,
+        "pStick": 0b,
+        "MovingPause": 0b,
+        "NpcDeathSound": "bff:mob.nazi.hurt",
+        "FactionID": 4,
+        "Title": "",
+        "ShowName": 1,
+        "npcInteracting": 1b,
+        "AvoidsWater": 0b,
+        "NoLivingAnimation": 0b,
+        "SpawnCycle": 3
+    },
+    "LinkedName": "New"
+}

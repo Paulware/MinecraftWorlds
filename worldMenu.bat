@@ -45,6 +45,10 @@ copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
+:menu_5   Copy Omaha Beach 
+set source=C:\SpigotMC\MinecraftWorlds\omahaBeach\*.*
+GOTO:copyFiles
+
 :menu_7   Copy Ruin bed wars
 set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
 GOTO:copyFiles
