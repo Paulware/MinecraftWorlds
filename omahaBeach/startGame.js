@@ -10,6 +10,18 @@ exports.startGame = function () {
   events.blockBreak( function (event) {
     event.cancelled = true;
   });
+  events.playerJoin( function (event) {
+    player=event.player;
+    player.sendMessage ("Sorry I have to kill you to make sure you go to the lobby (chop...chop)" );
+    setTimeout (function () {
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
+    },2500);
+  });
+  events.playerJoin( function (event) {
+    setTimeout (function () {
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + event.player);
+    },500);
+  });
   events.playerRespawn( function (event) {
     player=event.player;
     setTimeout (function () {
