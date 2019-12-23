@@ -1,0 +1,25 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-188" y="12">
+    <field name="nameOfFunction">omahaRules</field>
+    <statement name="FUNCTIONCODE">
+      <block type="eventlistener" id="[q`d16j3%gVA7W=DX(RU">
+        <field name="LISTENERTYPE">projectileHit</field>
+        <statement name="LISTENERCODE">
+          <block type="setvariable" id="cz9R5nNjW5mTCQo75m*Z">
+            <field name="VARNAME">projectile</field>
+            <field name="EXPRESSION">event.entity</field>
+            <next>
+              <block type="consolelog" id="UsTmvPYG*`jqkw~LpWZo">
+                <value name="NAME">
+                  <block type="varname" id="bO14{$9p:alNnu]*RaY6">
+                    <field name="VARNAME">projectile + " just hit something yo"</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

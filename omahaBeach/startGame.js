@@ -4,6 +4,11 @@ exports.startGame = function () {
   var block;
   var blockType;
   var team;
+  var meta;
+  var stack;
+  var rpg;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   setTimeout (function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   },500);
@@ -37,6 +42,10 @@ exports.startGame = function () {
         team=block.state.getLine(1);
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
         player.setMetadata ("team", fd );
+        rpg=(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.ARROW,16);  var m = s.getItemMeta();  m.setDisplayName ("M6A3 (Armor Piercing)");  s.setItemMeta(m);  return s; })();
+        player.getInventory().setItem (0,rpg );
+        stack=new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);
+        player.getInventory().setItem (1,stack );
         if ((team) == "Attacker"){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1223 64 -505");
         }
