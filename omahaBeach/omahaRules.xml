@@ -1,24 +1,190 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-188" y="12">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-175" y="14">
     <field name="nameOfFunction">omahaRules</field>
     <statement name="FUNCTIONCODE">
-      <block type="eventlistener" id="[q`d16j3%gVA7W=DX(RU">
-        <field name="LISTENERTYPE">projectileHit</field>
+      <block type="eventlistener" id="F(/PBK![zm^364Z+XhIb">
+        <field name="LISTENERTYPE">entityShootBow</field>
         <statement name="LISTENERCODE">
-          <block type="setvariable" id="cz9R5nNjW5mTCQo75m*Z">
-            <field name="VARNAME">projectile</field>
-            <field name="EXPRESSION">event.entity</field>
+          <block type="setvariable" id="33yAjN:-zgz.-%+we#l*">
+            <field name="VARNAME">shooter</field>
+            <field name="EXPRESSION">event.getEntity()</field>
             <next>
-              <block type="consolelog" id="UsTmvPYG*`jqkw~LpWZo">
-                <value name="NAME">
-                  <block type="varname" id="bO14{$9p:alNnu]*RaY6">
-                    <field name="VARNAME">projectile + " just hit something yo"</field>
+              <block type="setvariable" id="rSjqvQ#^lkek7NXSo!T(">
+                <field name="VARNAME">projectile</field>
+                <field name="EXPRESSION">event.getProjectile()</field>
+                <next>
+                  <block type="setvariable" id="eaU]*$cfmd4hI;P@sPHG">
+                    <field name="VARNAME">bow</field>
+                    <field name="EXPRESSION">event.getBow()</field>
+                    <next>
+                      <block type="setvariablevalue" id="Qp3.Ll3IZ{x=U:H:;5XL">
+                        <field name="VARNAME">bowName</field>
+                        <value name="EXPRESSION">
+                          <block type="nameofstack" id="QImztr@.GMl!!@J23xKn">
+                            <value name="STACK">
+                              <block type="varname" id="4np`(sU/c${HYhW3aRvE">
+                                <field name="VARNAME">bow</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setplayerdata" id="rd@5Y1i%MQ(5e.l51b~a">
+                            <field name="KEY">name</field>
+                            <value name="VALUE">
+                              <block type="varname" id=")FWr!:m8T/}4$hOu?C=4">
+                                <field name="VARNAME">bowName</field>
+                              </block>
+                            </value>
+                            <value name="PLAYER">
+                              <block type="varname" id="U]x-D6PRJmlf@bc9t^Su">
+                                <field name="VARNAME">projectile</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="consolelog" id="J1^R;vI`Kr~c-3Dt;ff7">
+                                <value name="NAME">
+                                  <block type="varname" id="Bx.6L?sA;)nFvoa$8aOd">
+                                    <field name="VARNAME">"Bow [" + bowName + "] fired by " + shooter</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
                   </block>
-                </value>
+                </next>
               </block>
             </next>
           </block>
         </statement>
+        <next>
+          <block type="eventlistener" id="[q`d16j3%gVA7W=DX(RU">
+            <field name="LISTENERTYPE">projectileHit</field>
+            <statement name="LISTENERCODE">
+              <block type="setvariable" id="cz9R5nNjW5mTCQo75m*Z">
+                <field name="VARNAME">projectile</field>
+                <field name="EXPRESSION">event.getEntity()</field>
+                <next>
+                  <block type="controls_if" id="J7uR^KW=-lTannHGN6~Y">
+                    <value name="IF0">
+                      <block type="existsplayerdata" id="3oZbczN7(zdNiXEG/|o7">
+                        <field name="KEY">name</field>
+                        <value name="PLAYER">
+                          <block type="varname" id="[NMLK,6y~H^DS3^IF3pT">
+                            <field name="VARNAME">projectile</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="setvariablevalue" id="onAnJ9L3)p-Bd|XNxisK">
+                        <field name="VARNAME">name</field>
+                        <value name="EXPRESSION">
+                          <block type="getplayerdata2" id="7j:/|*x1~]$Hw,HuT/(X">
+                            <field name="KEY">name</field>
+                            <value name="PLAYER">
+                              <block type="varname" id="WQWIH^v]N!/(@d#!|NOz">
+                                <field name="VARNAME">projectile</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id=":n6j2uD@j*tUZ#!6M#V!">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare" id="PK*AOo0T}Y*U;.m?vsB!">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="varname" id="h;YZvvqj=Iy27==-AGDZ">
+                                    <field name="VARNAME">name</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="OUS|6$8Y-fnq=ujq,!y$">
+                                    <field name="TEXT">bazooka</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="consolelog" id="@;9Mm)TlsT@I?%UUwc5.">
+                                <value name="NAME">
+                                  <block type="varname" id=",UfuiLaPW*IttghDM/`Q">
+                                    <field name="VARNAME">"Create explosion yo"</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="explosion" id="=Q2Ak9PBb1[f$a]Tlxt!">
+                                    <field name="SIZE">4</field>
+                                    <value name="LOCATION">
+                                      <block type="varname" id="Vdy?xPmWF~-Lg6]f9nza">
+                                        <field name="VARNAME">projectile.location</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="consolelog" id=".jS~#k1:5@9$^2zk?Q{x">
+                                <value name="NAME">
+                                  <block type="varname" id="ga;VCl-^:E@m^/Ed8nwD">
+                                    <field name="VARNAME">"projectile " + name + " landed yo"</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="consolelog" id="UsTmvPYG*`jqkw~LpWZo">
+                        <value name="NAME">
+                          <block type="varname" id="bO14{$9p:alNnu]*RaY6">
+                            <field name="VARNAME">projectile.getType() + " just hit something yo"</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="~P9|(``p$~Q*xy_%rH,2">
+                            <value name="IF0">
+                              <block type="logic_compare" id="m`uGDzHF9DiO#GWBFxHC">
+                                <field name="OP">NEQ</field>
+                                <value name="A">
+                                  <block type="varname" id="/}HHp7zlzb-(ki]vqi:H">
+                                    <field name="VARNAME">projectile.getType()</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="projectileentity" id="%x}xI*5l$3t-caVjR.Q@">
+                                    <field name="PROJECTILE">ARROW</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="consolelog" id="dFbxjD761}h^3Ph?{ntl">
+                                <value name="NAME">
+                                  <block type="varname" id="ek~ug(-^Z20q9OjN{=_r">
+                                    <field name="VARNAME">"Non-arrow hit something [" + projectile.getType + "]"</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
       </block>
     </statement>
   </block>
