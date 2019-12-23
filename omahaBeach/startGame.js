@@ -53,4 +53,4 @@ exports.startGame = function () {
   });
 };
 
-//exports.startGame()
+exports.startGame()
