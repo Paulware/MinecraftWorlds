@@ -3,7 +3,7 @@ exports.startGame = function () {
   var player;
   var block;
   var blockType;
-  var line;
+  var team;
   setTimeout (function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   },500);
@@ -30,12 +30,23 @@ exports.startGame = function () {
   });
   events.playerInteract( function (event) {
     block=event.getClickedBlock();
-    blockType=block.getType();
-    if ((blockType) == (org.bukkit.Material.OAK_SIGN)){
-      line=block.state.getLine(1);
-      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,line);
-      event.player.setMetadata ("team", fd );
-      event.player.sendMessage ("You have selected team: " + line);
+    if ((block) != (null)){
+      blockType=block.getType();
+      player=event.player;
+      if ((blockType) == (org.bukkit.Material.OAK_SIGN)){
+        team=block.state.getLine(1);
+        fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
+        player.setMetadata ("team", fd );
+        if ((team) == "Attacker"){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1223 64 -505");
+        }
+        else if ((team) == "Defender"){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1224 84 -412");
+        }
+        else {
+          player.sendMessage ("You have selected (unsupported) team: [" + line + "]");
+        }
+      }
     }
   });
 };
