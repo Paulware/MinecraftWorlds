@@ -6,6 +6,7 @@ set destination=C:\SpigotMC\world\
 set blocklyroot=C:\
 set worldsroot=C:\SpigotMC
 set arduinoroot=C:\
+set plugin=C:\SpigotMC\scriptcraft\plugins\
 
 :menuLOOP
 echo.
@@ -47,10 +48,10 @@ copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.pr
 GOTO:copyFiles
 
 :menu_5   Copy Omaha Beach 
-set source=C:\SpigotMC\MinecraftWorlds\omahaBeach\*.*
+set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\startGame.js C:\SpigotMC\scriptcraft\plugins\startGame.js
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\readme.txt C:\SpigotMC\scriptcraft\plugins\readme.txt
-GOTO:copyFiles
+GOTO:copyPlugin
 
 :menu_7   Copy Ruin bed wars
 set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
@@ -117,7 +118,15 @@ GOTO:EOF
 echo remove %destination%
 rmdir %destination% /q /s
 mkdir %destination%
-
 echo xcopy %source% %destination% /E 
 xcopy %source% %destination% /E
+GOTO:EOF
+
+:copyPlugin
+echo remove %destination%
+rmdir %destination% /q /s
+mkdir %destination%
+echo xcopy %source% %destination% /E 
+xcopy %source%\*.* %destination% /E
+xcopy %source%\*.js %plugin% /E
 GOTO:EOF
