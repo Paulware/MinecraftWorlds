@@ -10,7 +10,11 @@ exports.startGame = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   },500);
   events.blockBreak( function (event) {
-    event.cancelled = true;
+    player=event.getPlayer();
+    if ((player.name) != "Paulware"){
+      console.log ("cancel the event for: " + player.name);
+      event.cancelled = true;
+    }
   });
   events.playerJoin( function (event) {
     player=event.player;
