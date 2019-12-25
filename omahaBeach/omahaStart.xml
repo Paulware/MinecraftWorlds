@@ -201,7 +201,7 @@
                                                         </value>
                                                         <next>
                                                           <block type="controls_if" id="L{bPlmojm18zZi*Dwe|i">
-                                                            <mutation elseif="1" else="1"></mutation>
+                                                            <mutation elseif="2" else="1"></mutation>
                                                             <value name="IF0">
                                                               <block type="logic_compare" id="7:wN}Z.W0:43cA3H|J#4">
                                                                 <field name="OP">EQ</field>
@@ -242,9 +242,34 @@
                                                                 <field name="COMMAND">"tp " + player.name + " -1224 84 -412"</field>
                                                               </block>
                                                             </statement>
+                                                            <value name="IF2">
+                                                              <block type="logic_compare" id="w+!y9h`mP_W`:B#@o6||">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="varname" id="1h.@:ruEuUIMJ3nNQJ!+">
+                                                                    <field name="VARNAME">team</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="text" id="1rk_m5l6cZlB)GhcFTgn">
+                                                                    <field name="TEXT">Airforce</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO2">
+                                                              <block type="servercommand" id="zeq;Ern]1YS3I|2wyg#n">
+                                                                <field name="COMMAND">"tp " + player.name + " -1232 63 -616"</field>
+                                                                <next>
+                                                                  <block type="servercommand" id="w87H`y1;k=hg9DyFxR3A">
+                                                                    <field name="COMMAND">"give " + player.name + " elytra 1"</field>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
                                                             <statement name="ELSE">
                                                               <block type="sendmessage" id="NWhbj%S_)M]LvJJtylzI">
-                                                                <field name="MESSAGE">"You have selected (unsupported) team: [" + line + "]"</field>
+                                                                <field name="MESSAGE">"You have selected (unsupported) team: [" + team + "]"</field>
                                                                 <value name="PLAYER">
                                                                   <block type="varname" id="jUH##MlW}bfz3uK2I+Jq">
                                                                     <field name="VARNAME">player</field>

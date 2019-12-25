@@ -23,11 +23,6 @@ exports.startGame = function () {
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
     },2500);
   });
-  events.playerJoin( function (event) {
-    setTimeout (function () {
-      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + event.player);
-    },500);
-  });
   events.playerRespawn( function (event) {
     player=event.player;
     setTimeout (function () {
@@ -50,8 +45,12 @@ exports.startGame = function () {
         else if ((team) == "Defender"){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1224 84 -412");
         }
+        else if ((team) == "Airforce"){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1232 63 -616");
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "give " + player.name + " elytra 1");
+        }
         else {
-          player.sendMessage ("You have selected (unsupported) team: [" + line + "]");
+          player.sendMessage ("You have selected (unsupported) team: [" + team + "]");
         }
       }
     }
