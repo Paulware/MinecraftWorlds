@@ -50,6 +50,7 @@ GOTO:copyFiles
 :menu_5   Copy Omaha Beach 
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\startGame.js C:\SpigotMC\scriptcraft\plugins\startGame.js
+copy C:\SpigotMC\MinecraftWorlds\omahaBeach\omahaRules.js C:\SpigotMC\scriptcraft\plugins\omahaRules.js
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\readme.txt C:\SpigotMC\scriptcraft\plugins\readme.txt
 GOTO:copyPlugin
 
