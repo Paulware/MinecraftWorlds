@@ -36,6 +36,7 @@ exports.startGame = function () {
   });
   events.playerInteract( function (event) {
     block=event.getClickedBlock();
+    console.log ("player click1");
     if ((block) != (null)){
       blockType=block.getType();
       player=event.player;

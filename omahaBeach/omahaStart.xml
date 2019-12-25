@@ -23,7 +23,41 @@
           <block type="eventlistener" id="Q%J2Y~N]_2~Clmlt|M03">
             <field name="LISTENERTYPE">blockBreak</field>
             <statement name="LISTENERCODE">
-              <block type="eventcancel" id="3{rZEPRHua;o0%%v9OC;"></block>
+              <block type="setvariable" id="EO:gL^RNWyx|vc8S;)aO">
+                <field name="VARNAME">player</field>
+                <field name="EXPRESSION">event.getPlayer()</field>
+                <next>
+                  <block type="controls_if" id="=m!T=SLv4~hw|=o7[/2t">
+                    <value name="IF0">
+                      <block type="logic_compare" id=".xfGvfrRATBa-hmLvM(;">
+                        <field name="OP">NEQ</field>
+                        <value name="A">
+                          <block type="varname" id="4{3d(D4!Q#cpD+WiCKP-">
+                            <field name="VARNAME">player.name</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="EktLi[9uyDm5-+[,}coL">
+                            <field name="TEXT">Paulware</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="consolelog" id="52cLq#rr=NaLClO{;V%u">
+                        <value name="NAME">
+                          <block type="varname" id="avTf0J8/pcp[a6AGNsCX">
+                            <field name="VARNAME">"cancel the event for: " + player.name</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="eventcancel" id="3{rZEPRHua;o0%%v9OC;"></block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
             </statement>
             <next>
               <block type="eventlistener" id="p3!F[5lYPbXC=Y2LSW7C">
@@ -55,45 +89,39 @@
                   </block>
                 </statement>
                 <next>
-                  <block type="eventlistener" id="(kJb(.9fe-15+N:rEB!1">
-                    <field name="LISTENERTYPE">playerJoin</field>
+                  <block type="eventlistener" id="N$}P$ise*nQz9.9i(;r;">
+                    <field name="LISTENERTYPE">playerRespawn</field>
                     <statement name="LISTENERCODE">
-                      <block type="delayedexecution" id=".#hQwEa2c%#{13A-Su3F">
-                        <field name="TIMEOUT">500</field>
-                        <statement name="DELAYEDCODE">
-                          <block type="servercommand" id="*smX1x-It=!HlSQ:?=cd">
-                            <field name="COMMAND">"kill " + event.player</field>
+                      <block type="setvariable" id="x3jv%#Dk`^;t(=sP3C7}">
+                        <field name="VARNAME">player</field>
+                        <field name="EXPRESSION">event.player</field>
+                        <next>
+                          <block type="delayedexecution" id="4-ZM{oa1BP8v$[[fqlEg">
+                            <field name="TIMEOUT">200</field>
+                            <statement name="DELAYEDCODE">
+                              <block type="servercommand" id="yk2SB)w`+Z`S4:_fux!V">
+                                <field name="COMMAND">"tp " + player.name + " -1219 137 -91"</field>
+                              </block>
+                            </statement>
                           </block>
-                        </statement>
+                        </next>
                       </block>
                     </statement>
                     <next>
-                      <block type="eventlistener" id="N$}P$ise*nQz9.9i(;r;">
-                        <field name="LISTENERTYPE">playerRespawn</field>
+                      <block type="eventlistener" id="~x`T^zZY%[mFaWBERE18">
+                        <field name="LISTENERTYPE">playerInteract</field>
                         <statement name="LISTENERCODE">
-                          <block type="setvariable" id="x3jv%#Dk`^;t(=sP3C7}">
-                            <field name="VARNAME">player</field>
-                            <field name="EXPRESSION">event.player</field>
+                          <block type="setvariablevalue" id="lz-PG6u8y_5%h6a74;,a">
+                            <field name="VARNAME">block</field>
+                            <value name="EXPRESSION">
+                              <block type="clickedBlock" id="[7^+2u(G7`TgXkw#q9tr"></block>
+                            </value>
                             <next>
-                              <block type="delayedexecution" id="4-ZM{oa1BP8v$[[fqlEg">
-                                <field name="TIMEOUT">200</field>
-                                <statement name="DELAYEDCODE">
-                                  <block type="servercommand" id="yk2SB)w`+Z`S4:_fux!V">
-                                    <field name="COMMAND">"tp " + player.name + " -1219 137 -91"</field>
+                              <block type="consolelog" id="%g9,VElDiEi:oi-P03IT">
+                                <value name="NAME">
+                                  <block type="varname" id="Yb=M^4w9ZXyAF}_Z8$7C">
+                                    <field name="VARNAME">"player click1"</field>
                                   </block>
-                                </statement>
-                              </block>
-                            </next>
-                          </block>
-                        </statement>
-                        <next>
-                          <block type="eventlistener" id="~x`T^zZY%[mFaWBERE18">
-                            <field name="LISTENERTYPE">playerInteract</field>
-                            <statement name="LISTENERCODE">
-                              <block type="setvariablevalue" id="lz-PG6u8y_5%h6a74;,a">
-                                <field name="VARNAME">block</field>
-                                <value name="EXPRESSION">
-                                  <block type="clickedBlock" id="[7^+2u(G7`TgXkw#q9tr"></block>
                                 </value>
                                 <next>
                                   <block type="controls_if" id="_Q*6?j7%I~cp6XxBK0`:">
@@ -239,9 +267,9 @@
                                   </block>
                                 </next>
                               </block>
-                            </statement>
+                            </next>
                           </block>
-                        </next>
+                        </statement>
                       </block>
                     </next>
                   </block>
@@ -253,7 +281,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftexpression" id="EQ{u,$Ngm?UOR/(gs!]R" x="-112" y="188">
+  <block type="scriptcraftexpression" id="EQ{u,$Ngm?UOR/(gs!]R" x="288" y="63">
     <field name="EXPRESSION">exports.startGame()</field>
   </block>
 </xml>
