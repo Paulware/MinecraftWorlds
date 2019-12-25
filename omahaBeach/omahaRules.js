@@ -41,7 +41,7 @@ exports.omahaRules = function () {
         i=i+1;
         projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
         player.launchProjectile(projectile.getClass());
-        if (!(i <100)) {
+        if (!(i <50)) {
           clearInterval (test);
         }
       }, 100);
@@ -63,7 +63,10 @@ exports.omahaRules = function () {
       }
     }
     console.log (projectile.getType() + " just hit something yo");
-    if ((projectile.getType()) != (org.bukkit.entity.EntityType.ARROW)){
+    if ((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL)){
+      server.worlds[0].createExplosion (projectile.location,3);
+    }
+    else if ((projectile.getType()) != (org.bukkit.entity.EntityType.ARROW)){
       console.log ("Non-arrow hit something [" + projectile.getType + "]");
     }
   });
