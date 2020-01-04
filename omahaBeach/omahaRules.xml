@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="88" y="38">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-137" y="63">
     <field name="nameOfFunction">omahaRules</field>
     <statement name="FUNCTIONCODE">
       <block type="servercommand" id="i#;/wrp!C(.YBBy~s2!%">
@@ -46,34 +46,59 @@
                                     <next>
                                       <block type="controls_if" id="LIhF{MmNq!2Rnioq`60m">
                                         <value name="IF0">
-                                          <block type="logic_compare" id="A7jBzWf2Q-y}Z~HtPrVT">
-                                            <field name="OP">EQ</field>
+                                          <block type="logic_operation" id="/mPzT%Kc:x@i_=z%`@vF">
+                                            <field name="OP">AND</field>
                                             <value name="A">
-                                              <block type="varname" id="11C!5L{0Z-/.L^q4n/}[">
-                                                <field name="VARNAME">exports.kingAttacker</field>
+                                              <block type="logic_compare" id="A7jBzWf2Q-y}Z~HtPrVT">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="varname" id="11C!5L{0Z-/.L^q4n/}[">
+                                                    <field name="VARNAME">exports.kingAttacker</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="varname" id="Dup9CDQw,I|B]Qq(yrm@">
+                                                    <field name="VARNAME">null</field>
+                                                  </block>
+                                                </value>
                                               </block>
                                             </value>
                                             <value name="B">
-                                              <block type="varname" id="Dup9CDQw,I|B]Qq(yrm@">
-                                                <field name="VARNAME">null</field>
+                                              <block type="logic_compare" id="JXbRwWD4-G+krL,:?cvp">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="varname" id="Y7xFDZojwA%:Cnwz;BFd">
+                                                    <field name="VARNAME">exports.kingAttacker</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="varname" id="iosFC9:Wb92a|4D:G|:y">
+                                                    <field name="VARNAME">null</field>
+                                                  </block>
+                                                </value>
                                               </block>
                                             </value>
                                           </block>
                                         </value>
                                         <statement name="DO0">
-                                          <block type="teleport" id="{MqB+Q:Twg/8fS$wVu[q">
-                                            <value name="ENTITY">
-                                              <block type="varname" id="jZ#Da(WF{_K.Vy:qW0)2">
-                                                <field name="VARNAME">player</field>
+                                          <block type="delayedexecution" id="g:G.(II!G5dozXzO%AG{">
+                                            <field name="TIMEOUT">500</field>
+                                            <statement name="DELAYEDCODE">
+                                              <block type="teleport" id="{MqB+Q:Twg/8fS$wVu[q">
+                                                <value name="ENTITY">
+                                                  <block type="varname" id="jZ#Da(WF{_K.Vy:qW0)2">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <value name="LOCATION">
+                                                  <block type="absolutelocation" id=".vQUI2vFa7!*,Hq`E*TL">
+                                                    <field name="X">-1219</field>
+                                                    <field name="Y">137</field>
+                                                    <field name="Z">-91</field>
+                                                  </block>
+                                                </value>
                                               </block>
-                                            </value>
-                                            <value name="LOCATION">
-                                              <block type="absolutelocation" id=".vQUI2vFa7!*,Hq`E*TL">
-                                                <field name="X">-1219</field>
-                                                <field name="Y">137</field>
-                                                <field name="Z">-91</field>
-                                              </block>
-                                            </value>
+                                            </statement>
                                           </block>
                                         </statement>
                                         <next>

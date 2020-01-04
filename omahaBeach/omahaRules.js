@@ -26,8 +26,10 @@ exports.omahaRules = function () {
   });
   events.playerRespawn( function (event) {
     player=event.getPlayer();
-    if ((exports.kingAttacker) == (null)){
-      player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    if ((exports.kingAttacker) == (null) && (exports.kingAttacker) == (null)){
+      setTimeout (function () {
+        player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      },500);
     }
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     if ((team) == "Attacker" || (team) == "Airforce"){
