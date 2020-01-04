@@ -102,19 +102,19 @@ exports.controlMob = function () {
     player=event.player;
     inventory=player.getInventory();
     player.getInventory().clear();
-    teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
+    teamColor=(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
     console.log ("Respawn with teamColor: " + teamColor);
     handleRespawn (player, teamColor);
   });
   events.playerMove( function (event) {
     player=event.player;
     defendMyArea (player);
-    entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
+    entities=(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
     if (entities != null){
       assembleEntities (player.location,entities);
       checkDespawns(player);
     }
-    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
     if (name=="invisibility"){
       player.addPotionEffect(new org.bukkit.potion.PotionEffect (org.bukkit.potion.PotionEffectType.INVISIBILITY,1200, 1));
     }
@@ -227,7 +227,7 @@ exports.controlMob = function () {
       splashRide(entities,player);
     }
     else {
-      console.log ("Wile critter created :" + name );
+      console.log ("Critter created :" + name );
         //Instantiations;
         var players;
         var player;
@@ -254,14 +254,14 @@ exports.controlMob = function () {
   events.playerInteract( function (event) {
     player=event.player;
     block=event.getClickedBlock();
-    myRide=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
+    myRide=(player.getMetadata == null)?null:(player.getMetadata("myride").length == 0)?null:player.getMetadata("myride")[0].value();
     if (block != null){
       teamSelection (block, player);
     }
     if (myRide != null){
       handleMyRide (myRide,player);
     }
-    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
     if (name == "teleport"){
       block=player.getTargetBlock(null,200);
       player.teleport(block.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
@@ -390,7 +390,7 @@ exports.handleRespawn  = function (player,teamColor) {
 exports.defendMyArea  = function (player) {
   //Instantiations;
   var entities;
-  entities=server.worlds[0].getNearbyEntities (player.location,8,8,8);
+  entities=server.worlds[0].getNearbyEntities (player.location,5,5,5);
   for (var i=0; i<parseInt(entities.length); i++) {
     if (isEnemy(player,entities[i]) ){
       console.log ("Found bad guy near me.." + entities[i]);
@@ -409,8 +409,8 @@ exports.assembleEntities = function (location,entities) {
   for (var i=0; i<parseInt(entities.length); i++) {
     entity=entities[i];
     if (isAvailable(entity)){
-      xOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("xoffset").length == 0)?null:entity.getMetadata("xoffset")[0].value();
-      zOffset=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("zoffset").length == 0)?null:entity.getMetadata("zoffset")[0].value();
+      xOffset=(entity.getMetadata == null)?null:(entity.getMetadata("xoffset").length == 0)?null:entity.getMetadata("xoffset")[0].value();
+      zOffset=(entity.getMetadata == null)?null:(entity.getMetadata("zoffset").length == 0)?null:entity.getMetadata("zoffset")[0].value();
       loc=new org.bukkit.Location(server.worlds[0], location.x + xOffset, 4, location.z+zOffset);
       vector=loc.toVector().subtract(entity.location.toVector());
       vector=vector.multiply (0.1);
@@ -427,8 +427,8 @@ exports.isEnemy  = function (player,entity) {
   enemy=false;
   if (entity instanceof org.bukkit.entity.LivingEntity){
     if (!entity.isDead()){
-      teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
-      entityColor=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("teamcolor").length == 0)?null:entity.getMetadata("teamcolor")[0].value();
+      teamColor=(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
+      entityColor=(entity.getMetadata == null)?null:(entity.getMetadata("teamcolor").length == 0)?null:entity.getMetadata("teamcolor")[0].value();
       if ((teamColor) != (entityColor)){
         enemy=true;
       }
@@ -517,8 +517,8 @@ exports.onSameTeam = function (entity1,entity2)  {
   var team1;
   var team2;
   onTheTeam=false;
-  team1=(!(entity1 instanceof org.bukkit.entity.LivingEntity))?null:(entity1.getMetadata == null)?null:(entity1.getMetadata("teamcolor").length == 0)?null:entity1.getMetadata("teamcolor")[0].value();
-  team2=(!(entity2 instanceof org.bukkit.entity.LivingEntity))?null:(entity2.getMetadata == null)?null:(entity2.getMetadata("teamcolor").length == 0)?null:entity2.getMetadata("teamcolor")[0].value();
+  team1=(entity1.getMetadata == null)?null:(entity1.getMetadata("teamcolor").length == 0)?null:entity1.getMetadata("teamcolor")[0].value();
+  team2=(entity2.getMetadata == null)?null:(entity2.getMetadata("teamcolor").length == 0)?null:entity2.getMetadata("teamcolor")[0].value();
   if (team1 != null){
     onTheTeam=(team1) == (team2);
   }
@@ -530,7 +530,7 @@ exports.assignTeamColor  = function (player,entity) {
   var teamColor;
   var xOffset;
   var zOffset;
-  teamColor=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
+  teamColor=(player.getMetadata == null)?null:(player.getMetadata("teamcolor").length == 0)?null:player.getMetadata("teamcolor")[0].value();
   console.log ("Setting entities teamColor to : " + teamColor);
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
   entity.setMetadata ("teamcolor", fd );
@@ -586,7 +586,7 @@ exports.showEntities  = function (player) {
   var timeout;
   var despawnTimeout;
   var millis;
-  entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
+  entities=(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
   if (entities != null){
     console.log (player.name + " has " + entities.length + " entities ");
     for (var i=0; i<parseInt(entities.length); i++) {
@@ -595,7 +595,7 @@ exports.showEntities  = function (player) {
       name=entity.toString();
       timeout="No timeout";
       if (name=="CraftEndermite"){
-        despawnTimeout=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
+        despawnTimeout=(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
         millis=new Date().getTime();
         timeout="Timeout in " +( (despawnTimeout - millis) /1000) + " seconds";
       }
@@ -625,11 +625,14 @@ exports.splashControl = function (entities,player) {
 
 exports.createLandmine  = function (location) {
   //Instantiations;
+  var start;
   var block;
   var data;
   var sign;
   var state;
+  var cmd;
   location=location.add (0,-2,0);
+  start=location;
   console.log ("Create landmine at:" + location);
   server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.REPEATING_COMMAND_BLOCK);
   block = server.worlds[0].getBlockAt (location);
@@ -646,9 +649,11 @@ exports.createLandmine  = function (location) {
   state.update();
   location=location.add (2,0,0);
   server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.COMMAND_BLOCK);
+  cmd="fill " + (start.x-5) + " " + (start.y+1) + " " + start.z + " " + (start.x + 1) + " " + start.y + " " + start.z + " air replace";
+  console.log (cmd);
   block = server.worlds[0].getBlockAt (location);
   state = block.getState();
-  state.setCommand("say \"fill all air\"");
+  state.setCommand(cmd + "");
   state.update();
 };
 
@@ -673,6 +678,23 @@ exports.splashRide  = function (entities,player) {
   }
 };
 
+exports.dropChest = function (player) {
+  //Instantiations;
+  var location;
+  var block;
+  var data;
+  var loc;
+  var sign;
+  var state;
+  var inventory;
+  location=player.location.add(1,0,1);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.CHEST);
+  block=server.worlds[0].getBlockAt (location);
+  state=block.getState();
+  inventory=state.getBlockInventory();
+  getAttackerGear (inventory);
+};
+
 exports.handleMyRide  = function (myRide,player) {
   //Instantiations;
   var block;
@@ -695,7 +717,7 @@ exports.handleMyRide  = function (myRide,player) {
   diff=Math.abs ( yaw - myRide.getLocation().getYaw());
   console.log ("yaw:" + yaw + " current Yaw:" + myRide.getLocation().getYaw() + " diff:" + diff);
   if ((diff) < 10){
-    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta() == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
+    name=(player.getItemInHand== null) ? "" : (player.getItemInHand().getItemMeta == null ) ? "" : player.getItemInHand().getItemMeta().getDisplayName();
     if (name=="skull"){
       console.log ("shoot a skull yo");
       projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
@@ -706,7 +728,7 @@ exports.handleMyRide  = function (myRide,player) {
       myRide.launchProjectile(projectile.getClass())
     }
     else if (name=="bullet"){
-      entities=server.worlds[0].getNearbyEntities (block.location,10,10,10);
+      entities=server.worlds[0].getNearbyEntities (block.location,5,5,5);
       console.log ("Shoot a shulker bullet yo");
       projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.SHULKER_BULLET);
       if (entities.length > 0){
@@ -744,23 +766,6 @@ exports.handleMyRide  = function (myRide,player) {
     myRide.setAI(false)
     myRide.setRotation(yaw, player.location.getPitch())
   }
-};
-
-exports.dropChest = function (player) {
-  //Instantiations;
-  var location;
-  var block;
-  var data;
-  var loc;
-  var sign;
-  var state;
-  var inventory;
-  location=player.location.add(1,0,1);
-  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.CHEST);
-  block=server.worlds[0].getBlockAt (location);
-  state=block.getState();
-  inventory=state.getBlockInventory();
-  getAttackerGear (inventory);
 };
 
 exports.getAttackerGear = function (inventory) {
@@ -1096,13 +1101,13 @@ exports.checkDespawns  = function (player) {
   var entity;
   var name;
   var timeout;
-  entities=(!(player instanceof org.bukkit.entity.LivingEntity))?null:(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
+  entities=(player.getMetadata == null)?null:(player.getMetadata("entities").length == 0)?null:player.getMetadata("entities")[0].value();
   if (entities != null){
     for (var i=0; i<parseInt(entities.length); i++) {
       entity=entities[i];
       name=entity.toString();
       if (name=="CraftEndermite"){
-        timeout=(!(entity instanceof org.bukkit.entity.LivingEntity))?null:(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
+        timeout=(entity.getMetadata == null)?null:(entity.getMetadata("despawntimeout").length == 0)?null:entity.getMetadata("despawntimeout")[0].value();
         if ((new Date().getTime()) > (timeout)){
           entity=server.worlds[0].spawnEntity(entity.location,org.bukkit.entity.EntityType.ENDERMITE);
           entity.setHealth (entities[i].health)

@@ -885,7 +885,7 @@
                                                                                                     </value>
                                                                                                     <next>
                                                                                                       <block type="sethotbar" id="J%jgWO(m~sSqwA;BRa4V">
-                                                                                                        <field name="SLOT">0</field>
+                                                                                                        <field name="SLOT">1</field>
                                                                                                         <value name="PLAYER">
                                                                                                           <block type="varname" id="@(Soz-4N}cbpPXg:L_nL">
                                                                                                             <field name="VARNAME">player</field>
@@ -903,7 +903,7 @@
                                                                                                         </value>
                                                                                                         <next>
                                                                                                           <block type="sethotbar" id="tcf+Ge|cPD_CIh{_1wqv">
-                                                                                                            <field name="SLOT">1</field>
+                                                                                                            <field name="SLOT">2</field>
                                                                                                             <value name="PLAYER">
                                                                                                               <block type="varname" id="nA|IG;.`URDhwH{5%-}:">
                                                                                                                 <field name="VARNAME">player</field>
@@ -921,7 +921,7 @@
                                                                                                             </value>
                                                                                                             <next>
                                                                                                               <block type="sethotbar" id="D%s0F-Xc#9=4Q45DTz}f">
-                                                                                                                <field name="SLOT">2</field>
+                                                                                                                <field name="SLOT">3</field>
                                                                                                                 <value name="PLAYER">
                                                                                                                   <block type="varname" id="L)oCC-EE/Nix!-!@3Ub|">
                                                                                                                     <field name="VARNAME">player</field>
@@ -1135,7 +1135,7 @@
                                                                                                           <block type="consolelog" id="YK,5q)h@0k!#X$xoId_#">
                                                                                                             <value name="NAME">
                                                                                                               <block type="varname" id="nBB8h21=F{7K:7NEq_}M">
-                                                                                                                <field name="VARNAME">"Wile critter created :" + name </field>
+                                                                                                                <field name="VARNAME">"Critter created :" + name </field>
                                                                                                               </block>
                                                                                                             </value>
                                                                                                             <next>
@@ -1741,14 +1741,10 @@
         <field name="VARNAME">entities</field>
         <value name="EXPRESSION">
           <block type="nearbyentities" id=")Bi88}$rXCAw][|TW``H">
+            <field name="RADIUS">5</field>
             <value name="LOCATION">
               <block type="varname" id="bA{ay4k1a{*Ql)Rj}#/w">
                 <field name="VARNAME">player.location</field>
-              </block>
-            </value>
-            <value name="RADIUS">
-              <block type="math_number" id="`DA1gF^lo3ZNObW5ps/7">
-                <field name="NUM">8</field>
               </block>
             </value>
           </block>
@@ -2815,103 +2811,124 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="g,;o^gDNQ)7#d(0cpcm^" x="-1288" y="3813">
+  <block type="scriptcraftfunction" id="g,;o^gDNQ)7#d(0cpcm^" x="-1237" y="3838">
     <field name="nameOfFunction">createLandmine (location)</field>
     <statement name="FUNCTIONCODE">
       <block type="setvariable" id="Ql5y;0*vy)[eKknk.I.T">
         <field name="VARNAME">location</field>
         <field name="EXPRESSION">location.add (0,-2,0)</field>
         <next>
-          <block type="consolelog" id="}c%B:LRL,lBcGG~k35F7">
-            <value name="NAME">
-              <block type="varname" id="$KZC_*b|PibbPrzE?O,?">
-                <field name="VARNAME">"Create landmine at:" + location</field>
-              </block>
-            </value>
+          <block type="setvariable" id="1n[m2^[0OwM{.BH2XYRV">
+            <field name="VARNAME">start</field>
+            <field name="EXPRESSION">location</field>
             <next>
-              <block type="spawnblock" id="ML=%~kYi{:[1Yl4|/mjF">
-                <value name="TYPE">
-                  <block type="blocktype" id="hG2L0|4#8PthoG@mW156">
-                    <field name="BLOCKTYPE">REPEATING_COMMAND_BLOCK</field>
-                  </block>
-                </value>
-                <value name="LOCATION">
-                  <block type="varname" id="8;!rtV_$+)Qj+-~,_=57">
-                    <field name="VARNAME">location</field>
+              <block type="consolelog" id="}c%B:LRL,lBcGG~k35F7">
+                <value name="NAME">
+                  <block type="varname" id="$KZC_*b|PibbPrzE?O,?">
+                    <field name="VARNAME">"Create landmine at:" + location</field>
                   </block>
                 </value>
                 <next>
-                  <block type="setblockcommand" id="*ZYh)_`Ky:Wu+YZdTADM">
-                    <field name="COMMAND">execute if entity @e[distance=..3] run setblock ~4 ~ ~ redstone_block</field>
+                  <block type="spawnblock" id="ML=%~kYi{:[1Yl4|/mjF">
+                    <value name="TYPE">
+                      <block type="blocktype" id="hG2L0|4#8PthoG@mW156">
+                        <field name="BLOCKTYPE">REPEATING_COMMAND_BLOCK</field>
+                      </block>
+                    </value>
                     <value name="LOCATION">
-                      <block type="varname" id="2*sZMkmqicT#OnJ,~|VT">
+                      <block type="varname" id="8;!rtV_$+)Qj+-~,_=57">
                         <field name="VARNAME">location</field>
                       </block>
                     </value>
                     <next>
-                      <block type="setvariable" id="JR)]-pF3OU84M_ItQlL,">
-                        <field name="VARNAME">location</field>
-                        <field name="EXPRESSION">location.add (1,0,0)</field>
+                      <block type="setblockcommand" id="*ZYh)_`Ky:Wu+YZdTADM">
+                        <field name="COMMAND">execute if entity @e[distance=..3] run setblock ~4 ~ ~ redstone_block</field>
+                        <value name="LOCATION">
+                          <block type="varname" id="2*sZMkmqicT#OnJ,~|VT">
+                            <field name="VARNAME">location</field>
+                          </block>
+                        </value>
                         <next>
-                          <block type="spawnblock" id="vG[BAU!(Ka8:t)1n!aId">
-                            <value name="TYPE">
-                              <block type="blocktype" id=".jG,Cx4Qmf|%lK:v)YN7">
-                                <field name="BLOCKTYPE">REDSTONE_BLOCK</field>
-                              </block>
-                            </value>
-                            <value name="LOCATION">
-                              <block type="varname" id="`mQrBddN4cV5]jyXUV49">
-                                <field name="VARNAME">location</field>
-                              </block>
-                            </value>
+                          <block type="setvariable" id="JR)]-pF3OU84M_ItQlL,">
+                            <field name="VARNAME">location</field>
+                            <field name="EXPRESSION">location.add (1,0,0)</field>
                             <next>
-                              <block type="setvariable" id="W;Hf:=YueMB@i$K%:qSh">
-                                <field name="VARNAME">location</field>
-                                <field name="EXPRESSION">location.add (2,0,0)</field>
+                              <block type="spawnblock" id="vG[BAU!(Ka8:t)1n!aId">
+                                <value name="TYPE">
+                                  <block type="blocktype" id=".jG,Cx4Qmf|%lK:v)YN7">
+                                    <field name="BLOCKTYPE">REDSTONE_BLOCK</field>
+                                  </block>
+                                </value>
+                                <value name="LOCATION">
+                                  <block type="varname" id="`mQrBddN4cV5]jyXUV49">
+                                    <field name="VARNAME">location</field>
+                                  </block>
+                                </value>
                                 <next>
-                                  <block type="spawnblock" id="%YXd:gTprXkDq{-n-Ne]">
-                                    <value name="TYPE">
-                                      <block type="blocktype" id="#puwK5?*T#SjcCIwwCae">
-                                        <field name="BLOCKTYPE">COMMAND_BLOCK</field>
-                                      </block>
-                                    </value>
-                                    <value name="LOCATION">
-                                      <block type="varname" id="PGYYRm2d:08!~7[r`WE#">
-                                        <field name="VARNAME">location</field>
-                                      </block>
-                                    </value>
+                                  <block type="setvariable" id="W;Hf:=YueMB@i$K%:qSh">
+                                    <field name="VARNAME">location</field>
+                                    <field name="EXPRESSION">location.add (2,0,0)</field>
                                     <next>
-                                      <block type="setblockcommand" id="If*I~*IBE8$Z*6+CVky/">
-                                        <field name="COMMAND">summon tnt ~-3 ~7 ~ {fuse:0}</field>
+                                      <block type="spawnblock" id="%YXd:gTprXkDq{-n-Ne]">
+                                        <value name="TYPE">
+                                          <block type="blocktype" id="#puwK5?*T#SjcCIwwCae">
+                                            <field name="BLOCKTYPE">COMMAND_BLOCK</field>
+                                          </block>
+                                        </value>
                                         <value name="LOCATION">
-                                          <block type="varname" id="wcIMim#;fUw5um~;eAfo">
+                                          <block type="varname" id="PGYYRm2d:08!~7[r`WE#">
                                             <field name="VARNAME">location</field>
                                           </block>
                                         </value>
                                         <next>
-                                          <block type="setvariable" id="_`!2Ms/Hm0B$.0@#G%.@">
-                                            <field name="VARNAME">location</field>
-                                            <field name="EXPRESSION">location.add (2,0,0)</field>
+                                          <block type="setblockcommand" id="If*I~*IBE8$Z*6+CVky/">
+                                            <field name="COMMAND">summon tnt ~-3 ~7 ~ {fuse:0}</field>
+                                            <value name="LOCATION">
+                                              <block type="varname" id="wcIMim#;fUw5um~;eAfo">
+                                                <field name="VARNAME">location</field>
+                                              </block>
+                                            </value>
                                             <next>
-                                              <block type="spawnblock" id="jBERJ=GgqGGl.WS2pvQa">
-                                                <value name="TYPE">
-                                                  <block type="blocktype" id="Kcg[`1H3M-vAI4dXw0;+">
-                                                    <field name="BLOCKTYPE">COMMAND_BLOCK</field>
-                                                  </block>
-                                                </value>
-                                                <value name="LOCATION">
-                                                  <block type="varname" id="PPByf[ayl[5/%$AT:orp">
-                                                    <field name="VARNAME">location</field>
-                                                  </block>
-                                                </value>
+                                              <block type="setvariable" id="_`!2Ms/Hm0B$.0@#G%.@">
+                                                <field name="VARNAME">location</field>
+                                                <field name="EXPRESSION">location.add (2,0,0)</field>
                                                 <next>
-                                                  <block type="setblockcommand" id="f@ek5EiC]e+TBy5u^7t*">
-                                                    <field name="COMMAND">"say \"fill all air\""</field>
+                                                  <block type="spawnblock" id="jBERJ=GgqGGl.WS2pvQa">
+                                                    <value name="TYPE">
+                                                      <block type="blocktype" id="Kcg[`1H3M-vAI4dXw0;+">
+                                                        <field name="BLOCKTYPE">COMMAND_BLOCK</field>
+                                                      </block>
+                                                    </value>
                                                     <value name="LOCATION">
-                                                      <block type="varname" id="6*(d]dh}6t{QMHGauYDe">
+                                                      <block type="varname" id="PPByf[ayl[5/%$AT:orp">
                                                         <field name="VARNAME">location</field>
                                                       </block>
                                                     </value>
+                                                    <next>
+                                                      <block type="setvariable" id="+Ij^zT{=((|uTi.NN;5P">
+                                                        <field name="VARNAME">cmd</field>
+                                                        <field name="EXPRESSION">"fill " + (start.x-5) + " " + (start.y+1) + " " + start.z + " " + (start.x + 1) + " " + start.y + " " + start.z + " air replace"</field>
+                                                        <next>
+                                                          <block type="consolelog" id="yq.T=q@Vp^p{z]4c1@h0">
+                                                            <value name="NAME">
+                                                              <block type="varname" id="~ANN$[,M-NYCpUX9nV09">
+                                                                <field name="VARNAME">cmd</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="setblockcommand" id="f@ek5EiC]e+TBy5u^7t*">
+                                                                <field name="COMMAND">cmd + ""</field>
+                                                                <value name="LOCATION">
+                                                                  <block type="varname" id="6*(d]dh}6t{QMHGauYDe">
+                                                                    <field name="VARNAME">location</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
                                                   </block>
                                                 </next>
                                               </block>
@@ -3051,7 +3068,73 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id=",:^M.M~LBW9)Dyl:h.|z" x="-1287" y="4362">
+  <block type="scriptcraftfunction" id="HBRYngKOkP1aZ:-)D6z7" x="137" y="4437">
+    <field name="nameOfFunction">dropChest(player)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariablevalue" id="2ZmMO]U$/sf9mo4]OiN|">
+        <field name="VARNAME">location</field>
+        <value name="EXPRESSION">
+          <block type="varname" id="3T/(SZxE88mqu~(E[z]#">
+            <field name="VARNAME">player.location.add(1,0,1)</field>
+          </block>
+        </value>
+        <next>
+          <block type="spawnblock" id=";pweJc%=$E1-*$z$yj(^">
+            <value name="TYPE">
+              <block type="blocktype" id="KNek}nBJN0z2SzUalt!R">
+                <field name="BLOCKTYPE">CHEST</field>
+              </block>
+            </value>
+            <value name="LOCATION">
+              <block type="varname" id="kjgZ}[QAbbr5N7+y:}3a">
+                <field name="VARNAME">location</field>
+              </block>
+            </value>
+            <next>
+              <block type="setvariablevalue" id="tA]PI5WsGmlLp(,4so4P">
+                <field name="VARNAME">block</field>
+                <value name="EXPRESSION">
+                  <block type="getBlock" id="H:rOE(4Ws##m8rfwxJBB">
+                    <value name="LOCATION">
+                      <block type="varname" id="XlgSsaY-QFP4s;2}G]p;">
+                        <field name="VARNAME">location</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="setvariablevalue" id="mTzmAJfG]}VeL~)m{p]W">
+                    <field name="VARNAME">state</field>
+                    <value name="EXPRESSION">
+                      <block type="varname" id="{?3rgIpuZ/|?yB+Kweo.">
+                        <field name="VARNAME">block.getState()</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setvariablevalue" id="tLj_WO5R7jyhgDP_7fCr">
+                        <field name="VARNAME">inventory</field>
+                        <value name="EXPRESSION">
+                          <block type="varname" id="OTl^0Q;_-.z]BUBMNAs_">
+                            <field name="VARNAME">state.getBlockInventory()</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="functionCall" id="lS/xQt%t_T3e6T#`:tsd">
+                            <field name="FUNCTIONNAME">getAttackerGear (inventory)</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id=",:^M.M~LBW9)Dyl:h.|z" x="-1238" y="4587">
     <field name="nameOfFunction">handleMyRide (myRide,player)</field>
     <statement name="FUNCTIONCODE">
       <block type="setvariablevalue" id="hF##5XU9`n;odcFTGAj|">
@@ -3237,14 +3320,10 @@
                                                 <field name="VARNAME">entities</field>
                                                 <value name="EXPRESSION">
                                                   <block type="nearbyentities" id="Y}[HP[{v4uZ01x14S;`z">
+                                                    <field name="RADIUS">5</field>
                                                     <value name="LOCATION">
                                                       <block type="varname" id=".4:VwURCC34u!4pSmf0P">
                                                         <field name="VARNAME">block.location</field>
-                                                      </block>
-                                                    </value>
-                                                    <value name="RADIUS">
-                                                      <block type="math_number" id="2ZAJae{pvqG~=i$$+gDL">
-                                                        <field name="NUM">10</field>
                                                       </block>
                                                     </value>
                                                   </block>
@@ -3502,72 +3581,6 @@
                                 </next>
                               </block>
                             </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
-  <block type="scriptcraftfunction" id="HBRYngKOkP1aZ:-)D6z7" x="137" y="4437">
-    <field name="nameOfFunction">dropChest(player)</field>
-    <statement name="FUNCTIONCODE">
-      <block type="setvariablevalue" id="2ZmMO]U$/sf9mo4]OiN|">
-        <field name="VARNAME">location</field>
-        <value name="EXPRESSION">
-          <block type="varname" id="3T/(SZxE88mqu~(E[z]#">
-            <field name="VARNAME">player.location.add(1,0,1)</field>
-          </block>
-        </value>
-        <next>
-          <block type="spawnblock" id=";pweJc%=$E1-*$z$yj(^">
-            <value name="TYPE">
-              <block type="blocktype" id="KNek}nBJN0z2SzUalt!R">
-                <field name="BLOCKTYPE">CHEST</field>
-              </block>
-            </value>
-            <value name="LOCATION">
-              <block type="varname" id="kjgZ}[QAbbr5N7+y:}3a">
-                <field name="VARNAME">location</field>
-              </block>
-            </value>
-            <next>
-              <block type="setvariablevalue" id="tA]PI5WsGmlLp(,4so4P">
-                <field name="VARNAME">block</field>
-                <value name="EXPRESSION">
-                  <block type="getBlock" id="H:rOE(4Ws##m8rfwxJBB">
-                    <value name="LOCATION">
-                      <block type="varname" id="XlgSsaY-QFP4s;2}G]p;">
-                        <field name="VARNAME">location</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <next>
-                  <block type="setvariablevalue" id="mTzmAJfG]}VeL~)m{p]W">
-                    <field name="VARNAME">state</field>
-                    <value name="EXPRESSION">
-                      <block type="varname" id="{?3rgIpuZ/|?yB+Kweo.">
-                        <field name="VARNAME">block.getState()</field>
-                      </block>
-                    </value>
-                    <next>
-                      <block type="setvariablevalue" id="tLj_WO5R7jyhgDP_7fCr">
-                        <field name="VARNAME">inventory</field>
-                        <value name="EXPRESSION">
-                          <block type="varname" id="OTl^0Q;_-.z]BUBMNAs_">
-                            <field name="VARNAME">state.getBlockInventory()</field>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="functionCall" id="lS/xQt%t_T3e6T#`:tsd">
-                            <field name="FUNCTIONNAME">getAttackerGear (inventory)</field>
                           </block>
                         </next>
                       </block>
@@ -4874,7 +4887,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="ynymYG?j*n,$~HM}__O}" x="-542" y="5597">
+  <block type="scriptcraftfunction" id="ynymYG?j*n,$~HM}__O}" x="-563" y="5687">
     <field name="nameOfFunction">teleportRide (vehicle,passenger,location,pitch,yaw)</field>
     <statement name="FUNCTIONCODE">
       <block type="consolelog" id="8vkW:|5QkUu(Xo7Qk8r1">
