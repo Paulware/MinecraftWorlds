@@ -48,6 +48,7 @@ copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.pr
 GOTO:copyFiles
 
 :menu_5   Copy Omaha Beach 
+copy C:\SpigotMC\MinecraftWorlds\omahaBeach\server.properties C:\SpigotMC\server.properties
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
 GOTO:copyPlugin
 
