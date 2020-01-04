@@ -15,6 +15,7 @@ exports.omahaRules = function () {
   var bow;
   var bowName;
   var stack;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
@@ -26,7 +27,7 @@ exports.omahaRules = function () {
   });
   events.playerRespawn( function (event) {
     player=event.getPlayer();
-    if ((exports.kingAttacker) == (null) && (exports.kingAttacker) == (null)){
+    if ((exports.kingAttacker) == (null) || (exports.kingAttacker) == (null)){
       setTimeout (function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },500);
