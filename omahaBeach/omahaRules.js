@@ -1,10 +1,17 @@
+exports.teleportPlayer  = function (player,x,y,z) {
+  //Instantiations;
+  var location;
+  var entity;
+  var TeleportCause;
+  setTimeout (function () {
+    player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  },500);
+};
+
 exports.omahaRules = function () {
   //Instantiations;
   var message;
   var player;
-  var location;
-  var entity;
-  var TeleportCause;
   var team;
   var block;
   var inhand;
@@ -28,9 +35,7 @@ exports.omahaRules = function () {
   events.playerRespawn( function (event) {
     player=event.getPlayer();
     if ((exports.kingAttacker) == (null) || (exports.kingAttacker) == (null)){
-      setTimeout (function () {
-        player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-      },500);
+      teleportPlayer(player,-1219,137,-91);
     }
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     if ((team) == "Attacker" || (team) == "Airforce"){
@@ -157,6 +162,7 @@ exports.omahaSelectTeam = function (player,block) {
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingAttacker=player;
           player.sendMessage ("You are now king attacker");
+          teleportPlayer(player,-1223,63,-505);
         }
       }
       else if ((team) == "Defender"){
@@ -164,6 +170,7 @@ exports.omahaSelectTeam = function (player,block) {
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingDefender=player;
           player.sendMessage ("You are now king defender");
+          teleportPlayer(player,-1224,85,-412);
         }
       }
       else if ((team) == "Airforce"){
@@ -172,6 +179,7 @@ exports.omahaSelectTeam = function (player,block) {
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
           player.sendMessage ("You are now king attacker");
+          teleportPlayer(player,-1231,63,-616);
         }
       }
     }

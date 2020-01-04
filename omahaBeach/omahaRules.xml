@@ -1,4 +1,28 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="z)@RHvVsnJ2A#:f%PqrD" x="337" y="37">
+    <field name="nameOfFunction">teleportPlayer (player,x,y,z)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="delayedexecution" id="/{ZXA+S%RTb-h|Ou;(OI">
+        <field name="TIMEOUT">500</field>
+        <statement name="DELAYEDCODE">
+          <block type="teleport" id="?R4;Es(y/T7X,5+Oq;zZ">
+            <value name="ENTITY">
+              <block type="varname" id="+[8(ts)5_1]Is#.8]#tA">
+                <field name="VARNAME">player</field>
+              </block>
+            </value>
+            <value name="LOCATION">
+              <block type="absolutelocation" id="!r1f/$n.Mwp/i$jT*0sq">
+                <field name="X">x</field>
+                <field name="Y">y</field>
+                <field name="Z">z</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
   <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-137" y="63">
     <field name="nameOfFunction">omahaRules</field>
     <statement name="FUNCTIONCODE">
@@ -84,24 +108,8 @@
                                               </block>
                                             </value>
                                             <statement name="DO0">
-                                              <block type="delayedexecution" id="g:G.(II!G5dozXzO%AG{">
-                                                <field name="TIMEOUT">500</field>
-                                                <statement name="DELAYEDCODE">
-                                                  <block type="teleport" id="{MqB+Q:Twg/8fS$wVu[q">
-                                                    <value name="ENTITY">
-                                                      <block type="varname" id="jZ#Da(WF{_K.Vy:qW0)2">
-                                                        <field name="VARNAME">player</field>
-                                                      </block>
-                                                    </value>
-                                                    <value name="LOCATION">
-                                                      <block type="absolutelocation" id=".vQUI2vFa7!*,Hq`E*TL">
-                                                        <field name="X">-1219</field>
-                                                        <field name="Y">137</field>
-                                                        <field name="Z">-91</field>
-                                                      </block>
-                                                    </value>
-                                                  </block>
-                                                </statement>
+                                              <block type="functionCall" id="Pl!4SxkWv:/[V)L,V#Mb">
+                                                <field name="FUNCTIONNAME">teleportPlayer(player,-1219,137,-91)</field>
                                               </block>
                                             </statement>
                                             <next>
@@ -969,6 +977,11 @@
                                                 <field name="VARNAME">player</field>
                                               </block>
                                             </value>
+                                            <next>
+                                              <block type="functionCall" id="Lg./VbFw%3mxPEAnxUZ@">
+                                                <field name="FUNCTIONNAME">teleportPlayer(player,-1223,63,-505)</field>
+                                              </block>
+                                            </next>
                                           </block>
                                         </next>
                                       </block>
@@ -1048,6 +1061,11 @@
                                                 <field name="VARNAME">player</field>
                                               </block>
                                             </value>
+                                            <next>
+                                              <block type="functionCall" id="%JbGC7}0(`wOwxZVEU-a">
+                                                <field name="FUNCTIONNAME">teleportPlayer(player,-1224,85,-412)</field>
+                                              </block>
+                                            </next>
                                           </block>
                                         </next>
                                       </block>
@@ -1145,6 +1163,11 @@
                                                     <field name="VARNAME">player</field>
                                                   </block>
                                                 </value>
+                                                <next>
+                                                  <block type="functionCall" id="(extB1}O-=CEGxnNWR8s">
+                                                    <field name="FUNCTIONNAME">teleportPlayer(player,-1231,63,-616)</field>
+                                                  </block>
+                                                </next>
                                               </block>
                                             </next>
                                           </block>
