@@ -187,6 +187,11 @@
                                                                     <field name="VARNAME">player</field>
                                                                   </block>
                                                                 </value>
+                                                                <next>
+                                                                  <block type="functionCall" id="QTA9P[qBs8B8E#kxsYLl">
+                                                                    <field name="FUNCTIONNAME">teleportPlayer(player,-1224,100,-412)</field>
+                                                                  </block>
+                                                                </next>
                                                               </block>
                                                             </next>
                                                           </block>
@@ -237,6 +242,11 @@
                                                                     <field name="VARNAME">player</field>
                                                                   </block>
                                                                 </value>
+                                                                <next>
+                                                                  <block type="functionCall" id="?CQ|oFVje2h/EfGOfQYb">
+                                                                    <field name="FUNCTIONNAME">teleportPlayer(player,-1224,100,-412)</field>
+                                                                  </block>
+                                                                </next>
                                                               </block>
                                                             </next>
                                                           </block>

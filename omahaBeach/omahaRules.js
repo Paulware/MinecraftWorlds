@@ -42,6 +42,7 @@ exports.omahaRules = function () {
       if (exports.kingAttacker.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+        teleportPlayer(player,-1224,100,-412);
       }
       else {
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingAttacker.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
@@ -51,6 +52,7 @@ exports.omahaRules = function () {
       if (exports.kingDefender.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+        teleportPlayer(player,-1224,100,-412);
       }
       else {
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
