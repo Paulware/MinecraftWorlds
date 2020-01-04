@@ -1,50 +1,86 @@
 exports.omahaRules = function () {
   //Instantiations;
-  var shooter;
+  var message;
+  var player;
+  var location;
+  var entity;
+  var TeleportCause;
+  var team;
+  var block;
+  var inhand;
+  var name;
+  var i;
   var projectile;
+  var shooter;
   var bow;
   var bowName;
   var stack;
-  var name;
-  var player;
-  var inhand;
-  var i;
-  events.entityShootBow( function (event) {
-    shooter=event.getEntity();
-    projectile=event.getProjectile();
-    bow=event.getBow();
-    bowName=(bow.getItemMeta() == null) ? null : bow.getItemMeta().getDisplayName();
-    fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,bowName);
-    projectile.setMetadata ("name", fd );
-    console.log ("Bow [" + bowName + "] fired by " + shooter);
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+  exports.kingAttacker=null;
+  exports.kingDefender=null;
+  events.playerCommandPreprocess( function (event) {
+    message=event.getMessage();
+    console.log ("Got a player chat message yo: [" + message + "]");
   });
-  events.playerMove( function (event) {
+  events.playerRespawn( function (event) {
+    player=event.getPlayer();
+    if ((exports.kingAttacker) == (null)){
+      player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    }
+    team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
+    if ((team) == "Attacker" || (team) == "Airforce"){
+      if (exports.kingAttacker.isDead()){
+        player.sendMessage ("The king is dead, you are now a spectator");
+        player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+      }
+      else {
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingAttacker.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
+      }
+    }
+    else if ((team) == "Defender"){
+      if (exports.kingDefender.isDead()){
+        player.sendMessage ("The king is dead, you are now a spectator");
+        player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+      }
+      else {
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
+      }
+    }
   });
-  events.inventoryClick( function (event) {
-    console.log ("An inventory item was selected?");
-    stack=event.getCurrentItem();
-    console.log ("got current item");
-    name=(stack.getItemMeta() == null) ? null : stack.getItemMeta().getDisplayName();
-    console.log ("An item was selected" + name);
+  events.blockBreak( function (event) {
+    player=event.getPlayer();
+    if ((player.name) != "Paulware"){
+      event.cancelled = true;
+    }
   });
   events.playerInteract( function (event) {
     player=event.player;
+    block=event.getClickedBlock();
+    omahaSelectTeam (player,block);
     inhand=player.getItemInHand();
     name=(inhand.getItemMeta() == null) ? null : inhand.getItemMeta().getDisplayName();
-    if ((name) == "flamethrower"){
-      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.FIREBALL);
-      player.launchProjectile(projectile.getClass());
-    }
-    else if ((name) == "minigun"){
+    if ((name) == "minigun"){
       i=0;
       var test= setInterval (function () {
         i=i+1;
-        projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
-        player.launchProjectile(projectile.getClass());
+        if ((player) == (exports.kingAttacker) || (player) == (exports.kingDefender)){
+          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.TRIDENT);
+          player.launchProjectile(projectile.getClass());
+        }
+        else {
+          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+          player.launchProjectile(projectile.getClass());
+        }
         if (!(i <50)) {
           clearInterval (test);
         }
       }, 100);
+    }
+    else if ((name) == "flamethrower"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.FIREBALL);
+      player.launchProjectile(projectile.getClass());
     }
     else {
       console.log ("in hand: [" + name + "]");
@@ -52,6 +88,9 @@ exports.omahaRules = function () {
   });
   events.projectileHit( function (event) {
     projectile=event.getEntity();
+    if ((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL)){
+      server.worlds[0].createExplosion (projectile.location,1.5);
+    }
     if (projectile.getMetadata("name").length > 0){
       name=(projectile.getMetadata == null)?null:(projectile.getMetadata("name").length == 0)?null:projectile.getMetadata("name")[0].value();
       if ((name) == "bazooka"){
@@ -63,11 +102,75 @@ exports.omahaRules = function () {
       }
     }
     console.log (projectile.getType() + " just hit something yo");
-    if ((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL)){
-      server.worlds[0].createExplosion (projectile.location,3);
+  });
+  events.entityShootBow( function (event) {
+    shooter=event.getEntity();
+    projectile=event.getProjectile();
+    bow=event.getBow();
+    bowName=(bow.getItemMeta() == null) ? null : bow.getItemMeta().getDisplayName();
+    fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,bowName);
+    projectile.setMetadata ("name", fd );
+    console.log ("Bow [" + bowName + "] fired by " + shooter);
+  });
+  events.playerDeath( function (event) {
+    player=event.getEntity();
+    if ((player) == (exports.kingAttacker)){
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
     }
-    else if ((projectile.getType()) != (org.bukkit.entity.EntityType.ARROW)){
-      console.log ("Non-arrow hit something [" + projectile.getType + "]");
+    else if ((player) == (exports.kingDefender)){
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Defender has died\"");
     }
   });
+  events.playerJoin( function (event) {
+    player=event.player;
+    value.sendMessage ("Sorry I have to kill you to make sure you respawn");
+    setTimeout (function () {
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
+    },2500);
+  });
+  events.inventoryClick( function (event) {
+    console.log ("An inventory item was selected?");
+    stack=event.getCurrentItem();
+    console.log ("got current item");
+    name=(stack.getItemMeta() == null) ? null : stack.getItemMeta().getDisplayName();
+    console.log ("An item was selected" + name);
+  });
+};
+
+exports.omahaSelectTeam = function (player,block) {
+  //Instantiations;
+  var blockType;
+  var team;
+  var meta;
+  var stack;
+  if ((block) != (null)){
+    blockType=block.getType();
+    if ((blockType) == (org.bukkit.Material.OAK_SIGN)){
+      team=block.state.getLine(1);
+      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
+      player.setMetadata ("team", fd );
+      if ((team) == "Attacker"){
+        if ((exports.kingAttacker) == (null)){
+          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          exports.kingAttacker=player;
+          player.sendMessage ("You are now king attacker");
+        }
+      }
+      else if ((team) == "Defender"){
+        if ((exports.kingDefender) == (null)){
+          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          exports.kingDefender=player;
+          player.sendMessage ("You are now king defender");
+        }
+      }
+      else if ((team) == "Airforce"){
+        if ((exports.kingAttacker) == (null)){
+          exports.kingAttacker=player;
+          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
+          player.sendMessage ("You are now king attacker");
+        }
+      }
+    }
+  }
 };
