@@ -3,6 +3,7 @@ exports.teleportPlayer  = function (player,x,y,z) {
   var location;
   var entity;
   var TeleportCause;
+  console.log ("teleport " + player.name + " to : [" + x + "," + y + "," + z + "]");
   setTimeout (function () {
     player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2500);
@@ -33,8 +34,11 @@ exports.omahaRules = function () {
     console.log ("Got a player chat message yo: [" + message + "]");
   });
   events.playerRespawn( function (event) {
+    console.log ("Player Respawn");
     player=event.getPlayer();
+    console.log (player.name + " respawn");
     if ((exports.kingAttacker) == (null) || (exports.kingAttacker) == (null)){
+      console.log ("King is null");
       teleportPlayer(player,-1219,137,-91);
     }
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
