@@ -133,10 +133,10 @@ exports.omahaRules = function () {
   });
   events.playerJoin( function (event) {
     player=event.player;
-    value.sendMessage ("Sorry I have to kill you to make sure you respawn");
+    player.sendMessage ("Sorry I have to kill you to make sure you respawn");
     setTimeout (function () {
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
-    },2500);
+    },500);
   });
   events.inventoryClick( function (event) {
     console.log ("An inventory item was selected?");

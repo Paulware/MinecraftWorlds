@@ -741,12 +741,12 @@
                                                                     <field name="MESSAGE">"Sorry I have to kill you to make sure you respawn"</field>
                                                                     <value name="PLAYER">
                                                                       <block type="varname" id="2sBu]+!ndxBHROJW!_F5">
-                                                                        <field name="VARNAME">value</field>
+                                                                        <field name="VARNAME">player</field>
                                                                       </block>
                                                                     </value>
                                                                     <next>
                                                                       <block type="delayedexecution" id="FA08W+mZk[Y|fkl}dw$8">
-                                                                        <field name="TIMEOUT">2500</field>
+                                                                        <field name="TIMEOUT">500</field>
                                                                         <statement name="DELAYEDCODE">
                                                                           <block type="servercommand" id="K+?8f9%_=zaezVf7BlYS">
                                                                             <field name="COMMAND">"kill " + player.name</field>
