@@ -132,7 +132,6 @@ exports.omahaRules = function () {
         console.log ("projectile " + name + " landed yo");
       }
     }
-    console.log (projectile.getType() + " just hit something yo");
   });
   events.entityShootBow( function (event) {
     shooter=event.getEntity();
@@ -191,34 +190,38 @@ exports.omahaSelectTeam = function (player,block) {
       player.setMetadata ("team", fd );
       if ((team) == "Attacker"){
         if ((exports.kingAttacker) == (null)){
-          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingAttacker=player;
-          player.sendMessage (You are now king attacker);
+          player.sendMessage ("You are now king attacker");
           teleportPlayer(player,-1223,63,-505);
         }
         else {
-          loc=exports.kingAttacker.location;
-          teleportPlayer(player,loc.x, loc.y,loc.z);
+          if ((player) != (exports.kingAttacker)){
+            loc=exports.kingAttacker.location;
+            teleportPlayer(player,loc.x, loc.y,loc.z);
+          }
         }
       }
       else if ((team) == "Defender"){
         if ((exports.kingDefender) == (null)){
-          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingDefender=player;
-          player.sendMessage (You are now king defender);
+          player.sendMessage ("You are now king defender");
           teleportPlayer(player,-1224,85,-412);
         }
         else {
-          loc=exports.kingDefender.location;
-          teleportPlayer(player,loc.x, loc.y,loc.z);
+          if ((player) != (exports.kingDefender)){
+            loc=exports.kingDefender.location;
+            teleportPlayer(player,loc.x, loc.y,loc.z);
+          }
         }
       }
       else if ((team) == "Airforce"){
         if ((exports.kingAirforce) == (null)){
           exports.kingAirforce=player;
-          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
-          player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
-          player.sendMessage (You are now king of airforce);
+          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
+          player.sendMessage ("You are now king of airforce");
           teleportPlayer(player,-1231,63,-616);
         }
         else {
