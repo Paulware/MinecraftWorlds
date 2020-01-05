@@ -47,7 +47,7 @@ exports.omahaRules = function () {
     console.log ("team: " + team);
     if ((team) == "Attacker"){
       if ((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()){
-        player.sendMessage ("The king is dead, you are now a spectator");
+        player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
       }
@@ -57,7 +57,7 @@ exports.omahaRules = function () {
     }
     else if ((team) == "Defender"){
       if ((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()){
-        player.sendMessage ("The king is dead, you are now a spectator");
+        player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
       }
@@ -190,7 +190,7 @@ exports.omahaSelectTeam = function (player,block) {
       player.setMetadata ("team", fd );
       if ((team) == "Attacker"){
         if ((exports.kingAttacker) == (null)){
-          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingAttacker=player;
           player.sendMessage ("You are now king attacker");
           teleportPlayer(player,-1223,63,-505);

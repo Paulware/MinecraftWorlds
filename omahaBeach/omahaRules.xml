@@ -176,7 +176,7 @@
                                                                             </value>
                                                                             <statement name="DO0">
                                                                               <block type="sendmessage" id="DP:.J#yh!J?g.!.a]R)$">
-                                                                                <field name="MESSAGE">"The king is dead, you are now a spectator"</field>
+                                                                                <field name="MESSAGE">"The king is dead, you are now a spectator."</field>
                                                                                 <value name="PLAYER">
                                                                                   <block type="varname" id="b#DxSxIv+2D$-=FCo%2W">
                                                                                     <field name="VARNAME">player</field>
@@ -235,7 +235,7 @@
                                                                             </value>
                                                                             <statement name="DO0">
                                                                               <block type="sendmessage" id="(d|T{f%eE#*9SSGSLae}">
-                                                                                <field name="MESSAGE">"The king is dead, you are now a spectator"</field>
+                                                                                <field name="MESSAGE">"The king is dead, you are now a spectator."</field>
                                                                                 <value name="PLAYER">
                                                                                   <block type="varname" id="jFsnD@s_%{W:,-P1Fw+M">
                                                                                     <field name="VARNAME">player</field>
