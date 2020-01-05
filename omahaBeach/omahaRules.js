@@ -39,6 +39,7 @@ exports.omahaRules = function () {
     player=event.getPlayer();
     console.log (player.name + " respawn");
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
+    console.log ("team: " + team);
     if ((team) == "Attacker"){
       if (exports.kingAttacker.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
