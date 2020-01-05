@@ -1076,308 +1076,77 @@
                           </block>
                         </value>
                         <next>
-                          <block type="setplayerdata" id="HJ}]Tnl|]QJ]v)K922r7">
-                            <field name="KEY">team</field>
-                            <value name="VALUE">
-                              <block type="varname" id="NOkmH^S@DV:b*}BWg~=V">
-                                <field name="VARNAME">team</field>
-                              </block>
-                            </value>
-                            <value name="PLAYER">
-                              <block type="varname" id="O:WlvC=O7tuU~K3xlNUY">
-                                <field name="VARNAME">player</field>
+                          <block type="consolelog" id="X`:u%-/Ha}CvZ[}2NP~5">
+                            <value name="NAME">
+                              <block type="varname" id="0-brB{WM3:?`Dpvxz+$I">
+                                <field name="VARNAME">"player : [" + player+ "]"</field>
                               </block>
                             </value>
                             <next>
-                              <block type="controls_if" id="aHK##Mll!L}Sx?$i|$V(">
-                                <mutation elseif="2"></mutation>
-                                <value name="IF0">
-                                  <block type="logic_compare" id="k5Lj+~{s@@H0Mt-zMmjY">
-                                    <field name="OP">EQ</field>
-                                    <value name="A">
-                                      <block type="varname" id="+b80[a.geqRO%r6J]AuT">
-                                        <field name="VARNAME">team</field>
-                                      </block>
-                                    </value>
-                                    <value name="B">
-                                      <block type="text" id="BAnPG6HOE0Ctx[[*kS;G">
-                                        <field name="TEXT">Attacker</field>
-                                      </block>
-                                    </value>
+                              <block type="setplayerdata" id="HJ}]Tnl|]QJ]v)K922r7">
+                                <field name="KEY">team</field>
+                                <value name="VALUE">
+                                  <block type="varname" id="NOkmH^S@DV:b*}BWg~=V">
+                                    <field name="VARNAME">team</field>
                                   </block>
                                 </value>
-                                <statement name="DO0">
-                                  <block type="controls_if" id="2ud[YgI~$FIjPaZXjh[`">
-                                    <mutation else="1"></mutation>
+                                <value name="PLAYER">
+                                  <block type="varname" id="O:WlvC=O7tuU~K3xlNUY">
+                                    <field name="VARNAME">player</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="aHK##Mll!L}Sx?$i|$V(">
+                                    <mutation elseif="2"></mutation>
                                     <value name="IF0">
-                                      <block type="logic_compare" id=",=|P~+2,k4_^,:8;E1|d">
+                                      <block type="logic_compare" id="k5Lj+~{s@@H0Mt-zMmjY">
                                         <field name="OP">EQ</field>
                                         <value name="A">
-                                          <block type="varname" id="hkEf4rbYM~)^66-#%Wyt">
-                                            <field name="VARNAME">exports.kingAttacker</field>
+                                          <block type="varname" id="+b80[a.geqRO%r6J]AuT">
+                                            <field name="VARNAME">team</field>
                                           </block>
                                         </value>
                                         <value name="B">
-                                          <block type="varname" id="ygJ5g.LR]$spy!xS.Gen">
-                                            <field name="VARNAME">null</field>
+                                          <block type="text" id="BAnPG6HOE0Ctx[[*kS;G">
+                                            <field name="TEXT">Attacker</field>
                                           </block>
                                         </value>
                                       </block>
                                     </value>
                                     <statement name="DO0">
-                                      <block type="sethotbar" id="/wTr,un7Mg_*j=+HujF*">
-                                        <field name="SLOT">1</field>
-                                        <value name="PLAYER">
-                                          <block type="varname" id="Efl#AE|(5_kS5kU9K{SW">
-                                            <field name="VARNAME">player</field>
-                                          </block>
-                                        </value>
-                                        <value name="STACK">
-                                          <block type="namethestack" id="$ek@MfU-A;uQR]a}ii?y">
-                                            <field name="NAME">"minigun"</field>
-                                            <value name="STACK">
-                                              <block type="itemstack" id="D_m{@AIk%mky^X]~!4#l">
-                                                <field name="COUNT">1</field>
-                                                <value name="ITEM">
-                                                  <block type="materialtype" id="wD/|!d(jqN0iX-18pH?d">
-                                                    <field name="MATERIAL">CROSSBOW</field>
-                                                  </block>
-                                                </value>
-                                              </block>
-                                            </value>
-                                          </block>
-                                        </value>
-                                        <next>
-                                          <block type="setvariablevalue" id="ZZA9;O}lQ;bBoPW;wtC3">
-                                            <field name="VARNAME">exports.kingAttacker</field>
-                                            <value name="EXPRESSION">
-                                              <block type="varname" id="ColUu9O!N303oOA_EjA-">
-                                                <field name="VARNAME">player</field>
-                                              </block>
-                                            </value>
-                                            <next>
-                                              <block type="sendmessage" id="kYaEt1:0IV}M{:f|ue%w">
-                                                <field name="MESSAGE">"You are now king attacker"</field>
-                                                <value name="PLAYER">
-                                                  <block type="varname" id="_9c!l)I2FrOCM#j^`S7I">
-                                                    <field name="VARNAME">player</field>
-                                                  </block>
-                                                </value>
-                                                <next>
-                                                  <block type="functionCall" id="Lg./VbFw%3mxPEAnxUZ@">
-                                                    <field name="FUNCTIONNAME">teleportPlayer(player,-1223,63,-505)</field>
-                                                  </block>
-                                                </next>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </statement>
-                                    <statement name="ELSE">
-                                      <block type="controls_if" id="Io%%Xr(=ah~`YZ;x]rtF">
+                                      <block type="controls_if" id="2ud[YgI~$FIjPaZXjh[`">
+                                        <mutation else="1"></mutation>
                                         <value name="IF0">
-                                          <block type="logic_compare" id="9t46!B`#5jX5co.7r0$s">
-                                            <field name="OP">NEQ</field>
+                                          <block type="logic_compare" id=",=|P~+2,k4_^,:8;E1|d">
+                                            <field name="OP">EQ</field>
                                             <value name="A">
-                                              <block type="varname" id="Dw;.|ZI|TC~#~}(=l0^]">
-                                                <field name="VARNAME">player</field>
-                                              </block>
-                                            </value>
-                                            <value name="B">
-                                              <block type="varname" id="eha4#K$#F7i~XeYgcvl^">
+                                              <block type="varname" id="hkEf4rbYM~)^66-#%Wyt">
                                                 <field name="VARNAME">exports.kingAttacker</field>
                                               </block>
                                             </value>
-                                          </block>
-                                        </value>
-                                        <statement name="DO0">
-                                          <block type="setvariable" id="+0J6FkU+2u0F1s?{%U`~">
-                                            <field name="VARNAME">loc</field>
-                                            <field name="EXPRESSION">exports.kingAttacker.location</field>
-                                            <next>
-                                              <block type="functionCall" id="S?|M|,`76W[_3qUNGa$t">
-                                                <field name="FUNCTIONNAME">teleportPlayer(player,loc.x, loc.y,loc.z)</field>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </statement>
-                                      </block>
-                                    </statement>
-                                  </block>
-                                </statement>
-                                <value name="IF1">
-                                  <block type="logic_compare" id="Y{+Bj{8Q|6=2x[=~iCUQ">
-                                    <field name="OP">EQ</field>
-                                    <value name="A">
-                                      <block type="varname" id="]iUx9l[+aq@cL}l+@;TS">
-                                        <field name="VARNAME">team</field>
-                                      </block>
-                                    </value>
-                                    <value name="B">
-                                      <block type="text" id="S%X-22@*iS-Zlxn5kWiK">
-                                        <field name="TEXT">Defender</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </value>
-                                <statement name="DO1">
-                                  <block type="controls_if" id="r]lTfrJD|Ut6nS*XFFK2">
-                                    <mutation else="1"></mutation>
-                                    <value name="IF0">
-                                      <block type="logic_compare" id="fa$f8Y2RY/l_To;W.TRA">
-                                        <field name="OP">EQ</field>
-                                        <value name="A">
-                                          <block type="varname" id="bc:EG++NqN,[-;hhRgQx">
-                                            <field name="VARNAME">exports.kingDefender</field>
-                                          </block>
-                                        </value>
-                                        <value name="B">
-                                          <block type="varname" id="%wdShC8te|jH?kTCz~N8">
-                                            <field name="VARNAME">null</field>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </value>
-                                    <statement name="DO0">
-                                      <block type="sethotbar" id="CLdh_h/i37a5]oh!8peq">
-                                        <field name="SLOT">2</field>
-                                        <value name="PLAYER">
-                                          <block type="varname" id="4mIHqs?N;}UQNVwcG!|V">
-                                            <field name="VARNAME">player</field>
-                                          </block>
-                                        </value>
-                                        <value name="STACK">
-                                          <block type="namethestack" id="p]uQs^wow^Z_.wl^WbBa">
-                                            <field name="NAME">"minigun"</field>
-                                            <value name="STACK">
-                                              <block type="itemstack" id="D3^j?T2v?+_WPLzuQp[8">
-                                                <field name="COUNT">1</field>
-                                                <value name="ITEM">
-                                                  <block type="materialtype" id="?.f6bJ=18#*Z*44rTVlp">
-                                                    <field name="MATERIAL">CROSSBOW</field>
-                                                  </block>
-                                                </value>
-                                              </block>
-                                            </value>
-                                          </block>
-                                        </value>
-                                        <next>
-                                          <block type="setvariablevalue" id="xB=FKCX]OqJnnQ#_*#L]">
-                                            <field name="VARNAME">exports.kingDefender</field>
-                                            <value name="EXPRESSION">
-                                              <block type="varname" id="P1)7vP?u8@fqVU8uXDvX">
-                                                <field name="VARNAME">player</field>
-                                              </block>
-                                            </value>
-                                            <next>
-                                              <block type="sendmessage" id="OP:P(3r(vx5Ayi%-JE4m">
-                                                <field name="MESSAGE">"You are now king defender"</field>
-                                                <value name="PLAYER">
-                                                  <block type="varname" id="Zr^l4/O%jAHGnJ=c=W;V">
-                                                    <field name="VARNAME">player</field>
-                                                  </block>
-                                                </value>
-                                                <next>
-                                                  <block type="functionCall" id="%JbGC7}0(`wOwxZVEU-a">
-                                                    <field name="FUNCTIONNAME">teleportPlayer(player,-1224,85,-412)</field>
-                                                  </block>
-                                                </next>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </statement>
-                                    <statement name="ELSE">
-                                      <block type="controls_if" id="KZK/x@]!m:2cQW,m/U:d">
-                                        <value name="IF0">
-                                          <block type="logic_compare" id="d%z/YTwV/nvr}7AffDgP">
-                                            <field name="OP">NEQ</field>
-                                            <value name="A">
-                                              <block type="varname" id="^b^OV:+Rh}D~T$]oSpuq">
-                                                <field name="VARNAME">player</field>
-                                              </block>
-                                            </value>
                                             <value name="B">
-                                              <block type="varname" id="yntB,d]f3G{Z;0T`p2:c">
-                                                <field name="VARNAME">exports.kingDefender</field>
+                                              <block type="varname" id="ygJ5g.LR]$spy!xS.Gen">
+                                                <field name="VARNAME">null</field>
                                               </block>
                                             </value>
                                           </block>
                                         </value>
                                         <statement name="DO0">
-                                          <block type="setvariable" id="RXzi@e;SA+YUSw?,XT-c">
-                                            <field name="VARNAME">loc</field>
-                                            <field name="EXPRESSION">exports.kingDefender.location</field>
-                                            <next>
-                                              <block type="functionCall" id="K9z$Ozx+u[Mx]WJ^Pje/">
-                                                <field name="FUNCTIONNAME">teleportPlayer(player,loc.x, loc.y,loc.z)</field>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </statement>
-                                      </block>
-                                    </statement>
-                                  </block>
-                                </statement>
-                                <value name="IF2">
-                                  <block type="logic_compare" id="?6j$,(Y5Gmev*M6)_z8T">
-                                    <field name="OP">EQ</field>
-                                    <value name="A">
-                                      <block type="varname" id="C|=#]2n/J*p~a3M==Jv3">
-                                        <field name="VARNAME">team</field>
-                                      </block>
-                                    </value>
-                                    <value name="B">
-                                      <block type="text" id="Fc{`nyc5`/b{aMH6{b5K">
-                                        <field name="TEXT">Airforce</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </value>
-                                <statement name="DO2">
-                                  <block type="controls_if" id="g3_nK-cv:/DrpG3,h=AI">
-                                    <mutation else="1"></mutation>
-                                    <value name="IF0">
-                                      <block type="logic_compare" id="2)nDA1jmt47M(Xso8C)D">
-                                        <field name="OP">EQ</field>
-                                        <value name="A">
-                                          <block type="varname" id="T8_SnXkG?E@EdyV=N!5E">
-                                            <field name="VARNAME">exports.kingAirforce</field>
-                                          </block>
-                                        </value>
-                                        <value name="B">
-                                          <block type="varname" id="{5dnGR/(0|IJqhLS+Sv/">
-                                            <field name="VARNAME">null</field>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </value>
-                                    <statement name="DO0">
-                                      <block type="setvariablevalue" id="A={4u5#zNmDCdZZQgL+C">
-                                        <field name="VARNAME">exports.kingAirforce</field>
-                                        <value name="EXPRESSION">
-                                          <block type="varname" id="xkGhdN-@R%g|7Dh)$|_E">
-                                            <field name="VARNAME">player</field>
-                                          </block>
-                                        </value>
-                                        <next>
-                                          <block type="sethotbar" id="1k?QgyRq#DNl|?%jRV[_">
-                                            <field name="SLOT">2</field>
+                                          <block type="sethotbar" id="/wTr,un7Mg_*j=+HujF*">
+                                            <field name="SLOT">1</field>
                                             <value name="PLAYER">
-                                              <block type="varname" id="s*[A0qsyanI!|3C1QRu_">
+                                              <block type="varname" id="Efl#AE|(5_kS5kU9K{SW">
                                                 <field name="VARNAME">player</field>
                                               </block>
                                             </value>
                                             <value name="STACK">
-                                              <block type="namethestack" id="u16nSX/Hy,(bAA^b*b%7">
+                                              <block type="namethestack" id="$ek@MfU-A;uQR]a}ii?y">
                                                 <field name="NAME">"minigun"</field>
                                                 <value name="STACK">
-                                                  <block type="itemstack" id="tqyMKVG}jX.]-*-uf6!L">
+                                                  <block type="itemstack" id="D_m{@AIk%mky^X]~!4#l">
                                                     <field name="COUNT">1</field>
                                                     <value name="ITEM">
-                                                      <block type="materialtype" id="@z|48Yx@]q=U=-mA*`W=">
+                                                      <block type="materialtype" id="wD/|!d(jqN0iX-18pH?d">
                                                         <field name="MATERIAL">CROSSBOW</field>
                                                       </block>
                                                     </value>
@@ -1386,34 +1155,24 @@
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="sethotbar" id="xW(qhQ!er--MbzuR`vJ6">
-                                                <field name="SLOT">3</field>
-                                                <value name="PLAYER">
-                                                  <block type="varname" id="D/^A~S6_fJkU6v^ZHeY|">
+                                              <block type="setvariablevalue" id="ZZA9;O}lQ;bBoPW;wtC3">
+                                                <field name="VARNAME">exports.kingAttacker</field>
+                                                <value name="EXPRESSION">
+                                                  <block type="varname" id="ColUu9O!N303oOA_EjA-">
                                                     <field name="VARNAME">player</field>
                                                   </block>
                                                 </value>
-                                                <value name="STACK">
-                                                  <block type="itemstack" id="g7+nFEkjF^[IE*k-X^+6">
-                                                    <field name="COUNT">1</field>
-                                                    <value name="ITEM">
-                                                      <block type="materialtype" id="yTW=yLyTNZQ7zfgAV?!|">
-                                                        <field name="MATERIAL">LEGACY_ELYTRA</field>
-                                                      </block>
-                                                    </value>
-                                                  </block>
-                                                </value>
                                                 <next>
-                                                  <block type="sendmessage" id="e47Bk3!Exf^44dW|dNJ;">
-                                                    <field name="MESSAGE">"You are now king of airforce"</field>
+                                                  <block type="sendmessage" id="kYaEt1:0IV}M{:f|ue%w">
+                                                    <field name="MESSAGE">"You are now king attacker"</field>
                                                     <value name="PLAYER">
-                                                      <block type="varname" id="rP8y(BXmUJ[/M](dp@)#">
+                                                      <block type="varname" id="_9c!l)I2FrOCM#j^`S7I">
                                                         <field name="VARNAME">player</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="functionCall" id="(extB1}O-=CEGxnNWR8s">
-                                                        <field name="FUNCTIONNAME">teleportPlayer(player,-1231,63,-616)</field>
+                                                      <block type="functionCall" id="Lg./VbFw%3mxPEAnxUZ@">
+                                                        <field name="FUNCTIONNAME">teleportPlayer(player,-1223,63,-505)</field>
                                                       </block>
                                                     </next>
                                                   </block>
@@ -1421,16 +1180,266 @@
                                               </block>
                                             </next>
                                           </block>
-                                        </next>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="controls_if" id="Io%%Xr(=ah~`YZ;x]rtF">
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="9t46!B`#5jX5co.7r0$s">
+                                                <field name="OP">NEQ</field>
+                                                <value name="A">
+                                                  <block type="varname" id="Dw;.|ZI|TC~#~}(=l0^]">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="varname" id="eha4#K$#F7i~XeYgcvl^">
+                                                    <field name="VARNAME">exports.kingAttacker</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="setvariable" id="+0J6FkU+2u0F1s?{%U`~">
+                                                <field name="VARNAME">loc</field>
+                                                <field name="EXPRESSION">exports.kingAttacker.location</field>
+                                                <next>
+                                                  <block type="functionCall" id="S?|M|,`76W[_3qUNGa$t">
+                                                    <field name="FUNCTIONNAME">teleportPlayer(player,loc.x, loc.y,loc.z)</field>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </statement>
                                       </block>
                                     </statement>
-                                    <statement name="ELSE">
-                                      <block type="functionCall" id="9YMx+f9DxPK]CdnvaQaB">
-                                        <field name="FUNCTIONNAME">teleportPlayer(player,-1231,63,-616)</field>
+                                    <value name="IF1">
+                                      <block type="logic_compare" id="Y{+Bj{8Q|6=2x[=~iCUQ">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="]iUx9l[+aq@cL}l+@;TS">
+                                            <field name="VARNAME">team</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="S%X-22@*iS-Zlxn5kWiK">
+                                            <field name="TEXT">Defender</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO1">
+                                      <block type="controls_if" id="r]lTfrJD|Ut6nS*XFFK2">
+                                        <mutation else="1"></mutation>
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="fa$f8Y2RY/l_To;W.TRA">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="varname" id="bc:EG++NqN,[-;hhRgQx">
+                                                <field name="VARNAME">exports.kingDefender</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="varname" id="%wdShC8te|jH?kTCz~N8">
+                                                <field name="VARNAME">null</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="sethotbar" id="CLdh_h/i37a5]oh!8peq">
+                                            <field name="SLOT">2</field>
+                                            <value name="PLAYER">
+                                              <block type="varname" id="4mIHqs?N;}UQNVwcG!|V">
+                                                <field name="VARNAME">player</field>
+                                              </block>
+                                            </value>
+                                            <value name="STACK">
+                                              <block type="namethestack" id="p]uQs^wow^Z_.wl^WbBa">
+                                                <field name="NAME">"minigun"</field>
+                                                <value name="STACK">
+                                                  <block type="itemstack" id="D3^j?T2v?+_WPLzuQp[8">
+                                                    <field name="COUNT">1</field>
+                                                    <value name="ITEM">
+                                                      <block type="materialtype" id="?.f6bJ=18#*Z*44rTVlp">
+                                                        <field name="MATERIAL">CROSSBOW</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="setvariablevalue" id="xB=FKCX]OqJnnQ#_*#L]">
+                                                <field name="VARNAME">exports.kingDefender</field>
+                                                <value name="EXPRESSION">
+                                                  <block type="varname" id="P1)7vP?u8@fqVU8uXDvX">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="sendmessage" id="OP:P(3r(vx5Ayi%-JE4m">
+                                                    <field name="MESSAGE">"You are now king defender"</field>
+                                                    <value name="PLAYER">
+                                                      <block type="varname" id="Zr^l4/O%jAHGnJ=c=W;V">
+                                                        <field name="VARNAME">player</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="functionCall" id="%JbGC7}0(`wOwxZVEU-a">
+                                                        <field name="FUNCTIONNAME">teleportPlayer(player,-1224,85,-412)</field>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="controls_if" id="KZK/x@]!m:2cQW,m/U:d">
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="d%z/YTwV/nvr}7AffDgP">
+                                                <field name="OP">NEQ</field>
+                                                <value name="A">
+                                                  <block type="varname" id="^b^OV:+Rh}D~T$]oSpuq">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="varname" id="yntB,d]f3G{Z;0T`p2:c">
+                                                    <field name="VARNAME">exports.kingDefender</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="setvariable" id="RXzi@e;SA+YUSw?,XT-c">
+                                                <field name="VARNAME">loc</field>
+                                                <field name="EXPRESSION">exports.kingDefender.location</field>
+                                                <next>
+                                                  <block type="functionCall" id="K9z$Ozx+u[Mx]WJ^Pje/">
+                                                    <field name="FUNCTIONNAME">teleportPlayer(player,loc.x, loc.y,loc.z)</field>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </statement>
+                                    <value name="IF2">
+                                      <block type="logic_compare" id="?6j$,(Y5Gmev*M6)_z8T">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="C|=#]2n/J*p~a3M==Jv3">
+                                            <field name="VARNAME">team</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="Fc{`nyc5`/b{aMH6{b5K">
+                                            <field name="TEXT">Airforce</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO2">
+                                      <block type="controls_if" id="g3_nK-cv:/DrpG3,h=AI">
+                                        <mutation else="1"></mutation>
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="2)nDA1jmt47M(Xso8C)D">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="varname" id="T8_SnXkG?E@EdyV=N!5E">
+                                                <field name="VARNAME">exports.kingAirforce</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="varname" id="{5dnGR/(0|IJqhLS+Sv/">
+                                                <field name="VARNAME">null</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="setvariablevalue" id="A={4u5#zNmDCdZZQgL+C">
+                                            <field name="VARNAME">exports.kingAirforce</field>
+                                            <value name="EXPRESSION">
+                                              <block type="varname" id="xkGhdN-@R%g|7Dh)$|_E">
+                                                <field name="VARNAME">player</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="sethotbar" id="1k?QgyRq#DNl|?%jRV[_">
+                                                <field name="SLOT">2</field>
+                                                <value name="PLAYER">
+                                                  <block type="varname" id="s*[A0qsyanI!|3C1QRu_">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <value name="STACK">
+                                                  <block type="namethestack" id="u16nSX/Hy,(bAA^b*b%7">
+                                                    <field name="NAME">"minigun"</field>
+                                                    <value name="STACK">
+                                                      <block type="itemstack" id="tqyMKVG}jX.]-*-uf6!L">
+                                                        <field name="COUNT">1</field>
+                                                        <value name="ITEM">
+                                                          <block type="materialtype" id="@z|48Yx@]q=U=-mA*`W=">
+                                                            <field name="MATERIAL">CROSSBOW</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="sethotbar" id="xW(qhQ!er--MbzuR`vJ6">
+                                                    <field name="SLOT">3</field>
+                                                    <value name="PLAYER">
+                                                      <block type="varname" id="D/^A~S6_fJkU6v^ZHeY|">
+                                                        <field name="VARNAME">player</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="STACK">
+                                                      <block type="itemstack" id="g7+nFEkjF^[IE*k-X^+6">
+                                                        <field name="COUNT">1</field>
+                                                        <value name="ITEM">
+                                                          <block type="materialtype" id="yTW=yLyTNZQ7zfgAV?!|">
+                                                            <field name="MATERIAL">LEGACY_ELYTRA</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="sendmessage" id="e47Bk3!Exf^44dW|dNJ;">
+                                                        <field name="MESSAGE">"You are now king of airforce"</field>
+                                                        <value name="PLAYER">
+                                                          <block type="varname" id="rP8y(BXmUJ[/M](dp@)#">
+                                                            <field name="VARNAME">player</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="functionCall" id="(extB1}O-=CEGxnNWR8s">
+                                                            <field name="FUNCTIONNAME">teleportPlayer(player,-1231,63,-616)</field>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="functionCall" id="9YMx+f9DxPK]CdnvaQaB">
+                                            <field name="FUNCTIONNAME">teleportPlayer(player,-1231,63,-616)</field>
+                                          </block>
+                                        </statement>
                                       </block>
                                     </statement>
                                   </block>
-                                </statement>
+                                </next>
                               </block>
                             </next>
                           </block>

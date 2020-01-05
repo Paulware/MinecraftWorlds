@@ -188,6 +188,7 @@ exports.omahaSelectTeam = function (player,block) {
     else {
       team=block.state.getLine(1);
       console.log ("team : [" + team + "]");
+      console.log ("player : [" + player+ "]");
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
       player.setMetadata ("team", fd );
       if ((team) == "Attacker"){
