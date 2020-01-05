@@ -11,6 +11,7 @@ exports.teleportPlayer  = function (player,x,y,z) {
 
 exports.omahaRules = function () {
   //Instantiations;
+  var players;
   var message;
   var player;
   var team;
@@ -30,6 +31,10 @@ exports.omahaRules = function () {
   exports.kingAttacker=null;
   exports.kingAirforce=null;
   exports.kingDefender=null;
+  players=server.getOnlinePlayers();
+  for (var i=0; i<parseInt(players.length); i++) {
+    players[i].removeMetadata ("team", __plugin );
+  }
   events.playerCommandPreprocess( function (event) {
     message=event.getMessage();
     console.log ("Got a player chat message yo: [" + message + "]");
@@ -41,7 +46,7 @@ exports.omahaRules = function () {
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     console.log ("team: " + team);
     if ((team) == "Attacker"){
-      if (exports.kingAttacker.isDead()){
+      if ((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
@@ -51,7 +56,7 @@ exports.omahaRules = function () {
       }
     }
     else if ((team) == "Defender"){
-      if (exports.kingDefender.isDead()){
+      if ((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
@@ -61,7 +66,7 @@ exports.omahaRules = function () {
       }
     }
     else if ((team) == "Airforce"){
-      if (exports.kingAirforce.isDead()){
+      if ((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1231,63,-616);
@@ -151,6 +156,7 @@ exports.omahaRules = function () {
     player=event.player;
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
     player.sendMessage ("Sorry I have to kill you to make sure you respawn");
+    player.removeMetadata ("team", __plugin );
     setTimeout (function () {
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
     },500);
@@ -187,7 +193,7 @@ exports.omahaSelectTeam = function (player,block) {
         if ((exports.kingAttacker) == (null)){
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingAttacker=player;
-          player.sendMessage ("You are now king attacker");
+          player.sendMessage (You are now king attacker);
           teleportPlayer(player,-1223,63,-505);
         }
         else {
@@ -199,7 +205,7 @@ exports.omahaSelectTeam = function (player,block) {
         if ((exports.kingDefender) == (null)){
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingDefender=player;
-          player.sendMessage ("You are now king defender");
+          player.sendMessage (You are now king defender);
           teleportPlayer(player,-1224,85,-412);
         }
         else {
@@ -212,7 +218,7 @@ exports.omahaSelectTeam = function (player,block) {
           exports.kingAirforce=player;
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
-          player.sendMessage ("You are now king of airforce");
+          player.sendMessage (You are now king of airforce);
           teleportPlayer(player,-1231,63,-616);
         }
         else {
