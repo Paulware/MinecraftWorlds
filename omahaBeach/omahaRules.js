@@ -37,10 +37,6 @@ exports.omahaRules = function () {
     console.log ("Player Respawn");
     player=event.getPlayer();
     console.log (player.name + " respawn");
-    if ((exports.kingAttacker) == (null) || (exports.kingAttacker) == (null)){
-      console.log ("King is null");
-      teleportPlayer(player,-1219,137,-91);
-    }
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     if ((team) == "Attacker" || (team) == "Airforce"){
       if (exports.kingAttacker.isDead()){
@@ -61,6 +57,10 @@ exports.omahaRules = function () {
       else {
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
       }
+    }
+    else {
+      console.log ("Player must select a team");
+      teleportPlayer(player,-1219,137,-91);
     }
   });
   events.blockBreak( function (event) {
