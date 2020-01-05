@@ -266,7 +266,7 @@
                                                                                     </statement>
                                                                                     <statement name="ELSE">
                                                                                       <block type="servercommand" id="?Mk|TfoGe{9j2|o+Ibtz">
-                                                                                        <field name="COMMAND">"tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z</field>
+                                                                                        <field name="COMMAND">"tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingDefender.location.y + " " + exports.kingDefender.location.z</field>
                                                                                       </block>
                                                                                     </statement>
                                                                                   </block>

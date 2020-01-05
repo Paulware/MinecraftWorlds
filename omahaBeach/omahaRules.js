@@ -64,7 +64,7 @@ exports.omahaRules = function () {
         teleportPlayer(player,-1224,100,-412);
       }
       else {
-        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingDefender.location.y + " " + exports.kingDefender.location.z);
       }
     }
     else if ((team) == "Airforce"){
