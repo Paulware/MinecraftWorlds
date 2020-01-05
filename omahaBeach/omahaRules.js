@@ -1,14 +1,3 @@
-exports.teleportPlayer  = function (player,x,y,z) {
-  //Instantiations;
-  var location;
-  var entity;
-  var TeleportCause;
-  console.log ("teleport " + player.name + " to : [" + x + "," + y + "," + z + "]");
-  setTimeout (function () {
-    player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-  },2500);
-};
-
 exports.omahaRules = function () {
   //Instantiations;
   var players;
@@ -48,7 +37,7 @@ exports.omahaRules = function () {
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     console.log ("team: " + team);
     if ((team) == "Attacker"){
-      if ((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()){
+      if (((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()) || ((exports.kingAttacker == null ) ? false : (exports.kingAttacker.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
@@ -58,7 +47,7 @@ exports.omahaRules = function () {
       }
     }
     else if ((team) == "Defender"){
-      if ((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()){
+      if (((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()) || ((exports.kingDefender == null ) ? false : (exports.kingDefender.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1224,100,-412);
@@ -68,7 +57,7 @@ exports.omahaRules = function () {
       }
     }
     else if ((team) == "Airforce"){
-      if ((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()){
+      if (((exports.kingAirforce == null ) ? false : exports.kingAirforce.isDead()) || ((exports.kingAirforce == null ) ? false : (exports.kingAirforce.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         teleportPlayer(player,-1231,63,-616);
@@ -169,6 +158,17 @@ exports.omahaRules = function () {
     name=(stack.getItemMeta() == null) ? null : stack.getItemMeta().getDisplayName();
     console.log ("An item was selected" + name);
   });
+};
+
+exports.teleportPlayer  = function (player,x,y,z) {
+  //Instantiations;
+  var location;
+  var entity;
+  var TeleportCause;
+  console.log ("teleport " + player.name + " to : [" + x + "," + y + "," + z + "]");
+  setTimeout (function () {
+    player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  },2500);
 };
 
 exports.omahaSelectTeam = function (player,block) {

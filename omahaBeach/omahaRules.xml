@@ -1,38 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="z)@RHvVsnJ2A#:f%PqrD" x="337" y="37">
-    <field name="nameOfFunction">teleportPlayer (player,x,y,z)</field>
-    <statement name="FUNCTIONCODE">
-      <block type="consolelog" id="_L3o}Vt-iU.TETJqMr}|">
-        <value name="NAME">
-          <block type="varname" id="TGdc3tds#fHd}nA4r6V5">
-            <field name="VARNAME">"teleport " + player.name + " to : [" + x + "," + y + "," + z + "]"</field>
-          </block>
-        </value>
-        <next>
-          <block type="delayedexecution" id="/{ZXA+S%RTb-h|Ou;(OI">
-            <field name="TIMEOUT">2500</field>
-            <statement name="DELAYEDCODE">
-              <block type="teleport" id="?R4;Es(y/T7X,5+Oq;zZ">
-                <value name="ENTITY">
-                  <block type="varname" id="+[8(ts)5_1]Is#.8]#tA">
-                    <field name="VARNAME">player</field>
-                  </block>
-                </value>
-                <value name="LOCATION">
-                  <block type="absolutelocation" id="!r1f/$n.Mwp/i$jT*0sq">
-                    <field name="X">x</field>
-                    <field name="Y">y</field>
-                    <field name="Z">z</field>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
-  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-137" y="63">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="-87" y="13">
     <field name="nameOfFunction">omahaRules</field>
     <statement name="FUNCTIONCODE">
       <block type="servercommand" id="8C^$pbVt5p7!O/2HW0nF">
@@ -172,10 +139,24 @@
                                                                                   <block type="controls_if" id="]csyS.;})b=sSswYrrz3">
                                                                                     <mutation else="1"></mutation>
                                                                                     <value name="IF0">
-                                                                                      <block type="entitydead" id="=;ASLs;1rw:uUye2vwR!">
-                                                                                        <value name="ENTITY">
-                                                                                          <block type="varname" id="?odqNeb@BdBl[ECJgQpI">
-                                                                                            <field name="VARNAME">exports.kingAttacker</field>
+                                                                                      <block type="logic_operation" id="@CYJuAyb1ng|bg]~]3Vo">
+                                                                                        <field name="OP">OR</field>
+                                                                                        <value name="A">
+                                                                                          <block type="entitydead" id="=;ASLs;1rw:uUye2vwR!">
+                                                                                            <value name="ENTITY">
+                                                                                              <block type="varname" id="?odqNeb@BdBl[ECJgQpI">
+                                                                                                <field name="VARNAME">exports.kingAttacker</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="B">
+                                                                                          <block type="isspectator" id="{-{2|ly+bIgR[wy(C`ID">
+                                                                                            <value name="PLAYER">
+                                                                                              <block type="varname" id="9WZA~pnA5pPS9dnoUj([">
+                                                                                                <field name="VARNAME">exports.kingAttacker</field>
+                                                                                              </block>
+                                                                                            </value>
                                                                                           </block>
                                                                                         </value>
                                                                                       </block>
@@ -231,10 +212,24 @@
                                                                                   <block type="controls_if" id="y@hRJ9aYg8OuTIWc)S.2">
                                                                                     <mutation else="1"></mutation>
                                                                                     <value name="IF0">
-                                                                                      <block type="entitydead" id="(v,mgep%Pi;W$:t!FFeO">
-                                                                                        <value name="ENTITY">
-                                                                                          <block type="varname" id="pjV]O6m{#v9OqO0h9k|G">
-                                                                                            <field name="VARNAME">exports.kingDefender</field>
+                                                                                      <block type="logic_operation" id="I`2Yk0U9$v;qNe:kMAe]">
+                                                                                        <field name="OP">OR</field>
+                                                                                        <value name="A">
+                                                                                          <block type="entitydead" id=":#_}/bZ[(Xa#p@1)#j`a">
+                                                                                            <value name="ENTITY">
+                                                                                              <block type="varname" id="=t:g3.8(cr8nmQtBcFuD">
+                                                                                                <field name="VARNAME">exports.kingDefender</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="B">
+                                                                                          <block type="isspectator" id=",}O-DH{M)ts!#P$:(pjd">
+                                                                                            <value name="PLAYER">
+                                                                                              <block type="varname" id="Hi}{s,DgG9bJ+O/G`-#h">
+                                                                                                <field name="VARNAME">exports.kingDefender</field>
+                                                                                              </block>
+                                                                                            </value>
                                                                                           </block>
                                                                                         </value>
                                                                                       </block>
@@ -290,10 +285,24 @@
                                                                                   <block type="controls_if" id="-@d+I.?yvN5J^.X8x`n/">
                                                                                     <mutation else="1"></mutation>
                                                                                     <value name="IF0">
-                                                                                      <block type="entitydead" id="4r=xv2x!`Ld$zFM]v1F:">
-                                                                                        <value name="ENTITY">
-                                                                                          <block type="varname" id="wy.t;Jh%;,JB@Sb){1wi">
-                                                                                            <field name="VARNAME">exports.kingDefender</field>
+                                                                                      <block type="logic_operation" id="YMXZ0*KT1F`T|w`B0gQv">
+                                                                                        <field name="OP">OR</field>
+                                                                                        <value name="A">
+                                                                                          <block type="entitydead" id="j(uC#05J`vf~f.^VT%Pe">
+                                                                                            <value name="ENTITY">
+                                                                                              <block type="varname" id="OBlmMOj.#,Em$-AgE!n}">
+                                                                                                <field name="VARNAME">exports.kingAirforce</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="B">
+                                                                                          <block type="isspectator" id="l#37f.=9{_o/zL;u=vSJ">
+                                                                                            <value name="PLAYER">
+                                                                                              <block type="varname" id="/g)xX~0(+]*jgn;M23^1">
+                                                                                                <field name="VARNAME">exports.kingAirforce</field>
+                                                                                              </block>
+                                                                                            </value>
                                                                                           </block>
                                                                                         </value>
                                                                                       </block>
@@ -940,6 +949,39 @@
                 </next>
               </block>
             </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id="z)@RHvVsnJ2A#:f%PqrD" x="337" y="37">
+    <field name="nameOfFunction">teleportPlayer (player,x,y,z)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="consolelog" id="_L3o}Vt-iU.TETJqMr}|">
+        <value name="NAME">
+          <block type="varname" id="TGdc3tds#fHd}nA4r6V5">
+            <field name="VARNAME">"teleport " + player.name + " to : [" + x + "," + y + "," + z + "]"</field>
+          </block>
+        </value>
+        <next>
+          <block type="delayedexecution" id="/{ZXA+S%RTb-h|Ou;(OI">
+            <field name="TIMEOUT">2500</field>
+            <statement name="DELAYEDCODE">
+              <block type="teleport" id="?R4;Es(y/T7X,5+Oq;zZ">
+                <value name="ENTITY">
+                  <block type="varname" id="+[8(ts)5_1]Is#.8]#tA">
+                    <field name="VARNAME">player</field>
+                  </block>
+                </value>
+                <value name="LOCATION">
+                  <block type="absolutelocation" id="!r1f/$n.Mwp/i$jT*0sq">
+                    <field name="X">x</field>
+                    <field name="Y">y</field>
+                    <field name="Z">z</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
           </block>
         </next>
       </block>
