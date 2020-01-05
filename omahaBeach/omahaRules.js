@@ -137,6 +137,7 @@ exports.omahaRules = function () {
   });
   events.playerJoin( function (event) {
     player=event.player;
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
     player.sendMessage ("Sorry I have to kill you to make sure you respawn");
     setTimeout (function () {
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);

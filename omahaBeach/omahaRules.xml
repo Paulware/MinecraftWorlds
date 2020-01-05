@@ -734,21 +734,26 @@
                                                                 <field name="VARNAME">player</field>
                                                                 <field name="EXPRESSION">event.player</field>
                                                                 <next>
-                                                                  <block type="sendmessage" id="%)pG8@i-LJ8DPIp;7oLP">
-                                                                    <field name="MESSAGE">"Sorry I have to kill you to make sure you respawn"</field>
-                                                                    <value name="PLAYER">
-                                                                      <block type="varname" id="2sBu]+!ndxBHROJW!_F5">
-                                                                        <field name="VARNAME">player</field>
-                                                                      </block>
-                                                                    </value>
+                                                                  <block type="servercommand" id="ZxKP5!(MOiSbTt}zL#Gj">
+                                                                    <field name="COMMAND">"gamemode survival " + player.name</field>
                                                                     <next>
-                                                                      <block type="delayedexecution" id="FA08W+mZk[Y|fkl}dw$8">
-                                                                        <field name="TIMEOUT">500</field>
-                                                                        <statement name="DELAYEDCODE">
-                                                                          <block type="servercommand" id="K+?8f9%_=zaezVf7BlYS">
-                                                                            <field name="COMMAND">"kill " + player.name</field>
+                                                                      <block type="sendmessage" id="%)pG8@i-LJ8DPIp;7oLP">
+                                                                        <field name="MESSAGE">"Sorry I have to kill you to make sure you respawn"</field>
+                                                                        <value name="PLAYER">
+                                                                          <block type="varname" id="2sBu]+!ndxBHROJW!_F5">
+                                                                            <field name="VARNAME">player</field>
                                                                           </block>
-                                                                        </statement>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="delayedexecution" id="FA08W+mZk[Y|fkl}dw$8">
+                                                                            <field name="TIMEOUT">500</field>
+                                                                            <statement name="DELAYEDCODE">
+                                                                              <block type="servercommand" id="K+?8f9%_=zaezVf7BlYS">
+                                                                                <field name="COMMAND">"kill " + player.name</field>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </next>
                                                                       </block>
                                                                     </next>
                                                                   </block>
