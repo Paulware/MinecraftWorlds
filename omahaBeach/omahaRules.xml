@@ -3,7 +3,7 @@
     <field name="nameOfFunction">teleportPlayer (player,x,y,z)</field>
     <statement name="FUNCTIONCODE">
       <block type="delayedexecution" id="/{ZXA+S%RTb-h|Ou;(OI">
-        <field name="TIMEOUT">500</field>
+        <field name="TIMEOUT">2500</field>
         <statement name="DELAYEDCODE">
           <block type="teleport" id="?R4;Es(y/T7X,5+Oq;zZ">
             <value name="ENTITY">

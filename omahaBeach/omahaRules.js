@@ -5,7 +5,7 @@ exports.teleportPlayer  = function (player,x,y,z) {
   var TeleportCause;
   setTimeout (function () {
     player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-  },500);
+  },2500);
 };
 
 exports.omahaRules = function () {
