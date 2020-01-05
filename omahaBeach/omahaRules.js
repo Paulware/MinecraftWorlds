@@ -153,10 +153,17 @@ exports.omahaSelectTeam = function (player,block) {
   var team;
   var meta;
   var stack;
-  if ((block) != (null)){
+  if ((block) == (null)){
+    console.log ("block is null");
+  }
+  else {
     blockType=block.getType();
-    if ((blockType) == (org.bukkit.Material.OAK_SIGN)){
+    if ((blockType) != (org.bukkit.Material.OAK_SIGN)){
+      console.log ("block is not oak sign: " + blockType);
+    }
+    else {
       team=block.state.getLine(1);
+      console.log ("team : [" + team + "]");
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
       player.setMetadata ("team", fd );
       if ((team) == "Attacker"){
