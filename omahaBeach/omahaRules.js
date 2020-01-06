@@ -19,9 +19,6 @@ exports.omahaRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
-  exports.kingAttacker=null;
-  exports.kingAirforce=null;
-  exports.kingDefender=null;
   players=server.getOnlinePlayers();
   for (var i=0; i<parseInt(players.length); i++) {
     players[i].removeMetadata ("team", __plugin );
@@ -40,35 +37,45 @@ exports.omahaRules = function () {
       if (((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()) || ((exports.kingAttacker == null ) ? false : (exports.kingAttacker.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-        teleportPlayer(player,-1224,100,-412);
+        setTimeout (function () {
+          player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 100, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2500);
       }
       else {
-        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingAttacker.location.x + " " + exports.kingAttacker.location.y + " " + exports.kingAttacker.location.z);
+        setTimeout (function () {
+          player.teleport(exports.kingAttacker.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2500);
       }
     }
     else if ((team) == "Defender"){
       if (((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()) || ((exports.kingDefender == null ) ? false : (exports.kingDefender.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-        teleportPlayer(player,-1224,100,-412);
+        setTimeout (function () {
+          player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 100, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2500);
       }
       else {
-        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " " + exports.kingDefender.location.x + " " + exports.kingDefender.location.y + " " + exports.kingDefender.location.z);
+        setTimeout (function () {
+          player.teleport(exports.kingDefender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2500);
       }
     }
     else if ((team) == "Airforce"){
       if (((exports.kingAirforce == null ) ? false : exports.kingAirforce.isDead()) || ((exports.kingAirforce == null ) ? false : (exports.kingAirforce.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-        teleportPlayer(player,-1231,63,-616);
       }
-      else {
-        teleportPlayer(player,-1231,63,-616);
-      }
+      player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
+      setTimeout (function () {
+        player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      },2500);
     }
     else {
       console.log ("Player must select a team");
-      teleportPlayer(player,-1219,137,-91);
+      setTimeout (function () {
+        player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      },2500);
     }
   });
   events.blockBreak( function (event) {
@@ -160,17 +167,6 @@ exports.omahaRules = function () {
   });
 };
 
-exports.teleportPlayer  = function (player,x,y,z) {
-  //Instantiations;
-  var location;
-  var entity;
-  var TeleportCause;
-  console.log ("teleport " + player.name + " to : [" + x + "," + y + "," + z + "]");
-  setTimeout (function () {
-    player.teleport(new org.bukkit.Location(server.worlds[0], x, y, z), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-  },2500);
-};
-
 exports.omahaSelectTeam = function (player,block) {
   //Instantiations;
   var blockType;
@@ -196,12 +192,15 @@ exports.omahaSelectTeam = function (player,block) {
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingAttacker=player;
           player.sendMessage ("You are now king attacker");
-          teleportPlayer(player,-1223,63,-505);
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -1223, 63, -505), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2500);
         }
         else {
           if ((player) != (exports.kingAttacker)){
-            loc=exports.kingAttacker.location;
-            teleportPlayer(player,loc.x, loc.y,loc.z);
+            setTimeout (function () {
+              player.teleport(exports.kingAttacker.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+            },2500);
           }
         }
       }
@@ -210,12 +209,15 @@ exports.omahaSelectTeam = function (player,block) {
           player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingDefender=player;
           player.sendMessage ("You are now king defender");
-          teleportPlayer(player,-1224,85,-412);
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2500);
         }
         else {
           if ((player) != (exports.kingDefender)){
-            loc=exports.kingDefender.location;
-            teleportPlayer(player,loc.x, loc.y,loc.z);
+            setTimeout (function () {
+              player.teleport(exports.kingDefender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+            },2500);
           }
         }
       }
@@ -223,13 +225,12 @@ exports.omahaSelectTeam = function (player,block) {
         if ((exports.kingAirforce) == (null)){
           exports.kingAirforce=player;
           player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
-          player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
           player.sendMessage ("You are now king of airforce");
-          teleportPlayer(player,-1231,63,-616);
         }
-        else {
-          teleportPlayer(player,-1231,63,-616);
-        }
+        setTimeout (function () {
+          player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2500);
+        player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
       }
     }
   }
