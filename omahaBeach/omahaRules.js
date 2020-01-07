@@ -22,6 +22,10 @@ exports.omahaRules = function () {
   for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
     players[playersIndex].removeMetadata ("team", __plugin );
   }
+  players = server.getOnlinePlayers();
+  for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
+    players[playersIndex].getInventory().clear();
+  }
   events.playerCommandPreprocess( function (event) {
     message=event.getMessage();
     console.log ("Got a player chat message yo: [" + message + "]");
@@ -147,6 +151,7 @@ exports.omahaRules = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
     player.sendMessage ("Sorry I have to kill you to make sure you respawn");
     player.removeMetadata ("team", __plugin );
+    player.getInventory().clear();
     setTimeout (function () {
       player.setHealth(0);
     },500);
@@ -232,7 +237,7 @@ exports.omahaSelectTeam = function (player,block) {
           exports.kingDefender=player;
           player.sendMessage ("You are now king defender");
           setTimeout (function () {
-            player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+            player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -411), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
         }
         else {
