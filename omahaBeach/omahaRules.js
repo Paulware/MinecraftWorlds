@@ -12,39 +12,36 @@ exports.omahaRules = function () {
   var shooter;
   var bow;
   var bowName;
-  var stack;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
-  players=server.getOnlinePlayers();
-  for (var i=0; i<parseInt(players.length); i++) {
-    players[i].removeMetadata ("team", __plugin );
+  players = server.getOnlinePlayers();
+  for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
+    players[playersIndex].removeMetadata ("team", __plugin );
   }
   events.playerCommandPreprocess( function (event) {
     message=event.getMessage();
     console.log ("Got a player chat message yo: [" + message + "]");
   });
   events.playerRespawn( function (event) {
-    console.log ("Player Respawn");
     player=event.getPlayer();
-    console.log (player.name + " respawn");
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
-    console.log ("team: " + team);
+    console.log (player.name + " respawn on team: [" + team + "]");
     if ((team) == "Attacker"){
       if (((exports.kingAttacker == null ) ? false : exports.kingAttacker.isDead()) || ((exports.kingAttacker == null ) ? false : (exports.kingAttacker.getGameMode().toString() == "SPECTATOR"))){
         player.sendMessage ("The king is dead, you are now a spectator.");
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         setTimeout (function () {
           player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 100, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2500);
+        },2000);
       }
       else {
         setTimeout (function () {
           player.teleport(exports.kingAttacker.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2500);
+        },2000);
       }
     }
     else if ((team) == "Defender"){
@@ -53,12 +50,12 @@ exports.omahaRules = function () {
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         setTimeout (function () {
           player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 100, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2500);
+        },2000);
       }
       else {
         setTimeout (function () {
           player.teleport(exports.kingDefender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2500);
+        },2000);
       }
     }
     else if ((team) == "Airforce"){
@@ -69,13 +66,13 @@ exports.omahaRules = function () {
       player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
       setTimeout (function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-      },2500);
+      },2000);
     }
     else {
       console.log ("Player must select a team");
       setTimeout (function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-      },2500);
+      },2000);
     }
   });
   events.blockBreak( function (event) {
@@ -85,7 +82,7 @@ exports.omahaRules = function () {
     }
   });
   events.playerInteract( function (event) {
-    player=event.player;
+    player=event.getPlayer();
     block=event.getClickedBlock();
     omahaSelectTeam (player,block);
     inhand=player.getItemInHand();
@@ -108,7 +105,7 @@ exports.omahaRules = function () {
       }, 100);
     }
     else if ((name) == "flamethrower"){
-      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.FIREBALL);
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
       player.launchProjectile(projectile.getClass());
     }
     else {
@@ -118,16 +115,12 @@ exports.omahaRules = function () {
   events.projectileHit( function (event) {
     projectile=event.getEntity();
     if ((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL)){
-      server.worlds[0].createExplosion (projectile.location,1.5);
+      server.worlds[0].createExplosion (projectile.location,2);
     }
     if (projectile.getMetadata("name").length > 0){
       name=(projectile.getMetadata == null)?null:(projectile.getMetadata("name").length == 0)?null:projectile.getMetadata("name")[0].value();
       if ((name) == "bazooka"){
-        console.log ("Create explosion yo");
         server.worlds[0].createExplosion (projectile.location,4);
-      }
-      else {
-        console.log ("projectile " + name + " landed yo");
       }
     }
   });
@@ -150,20 +143,13 @@ exports.omahaRules = function () {
     }
   });
   events.playerJoin( function (event) {
-    player=event.player;
+    player=event.getPlayer();
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
     player.sendMessage ("Sorry I have to kill you to make sure you respawn");
     player.removeMetadata ("team", __plugin );
     setTimeout (function () {
-      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill " + player.name);
+      player.setHealth(0);
     },500);
-  });
-  events.inventoryClick( function (event) {
-    console.log ("An inventory item was selected?");
-    stack=event.getCurrentItem();
-    console.log ("got current item");
-    name=(stack.getItemMeta() == null) ? null : stack.getItemMeta().getDisplayName();
-    console.log ("An item was selected" + name);
   });
 };
 
@@ -173,6 +159,7 @@ exports.omahaSelectTeam = function (player,block) {
   var team;
   var meta;
   var stack;
+  var color;
   if ((block) == (null)){
     console.log ("block is null");
   }
@@ -194,42 +181,131 @@ exports.omahaSelectTeam = function (player,block) {
           player.sendMessage ("You are now king attacker");
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], -1223, 63, -505), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          },2500);
+          },2000);
+          var player = player;
+          var items = require ('items');
+          player.equipment.helmet = items.diamondHelmet(1);
+          player.equipment.boots = items.diamondBoots(1);
+          player.equipment.chestplate = items.diamondChestplate(1);
+          player.equipment.leggings = items.diamondLeggings(1);
         }
         else {
           if ((player) != (exports.kingAttacker)){
             setTimeout (function () {
               player.teleport(exports.kingAttacker.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-            },2500);
+            },2000);
+            color = org.bukkit.Color.RED;
+            var player = player;
+            var items = require ('items');
+            var helmet = items.leatherHelmet(1);
+            var helmetMeta = helmet.itemMeta;
+            helmetMeta.color = color;
+            helmet.itemMeta = helmetMeta;
+            player.equipment.helmet = helmet;
+            var boots = items.leatherBoots(1);
+            var bootsMeta = boots.itemMeta;
+            bootsMeta.color = color;
+            boots.itemMeta = bootsMeta;
+            player.equipment.boots = boots;
+            var chest = items.leatherChestplate(1);
+            var chestMeta = chest.itemMeta;
+            chestMeta.color = color;
+            chest.itemMeta = chestMeta;
+            player.equipment.chestplate = chest;
+            var legs = items.leatherLeggings(1);
+            var legsMeta = legs.itemMeta;
+            legsMeta.color = color;
+            legs.itemMeta = legsMeta;
+            player.equipment.leggings = legs;
           }
         }
       }
       else if ((team) == "Defender"){
         if ((exports.kingDefender) == (null)){
+          var player = player;
+          var items = require ('items');
+          player.equipment.helmet = items.diamondHelmet(1);
+          player.equipment.boots = items.diamondBoots(1);
+          player.equipment.chestplate = items.diamondChestplate(1);
+          player.equipment.leggings = items.diamondLeggings(1);
           player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           exports.kingDefender=player;
           player.sendMessage ("You are now king defender");
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -412), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          },2500);
+          },2000);
         }
         else {
           if ((player) != (exports.kingDefender)){
             setTimeout (function () {
               player.teleport(exports.kingDefender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-            },2500);
+            },2000);
+            color = org.bukkit.Color.BLUE;
+            var player = player;
+            var items = require ('items');
+            var helmet = items.leatherHelmet(1);
+            var helmetMeta = helmet.itemMeta;
+            helmetMeta.color = color;
+            helmet.itemMeta = helmetMeta;
+            player.equipment.helmet = helmet;
+            var boots = items.leatherBoots(1);
+            var bootsMeta = boots.itemMeta;
+            bootsMeta.color = color;
+            boots.itemMeta = bootsMeta;
+            player.equipment.boots = boots;
+            var chest = items.leatherChestplate(1);
+            var chestMeta = chest.itemMeta;
+            chestMeta.color = color;
+            chest.itemMeta = chestMeta;
+            player.equipment.chestplate = chest;
+            var legs = items.leatherLeggings(1);
+            var legsMeta = legs.itemMeta;
+            legsMeta.color = color;
+            legs.itemMeta = legsMeta;
+            player.equipment.leggings = legs;
           }
         }
       }
       else if ((team) == "Airforce"){
         if ((exports.kingAirforce) == (null)){
+          var player = player;
+          var items = require ('items');
+          player.equipment.helmet = items.diamondHelmet(1);
+          player.equipment.boots = items.diamondBoots(1);
+          player.equipment.chestplate = items.diamondChestplate(1);
+          player.equipment.leggings = items.diamondLeggings(1);
           exports.kingAirforce=player;
           player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           player.sendMessage ("You are now king of airforce");
         }
+        else {
+          color = org.bukkit.Color.RED;
+          var player = player;
+          var items = require ('items');
+          var helmet = items.leatherHelmet(1);
+          var helmetMeta = helmet.itemMeta;
+          helmetMeta.color = color;
+          helmet.itemMeta = helmetMeta;
+          player.equipment.helmet = helmet;
+          var boots = items.leatherBoots(1);
+          var bootsMeta = boots.itemMeta;
+          bootsMeta.color = color;
+          boots.itemMeta = bootsMeta;
+          player.equipment.boots = boots;
+          var chest = items.leatherChestplate(1);
+          var chestMeta = chest.itemMeta;
+          chestMeta.color = color;
+          chest.itemMeta = chestMeta;
+          player.equipment.chestplate = chest;
+          var legs = items.leatherLeggings(1);
+          var legsMeta = legs.itemMeta;
+          legsMeta.color = color;
+          legs.itemMeta = legsMeta;
+          player.equipment.leggings = legs;
+        }
         setTimeout (function () {
           player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2500);
+        },2000);
         player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
       }
     }
