@@ -16,7 +16,7 @@ exports.fillSand = function () {
       y=parseInt(location.y) -1;
       inhand=player.getItemInHand();
       name=(inhand.getItemMeta() == null) ? null : inhand.getItemMeta().getDisplayName();
-      if (name== "sand"){
+      if (name== "Sand"){
 		y = y + 1;
       }
 	  
