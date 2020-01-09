@@ -1415,6 +1415,22 @@
                                                                                                     <field name="VARNAME">player</field>
                                                                                                   </block>
                                                                                                 </value>
+                                                                                                <next>
+                                                                                                  <block type="teleport" id="Ak?tiqx@%[0i}%fGvau)">
+                                                                                                    <value name="ENTITY">
+                                                                                                      <block type="varname" id="1RuDxZ/~W4@Z)Y?8hWfS">
+                                                                                                        <field name="VARNAME">player</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="LOCATION">
+                                                                                                      <block type="absolutelocation" id="W4Cmcs=J/TOl7K#eU6uk">
+                                                                                                        <field name="X">-1219</field>
+                                                                                                        <field name="Y">137</field>
+                                                                                                        <field name="Z">-91</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                  </block>
+                                                                                                </next>
                                                                                               </block>
                                                                                             </next>
                                                                                           </block>
