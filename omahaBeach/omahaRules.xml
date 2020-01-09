@@ -24,7 +24,7 @@
                                 <field name="COMMAND">time set day</field>
                                 <next>
                                   <block type="servercommand" id="RRh/(1@BSebe%RP1@vv8">
-                                    <field name="COMMAND">kill @a</field>
+                                    <field name="COMMAND">tp @a -1219 137 -91</field>
                                     <next>
                                       <block type="servercommand" id="glJ6An[oMdNp@,r=+w5`">
                                         <field name="COMMAND">"op " + self.name</field>
