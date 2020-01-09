@@ -17,6 +17,8 @@ exports.omahaRules = function () {
   var bow;
   var bowName;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doweathercycle false");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule dodaylightcycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1219 137 -91");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
@@ -294,11 +296,7 @@ exports.omahaRules = function () {
   events.playerJoin( function (event) {
     player=event.getPlayer();
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
-    player.sendMessage ("Sorry I have to kill you to force respawn");
     player.removeMetadata ("team", __plugin );
     player.getInventory().clear();
-    setTimeout (function () {
-      player.setHealth(0);
-    },500);
   });
 };
