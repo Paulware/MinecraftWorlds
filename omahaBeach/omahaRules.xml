@@ -608,8 +608,13 @@
                                                                                                           </block>
                                                                                                         </value>
                                                                                                         <next>
-                                                                                                          <block type="runexpression" id="93UM9-df0E*gWhbVMF8(">
-                                                                                                            <field name="EXPRESSION">player.setHealth(20);</field>
+                                                                                                          <block type="setplayerhealth" id="Hqk|D9!@0g!iSe6Bqz=,">
+                                                                                                            <field name="HEALTH">20</field>
+                                                                                                            <value name="PLAYER">
+                                                                                                              <block type="varname" id="c{85%_~Y6*mSXQzcNj1H">
+                                                                                                                <field name="VARNAME">player</field>
+                                                                                                              </block>
+                                                                                                            </value>
                                                                                                             <next>
                                                                                                               <block type="consolelog" id="$v)Ap7_s?/JUv$Lv3eo@">
                                                                                                                 <value name="NAME">
