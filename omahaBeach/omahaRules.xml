@@ -660,7 +660,7 @@
                                                                                                                         </value>
                                                                                                                         <statement name="DO0">
                                                                                                                           <block type="sethotbar" id="~?oOWp(PWg*i=kpTq,L[">
-                                                                                                                            <field name="SLOT">1</field>
+                                                                                                                            <field name="SLOT">2</field>
                                                                                                                             <value name="PLAYER">
                                                                                                                               <block type="varname" id="Di[an=o{a_)0F!t/?eM?">
                                                                                                                                 <field name="VARNAME">player</field>
