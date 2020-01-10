@@ -16,6 +16,9 @@ exports.omahaRules = function () {
   var shooter;
   var bow;
   var bowName;
+  exports.kingAttacker=null;
+  exports.kingDefender=null;
+  exports.kingAirforce=null;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doweathercycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule dodaylightcycle false");
