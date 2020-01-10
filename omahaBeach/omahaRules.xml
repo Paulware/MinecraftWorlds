@@ -450,17 +450,15 @@
                                                                                               </block>
                                                                                             </statement>
                                                                                             <next>
-                                                                                              <block type="teleport" id=";wb]|rqFq#e!Fp:%WK}C">
+                                                                                              <block type="teleport" id="G8oLy1(!-@!(Lz$N@Z/{">
                                                                                                 <value name="ENTITY">
-                                                                                                  <block type="varname" id="QWJ+!/]ftWqX[.DA?7U)">
+                                                                                                  <block type="varname" id="THw1s)2I0`$gKDp?pe~5">
                                                                                                     <field name="VARNAME">player</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                                 <value name="LOCATION">
-                                                                                                  <block type="absolutelocation" id="14S|W^4d+5[]ve;zst8j">
-                                                                                                    <field name="X">-1248</field>
-                                                                                                    <field name="Y">86</field>
-                                                                                                    <field name="Z">-380</field>
+                                                                                                  <block type="varname" id="A5T]2(r*1q]gtni12*+L">
+                                                                                                    <field name="VARNAME">exports.kingArtillery.location</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                               </block>

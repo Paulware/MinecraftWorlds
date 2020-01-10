@@ -89,7 +89,7 @@ exports.omahaRules = function () {
         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
       }
       setTimeout (function () {
-        player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        player.teleport(exports.kingArtillery.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
     }
     else {
