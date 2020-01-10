@@ -19,6 +19,7 @@ exports.omahaRules = function () {
   exports.kingAttacker=null;
   exports.kingDefender=null;
   exports.kingAirforce=null;
+  exports.kingArtillery=null;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doweathercycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule dodaylightcycle false");
@@ -80,6 +81,15 @@ exports.omahaRules = function () {
       player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
       setTimeout (function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      },2000);
+    }
+    else if ((team) == "Artillery"){
+      if (((exports.kingArtillery == null ) ? false : exports.kingArtillery.isDead()) || ((exports.kingArtillery == null ) ? false : (exports.kingArtillery.getGameMode().toString() == "SPECTATOR"))){
+        player.sendMessage ("The Artillery king is dead, you are now a spectator");
+        player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+      }
+      setTimeout (function () {
+        player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
     }
     else {
@@ -238,6 +248,47 @@ exports.omahaRules = function () {
           player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
         },2000);
         player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
+      }
+      else if ((team) == "Artillery"){
+        if ((exports.kingArtillery) == (null)){
+          var player = player;
+          var items = require ('items');
+          player.equipment.helmet = items.diamondHelmet(1);
+          player.equipment.boots = items.diamondBoots(1);
+          player.equipment.chestplate = items.diamondChestplate(1);
+          player.equipment.leggings = items.diamondLeggings(1);
+          exports.kingArtillery=player;
+          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+          player.sendMessage ("You are now king of the airtillery");
+        }
+        else {
+          color = org.bukkit.Color.BLUE;
+          var player = player;
+          var items = require ('items');
+          var helmet = items.leatherHelmet(1);
+          var helmetMeta = helmet.itemMeta;
+          helmetMeta.color = color;
+          helmet.itemMeta = helmetMeta;
+          player.equipment.helmet = helmet;
+          var boots = items.leatherBoots(1);
+          var bootsMeta = boots.itemMeta;
+          bootsMeta.color = color;
+          boots.itemMeta = bootsMeta;
+          player.equipment.boots = boots;
+          var chest = items.leatherChestplate(1);
+          var chestMeta = chest.itemMeta;
+          chestMeta.color = color;
+          chest.itemMeta = chestMeta;
+          player.equipment.chestplate = chest;
+          var legs = items.leatherLeggings(1);
+          var legsMeta = legs.itemMeta;
+          legsMeta.color = color;
+          legs.itemMeta = legsMeta;
+          player.equipment.leggings = legs;
+        }
+        setTimeout (function () {
+          player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        },2000);
       }
     }
     inhand=player.getItemInHand();
