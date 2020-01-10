@@ -103,6 +103,7 @@ exports.omahaRules = function () {
       team=block.state.getLine(1);
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
       player.setMetadata ("team", fd );
+      player.setHealth(20);
       console.log (player.name + " has selected " + team);
       if ((team) == "Attacker"){
         if ((exports.kingAttacker) == (null)){
@@ -304,5 +305,9 @@ exports.omahaRules = function () {
     setTimeout (function () {
       player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },2000);
+  });
+  events.playerQuit( function (event) {
+    player=event.getPlayer();
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + player.name + " has quit the game");
   });
 };
