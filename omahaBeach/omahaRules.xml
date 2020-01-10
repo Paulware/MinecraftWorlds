@@ -1112,38 +1112,13 @@
                                                                                                                                   </block>
                                                                                                                                 </value>
                                                                                                                                 <next>
-                                                                                                                                  <block type="sethotbar" id="gdh0)Zazu$diJ?_9L{:v">
-                                                                                                                                    <field name="SLOT">2</field>
+                                                                                                                                  <block type="sendmessage" id="1}UMWRk43fLmW[*?b8}~">
+                                                                                                                                    <field name="MESSAGE">"You are now king of the airtillery"</field>
                                                                                                                                     <value name="PLAYER">
-                                                                                                                                      <block type="varname" id="1it!XZhbggUk2LcWS*r7">
+                                                                                                                                      <block type="varname" id="Wn*T6{qF{G+Hs-gR5l~7">
                                                                                                                                         <field name="VARNAME">player</field>
                                                                                                                                       </block>
                                                                                                                                     </value>
-                                                                                                                                    <value name="STACK">
-                                                                                                                                      <block type="namethestack" id="]TROtF]6}8r7!K,8DWNV">
-                                                                                                                                        <field name="NAME">"minigun"</field>
-                                                                                                                                        <value name="STACK">
-                                                                                                                                          <block type="itemstack" id="w%j%UnuZLDG!CatEGW}=">
-                                                                                                                                            <field name="COUNT">1</field>
-                                                                                                                                            <value name="ITEM">
-                                                                                                                                              <block type="materialtype" id=".j/yLuvb1aZ7#_7o?KXJ">
-                                                                                                                                                <field name="MATERIAL">CROSSBOW</field>
-                                                                                                                                              </block>
-                                                                                                                                            </value>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                      </block>
-                                                                                                                                    </value>
-                                                                                                                                    <next>
-                                                                                                                                      <block type="sendmessage" id="1}UMWRk43fLmW[*?b8}~">
-                                                                                                                                        <field name="MESSAGE">"You are now king of the airtillery"</field>
-                                                                                                                                        <value name="PLAYER">
-                                                                                                                                          <block type="varname" id="Wn*T6{qF{G+Hs-gR5l~7">
-                                                                                                                                            <field name="VARNAME">player</field>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                      </block>
-                                                                                                                                    </next>
                                                                                                                                   </block>
                                                                                                                                 </next>
                                                                                                                               </block>

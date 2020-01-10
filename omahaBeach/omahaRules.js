@@ -258,7 +258,6 @@ exports.omahaRules = function () {
           player.equipment.chestplate = items.diamondChestplate(1);
           player.equipment.leggings = items.diamondLeggings(1);
           exports.kingArtillery=player;
-          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
           player.sendMessage ("You are now king of the airtillery");
         }
         else {
