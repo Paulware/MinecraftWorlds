@@ -16,10 +16,12 @@ exports.omahaRules = function () {
   var shooter;
   var bow;
   var bowName;
+  var count;
   exports.kingAttacker=null;
   exports.kingDefender=null;
   exports.kingAirforce=null;
   exports.kingArtillery=null;
+  exports.kingsDead=[false,false,false,false];
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doweathercycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule dodaylightcycle false");
@@ -434,9 +436,60 @@ exports.omahaRules = function () {
     player=event.getEntity();
     if ((player) == (exports.kingAttacker)){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
+      exports.kingsDead[0]=true;
     }
     else if ((player) == (exports.kingDefender)){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Defender has died\"");
+      exports.kingsDead[1]=true;
+    }
+    else if ((player) == (exports.kingArtillery)){
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Defender has died\"");
+      exports.kingsDead[2]=true;
+    }
+    else if ((player) == (exports.kingAirforce)){
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Defender has died\"");
+      exports.kingsDead[3]=true;
+    }
+    count=0;
+    if ((exports.kingAttacker) == (null)){
+      return ;
+    }
+    else if (exports.kingsDead[0]){
+      count=count+1;
+    }
+    if ((exports.kingDefender) == (null)){
+      return ;
+    }
+    else if (exports.kingsDead[1]){
+      count=count+1;
+    }
+    if ((exports.kingArtillery) == (null)){
+      return ;
+    }
+    else if (exports.kingsDead[2]){
+      count=count+1;
+    }
+    if ((exports.kingAirforce) == (null)){
+      return ;
+    }
+    else if (exports.kingsDead[3]){
+      count=count+1;
+    }
+    if ((count) == 1){
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a game over");
+      org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+      if (!exports.kingsDead[0]){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Attackers Win!");
+      }
+      else if (!exports.kingsDead[1]){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Defenders Win!");
+      }
+      else if (!exports.kingsDead[2]){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Artillery Wins!");
+      }
+      else {
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Airforce Wins!");
+      }
     }
   });
   events.playerJoin( function (event) {
