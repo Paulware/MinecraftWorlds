@@ -475,7 +475,7 @@ exports.omahaRules = function () {
     else if (exports.kingsDead[3]){
       count=count+1;
     }
-    if ((count) == 1){
+    if ((count) == 3){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a game over");
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
       if (!exports.kingsDead[0]){
