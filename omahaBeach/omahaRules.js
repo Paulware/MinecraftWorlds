@@ -17,6 +17,10 @@ exports.omahaRules = function () {
   var bow;
   var bowName;
   var count;
+  var kingsDead[0];
+  var kingsDead[1];
+  var kingsDead[2];
+  var kingsDead[3];
   exports.kings=[null,null,null,null];
   exports.kingsDead=[false,false,false,false];
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
@@ -43,7 +47,6 @@ exports.omahaRules = function () {
   events.playerRespawn( function (event) {
     player=event.getPlayer();
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
-    player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.GOLDEN_APPLE,1) );
     console.log (player.name + " respawn on team: [" + team + "]");
     if ((team) == "Attacker"){
       if (((exports.kings[0] == null ) ? false : exports.kings[0].isDead()) || ((exports.kings[0] == null ) ? false : (exports.kings[0].getGameMode().toString() == "SPECTATOR"))){
@@ -497,16 +500,16 @@ exports.omahaRules = function () {
     player=event.getPlayer();
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + player.name + " has quit the game");
     if ((player) == (kings[0])){
-      exports.kingsDead[0]=true;
+      kingsDead[0]=true;
     }
     else if ((player) == (kings[1])){
-      exports.kingsDead[1]=true;
+      kingsDead[1]=true;
     }
     else if ((player) == (kings[2])){
-      exports.kingsDead[2]=true;
+      kingsDead[2]=true;
     }
     else if ((player) == (kings[3])){
-      exports.kingsDead[3]=true;
+      kingsDead[3]=true;
     }
   });
 };
