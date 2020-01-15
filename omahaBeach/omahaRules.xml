@@ -1596,7 +1596,7 @@
                                                                                                 </value>
                                                                                                 <value name="B">
                                                                                                   <block type="varname" id="K:pbo]Kdol-/tu/EOo9|">
-                                                                                                    <field name="VARNAME">exports.king[0]</field>
+                                                                                                    <field name="VARNAME">exports.kings[0]</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                               </block>

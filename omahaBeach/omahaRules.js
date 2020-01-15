@@ -431,7 +431,7 @@ exports.omahaRules = function () {
   });
   events.playerDeath( function (event) {
     player=event.getEntity();
-    if ((player) == (exports.king[0])){
+    if ((player) == (exports.kings[0])){
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
       exports.kingsDead[0] = true;
     }
