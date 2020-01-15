@@ -1900,7 +1900,7 @@
                                                                                                         </value>
                                                                                                         <statement name="DO0">
                                                                                                           <block type="setvariable" id="~^}Vv_-33p.Sc7s}4B(Q">
-                                                                                                            <field name="VARNAME">kingsDead[0]</field>
+                                                                                                            <field name="VARNAME">exports.kingsDead[0]</field>
                                                                                                             <field name="EXPRESSION">true</field>
                                                                                                           </block>
                                                                                                         </statement>
@@ -1921,7 +1921,7 @@
                                                                                                         </value>
                                                                                                         <statement name="DO1">
                                                                                                           <block type="setvariable" id="n-$?o}9t%#JnzBSd_nqx">
-                                                                                                            <field name="VARNAME">kingsDead[1]</field>
+                                                                                                            <field name="VARNAME">exports.kingsDead[1]</field>
                                                                                                             <field name="EXPRESSION">true</field>
                                                                                                           </block>
                                                                                                         </statement>
@@ -1942,7 +1942,7 @@
                                                                                                         </value>
                                                                                                         <statement name="DO2">
                                                                                                           <block type="setvariable" id="?Yv5Px9-4;NU@DI]:k!p">
-                                                                                                            <field name="VARNAME">kingsDead[2]</field>
+                                                                                                            <field name="VARNAME">exports.kingsDead[2]</field>
                                                                                                             <field name="EXPRESSION">true</field>
                                                                                                           </block>
                                                                                                         </statement>
@@ -1963,7 +1963,7 @@
                                                                                                         </value>
                                                                                                         <statement name="DO3">
                                                                                                           <block type="setvariable" id="3={)_atRr/,w(MBI3CDx">
-                                                                                                            <field name="VARNAME">kingsDead[3]</field>
+                                                                                                            <field name="VARNAME">exports.kingsDead[3]</field>
                                                                                                             <field name="EXPRESSION">true</field>
                                                                                                           </block>
                                                                                                         </statement>

@@ -17,10 +17,6 @@ exports.omahaRules = function () {
   var bow;
   var bowName;
   var count;
-  var kingsDead[0];
-  var kingsDead[1];
-  var kingsDead[2];
-  var kingsDead[3];
   exports.kings=[null,null,null,null];
   exports.kingsDead=[false,false,false,false];
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
@@ -500,16 +496,16 @@ exports.omahaRules = function () {
     player=event.getPlayer();
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + player.name + " has quit the game");
     if ((player) == (kings[0])){
-      kingsDead[0]=true;
+      exports.kingsDead[0]=true;
     }
     else if ((player) == (kings[1])){
-      kingsDead[1]=true;
+      exports.kingsDead[1]=true;
     }
     else if ((player) == (kings[2])){
-      kingsDead[2]=true;
+      exports.kingsDead[2]=true;
     }
     else if ((player) == (kings[3])){
-      kingsDead[3]=true;
+      exports.kingsDead[3]=true;
     }
   });
 };
