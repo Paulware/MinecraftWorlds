@@ -14,10 +14,10 @@
                 <field name="COMMAND">gamemode survival @a</field>
                 <next>
                   <block type="servercommand" id="Z1Ti.J:67g/SAPi~-{ZN">
-                    <field name="COMMAND">gamerule doweathercycle false</field>
+                    <field name="COMMAND">gamerule doWeatherCycle false</field>
                     <next>
                       <block type="servercommand" id="=Ya4QfRUX_S3=7*f#CYa">
-                        <field name="COMMAND">gamerule dodaylightcycle false</field>
+                        <field name="COMMAND">gamerule doDaylightCycle false</field>
                         <next>
                           <block type="servercommand" id="J?ilO221#S;Se)Fm;b]=">
                             <field name="COMMAND">spawnpoint @a -1219 137 -91</field>
