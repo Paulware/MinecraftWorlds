@@ -207,25 +207,124 @@ exports.omahaRules = function () {
       player.setHealth(20);
       console.log (player.name + " has selected " + team);
       if ((team) == "Attacker"){
-        if ((exports.kings[0]) == (null)){
-          player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
-          exports.kings[0]=player;
-          player.sendMessage ("You are now king attacker");
-          setTimeout (function () {
-            player.teleport(new org.bukkit.Location(server.worlds[0], -1223, 63, -505), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          },2000);
-          var player = player;
-          var items = require ('items');
-          player.equipment.helmet = items.diamondHelmet(1);
-          player.equipment.boots = items.diamondBoots(1);
-          player.equipment.chestplate = items.diamondChestplate(1);
-          player.equipment.leggings = items.diamondLeggings(1);
+        if (exports.kingsDead[0]){
+          player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         }
         else {
-          if ((player) != (exports.kings[0])){
+          if ((exports.kings[0]) == (null)){
+            player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+            exports.kings[0]=player;
+            player.sendMessage ("You are now king attacker");
             setTimeout (function () {
-              player.teleport(exports.kings[0].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+              player.teleport(new org.bukkit.Location(server.worlds[0], -1223, 63, -505), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
             },2000);
+            var player = player;
+            var items = require ('items');
+            player.equipment.helmet = items.diamondHelmet(1);
+            player.equipment.boots = items.diamondBoots(1);
+            player.equipment.chestplate = items.diamondChestplate(1);
+            player.equipment.leggings = items.diamondLeggings(1);
+          }
+          else {
+            if ((player) != (exports.kings[0])){
+              setTimeout (function () {
+                player.teleport(exports.kings[0].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+              },2000);
+              color = org.bukkit.Color.RED;
+              var player = player;
+              var items = require ('items');
+              var helmet = items.leatherHelmet(1);
+              var helmetMeta = helmet.itemMeta;
+              helmetMeta.color = color;
+              helmet.itemMeta = helmetMeta;
+              player.equipment.helmet = helmet;
+              var boots = items.leatherBoots(1);
+              var bootsMeta = boots.itemMeta;
+              bootsMeta.color = color;
+              boots.itemMeta = bootsMeta;
+              player.equipment.boots = boots;
+              var chest = items.leatherChestplate(1);
+              var chestMeta = chest.itemMeta;
+              chestMeta.color = color;
+              chest.itemMeta = chestMeta;
+              player.equipment.chestplate = chest;
+              var legs = items.leatherLeggings(1);
+              var legsMeta = legs.itemMeta;
+              legsMeta.color = color;
+              legs.itemMeta = legsMeta;
+              player.equipment.leggings = legs;
+            }
+          }
+        }
+      }
+      else if ((team) == "Defender"){
+        if (exports.kingsDead[1]){
+          player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+        }
+        else {
+          if ((exports.kings[1]) == (null)){
+            var player = player;
+            var items = require ('items');
+            player.equipment.helmet = items.diamondHelmet(1);
+            player.equipment.boots = items.diamondBoots(1);
+            player.equipment.chestplate = items.diamondChestplate(1);
+            player.equipment.leggings = items.diamondLeggings(1);
+            player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+            exports.kings[1]=player;
+            player.sendMessage ("You are now king defender");
+            setTimeout (function () {
+              player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -411), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+            },2000);
+          }
+          else {
+            if ((player) != (exports.kings[1])){
+              setTimeout (function () {
+                player.teleport(exports.kings[1].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+              },2000);
+              color = org.bukkit.Color.BLUE;
+              var player = player;
+              var items = require ('items');
+              var helmet = items.leatherHelmet(1);
+              var helmetMeta = helmet.itemMeta;
+              helmetMeta.color = color;
+              helmet.itemMeta = helmetMeta;
+              player.equipment.helmet = helmet;
+              var boots = items.leatherBoots(1);
+              var bootsMeta = boots.itemMeta;
+              bootsMeta.color = color;
+              boots.itemMeta = bootsMeta;
+              player.equipment.boots = boots;
+              var chest = items.leatherChestplate(1);
+              var chestMeta = chest.itemMeta;
+              chestMeta.color = color;
+              chest.itemMeta = chestMeta;
+              player.equipment.chestplate = chest;
+              var legs = items.leatherLeggings(1);
+              var legsMeta = legs.itemMeta;
+              legsMeta.color = color;
+              legs.itemMeta = legsMeta;
+              player.equipment.leggings = legs;
+            }
+          }
+        }
+      }
+      else if ((team) == "Airforce"){
+        if (exports.kingsDead[2]){
+          player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+        }
+        else {
+          if ((exports.kings[2]) == (null)){
+            var player = player;
+            var items = require ('items');
+            player.equipment.helmet = items.diamondHelmet(1);
+            player.equipment.boots = items.diamondBoots(1);
+            player.equipment.chestplate = items.diamondChestplate(1);
+            player.equipment.leggings = items.diamondLeggings(1);
+            exports.kings[2]=player;
+            player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+            player.sendMessage ("You are now king of airforce");
+          }
+          else {
             color = org.bukkit.Color.RED;
             var player = player;
             var items = require ('items');
@@ -250,28 +349,28 @@ exports.omahaRules = function () {
             legs.itemMeta = legsMeta;
             player.equipment.leggings = legs;
           }
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2000);
+          player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
         }
       }
-      else if ((team) == "Defender"){
-        if ((exports.kings[1]) == (null)){
-          var player = player;
-          var items = require ('items');
-          player.equipment.helmet = items.diamondHelmet(1);
-          player.equipment.boots = items.diamondBoots(1);
-          player.equipment.chestplate = items.diamondChestplate(1);
-          player.equipment.leggings = items.diamondLeggings(1);
-          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
-          exports.kings[1]=player;
-          player.sendMessage ("You are now king defender");
-          setTimeout (function () {
-            player.teleport(new org.bukkit.Location(server.worlds[0], -1224, 85, -411), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-          },2000);
+      else if ((team) == "Artillery"){
+        if (exports.kingsDead[3]){
+          player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         }
         else {
-          if ((player) != (exports.kings[1])){
-            setTimeout (function () {
-              player.teleport(exports.kings[1].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-            },2000);
+          if ((exports.kings[3]) == (null)){
+            var player = player;
+            var items = require ('items');
+            player.equipment.helmet = items.diamondHelmet(1);
+            player.equipment.boots = items.diamondBoots(1);
+            player.equipment.chestplate = items.diamondChestplate(1);
+            player.equipment.leggings = items.diamondLeggings(1);
+            exports.kings[3]=player;
+            player.sendMessage ("You are now king of the airtillery");
+          }
+          else {
             color = org.bukkit.Color.BLUE;
             var player = player;
             var items = require ('items');
@@ -296,89 +395,10 @@ exports.omahaRules = function () {
             legs.itemMeta = legsMeta;
             player.equipment.leggings = legs;
           }
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2000);
         }
-      }
-      else if ((team) == "Airforce"){
-        if ((exports.kings[2]) == (null)){
-          var player = player;
-          var items = require ('items');
-          player.equipment.helmet = items.diamondHelmet(1);
-          player.equipment.boots = items.diamondBoots(1);
-          player.equipment.chestplate = items.diamondChestplate(1);
-          player.equipment.leggings = items.diamondLeggings(1);
-          exports.kings[2]=player;
-          player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
-          player.sendMessage ("You are now king of airforce");
-        }
-        else {
-          color = org.bukkit.Color.RED;
-          var player = player;
-          var items = require ('items');
-          var helmet = items.leatherHelmet(1);
-          var helmetMeta = helmet.itemMeta;
-          helmetMeta.color = color;
-          helmet.itemMeta = helmetMeta;
-          player.equipment.helmet = helmet;
-          var boots = items.leatherBoots(1);
-          var bootsMeta = boots.itemMeta;
-          bootsMeta.color = color;
-          boots.itemMeta = bootsMeta;
-          player.equipment.boots = boots;
-          var chest = items.leatherChestplate(1);
-          var chestMeta = chest.itemMeta;
-          chestMeta.color = color;
-          chest.itemMeta = chestMeta;
-          player.equipment.chestplate = chest;
-          var legs = items.leatherLeggings(1);
-          var legsMeta = legs.itemMeta;
-          legsMeta.color = color;
-          legs.itemMeta = legsMeta;
-          player.equipment.leggings = legs;
-        }
-        setTimeout (function () {
-          player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2000);
-        player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
-      }
-      else if ((team) == "Artillery"){
-        if ((exports.kings[3]) == (null)){
-          var player = player;
-          var items = require ('items');
-          player.equipment.helmet = items.diamondHelmet(1);
-          player.equipment.boots = items.diamondBoots(1);
-          player.equipment.chestplate = items.diamondChestplate(1);
-          player.equipment.leggings = items.diamondLeggings(1);
-          exports.kings[3]=player;
-          player.sendMessage ("You are now king of the airtillery");
-        }
-        else {
-          color = org.bukkit.Color.BLUE;
-          var player = player;
-          var items = require ('items');
-          var helmet = items.leatherHelmet(1);
-          var helmetMeta = helmet.itemMeta;
-          helmetMeta.color = color;
-          helmet.itemMeta = helmetMeta;
-          player.equipment.helmet = helmet;
-          var boots = items.leatherBoots(1);
-          var bootsMeta = boots.itemMeta;
-          bootsMeta.color = color;
-          boots.itemMeta = bootsMeta;
-          player.equipment.boots = boots;
-          var chest = items.leatherChestplate(1);
-          var chestMeta = chest.itemMeta;
-          chestMeta.color = color;
-          chest.itemMeta = chestMeta;
-          player.equipment.chestplate = chest;
-          var legs = items.leatherLeggings(1);
-          var legsMeta = legs.itemMeta;
-          legsMeta.color = color;
-          legs.itemMeta = legsMeta;
-          player.equipment.leggings = legs;
-        }
-        setTimeout (function () {
-          player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
-        },2000);
       }
     }
     inhand=player.getItemInHand();
