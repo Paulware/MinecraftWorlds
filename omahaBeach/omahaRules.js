@@ -495,16 +495,16 @@ exports.omahaRules = function () {
   events.playerQuit( function (event) {
     player=event.getPlayer();
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + player.name + " has quit the game");
-    if ((player) == (kings[0])){
+    if ((player) == (exports.kings[0])){
       exports.kingsDead[0]=true;
     }
-    else if ((player) == (kings[1])){
+    else if ((player) == (exports.kings[1])){
       exports.kingsDead[1]=true;
     }
-    else if ((player) == (kings[2])){
+    else if ((player) == (exports.kings[2])){
       exports.kingsDead[2]=true;
     }
-    else if ((player) == (kings[3])){
+    else if ((player) == (exports.kings[3])){
       exports.kingsDead[3]=true;
     }
   });
