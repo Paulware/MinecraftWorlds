@@ -1830,8 +1830,8 @@
                                                                                                               <block type="servercommand" id="1Q[Ye/+ONfjTz(#J/O@O">
                                                                                                                 <field name="COMMAND">"say @a game over"</field>
                                                                                                                 <next>
-                                                                                                                  <block type="servercommand" id="EnI8(L}^:e.!;CHRZkXL">
-                                                                                                                    <field name="COMMAND">"kill @a"</field>
+                                                                                                                  <block type="servercommand" id="5{9=aqHjc.]~oMq=WsLi">
+                                                                                                                    <field name="COMMAND">"say @a *************"</field>
                                                                                                                     <next>
                                                                                                                       <block type="controls_if" id="(ySwd04f)(jIaf|mEA4(">
                                                                                                                         <mutation elseif="2" else="1"></mutation>
@@ -1843,6 +1843,11 @@
                                                                                                                         <statement name="DO0">
                                                                                                                           <block type="servercommand" id="nnDa3DB2TqQ4NrTIZ3Q6">
                                                                                                                             <field name="COMMAND">"say @a Attackers Win!"</field>
+                                                                                                                            <next>
+                                                                                                                              <block type="servercommand" id="Tu#A!P+RsQ0.bS{yho|U">
+                                                                                                                                <field name="COMMAND">"say @a Attackers Win!"</field>
+                                                                                                                              </block>
+                                                                                                                            </next>
                                                                                                                           </block>
                                                                                                                         </statement>
                                                                                                                         <value name="IF1">
@@ -1853,6 +1858,11 @@
                                                                                                                         <statement name="DO1">
                                                                                                                           <block type="servercommand" id="%W7$9)!|av8|]Rp`}($F">
                                                                                                                             <field name="COMMAND">"say @a Defenders Win!"</field>
+                                                                                                                            <next>
+                                                                                                                              <block type="servercommand" id="DVx//#g^-x]u:$6%*F3P">
+                                                                                                                                <field name="COMMAND">"say @a Defenders Win!"</field>
+                                                                                                                              </block>
+                                                                                                                            </next>
                                                                                                                           </block>
                                                                                                                         </statement>
                                                                                                                         <value name="IF2">
@@ -1863,13 +1873,38 @@
                                                                                                                         <statement name="DO2">
                                                                                                                           <block type="servercommand" id="ICqtnq2rm#bg6{,4w,_Z">
                                                                                                                             <field name="COMMAND">"say @a Artillery Wins!"</field>
+                                                                                                                            <next>
+                                                                                                                              <block type="servercommand" id="0tp.SD`UXCN:+de/=j7v">
+                                                                                                                                <field name="COMMAND">"say @a Artillery Wins!"</field>
+                                                                                                                              </block>
+                                                                                                                            </next>
                                                                                                                           </block>
                                                                                                                         </statement>
                                                                                                                         <statement name="ELSE">
                                                                                                                           <block type="servercommand" id="X7|y3vlRiOJ$A(jKFj8V">
                                                                                                                             <field name="COMMAND">"say @a Airforce Wins!"</field>
+                                                                                                                            <next>
+                                                                                                                              <block type="servercommand" id="mC.Gkse=O)Ao@Qk)PdPe">
+                                                                                                                                <field name="COMMAND">"say @a Airforce Wins!"</field>
+                                                                                                                              </block>
+                                                                                                                            </next>
                                                                                                                           </block>
                                                                                                                         </statement>
+                                                                                                                        <next>
+                                                                                                                          <block type="servercommand" id="Y2`L6X(Ki_9;xv:G;(rO">
+                                                                                                                            <field name="COMMAND">"say @a GAME OVER!"</field>
+                                                                                                                            <next>
+                                                                                                                              <block type="delayedexecution" id="%1He=*n7%~HTRh)x-~W;">
+                                                                                                                                <field name="TIMEOUT">5000</field>
+                                                                                                                                <statement name="DELAYEDCODE">
+                                                                                                                                  <block type="servercommand" id="s4#8l|FVy5TRrv.5VT]|">
+                                                                                                                                    <field name="COMMAND">"kill @a"</field>
+                                                                                                                                  </block>
+                                                                                                                                </statement>
+                                                                                                                              </block>
+                                                                                                                            </next>
+                                                                                                                          </block>
+                                                                                                                        </next>
                                                                                                                       </block>
                                                                                                                     </next>
                                                                                                                   </block>
