@@ -426,8 +426,24 @@ exports.omahaRules = function () {
       projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
       player.launchProjectile(projectile.getClass());
     }
-    else {
-      console.log ("in hand: [" + name + "]");
+    else if ((name) == "M1-Garand"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+      player.launchProjectile(projectile.getClass());
+    }
+  });
+  events.projectileLaunch( function (event) {
+    projectile=event.getEntity();
+    shooter=projectile.getShooter();
+    inhand=player.getItemInHand();
+    name=(inhand.getItemMeta() == null) ? null : inhand.getItemMeta().getDisplayName();
+    console.log ("In hand: " + name );
+    if ((name) == "M1-Garand"){
+      (function() {
+        var vector = projectile.getVelocity().normalize().multiply(7);
+        if (!isNaN(vector.x)) {
+           projectile.setVelocity (vector);
+        }
+       })();
     }
   });
   events.projectileHit( function (event) {
