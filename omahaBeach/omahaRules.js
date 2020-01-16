@@ -214,7 +214,7 @@ exports.omahaRules = function () {
         }
         else {
           if ((exports.kings[0]) == (null)){
-            player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
+            player.getInventory().setItem (1,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.CROSSBOW,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })() );
             exports.kings[0]=player;
             player.sendMessage ("You are now king attacker");
             setTimeout (function () {
