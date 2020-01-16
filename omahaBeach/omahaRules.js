@@ -433,17 +433,19 @@ exports.omahaRules = function () {
   });
   events.projectileLaunch( function (event) {
     projectile=event.getEntity();
-    shooter=projectile.getShooter();
-    inhand=player.getItemInHand();
-    name=(inhand.getItemMeta() == null) ? null : inhand.getItemMeta().getDisplayName();
-    console.log ("In hand: " + name );
-    if ((name) == "M1-Garand"){
-      (function() {
-        var vector = projectile.getVelocity().normalize().multiply(7);
-        if (!isNaN(vector.x)) {
-           projectile.setVelocity (vector);
-        }
-       })();
+    if (projectile.getShooter != null){
+      shooter=projectile.getShooter();
+      inhand=player.getItemInHand();
+      name=(inhand.getItemMeta() == null) ? null : inhand.getItemMeta().getDisplayName();
+      console.log ("In hand: " + name );
+      if ((name) == "M1-Garand"){
+        (function() {
+          var vector = projectile.getVelocity().normalize().multiply(7);
+          if (!isNaN(vector.x)) {
+             projectile.setVelocity (vector);
+          }
+         })();
+      }
     }
   });
   events.projectileHit( function (event) {
