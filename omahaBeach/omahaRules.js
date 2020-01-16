@@ -17,14 +17,16 @@ exports.omahaRules = function () {
   var bow;
   var bowName;
   var count;
+  var barbTime;
+  var elapsedTime;
   exports.kings=[null,null,null,null];
   exports.kingsDead=[false,false,false,false];
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1219 137 -91");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1219 137 -91");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
@@ -204,7 +206,7 @@ exports.omahaRules = function () {
       team=block.state.getLine(1);
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
       player.setMetadata ("team", fd );
-      player.setHealth(20);
+      (function() {   var h=20;  if (h<0) {      h = 0;   }   player.setHealth(h); })();
       console.log (player.name + " has selected " + team);
       if ((team) == "Attacker"){
         if (exports.kingsDead[0]){
@@ -534,6 +536,26 @@ exports.omahaRules = function () {
     }
     else if ((player) == (exports.kings[3])){
       exports.kingsDead[3]=true;
+    }
+  });
+  events.playerMove( function (event) {
+    player=event.getPlayer();
+    blockType=(server.worlds[0].getBlockAt (player.location)==null)?null:server.worlds[0].getBlockAt (player.location).getType();
+    if ((blockType) == (org.bukkit.Material.COBWEB)){
+      if (player.getMetadata("barbtime").length > 0){
+        barbTime=(player.getMetadata == null)?null:(player.getMetadata("barbtime").length == 0)?null:player.getMetadata("barbtime")[0].value();
+        elapsedTime=(new Date().getTime()) - (barbTime);
+        if ((elapsedTime) > 500){
+          player.sendMessage ("Ouch! Mind the barbed wire!");
+          (function() {   var h=(player.getHealth()) - 1;  if (h<0) {      h = 0;   }   player.setHealth(h); })();
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,new Date().getTime());
+          player.setMetadata ("barbtime", fd );
+        }
+      }
+      else {
+        fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,new Date().getTime());
+        player.setMetadata ("barbtime", fd );
+      }
     }
   });
 };

@@ -657,7 +657,11 @@
                                                                                                 </value>
                                                                                                 <next>
                                                                                                   <block type="setplayerhealth" id="Hqk|D9!@0g!iSe6Bqz=,">
-                                                                                                    <field name="HEALTH">20</field>
+                                                                                                    <value name="HEALTH">
+                                                                                                      <block type="math_number" id="3BeO9PZ#)~s%q#u+82cm">
+                                                                                                        <field name="NUM">20</field>
+                                                                                                      </block>
+                                                                                                    </value>
                                                                                                     <value name="PLAYER">
                                                                                                       <block type="varname" id="c{85%_~Y6*mSXQzcNj1H">
                                                                                                         <field name="VARNAME">player</field>
