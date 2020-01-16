@@ -1935,8 +1935,13 @@
                                                                                               </block>
                                                                                             </value>
                                                                                             <next>
-                                                                                              <block type="servercommand" id="ZxKP5!(MOiSbTt}zL#Gj">
-                                                                                                <field name="COMMAND">"gamemode survival " + player.name</field>
+                                                                                              <block type="setgamemode" id="Uyeg4bIJ([br(8qlJ$Lm">
+                                                                                                <field name="GAMEMODE">SURVIVAL</field>
+                                                                                                <value name="PLAYER">
+                                                                                                  <block type="varname" id="!~Pkno9afeJ7:l#LS2)*">
+                                                                                                    <field name="VARNAME">player</field>
+                                                                                                  </block>
+                                                                                                </value>
                                                                                                 <next>
                                                                                                   <block type="servercommand" id="9LedobUK,;E)uA?sb*oL">
                                                                                                     <field name="COMMAND">"deop " + player.name</field>
