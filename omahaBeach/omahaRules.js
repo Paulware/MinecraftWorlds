@@ -512,7 +512,7 @@ exports.omahaRules = function () {
   });
   events.playerJoin( function (event) {
     player=event.getPlayer();
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
+    player.setGameMode(org.bukkit.GameMode.SURVIVAL);
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop " + player.name);
     player.removeMetadata ("team", __plugin );
     player.getInventory().clear();
