@@ -54,8 +54,8 @@ copy C:\SpigotMC\MinecraftWorlds\omahaBeach\bukkit.yml C:\SpigotMC\bukkit.yml
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
 GOTO:copyPlugin
 
-:menu_6   Copy island
-set source=C:\SpigotMC\MinecraftWorlds\island\*.*
+:menu_6   Copy prison
+set source=C:\SpigotMC\MinecraftWorlds\prison\*.*
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars

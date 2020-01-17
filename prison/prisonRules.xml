@@ -1,0 +1,53 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="158" y="43">
+    <field name="nameOfFunction">prisonRules</field>
+    <statement name="FUNCTIONCODE">
+      <block type="servercommand" id="8C^$pbVt5p7!O/2HW0nF">
+        <field name="COMMAND">gamemode survival @a</field>
+        <next>
+          <block type="servercommand" id="i#;/wrp!C(.YBBy~s2!%">
+            <field name="COMMAND">weather clear</field>
+            <next>
+              <block type="servercommand" id="+j6_H~g1DkF}mAy2%VCz">
+                <field name="COMMAND">time set night</field>
+                <next>
+                  <block type="servercommand" id="Z1Ti.J:67g/SAPi~-{ZN">
+                    <field name="COMMAND">gamerule doWeatherCycle false</field>
+                    <next>
+                      <block type="servercommand" id="=Ya4QfRUX_S3=7*f#CYa">
+                        <field name="COMMAND">gamerule doDaylightCycle false</field>
+                        <next>
+                          <block type="servercommand" id="J?ilO221#S;Se)Fm;b]=">
+                            <field name="COMMAND">spawnpoint @a -1219 137 -91</field>
+                            <next>
+                              <block type="servercommand" id="a8t(y}s7s/])jgkDxj/5">
+                                <field name="COMMAND">deop @a</field>
+                                <next>
+                                  <block type="servercommand" id="RRh/(1@BSebe%RP1@vv8">
+                                    <field name="COMMAND">tp @a 121 87 1139</field>
+                                    <next>
+                                      <block type="servercommand" id="glJ6An[oMdNp@,r=+w5`">
+                                        <field name="COMMAND">"op " + self.name</field>
+                                        <next>
+                                          <block type="removeplayersgear" id="ESDgMFI!N)3iwKv-sGlu"></block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
