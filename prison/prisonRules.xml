@@ -21,13 +21,13 @@
                             <field name="COMMAND">gamerule doDaylightCycle false</field>
                             <next>
                               <block type="servercommand" id="J?ilO221#S;Se)Fm;b]=">
-                                <field name="COMMAND">spawnpoint @a 121 87 -1139</field>
+                                <field name="COMMAND">spawnpoint @a 10 65 1160</field>
                                 <next>
                                   <block type="servercommand" id="a8t(y}s7s/])jgkDxj/5">
                                     <field name="COMMAND">deop @a</field>
                                     <next>
                                       <block type="servercommand" id="RRh/(1@BSebe%RP1@vv8">
-                                        <field name="COMMAND">tp @a 121 87 1139</field>
+                                        <field name="COMMAND">tp @a 10 65 1160</field>
                                         <next>
                                           <block type="servercommand" id="glJ6An[oMdNp@,r=+w5`">
                                             <field name="COMMAND">"op " + self.name</field>

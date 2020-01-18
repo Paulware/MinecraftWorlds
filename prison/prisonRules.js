@@ -11,9 +11,9 @@ exports.prisonRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set night");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 121 87 -1139");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 10 65 1160");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 121 87 1139");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 10 65 1160");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
   // spawn org.bukkit.entity.EntityType.WITHER
   var location = new org.bukkit.Location(server.worlds[0], 122, 164, 1153);
@@ -27,7 +27,7 @@ exports.prisonRules = function () {
     player.equipment.chestplate = items.diamondChestplate(1);
     player.equipment.leggings = items.diamondLeggings(1);
     setTimeout (function () {
-      player.teleport(new org.bukkit.Location(server.worlds[0], 121, 87, 1139), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      player.teleport(new org.bukkit.Location(server.worlds[0], 10, 65, 1160), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },2000);
   });
   events.playerInteract( function (event) {
@@ -70,13 +70,14 @@ exports.prisonRules = function () {
   });
   events.playerJoin( function (event) {
     player=event.getPlayer();
+    var player = player;
+    var items = require ('items');
+    player.equipment.helmet = items.diamondHelmet(1);
+    player.equipment.boots = items.diamondBoots(1);
+    player.equipment.chestplate = items.diamondChestplate(1);
+    player.equipment.leggings = items.diamondLeggings(1);
     setTimeout (function () {
-      var player = player;
-      var items = require ('items');
-      player.equipment.helmet = items.diamondHelmet(1);
-      player.equipment.boots = items.diamondBoots(1);
-      player.equipment.chestplate = items.diamondChestplate(1);
-      player.equipment.leggings = items.diamondLeggings(1);
-    },3000);
+      player.teleport(new org.bukkit.Location(server.worlds[0], 10, 65, 1160), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    },2000);
   });
 };
