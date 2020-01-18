@@ -287,6 +287,27 @@
                                                                 </next>
                                                               </block>
                                                             </statement>
+                                                            <next>
+                                                              <block type="eventlistener" id="X:t[%A5)5Tl|E-HX?!o)">
+                                                                <field name="LISTENERTYPE">playerJoin</field>
+                                                                <statement name="LISTENERCODE">
+                                                                  <block type="teleport" id="@VuI;wZ,AYZwx_kpr$ip">
+                                                                    <value name="ENTITY">
+                                                                      <block type="eventinfo" id="U3Hcrm($AFaoJA$E#V{M">
+                                                                        <field name="INFORMATION">getPlayer()</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="LOCATION">
+                                                                      <block type="absolutelocation" id="/S]!KcI]d5)3txW~vibT">
+                                                                        <field name="X">121</field>
+                                                                        <field name="Y">87</field>
+                                                                        <field name="Z">1139</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
                                                           </block>
                                                         </next>
                                                       </block>

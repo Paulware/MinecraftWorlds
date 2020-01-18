@@ -60,4 +60,9 @@ exports.prisonRules = function () {
        })();
     }
   });
+  events.playerJoin( function (event) {
+    setTimeout (function () {
+      event.getPlayer().teleport(new org.bukkit.Location(server.worlds[0], 121, 87, 1139), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    },2000);
+  });
 };
