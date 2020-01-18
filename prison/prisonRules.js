@@ -6,6 +6,7 @@ exports.prisonRules = function () {
   var i;
   var projectile;
   var shooter;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @e[type=wither]");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set night");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
@@ -14,6 +15,9 @@ exports.prisonRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 121 87 1139");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
+  // spawn org.bukkit.entity.EntityType.WITHER
+  var location = new org.bukkit.Location(server.worlds[0], 122, 164, 1153);
+  var entity = server.worlds[0].spawnEntity(location,org.bukkit.entity.EntityType.WITHER);
   events.playerRespawn( function (event) {
     player=event.getPlayer();
     setTimeout (function () {
