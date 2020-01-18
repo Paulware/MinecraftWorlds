@@ -16,12 +16,14 @@ exports.prisonRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
   events.playerRespawn( function (event) {
     player=event.getPlayer();
-    var player = player;
-    var items = require ('items');
-    player.equipment.helmet = items.diamondHelmet(1);
-    player.equipment.boots = items.diamondBoots(1);
-    player.equipment.chestplate = items.diamondChestplate(1);
-    player.equipment.leggings = items.diamondLeggings(1);
+    setTimeout (function () {
+      var player = player;
+      var items = require ('items');
+      player.equipment.helmet = items.diamondHelmet(1);
+      player.equipment.boots = items.diamondBoots(1);
+      player.equipment.chestplate = items.diamondChestplate(1);
+      player.equipment.leggings = items.diamondLeggings(1);
+    },1000);
     setTimeout (function () {
       player.teleport(new org.bukkit.Location(server.worlds[0], 121, 87, 1139), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },2000);

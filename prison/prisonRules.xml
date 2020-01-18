@@ -42,12 +42,17 @@
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="diamondarmor" id="|:0:P#^~t_sdn]qp#B=b">
-                                                        <value name="PLAYER">
-                                                          <block type="varname" id="qP*Psi3{KFlKd;1o(f?X">
-                                                            <field name="VARNAME">player</field>
+                                                      <block type="delayedexecution" id="odoh+{.4f,(U6(U#X2vt">
+                                                        <field name="TIMEOUT">1000</field>
+                                                        <statement name="DELAYEDCODE">
+                                                          <block type="diamondarmor" id="|:0:P#^~t_sdn]qp#B=b">
+                                                            <value name="PLAYER">
+                                                              <block type="varname" id="qP*Psi3{KFlKd;1o(f?X">
+                                                                <field name="VARNAME">player</field>
+                                                              </block>
+                                                            </value>
                                                           </block>
-                                                        </value>
+                                                        </statement>
                                                         <next>
                                                           <block type="teleport" id="8^Kb])XEu:nSr02;HPGG">
                                                             <value name="ENTITY">
