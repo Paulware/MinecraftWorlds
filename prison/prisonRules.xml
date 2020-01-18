@@ -59,17 +59,12 @@
                                                               </block>
                                                             </value>
                                                             <next>
-                                                              <block type="delayedexecution" id="odoh+{.4f,(U6(U#X2vt">
-                                                                <field name="TIMEOUT">3000</field>
-                                                                <statement name="DELAYEDCODE">
-                                                                  <block type="diamondarmor" id="|:0:P#^~t_sdn]qp#B=b">
-                                                                    <value name="PLAYER">
-                                                                      <block type="varname" id="qP*Psi3{KFlKd;1o(f?X">
-                                                                        <field name="VARNAME">player</field>
-                                                                      </block>
-                                                                    </value>
+                                                              <block type="diamondarmor" id="|:0:P#^~t_sdn]qp#B=b">
+                                                                <value name="PLAYER">
+                                                                  <block type="varname" id="qP*Psi3{KFlKd;1o(f?X">
+                                                                    <field name="VARNAME">player</field>
                                                                   </block>
-                                                                </statement>
+                                                                </value>
                                                                 <next>
                                                                   <block type="teleport" id="8^Kb])XEu:nSr02;HPGG">
                                                                     <value name="ENTITY">
@@ -79,9 +74,9 @@
                                                                     </value>
                                                                     <value name="LOCATION">
                                                                       <block type="absolutelocation" id=",W846NcF9o@Q|LE|HEp.">
-                                                                        <field name="X">121</field>
-                                                                        <field name="Y">87</field>
-                                                                        <field name="Z">1139</field>
+                                                                        <field name="X">10</field>
+                                                                        <field name="Y">65</field>
+                                                                        <field name="Z">1160</field>
                                                                       </block>
                                                                     </value>
                                                                   </block>
@@ -326,17 +321,28 @@
                                                                           </block>
                                                                         </value>
                                                                         <next>
-                                                                          <block type="delayedexecution" id="4{R[|p,?CqU7aUVNW1M$">
-                                                                            <field name="TIMEOUT">3000</field>
-                                                                            <statement name="DELAYEDCODE">
-                                                                              <block type="diamondarmor" id="q8!(WOTM$VKgJ[cIy@vf">
-                                                                                <value name="PLAYER">
-                                                                                  <block type="varname" id="h(JwDmV8r$QQzb8q`x]P">
+                                                                          <block type="diamondarmor" id="q8!(WOTM$VKgJ[cIy@vf">
+                                                                            <value name="PLAYER">
+                                                                              <block type="varname" id="h(JwDmV8r$QQzb8q`x]P">
+                                                                                <field name="VARNAME">player</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="teleport" id="1z9a%P=X=CwSxAsg$ocP">
+                                                                                <value name="ENTITY">
+                                                                                  <block type="varname" id="/+0[xwl9`z_tc~qtRRQ@">
                                                                                     <field name="VARNAME">player</field>
                                                                                   </block>
                                                                                 </value>
+                                                                                <value name="LOCATION">
+                                                                                  <block type="absolutelocation" id="thvo(#RJNs,|Z=$Oybvy">
+                                                                                    <field name="X">10</field>
+                                                                                    <field name="Y">65</field>
+                                                                                    <field name="Z">1160</field>
+                                                                                  </block>
+                                                                                </value>
                                                                               </block>
-                                                                            </statement>
+                                                                            </next>
                                                                           </block>
                                                                         </next>
                                                                       </block>
