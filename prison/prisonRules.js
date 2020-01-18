@@ -17,6 +17,11 @@ exports.prisonRules = function () {
   // spawn org.bukkit.entity.EntityType.WITHER
   var location = new org.bukkit.Location(server.worlds[0], 110, 170, 1151);
   var entity = server.worlds[0].spawnEntity(location,org.bukkit.entity.EntityType.WITHER);
+  events.playerRespawn( function (event) {
+    setTimeout (function () {
+      event.getPlayer().teleport(new org.bukkit.Location(server.worlds[0], 121, 87, 1139), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    },2000);
+  });
   events.playerInteract( function (event) {
     player=event.getPlayer();
     inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
