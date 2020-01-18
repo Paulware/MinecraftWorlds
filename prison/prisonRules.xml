@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="158" y="43">
+  <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="313" y="38">
     <field name="nameOfFunction">prisonRules</field>
     <statement name="FUNCTIONCODE">
       <block type="servercommand" id="8C^$pbVt5p7!O/2HW0nF" disabled="true">
@@ -60,7 +60,7 @@
                                                             </value>
                                                             <next>
                                                               <block type="delayedexecution" id="odoh+{.4f,(U6(U#X2vt">
-                                                                <field name="TIMEOUT">1000</field>
+                                                                <field name="TIMEOUT">3000</field>
                                                                 <statement name="DELAYEDCODE">
                                                                   <block type="diamondarmor" id="|:0:P#^~t_sdn]qp#B=b">
                                                                     <value name="PLAYER">
@@ -314,6 +314,35 @@
                                                                     </next>
                                                                   </block>
                                                                 </statement>
+                                                                <next>
+                                                                  <block type="eventlistener" id="m:,t1=1mcngui}pIb!9C">
+                                                                    <field name="LISTENERTYPE">playerJoin</field>
+                                                                    <statement name="LISTENERCODE">
+                                                                      <block type="setvariablevalue" id="eObSNje+,ZGtjvo7|Fb1">
+                                                                        <field name="VARNAME">player</field>
+                                                                        <value name="EXPRESSION">
+                                                                          <block type="eventinfo" id="OcU}s4Oj2%D~]QWS+UCk">
+                                                                            <field name="INFORMATION">getPlayer()</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="delayedexecution" id="4{R[|p,?CqU7aUVNW1M$">
+                                                                            <field name="TIMEOUT">3000</field>
+                                                                            <statement name="DELAYEDCODE">
+                                                                              <block type="diamondarmor" id="q8!(WOTM$VKgJ[cIy@vf">
+                                                                                <value name="PLAYER">
+                                                                                  <block type="varname" id="h(JwDmV8r$QQzb8q`x]P">
+                                                                                    <field name="VARNAME">player</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </next>
                                                               </block>
                                                             </next>
                                                           </block>
