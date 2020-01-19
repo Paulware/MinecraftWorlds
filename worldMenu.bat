@@ -56,6 +56,7 @@ GOTO:copyPlugin
 
 :menu_6   Copy prison
 set source=C:\SpigotMC\MinecraftWorlds\prison\*.*
+copy C:\SpigotMC\MinecraftWorlds\prison\prisonRules.js C:\SpigotMC\scriptcraft\plugins\prisonRules.js
 GOTO:copyFiles
 
 :menu_7   Copy Ruin bed wars
