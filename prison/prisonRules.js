@@ -6,6 +6,7 @@ exports.prisonRules = function () {
   var i;
   var projectile;
   var shooter;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @e[type=wither]");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set night");
@@ -15,6 +16,10 @@ exports.prisonRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 10 65 1160");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name);
+  players = server.getOnlinePlayers();
+  for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
+    players[playersIndex].getInventory().clear();
+  }
   // spawn org.bukkit.entity.EntityType.WITHER
   var location = new org.bukkit.Location(server.worlds[0], 122, 164, 1153);
   var entity = server.worlds[0].spawnEntity(location,org.bukkit.entity.EntityType.WITHER);

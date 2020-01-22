@@ -2,7 +2,7 @@
   <block type="scriptcraftfunction" id="[N[Ez~J:JU*Lxl/X,{,3" x="313" y="38">
     <field name="nameOfFunction">prisonRules</field>
     <statement name="FUNCTIONCODE">
-      <block type="servercommand" id="8C^$pbVt5p7!O/2HW0nF" disabled="true">
+      <block type="servercommand" id="8C^$pbVt5p7!O/2HW0nF">
         <field name="COMMAND">gamemode survival @a</field>
         <next>
           <block type="servercommand" id="o3L@k2(vT}a%`/G,HPxn">
@@ -32,7 +32,7 @@
                                           <block type="servercommand" id="glJ6An[oMdNp@,r=+w5`">
                                             <field name="COMMAND">"op " + self.name</field>
                                             <next>
-                                              <block type="removeplayersgear" id="ESDgMFI!N)3iwKv-sGlu" disabled="true">
+                                              <block type="removeplayersgear" id="ESDgMFI!N)3iwKv-sGlu">
                                                 <next>
                                                   <block type="modifyEntity" id="ylmfuqg@8WflF|{z$4sz">
                                                     <value name="ENTITY">
