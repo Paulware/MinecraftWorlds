@@ -49,6 +49,7 @@ GOTO:copyFiles
 
 :menu_5   Copy Omaha Beach 
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\server.properties C:\SpigotMC\server.properties
+copy C:\SpigotMC\MinecraftWorlds\omahaBeach\omahaRules.js C:\SpigotMC\scriptcraft\plugins\omahaRules.js
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\spigot.yml C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\bukkit.yml C:\SpigotMC\bukkit.yml
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
