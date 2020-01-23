@@ -424,10 +424,10 @@ exports.omahaRules = function () {
           projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
           player.launchProjectile(projectile.getClass());
         }
-        if (!(i <50)) {
+        if (!(i <10)) {
           clearInterval (test);
         }
-      }, 100);
+      }, 200);
     }
     else if ((name) == "flamethrower"){
       projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
@@ -446,6 +446,14 @@ exports.omahaRules = function () {
       name=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
       console.log ("In hand: " + name );
       if ((name) == "M1-Garand"){
+        (function() {
+          var vector = projectile.getVelocity().normalize().multiply(7);
+          if (!isNaN(vector.x)) {
+             projectile.setVelocity (vector);
+          }
+         })();
+      }
+      else if ((name) == "bazooka"){
         (function() {
           var vector = projectile.getVelocity().normalize().multiply(7);
           if (!isNaN(vector.x)) {

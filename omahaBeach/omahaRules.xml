@@ -1356,8 +1356,8 @@
                                                                                                             <next>
                                                                                                               <block type="repeatexecution" id="9m*@S]~DRvTFnUg0CMTM">
                                                                                                                 <field name="NAME">test</field>
-                                                                                                                <field name="TIMEOUT">100</field>
-                                                                                                                <field name="CONTINUE">i &lt;50</field>
+                                                                                                                <field name="TIMEOUT">200</field>
+                                                                                                                <field name="CONTINUE">i &lt;10</field>
                                                                                                                 <statement name="CODE">
                                                                                                                   <block type="setvariable" id="6xE*es9WAOp(2Rq{^Lr)">
                                                                                                                     <field name="VARNAME">i</field>
@@ -1568,6 +1568,7 @@
                                                                                                         </value>
                                                                                                         <next>
                                                                                                           <block type="controls_if" id="e4!`Vyk1Z/OKG#=nx7a,">
+                                                                                                            <mutation elseif="1"></mutation>
                                                                                                             <value name="IF0">
                                                                                                               <block type="logic_compare" id=".re=n{G%XJ:k]@BcM`FW">
                                                                                                                 <field name="OP">EQ</field>
@@ -1592,6 +1593,35 @@
                                                                                                                 </value>
                                                                                                                 <value name="PROJECTILE">
                                                                                                                   <block type="varname" id="FR;$H)3.N|2j(2O*+[=%">
+                                                                                                                    <field name="VARNAME">projectile</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </statement>
+                                                                                                            <value name="IF1">
+                                                                                                              <block type="logic_compare" id="7-GR+.?/PH*BtY/[M=PN">
+                                                                                                                <field name="OP">EQ</field>
+                                                                                                                <value name="A">
+                                                                                                                  <block type="varname" id="e;/P-)v}$K[rjA3G/{:D">
+                                                                                                                    <field name="VARNAME">name</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <value name="B">
+                                                                                                                  <block type="text" id="n=/NyGm0Om~bMjhE}/Ab">
+                                                                                                                    <field name="TEXT">bazooka</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <statement name="DO1">
+                                                                                                              <block type="setprojectilespeed" id="iW~JdML0nmQIvxA;X?6P">
+                                                                                                                <value name="SPEED">
+                                                                                                                  <block type="math_number" id="ut/#u-D;w8WLiJ+tO|-.">
+                                                                                                                    <field name="NUM">7</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <value name="PROJECTILE">
+                                                                                                                  <block type="varname" id="+[4E$Z,Mu{Mnf@2kGpAo">
                                                                                                                     <field name="VARNAME">projectile</field>
                                                                                                                   </block>
                                                                                                                 </value>
