@@ -24,8 +24,9 @@ exports.omahaRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1219 137 -91");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1203 137 -106");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1219 137 -91");
@@ -188,7 +189,7 @@ exports.omahaRules = function () {
     else {
       console.log ("Player must select a team");
       setTimeout (function () {
-        player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        player.teleport(new org.bukkit.Location(server.worlds[0], -1203, 137, -106), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
     }
   });
@@ -543,7 +544,7 @@ exports.omahaRules = function () {
     player.removeMetadata ("team", __plugin );
     player.getInventory().clear();
     setTimeout (function () {
-      player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      player.teleport(new org.bukkit.Location(server.worlds[0], -1203, 137, -106), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },2000);
   });
   events.playerQuit( function (event) {
