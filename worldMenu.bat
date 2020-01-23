@@ -52,7 +52,7 @@ copy C:\SpigotMC\MinecraftWorlds\omahaBeach\server.properties C:\SpigotMC\server
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\spigot.yml C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\MinecraftWorlds\omahaBeach\bukkit.yml C:\SpigotMC\bukkit.yml
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
-GOTO:copyPlugin
+GOTO:copyFiles
 
 :menu_6   Copy prison
 set source=C:\SpigotMC\MinecraftWorlds\prison\*.*
