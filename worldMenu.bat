@@ -55,13 +55,14 @@ copy C:\SpigotMC\MinecraftWorlds\omahaBeach\bukkit.yml C:\SpigotMC\bukkit.yml
 set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
 GOTO:copyFiles
 
-:menu_6   Copy prison
+:menu_6   Prison
 set source=C:\SpigotMC\MinecraftWorlds\prison\*.*
 copy C:\SpigotMC\MinecraftWorlds\prison\prisonRules.js C:\SpigotMC\scriptcraft\plugins\prisonRules.js
 GOTO:copyFiles
 
-:menu_7   Copy Ruin bed wars
-set source=C:\SpigotMC\MinecraftWorlds\ruinBedWars\*.*
+:menu_7   Star Wars
+set source=C:\SpigotMC\MinecraftWorlds\starWars\*.*
+rem copy C:\SpigotMC\MinecraftWorlds\starWars\prisonRules.js C:\SpigotMC\scriptcraft\plugins\prisonRules.js
 GOTO:copyFiles
 
 :menu_8   Our bed wars
@@ -127,14 +128,4 @@ rmdir %destination% /q /s
 mkdir %destination%
 echo xcopy %source% %destination% /E 
 xcopy %source% %destination% /E
-GOTO:EOF
-
-:copyPlugin
-echo remove %destination%
-rmdir %destination% /q /s
-mkdir %destination%
-echo xcopy %source% %destination% /E 
-xcopy %source%\*.* %destination% /E
-xcopy %source%\*.js %plugin% /E /Y
-xcopy %source%\*.txt %plugin% /E /Y
 GOTO:EOF
