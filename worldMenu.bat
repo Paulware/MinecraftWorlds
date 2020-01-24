@@ -62,7 +62,7 @@ GOTO:copyFiles
 
 :menu_7   Star Wars
 set source=C:\SpigotMC\MinecraftWorlds\starWars\*.*
-rem copy C:\SpigotMC\MinecraftWorlds\starWars\prisonRules.js C:\SpigotMC\scriptcraft\plugins\prisonRules.js
+copy C:\SpigotMC\MinecraftWorlds\starWars\starWarsRules.js C:\SpigotMC\scriptcraft\plugins\starWarsRules.js
 GOTO:copyFiles
 
 :menu_8   Our bed wars
