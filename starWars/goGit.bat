@@ -1,5 +1,5 @@
-rem copy C:\SpigotMC\scriptcraft\plugins\omahaRules.js
-rem copy C:\SpigotMC\scriptcraft\plugins\xml\omahaRules.xml
+copy C:\SpigotMC\scriptcraft\plugins\starWarsRules.js
+copy C:\SpigotMC\scriptcraft\plugins\xml\starWarsRules.xml
 rem copy C:\SpigotMC\spigot.yml
 rem copy C:\SpigotMC\bukkit.yml
 cd ..
