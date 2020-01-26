@@ -101,6 +101,11 @@ mkdir c:\SpigotMC
 git clone https://github.com/Paulware/MinecraftWorlds
 GOTO:menuLoop
 
+:menu_D   tower defense
+set source=C:\SpigotMC\MinecraftWorlds\towerDefense\*.*
+copy C:\SpigotMC\MinecraftWorlds\towerDefnese\*.js C:\SpigotMC\scriptcraft\plugins\
+GOTO:copyFiles
+
 :menu_F   git pull --all 
 cd C:\SpigotMC\MinecraftWorlds
 git pull --all 
