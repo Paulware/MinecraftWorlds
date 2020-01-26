@@ -50,10 +50,16 @@ exports.towerDefense = function () {
     inventory=event.getInventory();
     block=server.worlds[0].getBlockAt (inventory.location);
     blockType=(block==null)?null:block.getType();
+    console.log (inventory.location);
     if ((blockType) == (org.bukkit.Material.HOPPER)){
       materialDropped=(item.getItemStack() == null ) ? null : (item.getItemStack().getType == null) ? null : item.getItemStack().getType();
       if ((materialDropped) == (org.bukkit.Material.EMERALD)){
-        exports.usa=exports.usa + 1;
+        if ((inventory.location.x) == -6 && (inventory.location.z) == -919){
+          exports.canada=exports.canada + 1;
+        }
+        else {
+          exports.usa=exports.usa + 1;
+        }
         if ((exports.usa) == 10){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Game Over USA has won!");
         }
