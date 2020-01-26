@@ -7,6 +7,7 @@ exports.towerDefense = function () {
   var inventory;
   var blockType;
   var materialDropped;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 50 9 -914");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 9 -914");
   exports.manager = org.bukkit.Bukkit.getScoreboardManager();
   exports.board = exports.manager.getNewScoreboard();
