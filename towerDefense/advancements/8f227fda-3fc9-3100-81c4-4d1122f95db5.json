@@ -1,0 +1,15 @@
+{
+  "minecraft:recipes/decorations/barrel": {
+    "criteria": {
+      "has_wood_slab": "2020-01-25 21:20:30 -0600"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:plains": "2020-01-25 21:08:25 -0600"
+    },
+    "done": false
+  },
+  "DataVersion": 1976
+}
