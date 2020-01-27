@@ -9,7 +9,7 @@
             <field name="COMMAND">spawnpoint @a 50 9 -914</field>
             <next>
               <block type="servercommand" id="=hqfh@IpnnEVMu|[fgWL">
-                <field name="COMMAND">"gamemode @a survival"</field>
+                <field name="COMMAND">"gamemode survival @a"</field>
                 <next>
                   <block type="servercommand" id="7=~zb=q5i=%L`P^XZ:GY">
                     <field name="COMMAND">"op " + self.name </field>
