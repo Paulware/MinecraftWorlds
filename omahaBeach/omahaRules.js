@@ -24,6 +24,7 @@ exports.omahaRules = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule keepInventory true");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1203 137 -106");
@@ -204,7 +205,7 @@ exports.omahaRules = function () {
     block=event.getClickedBlock();
     blockType=(block==null)?null:block.getType();
     if ((blockType) == (org.bukkit.Material.OAK_SIGN)){
-      team=block.state.getLine(1);
+      team=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
       player.setMetadata ("team", fd );
       (function() {   var h=20;
