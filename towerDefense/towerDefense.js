@@ -204,6 +204,9 @@ exports.towerDefense = function () {
   events.playerJoin( function (event) {
     player=event.getPlayer();
     player.removeMetadata ("score", __plugin );
+    setTimeout (function () {
+      player.teleport(new org.bukkit.Location(server.worlds[0], 50, 10, -914), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    },2000);
   });
   events.playerDropItem( function (event) {
     player=event.getPlayer();

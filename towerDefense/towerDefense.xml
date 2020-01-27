@@ -937,6 +937,22 @@
                                                                         <field name="VARNAME">player</field>
                                                                       </block>
                                                                     </value>
+                                                                    <next>
+                                                                      <block type="teleport" id="2HXGv!V|kZW@7Ab%S2QU">
+                                                                        <value name="ENTITY">
+                                                                          <block type="varname" id="g~_zP(WslEzEyY.%#TOZ">
+                                                                            <field name="VARNAME">player</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="LOCATION">
+                                                                          <block type="absolutelocation" id="~9KHD93p[viW]ahiild5">
+                                                                            <field name="X">50</field>
+                                                                            <field name="Y">10</field>
+                                                                            <field name="Z">-914</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
                                                                   </block>
                                                                 </next>
                                                               </block>
