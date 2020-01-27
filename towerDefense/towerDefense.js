@@ -18,6 +18,10 @@ exports.towerDefense = function () {
   var score;
   var team;
   var shooter;
+  players = server.getOnlinePlayers();
+  for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
+    players[playersIndex].getInventory().clear();
+  }
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 50 9 -914");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 9 -914");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
@@ -176,11 +180,11 @@ exports.towerDefense = function () {
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
         objective.getScore(exports.lastDropper).setScore(score);
         exports.lastDropper.setScoreboard (exports.board);
-        if ((exports.usa) == 1){
+        if ((exports.usa) == 100){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"USA Wins!\"");
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
         }
-        else if ((exports.canada) == 1){
+        else if ((exports.canada) == 100){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"Canada Wins!\"");
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
         }
@@ -203,10 +207,12 @@ exports.towerDefense = function () {
   });
   events.playerJoin( function (event) {
     player=event.getPlayer();
+    player.getInventory().clear();
     player.removeMetadata ("score", __plugin );
     setTimeout (function () {
       player.teleport(new org.bukkit.Location(server.worlds[0], 50, 10, -914), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
     },2000);
+    player.setGameMode(org.bukkit.GameMode.SURVIVAL);
   });
   events.playerDropItem( function (event) {
     player=event.getPlayer();
