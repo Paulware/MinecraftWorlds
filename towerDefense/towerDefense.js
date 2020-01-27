@@ -27,6 +27,7 @@ exports.towerDefense = function () {
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 9 -914");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name );
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a instant_health");
   exports.usa=0;
   exports.canada=0;
   var manager = org.bukkit.Bukkit.getScoreboardManager();
@@ -189,6 +190,8 @@ exports.towerDefense = function () {
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"Canada Wins!\"");
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
         }
+        item.remove()
+        event.cancelled = true;
       }
     }
   });
