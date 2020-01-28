@@ -12,6 +12,7 @@ exports.towerDefense = function () {
   var inhand;
   var projectile;
   var item;
+  var owner;
   var inventory;
   var blockType;
   var materialDropped;
@@ -173,6 +174,7 @@ exports.towerDefense = function () {
   });
   events.inventoryPickupItem( function (event) {
     item=event.getItem();
+    owner=(item.getMetadata == null)?null:(item.getMetadata("owner").length == 0)?null:item.getMetadata("owner")[0].value();
     inventory=event.getInventory();
     block=server.worlds[0].getBlockAt (inventory.location);
     blockType=(block==null)?null:block.getType();
@@ -186,7 +188,6 @@ exports.towerDefense = function () {
           })();
         }
         else {
-          console.log (inventory.location);
           (function () {
             var value = ( exports.usa==null)?0:exports.usa;
             exports.usa= value+1;
@@ -194,18 +195,16 @@ exports.towerDefense = function () {
         }
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
         objective.setDisplayName("USA: " + exports.usa + " CANADA:" + exports.canada);
-        console.log ("Emerald was dropped in hopper success");
-        score=(exports.lastDropper.getMetadata == null)?null:(exports.lastDropper.getMetadata("score").length == 0)?null:exports.lastDropper.getMetadata("score")[0].value();
+        score=(owner.getMetadata == null)?null:(owner.getMetadata("score").length == 0)?null:owner.getMetadata("score")[0].value();
         (function () {
           var value = ( score==null)?0:score;
           score= value+1;
         })();
-        console.log ("New score: " + score );
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,score);
-        exports.lastDropper.setMetadata ("score", fd );
+        owner.setMetadata ("score", fd );
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-        objective.getScore(exports.lastDropper).setScore(score);
-        exports.lastDropper.setScoreboard (exports.board);
+        objective.getScore(owner).setScore(score);
+        owner.setScoreboard (exports.board);
         if ((exports.usa) == 100){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"USA Wins!\"");
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
@@ -245,8 +244,10 @@ exports.towerDefense = function () {
   });
   events.playerDropItem( function (event) {
     player=event.getPlayer();
-    exports.lastDropper=player;
-    console.log ("Player: " + player + " dropped an item");
+    item=event.getItemDrop();
+    fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,player);
+    item.setMetadata ("owner", fd );
+    console.log ("Player: " + player.name + " dropped an item: " );
   });
   events.projectileLaunch( function (event) {
     projectile=event.getEntity();
