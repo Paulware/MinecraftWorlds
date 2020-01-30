@@ -7,6 +7,7 @@ exports.towerDefense = function () {
   var line;
   var team;
   var color;
+  var items;
   var meta;
   var stack;
   var inhand;
@@ -56,8 +57,10 @@ exports.towerDefense = function () {
     block=event.getClickedBlock();
     line=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
     if (player.getMetadata("team").length > 0){
-      team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
-      player.sendMessage ("You already selected team: " + team);
+      if ((line) == "USA" || (line) == "Canada"){
+        team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
+        player.sendMessage ("You already selected team: " + team);
+      }
     }
     else {
       if ((line) == "USA"){
@@ -93,6 +96,9 @@ exports.towerDefense = function () {
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
         player.equipment.leggings = legs;
+        player = player;
+        items = require ('items');
+        player.equipment.helmet = items.diamondHelmet(1);
         line=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(2);
         if ((line) == "Sniper"){
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("M1-Garand");  s.setItemMeta(m);  return s; })() );
@@ -145,6 +151,9 @@ exports.towerDefense = function () {
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
         player.equipment.leggings = legs;
+        player = player;
+        items = require ('items');
+        player.equipment.helmet = items.diamondHelmet(1);
         line=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(2);
         if ((line) == "Sniper"){
           player.getInventory().setItem (0,(function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("M1-Garand");  s.setItemMeta(m);  return s; })() );
@@ -164,12 +173,12 @@ exports.towerDefense = function () {
           },2000);
         }
       }
-      inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
-      stack=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
-      if ((stack) == "M1-Garand"){
-        projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
-        player.launchProjectile(projectile.getClass());
-      }
+    }
+    inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
+    stack=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
+    if ((stack) == "M1-Garand"){
+      projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+      player.launchProjectile(projectile.getClass());
     }
   });
   events.inventoryPickupItem( function (event) {
@@ -220,10 +229,13 @@ exports.towerDefense = function () {
   });
   events.playerRespawn( function (event) {
     player=event.getPlayer();
+    player = player;
+    items = require ('items');
+    player.equipment.helmet = items.diamondHelmet(1);
     team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     if ((team) == "USA"){
       setTimeout (function () {
-        player.teleport(new org.bukkit.Location(server.worlds[0], 16, 21, -903), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+        player.teleport(new org.bukkit.Location(server.worlds[0], 84, 12, -917), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
     }
     else if ((team) == "Canada"){
