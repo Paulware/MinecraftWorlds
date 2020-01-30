@@ -52,6 +52,7 @@ exports.towerDefense = function () {
     objective.getScore(players[playersIndex]).setScore(0);
     players[playersIndex].setScoreboard (exports.board);
   }
+  self.setWalkSpeed(0.2)
   events.playerInteract( function (event) {
     player=event.getPlayer();
     block=event.getClickedBlock();
@@ -105,17 +106,23 @@ exports.towerDefense = function () {
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 94, 21, -931), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed(0.2)
         }
         else if ((line) == "Knight"){
           player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.DIAMOND_SWORD,1) );
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 84, 12, -917), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed(0.2)
         }
         else {
+          player = player;
+          items = require ('items');
+          player.equipment.boots = items.goldenBoots(1);
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 84, 12, -917), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed(0.5)
         }
       }
       else if ((line) == "Canada"){
@@ -160,17 +167,23 @@ exports.towerDefense = function () {
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 16, 21, -903), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed (0.2)
         }
         else if ((line) == "Knight"){
           player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.DIAMOND_SWORD,1) );
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 25, 12, -915), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed (0.2)
         }
         else {
+          player = player;
+          items = require ('items');
+          player.equipment.boots = items.goldenBoots(1);
           setTimeout (function () {
             player.teleport(new org.bukkit.Location(server.worlds[0], 25, 12, -915), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
+          player.setWalkSpeed (0.5)
         }
       }
     }
@@ -246,6 +259,7 @@ exports.towerDefense = function () {
   });
   events.playerJoin( function (event) {
     player=event.getPlayer();
+    player.setWalkSpeed (0.2)
     player.getInventory().clear();
     player.removeMetadata ("score", __plugin );
     player.removeMetadata ("team", __plugin );
