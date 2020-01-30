@@ -52,13 +52,12 @@ exports.towerDefense = function () {
     objective.getScore(players[playersIndex]).setScore(0);
     players[playersIndex].setScoreboard (exports.board);
   }
-  self.setWalkSpeed(0.2)
   events.playerInteract( function (event) {
     player=event.getPlayer();
     block=event.getClickedBlock();
     line=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
     if (player.getMetadata("team").length > 0){
-      if ((line) == "USA" || (line) == "Canada"){
+      if (((line == "USA")) || ((line == "Canada"))){
         team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
         player.sendMessage ("You already selected team: " + team);
       }

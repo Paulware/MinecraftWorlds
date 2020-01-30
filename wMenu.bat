@@ -30,9 +30,9 @@ GOTO:menuLOOP
 
 
 :menu_D   tower defense
-set source=D:\world\*.*
-copy D:\world\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
-copy D:\world\towerDefense\*.yml C:\SpigotMC\
+set source=E:\world\*.*
+copy E:\world\*.js C:\SpigotMC\scriptcraft\plugins\
+copy E:\world\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
 
