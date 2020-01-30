@@ -104,6 +104,7 @@ GOTO:menuLoop
 :menu_D   tower defense
 set source=C:\SpigotMC\MinecraftWorlds\towerDefense\*.*
 copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
+copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
 :menu_F   git pull --all 
