@@ -102,13 +102,33 @@
                                                                                       <block type="logic_operation" id="+M}{`VaE2e*x;Ofzh`j,">
                                                                                         <field name="OP">OR</field>
                                                                                         <value name="A">
-                                                                                          <block type="varname" id="HLf~4^[PZI75X3%o4c]f">
-                                                                                            <field name="VARNAME">(line == "USA")</field>
+                                                                                          <block type="logic_compare" id="_,sGYKfah.Q%)OE%+De(">
+                                                                                            <field name="OP">EQ</field>
+                                                                                            <value name="A">
+                                                                                              <block type="varname" id="HLf~4^[PZI75X3%o4c]f">
+                                                                                                <field name="VARNAME">line</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="B">
+                                                                                              <block type="text" id="?]hW2tre]G*4J2{qWZl,">
+                                                                                                <field name="TEXT">USA</field>
+                                                                                              </block>
+                                                                                            </value>
                                                                                           </block>
                                                                                         </value>
                                                                                         <value name="B">
-                                                                                          <block type="varname" id="Y8}j|EJ-o|63QH:r3XN4">
-                                                                                            <field name="VARNAME">(line == "Canada")</field>
+                                                                                          <block type="logic_compare" id="7w6)DA|7%t]=r1YL@2[^">
+                                                                                            <field name="OP">EQ</field>
+                                                                                            <value name="A">
+                                                                                              <block type="varname" id="n7_9Hly}G3sW~HKCF)4^">
+                                                                                                <field name="VARNAME">line</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="B">
+                                                                                              <block type="text" id="~39[X_HL}4]^l/ottWxD">
+                                                                                                <field name="TEXT">Canada</field>
+                                                                                              </block>
+                                                                                            </value>
                                                                                           </block>
                                                                                         </value>
                                                                                       </block>
