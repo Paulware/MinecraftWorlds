@@ -1,4 +1,4 @@
-exports.towerDefense = function () {
+exports.towerDefense = function () { 
   //Instantiations;
   var objective;
   var players;
