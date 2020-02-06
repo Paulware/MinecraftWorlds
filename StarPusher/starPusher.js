@@ -60,10 +60,9 @@ exports.starPusher = function () {
       server.worlds[0].getBlockAt (redstoneLocation).setType (org.bukkit.Material.REDSTONE_BLOCK);
       setTimeout (function () {
         console.log ("Number of locations to clear: " + clearLocations.length);
-        for (var i = 0; i<clearLocations.length; i++) {
-        server.worlds[0].getBlockAt (clearLocations[i]).setType (org.bukkit.Material.AIR);
-        }
-        clearLocations = []
+        for (var i=0; i<clearLocations.length;i++) {
+          server.worlds[0].getBlockAt (clearLocations[i]).setType (org.bukkit.Material.AIR);
+        };
       },500);
     }
   });

@@ -166,9 +166,13 @@
                                                                       </block>
                                                                     </value>
                                                                     <next>
-                                                                      <block type="runexpression" id="W)-$7#tyzg6O!^tge:z2">
-                                                                        <field name="EXPRESSION">for (var i = 0; i&lt;clearLocations.length; i++) {</field>
-                                                                        <next>
+                                                                      <block type="forlistdo" id="@zgTq|;E+Ml8iGS}MyQn">
+                                                                        <value name="LIST">
+                                                                          <block type="varname" id="y*rH[ornljDBV8~tLXI4">
+                                                                            <field name="VARNAME">clearLocations</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="FORCODE">
                                                                           <block type="spawnblock" id="lb+LR7+;0uJxRkV2Vf,,">
                                                                             <value name="TYPE">
                                                                               <block type="blocktype" id="y!G3h{SY1Ic:k9E`n?C9">
@@ -180,18 +184,8 @@
                                                                                 <field name="VARNAME">clearLocations[i]</field>
                                                                               </block>
                                                                             </value>
-                                                                            <next>
-                                                                              <block type="runexpression" id="4^E1/Xlk}S]nP{%wPk,j">
-                                                                                <field name="EXPRESSION">}</field>
-                                                                                <next>
-                                                                                  <block type="runexpression" id="Gt2_0l-0eyj1d~Cq-1eT">
-                                                                                    <field name="EXPRESSION">clearLocations = []</field>
-                                                                                  </block>
-                                                                                </next>
-                                                                              </block>
-                                                                            </next>
                                                                           </block>
-                                                                        </next>
+                                                                        </statement>
                                                                       </block>
                                                                     </next>
                                                                   </block>
