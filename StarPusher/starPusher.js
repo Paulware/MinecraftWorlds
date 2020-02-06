@@ -3,6 +3,7 @@ exports.starPusher = function () {
   var clearLocations;
   var block;
   var blockFace;
+  var directions;
   var pistonLocation;
   var location;
   var data;
@@ -12,11 +13,12 @@ exports.starPusher = function () {
   var _block;
   var redstoneLocation;
   clearLocations=[];
-  events.playerInteract( function (event) { 
+  events.playerInteract( function (event) {
     block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     blockFace=(event.getBlockFace== null) ? null : event.getBlockFace();
     console.log ("blockFace: " + blockFace);
-    if (((blockFace) == ( org.bukkit.block.BlockFace.EAST)) || ((blockFace) == (org.bukkit.block.BlockFace.WEST)) || ((blockFace) == (org.bukkit.block.BlockFace.NORTH)) || ((blockFace) == (org.bukkit.block.BlockFace.SOUTH))){
+    directions=[org.bukkit.block.BlockFace.EAST, org.bukkit.block.BlockFace.WEST, org.bukkit.block.BlockFace.NORTH, org.bukkit.block.BlockFace.SOUTH];
+    if ((directions.indexOf ( blockFace) >= 0)){
       pistonLocation=(function() {
         var _location = new org.bukkit.Location(server.worlds[0], block.location.x, block.location.y, block.location.z);
         if ((blockFace) == org.bukkit.block.BlockFace.NORTH ) {
