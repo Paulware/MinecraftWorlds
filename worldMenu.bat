@@ -118,6 +118,13 @@ cd C:\Arduino
 git pull --all 
 
 cd c:\
+
+:menu_G   challenge
+set source=C:\SpigotMC\MinecraftWorlds\challenge\*.*
+rem copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
+rem copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.yml C:\SpigotMC\
+GOTO:copyFiles
+
 :menu_
 
 :menu_T   Tip
