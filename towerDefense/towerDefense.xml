@@ -181,17 +181,19 @@
                                                                                                   </block>
                                                                                                 </value>
                                                                                                 <statement name="DO0">
-                                                                                                  <block type="consolelog" id="9K+i-DM8l}Ge[;Y`j(zV">
-                                                                                                    <value name="NAME">
-                                                                                                      <block type="varname" id="Z~USb*A_GT~(n-d6i9~!">
-                                                                                                        <field name="VARNAME">"Sending ouch message to: " + attacker </field>
+                                                                                                  <block type="sendmessage" id="2TN^r]d}aejnHA:^{{t%">
+                                                                                                    <field name="MESSAGE">"Ouch! we are on the same team yo"</field>
+                                                                                                    <value name="PLAYER">
+                                                                                                      <block type="varname" id=":?1YW,-LuiLEF#l_k2E?">
+                                                                                                        <field name="VARNAME">attacker</field>
                                                                                                       </block>
                                                                                                     </value>
                                                                                                     <next>
-                                                                                                      <block type="consolelog" id="LW)48-K{8vK*,I/1;o7I">
-                                                                                                        <value name="NAME">
-                                                                                                          <block type="varname" id="sp@3FcPnbF8?G.Gm(/6;">
-                                                                                                            <field name="VARNAME">"Sending ouch message to: " + owner</field>
+                                                                                                      <block type="sendmessage" id="Xvk7gz7Phw~M:`q!K#2=">
+                                                                                                        <field name="MESSAGE">"Stop! we are friends"</field>
+                                                                                                        <value name="PLAYER">
+                                                                                                          <block type="varname" id="Au|D@}A[NDYgx:xnSyXD">
+                                                                                                            <field name="VARNAME">owner</field>
                                                                                                           </block>
                                                                                                         </value>
                                                                                                         <next>

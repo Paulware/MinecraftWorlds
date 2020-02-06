@@ -68,25 +68,19 @@ exports.towerDefense = function () {
     }
     else {
       if (((team1) == (team2))){
-        console.log ("Sending ouch message to: " + attacker );
         (function() {
           if (attacker != null ) {
-             attacker.sendMessage ("Ouch we are on the same team yo");
+             attacker.sendMessage ("Ouch! we are on the same team yo");
           }
          })();
-        console.log ("Sending ouch message to: " + owner);
         (function() {
           if (owner != null ) {
-             owner.sendMessage ("Stop! we are friends yo");
+             owner.sendMessage ("Stop! we are friends");
           }
          })();
         event.cancelled = true;
       }
-      else {
-        console.log ("Different teams damage[" + team1 + "," + team2 + "]");
-      }
     }
-    console.log ("done in entity damaged");
   });
   events.playerInteract( function (event) {
     player=(event.getPlayer== null) ? null : event.getPlayer();
