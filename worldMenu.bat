@@ -121,8 +121,8 @@ cd c:\
 
 :menu_G   challenge
 set source=C:\SpigotMC\MinecraftWorlds\challenge\*.*
-rem copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
-rem copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.yml C:\SpigotMC\
+copy C:\SpigotMC\MinecraftWorlds\challenge\*.js C:\SpigotMC\scriptcraft\plugins\
+copy C:\SpigotMC\MinecraftWorlds\challenge\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
 :menu_
