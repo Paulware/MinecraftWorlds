@@ -3,9 +3,9 @@ exports.towerDefense = function () {
   var objective;
   var players;
   var target;
-  var targetTeam;
+  var team1;
   var attacker;
-  var attackerTeam;
+  var team2;
   var player;
   var block;
   var line;
@@ -57,23 +57,39 @@ exports.towerDefense = function () {
     players[playersIndex].setScoreboard (exports.board);
   }
   events.entityDamage( function (event) {
-    target=event.getEntity();
-    targetTeam=(target.getMetadata == null)?null:(target.getMetadata("team").length == 0)?null:target.getMetadata("team")[0].value();
-    attacker=event.getDamager();
-    attackerTeam=(attacker.getMetadata == null)?null:(attacker.getMetadata("team").length == 0)?null:attacker.getMetadata("team")[0].value();
-    if (((attackerTeam) == (targetTeam))){
-      attacker.sendMessage ("Hey! I am on your team");
-      event.cancelled = true;
+    target=(event.getEntity== null) ? null : event.getEntity();
+    team1=(target== null)? null : (target.getMetadata == null)?null:(target.getMetadata("team").length == 0)?null:target.getMetadata("team")[0].value();
+    attacker=(event.getDamager== null) ? null : event.getDamager();
+    team2=(attacker== null)? null : (attacker.getMetadata == null)?null:(attacker.getMetadata("team").length == 0)?null:attacker.getMetadata("team")[0].value();
+    if (((team1) == (null)) || ((team2) == (null))){
+      console.log ("Got a null team");
+    }
+    else {
+      if (((team1) == (team2))){
+        (function() {
+          if (attacker != null ) {
+             attacker.sendMessage ("Ouch we are on the same team yo");
+          }
+         })();
+        event.cancelled = true;
+      }
+      else {
+        console.log ("Different teams damage[" + team1 + "," + team2 + "]");
+      }
     }
   });
   events.playerInteract( function (event) {
-    player=event.getPlayer();
-    block=event.getClickedBlock();
+    player=(event.getPlayer== null) ? null : event.getPlayer();
+    block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     line=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
     if (player.getMetadata("team").length > 0){
       if (((line) == "USA") || ((line) == "Canada")){
-        team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
-        player.sendMessage ("You already selected team: " + team);
+        team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
+        (function() {
+          if (player != null ) {
+             player.sendMessage ("You already selected team: " + team);
+          }
+         })();
       }
     }
     else {
@@ -208,9 +224,9 @@ exports.towerDefense = function () {
     }
   });
   events.inventoryPickupItem( function (event) {
-    item=event.getItem();
-    owner=(item.getMetadata == null)?null:(item.getMetadata("owner").length == 0)?null:item.getMetadata("owner")[0].value();
-    inventory=event.getInventory();
+    item=(event.getItem== null) ? null : event.getItem();
+    owner=(item== null)? null : (item.getMetadata == null)?null:(item.getMetadata("owner").length == 0)?null:item.getMetadata("owner")[0].value();
+    inventory=(event.getInventory== null) ? null : event.getInventory();
     block=server.worlds[0].getBlockAt (inventory.location);
     blockType=(block==null)?null:block.getType();
     if (((blockType) == (org.bukkit.Material.HOPPER))){
@@ -230,7 +246,7 @@ exports.towerDefense = function () {
         }
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
         objective.setDisplayName("USA: " + exports.usa + " CANADA:" + exports.canada);
-        score=(owner.getMetadata == null)?null:(owner.getMetadata("score").length == 0)?null:owner.getMetadata("score")[0].value();
+        score=(owner== null)? null : (owner.getMetadata == null)?null:(owner.getMetadata("score").length == 0)?null:owner.getMetadata("score")[0].value();
         (function () {
           var value = ( score==null)?0:score;
           score= value+1;
@@ -254,11 +270,11 @@ exports.towerDefense = function () {
     }
   });
   events.playerRespawn( function (event) {
-    player=event.getPlayer();
+    player=(event.getPlayer== null) ? null : event.getPlayer();
     player = player;
     items = require ('items');
     player.equipment.helmet = items.diamondHelmet(1);
-    team=(player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
+    team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("team").length == 0)?null:player.getMetadata("team")[0].value();
     if (((team) == "USA")){
       setTimeout (function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], 84, 12, -917), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
@@ -271,7 +287,7 @@ exports.towerDefense = function () {
     }
   });
   events.playerJoin( function (event) {
-    player=event.getPlayer();
+    player=(event.getPlayer== null) ? null : event.getPlayer();
     player.setWalkSpeed (0.2)
     player.getInventory().clear();
     player.removeMetadata ("score", __plugin );
@@ -282,15 +298,18 @@ exports.towerDefense = function () {
     player.setGameMode(org.bukkit.GameMode.SURVIVAL);
   });
   events.playerDropItem( function (event) {
-    player=event.getPlayer();
-    item=event.getItemDrop();
+    player=(event.getPlayer== null) ? null : event.getPlayer();
+    item=(event.getItemDrop== null) ? null : event.getItemDrop();
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,player);
     item.setMetadata ("owner", fd );
     console.log ("Player: " + player.name + " dropped an item: " );
   });
   events.projectileLaunch( function (event) {
-    projectile=event.getEntity();
+    projectile=(event.getEntity== null) ? null : event.getEntity();
     shooter=(projectile == null) ? null : (projectile.getShooter == null) ? null : projectile.getShooter();
+    team=(shooter== null)? null : (shooter.getMetadata == null)?null:(shooter.getMetadata("team").length == 0)?null:shooter.getMetadata("team")[0].value();
+    fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
+    projectile.setMetadata ("team", fd );
     inhand=(shooter== null) ? null : ( shooter.getItemInHand == null) ? null : shooter.getItemInHand();
     stack=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
     if (((stack) == "M1-Garand")){
