@@ -1,7 +1,11 @@
-exports.towerDefense = function () { 
+exports.towerDefense = function () {
   //Instantiations;
   var objective;
   var players;
+  var target;
+  var targetTeam;
+  var attacker;
+  var attackerTeam;
   var player;
   var block;
   var line;
@@ -52,6 +56,16 @@ exports.towerDefense = function () {
     objective.getScore(players[playersIndex]).setScore(0);
     players[playersIndex].setScoreboard (exports.board);
   }
+  events.entityDamage( function (event) {
+    target=event.getEntity();
+    targetTeam=(target.getMetadata == null)?null:(target.getMetadata("team").length == 0)?null:target.getMetadata("team")[0].value();
+    attacker=event.getDamager();
+    attackerTeam=(attacker.getMetadata == null)?null:(attacker.getMetadata("team").length == 0)?null:attacker.getMetadata("team")[0].value();
+    if (((attackerTeam) == (targetTeam))){
+      attacker.sendMessage ("Hey! I am on your team");
+      event.cancelled = true;
+    }
+  });
   events.playerInteract( function (event) {
     player=event.getPlayer();
     block=event.getClickedBlock();
