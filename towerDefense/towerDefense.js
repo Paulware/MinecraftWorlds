@@ -60,6 +60,7 @@ exports.towerDefense = function () {
     target=(event.getEntity== null) ? null : event.getEntity();
     team1=(target== null)? null : (target.getMetadata == null)?null:(target.getMetadata("team").length == 0)?null:target.getMetadata("team")[0].value();
     attacker=(event.getDamager== null) ? null : event.getDamager();
+    console.log (target + " was damaged by: " + attacker );
     team2=(attacker== null)? null : (attacker.getMetadata == null)?null:(attacker.getMetadata("team").length == 0)?null:attacker.getMetadata("team")[0].value();
     owner=(attacker== null)? null : (attacker.getMetadata == null)?null:(attacker.getMetadata("owner").length == 0)?null:attacker.getMetadata("owner")[0].value();
     if (((team1) == (null)) || ((team2) == (null))){
@@ -67,11 +68,13 @@ exports.towerDefense = function () {
     }
     else {
       if (((team1) == (team2))){
+        console.log ("Sending ouch message to: " + attacker );
         (function() {
           if (attacker != null ) {
              attacker.sendMessage ("Ouch we are on the same team yo");
           }
          })();
+        console.log ("Sending ouch message to: " + owner);
         (function() {
           if (owner != null ) {
              owner.sendMessage ("Stop! we are friends yo");
@@ -83,6 +86,7 @@ exports.towerDefense = function () {
         console.log ("Different teams damage[" + team1 + "," + team2 + "]");
       }
     }
+    console.log ("done in entity damaged");
   });
   events.playerInteract( function (event) {
     player=(event.getPlayer== null) ? null : event.getPlayer();
