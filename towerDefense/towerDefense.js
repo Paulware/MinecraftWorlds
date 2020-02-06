@@ -6,6 +6,7 @@ exports.towerDefense = function () {
   var team1;
   var attacker;
   var team2;
+  var owner;
   var player;
   var block;
   var line;
@@ -17,7 +18,6 @@ exports.towerDefense = function () {
   var inhand;
   var projectile;
   var item;
-  var owner;
   var inventory;
   var blockType;
   var materialDropped;
@@ -29,8 +29,8 @@ exports.towerDefense = function () {
     players[playersIndex].getInventory().clear();
   }
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule keepInventory true");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 50 9 -914");
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 9 -914");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 50 10 -914");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 10 -914");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name );
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a instant_health");
@@ -61,6 +61,7 @@ exports.towerDefense = function () {
     team1=(target== null)? null : (target.getMetadata == null)?null:(target.getMetadata("team").length == 0)?null:target.getMetadata("team")[0].value();
     attacker=(event.getDamager== null) ? null : event.getDamager();
     team2=(attacker== null)? null : (attacker.getMetadata == null)?null:(attacker.getMetadata("team").length == 0)?null:attacker.getMetadata("team")[0].value();
+    owner=(attacker== null)? null : (attacker.getMetadata == null)?null:(attacker.getMetadata("owner").length == 0)?null:attacker.getMetadata("owner")[0].value();
     if (((team1) == (null)) || ((team2) == (null))){
       console.log ("Got a null team");
     }
@@ -69,6 +70,11 @@ exports.towerDefense = function () {
         (function() {
           if (attacker != null ) {
              attacker.sendMessage ("Ouch we are on the same team yo");
+          }
+         })();
+        (function() {
+          if (owner != null ) {
+             owner.sendMessage ("Stop! we are friends yo");
           }
          })();
         event.cancelled = true;
@@ -285,6 +291,11 @@ exports.towerDefense = function () {
         player.teleport(new org.bukkit.Location(server.worlds[0], 25, 12, -915), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
     }
+    else {
+      setTimeout (function () {
+        player.teleport(new org.bukkit.Location(server.worlds[0], 50, 10, -914), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+      },2000);
+    }
   });
   events.playerJoin( function (event) {
     player=(event.getPlayer== null) ? null : event.getPlayer();
@@ -310,6 +321,8 @@ exports.towerDefense = function () {
     team=(shooter== null)? null : (shooter.getMetadata == null)?null:(shooter.getMetadata("team").length == 0)?null:shooter.getMetadata("team")[0].value();
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
     projectile.setMetadata ("team", fd );
+    fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,shooter);
+    projectile.setMetadata ("owner", fd );
     inhand=(shooter== null) ? null : ( shooter.getItemInHand == null) ? null : shooter.getItemInHand();
     stack=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
     if (((stack) == "M1-Garand")){
