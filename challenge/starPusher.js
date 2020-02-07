@@ -13,9 +13,11 @@ exports.starPusher = function () {
   var _block;
   var redstoneLocation;
   clearLocations=[];
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1279 79 -73");
   events.playerInteract( function (event) {
     block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     blockFace=(event.getBlockFace== null) ? null : event.getBlockFace();
+    console.log ("blockFace: " + blockFace);
     directions=[org.bukkit.block.BlockFace.EAST, org.bukkit.block.BlockFace.WEST, org.bukkit.block.BlockFace.NORTH, org.bukkit.block.BlockFace.SOUTH];
     if ((directions.indexOf ( blockFace) >= 0)){
       pistonLocation=(function() {
@@ -58,6 +60,7 @@ exports.starPusher = function () {
       clearLocations.push (redstoneLocation)
       server.worlds[0].getBlockAt (redstoneLocation).setType (org.bukkit.Material.REDSTONE_BLOCK);
       setTimeout (function () {
+        console.log ("Number of locations to clear: " + clearLocations.length);
         for (var i=0; i<clearLocations.length;i++) {
           server.worlds[0].getBlockAt (clearLocations[i]).setType (org.bukkit.Material.AIR);
         };
