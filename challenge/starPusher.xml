@@ -7,7 +7,7 @@
         <field name="EXPRESSION">[]</field>
         <next>
           <block type="servercommand" id="L4lJlL$o[`VtOX/zuYac">
-            <field name="COMMAND">"tp @a -1279 79 -73"</field>
+            <field name="COMMAND">"tp @a -1279 81 -73"</field>
             <next>
               <block type="eventlistener" id="oFwIWTN%p5SZOoJ8LTIs">
                 <field name="LISTENERTYPE">playerInteract</field>

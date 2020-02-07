@@ -13,7 +13,7 @@ exports.starPusher = function () {
   var _block;
   var redstoneLocation;
   clearLocations=[];
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1279 79 -73");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1279 81 -73");
   events.playerInteract( function (event) {
     block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     blockFace=(event.getBlockFace== null) ? null : event.getBlockFace();
