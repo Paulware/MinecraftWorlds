@@ -1,20 +1,32 @@
 exports.starPusher = function () {
   //Instantiations;
   var clearLocations;
-  var block;
   var blockType;
+  var location;
+  var block;
+  var data;
+  var loc;
+  var sign;
   var blockFace;
   var directions;
   var pistonLocation;
   var redstoneLocation;
-  var location;
-  var data;
-  var loc;
-  var sign;
   var _data;
   var _block;
   var diamondLocation;
   clearLocations=[];
+  var myTask= setInterval (function () {
+    if (((clearLocations.length) > 0)){
+      blockType=(server.worlds[0].getBlockAt (clearLocations[0])==null)?null:server.worlds[0].getBlockAt (clearLocations[0]).getType();
+      if (((blockType) != (org.bukkit.Material.DIAMOND_BLOCK))){
+        server.worlds[0].getBlockAt (clearLocations[0]).setType (org.bukkit.Material.AIR);
+        clearLocations.splice (0,1)
+      }
+    }
+    if (!(true)) {
+      clearInterval (myTask);
+    }
+  }, 500);
   events.playerInteract( function (event) {
     block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     blockType=(block==null)?null:block.getType();
@@ -65,15 +77,6 @@ exports.starPusher = function () {
           (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null)
           _block.setBlockData(_data)
           server.worlds[0].getBlockAt (redstoneLocation).setType (org.bukkit.Material.REDSTONE_BLOCK);
-          setTimeout (function () {
-            console.log ("Number of locations to clear: " + clearLocations.length);
-            for (var i=0; i<clearLocations.length;i++) {
-              blockType=(server.worlds[0].getBlockAt (clearLocations[i])==null)?null:server.worlds[0].getBlockAt (clearLocations[i]).getType();
-              if (((blockType) != (org.bukkit.Material.DIAMOND_BLOCK))){
-                server.worlds[0].getBlockAt (clearLocations[i]).setType (org.bukkit.Material.AIR);
-              }
-            };
-          },500);
         }
         else {
           diamondLocation=(function() {
@@ -113,9 +116,6 @@ exports.starPusher = function () {
           server.worlds[0].getBlockAt (block.location).setType (org.bukkit.Material.AIR);
         }
       }
-    }
-    else {
-      console.log ("Ignoring: " + blockType);
     }
   });
 };

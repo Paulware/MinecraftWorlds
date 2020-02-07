@@ -6,298 +6,305 @@
         <field name="VARNAME">clearLocations</field>
         <field name="EXPRESSION">[]</field>
         <next>
-          <block type="eventlistener" id="oFwIWTN%p5SZOoJ8LTIs">
-            <field name="LISTENERTYPE">playerInteract</field>
-            <statement name="LISTENERCODE">
-              <block type="setvariablevalue" id="4mv}(=Rz9~:PaHy*aTAd">
-                <field name="VARNAME">block</field>
-                <value name="EXPRESSION">
-                  <block type="eventinfo" id="Tv)a4N8`DX_tjHP_J^?#">
-                    <field name="INFORMATION">getClickedBlock</field>
+          <block type="repeatexecution" id="CbyCXR98Z$=%=(`SsL~M">
+            <field name="NAME">myTask</field>
+            <field name="TIMEOUT">500</field>
+            <field name="CONTINUE">true</field>
+            <statement name="CODE">
+              <block type="controls_if" id="/nnUWSj}EmV,u#LgH0oT">
+                <value name="IF0">
+                  <block type="logic_compare" id="j:oO5P/!V,P^[MJ89W@)">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="varname" id="zB9MwxfQ^T)Lr]RrPfG3">
+                        <field name="VARNAME">clearLocations.length</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="6EAE{1`t`Z/lcd+wNo/8">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
                   </block>
                 </value>
-                <next>
-                  <block type="setvariablevalue" id="z@BKyo8gThMvTOD`3Fgs">
+                <statement name="DO0">
+                  <block type="setvariablevalue" id="iHpA:@tF(:|bzHbYaYJ)">
                     <field name="VARNAME">blockType</field>
                     <value name="EXPRESSION">
-                      <block type="getblocktype" id="iS_[wmg98Q!Z2cPorCj,">
+                      <block type="getblocktype" id="m=k95:K$H^5OiLw?er6h">
                         <value name="BLOCK">
-                          <block type="varname" id="L!Kog,Mk_~KI`KD@qv.|">
-                            <field name="VARNAME">block</field>
+                          <block type="blockatlocation" id="RA|+sc,p7(CO4t}$$[oJ">
+                            <value name="LOCATION">
+                              <block type="varname" id="_$_C74VR}u,|u!zH)4sC">
+                                <field name="VARNAME">clearLocations[0]</field>
+                              </block>
+                            </value>
                           </block>
                         </value>
                       </block>
                     </value>
                     <next>
-                      <block type="controls_if" id="k`Bf-2#}4E{k:)%m8/#`">
-                        <mutation else="1"></mutation>
+                      <block type="controls_if" id="`ACci9jc+9FFG:nU[ul~">
                         <value name="IF0">
-                          <block type="logic_compare" id="^-OFrk[qsfSE%[mBiDsr">
-                            <field name="OP">EQ</field>
+                          <block type="logic_compare" id="iD}CgK_-s{ln4H:t+=5$">
+                            <field name="OP">NEQ</field>
                             <value name="A">
-                              <block type="varname" id="KgO]~+Vp0(j,y*,es4O=">
+                              <block type="varname" id="q?d$Mn3~q=7:iJJXg=kg">
                                 <field name="VARNAME">blockType</field>
                               </block>
                             </value>
                             <value name="B">
-                              <block type="blocktype" id="5UK:Bkc|AAz6}8IJAVl4">
+                              <block type="blocktype" id="tKtFCfz|y4hzUNKY6n9=">
                                 <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
                               </block>
                             </value>
                           </block>
                         </value>
                         <statement name="DO0">
-                          <block type="setvariablevalue" id="5~@g{{_KQQCS7q({pRx=">
-                            <field name="VARNAME">blockFace</field>
-                            <value name="EXPRESSION">
-                              <block type="eventinfo" id="5RZtgLEVQnlKB-C}j$al">
-                                <field name="INFORMATION">getBlockFace</field>
+                          <block type="spawnblock" id="lb+LR7+;0uJxRkV2Vf,,">
+                            <value name="TYPE">
+                              <block type="blocktype" id="y!G3h{SY1Ic:k9E`n?C9">
+                                <field name="BLOCKTYPE">AIR</field>
+                              </block>
+                            </value>
+                            <value name="LOCATION">
+                              <block type="varname" id="lP67OZG7g=cTTSzVcDhj">
+                                <field name="VARNAME">clearLocations[0]</field>
                               </block>
                             </value>
                             <next>
-                              <block type="consolelog" id="2)O,5==NAb-vjGE-@H$T">
-                                <value name="NAME">
-                                  <block type="varname" id="8/i5NMM/9:2G4R^N$8o|">
-                                    <field name="VARNAME">"blockFace: " + blockFace</field>
+                              <block type="runexpression" id="4),f*k+ekK98*#?E]]LI">
+                                <field name="EXPRESSION">clearLocations.splice (0,1)</field>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="eventlistener" id="oFwIWTN%p5SZOoJ8LTIs">
+                <field name="LISTENERTYPE">playerInteract</field>
+                <statement name="LISTENERCODE">
+                  <block type="setvariablevalue" id="4mv}(=Rz9~:PaHy*aTAd">
+                    <field name="VARNAME">block</field>
+                    <value name="EXPRESSION">
+                      <block type="eventinfo" id="Tv)a4N8`DX_tjHP_J^?#">
+                        <field name="INFORMATION">getClickedBlock</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setvariablevalue" id="z@BKyo8gThMvTOD`3Fgs">
+                        <field name="VARNAME">blockType</field>
+                        <value name="EXPRESSION">
+                          <block type="getblocktype" id="iS_[wmg98Q!Z2cPorCj,">
+                            <value name="BLOCK">
+                              <block type="varname" id="L!Kog,Mk_~KI`KD@qv.|">
+                                <field name="VARNAME">block</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="k`Bf-2#}4E{k:)%m8/#`">
+                            <value name="IF0">
+                              <block type="logic_compare" id="^-OFrk[qsfSE%[mBiDsr">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="varname" id="KgO]~+Vp0(j,y*,es4O=">
+                                    <field name="VARNAME">blockType</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="blocktype" id="5UK:Bkc|AAz6}8IJAVl4">
+                                    <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="setvariablevalue" id="5~@g{{_KQQCS7q({pRx=">
+                                <field name="VARNAME">blockFace</field>
+                                <value name="EXPRESSION">
+                                  <block type="eventinfo" id="5RZtgLEVQnlKB-C}j$al">
+                                    <field name="INFORMATION">getBlockFace</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="setvariablevalue" id="]F,|SfZNBA)#7gKtl#%o">
-                                    <field name="VARNAME">directions</field>
-                                    <value name="EXPRESSION">
-                                      <block type="lists_create_with" id="ujW]aD3CKx+Q+_s^9/]+">
-                                        <mutation items="4"></mutation>
-                                        <value name="ADD0">
-                                          <block type="blockfacingdirection" id="0eMT4=SdeO[(S8-`VlnW">
-                                            <field name="DIRECTION">EAST</field>
-                                          </block>
-                                        </value>
-                                        <value name="ADD1">
-                                          <block type="blockfacingdirection" id="2f|**#%@3$IP8hRBnct!">
-                                            <field name="DIRECTION">WEST</field>
-                                          </block>
-                                        </value>
-                                        <value name="ADD2">
-                                          <block type="blockfacingdirection" id="U2J$Y7`,FJ,`V0gr^#!Y">
-                                            <field name="DIRECTION">NORTH</field>
-                                          </block>
-                                        </value>
-                                        <value name="ADD3">
-                                          <block type="blockfacingdirection" id="r=P`20Y|MC.^y?TS^JQ/">
-                                            <field name="DIRECTION">SOUTH</field>
-                                          </block>
-                                        </value>
+                                  <block type="consolelog" id="2)O,5==NAb-vjGE-@H$T">
+                                    <value name="NAME">
+                                      <block type="varname" id="8/i5NMM/9:2G4R^N$8o|">
+                                        <field name="VARNAME">"blockFace: " + blockFace</field>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="controls_if" id="AgW6ETVLW~u-SvMw7sq)">
-                                        <value name="IF0">
-                                          <block type="valueinlist" id="_/~T4Tu|(hx+z8-mJzHy">
-                                            <value name="VALUE">
-                                              <block type="varname" id="=B+V/y*}%SuS;hN3:g3t">
-                                                <field name="VARNAME">blockFace</field>
+                                      <block type="setvariablevalue" id="]F,|SfZNBA)#7gKtl#%o">
+                                        <field name="VARNAME">directions</field>
+                                        <value name="EXPRESSION">
+                                          <block type="lists_create_with" id="ujW]aD3CKx+Q+_s^9/]+">
+                                            <mutation items="4"></mutation>
+                                            <value name="ADD0">
+                                              <block type="blockfacingdirection" id="0eMT4=SdeO[(S8-`VlnW">
+                                                <field name="DIRECTION">EAST</field>
                                               </block>
                                             </value>
-                                            <value name="LIST">
-                                              <block type="varname" id="?!xIm%HjBhwPZfv+t[Do">
-                                                <field name="VARNAME">directions</field>
+                                            <value name="ADD1">
+                                              <block type="blockfacingdirection" id="2f|**#%@3$IP8hRBnct!">
+                                                <field name="DIRECTION">WEST</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD2">
+                                              <block type="blockfacingdirection" id="U2J$Y7`,FJ,`V0gr^#!Y">
+                                                <field name="DIRECTION">NORTH</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD3">
+                                              <block type="blockfacingdirection" id="r=P`20Y|MC.^y?TS^JQ/">
+                                                <field name="DIRECTION">SOUTH</field>
                                               </block>
                                             </value>
                                           </block>
                                         </value>
-                                        <statement name="DO0">
-                                          <block type="setvariablevalue" id="1ASzw=~u8%ja?zsAsY^/">
-                                            <field name="VARNAME">pistonLocation</field>
-                                            <value name="EXPRESSION">
-                                              <block type="changelocation" id="$T+$jHxL#5Aw2zJv+}49">
-                                                <value name="LOCATION">
-                                                  <block type="varname" id="PQ)l$/_yB#atO870.nFn">
-                                                    <field name="VARNAME">block.location</field>
+                                        <next>
+                                          <block type="controls_if" id="AgW6ETVLW~u-SvMw7sq)">
+                                            <value name="IF0">
+                                              <block type="valueinlist" id="_/~T4Tu|(hx+z8-mJzHy">
+                                                <value name="VALUE">
+                                                  <block type="varname" id="=B+V/y*}%SuS;hN3:g3t">
+                                                    <field name="VARNAME">blockFace</field>
                                                   </block>
                                                 </value>
-                                                <value name="DIRECTION">
-                                                  <block type="varname" id="%A;GD}1.TM^yzZHc}YlK">
-                                                    <field name="VARNAME">blockFace</field>
+                                                <value name="LIST">
+                                                  <block type="varname" id="?!xIm%HjBhwPZfv+t[Do">
+                                                    <field name="VARNAME">directions</field>
                                                   </block>
                                                 </value>
                                               </block>
                                             </value>
-                                            <next>
-                                              <block type="setvariablevalue" id="oV{@(XM@X:Y9Gc9s?tFa">
-                                                <field name="VARNAME">redstoneLocation</field>
+                                            <statement name="DO0">
+                                              <block type="setvariablevalue" id="1ASzw=~u8%ja?zsAsY^/">
+                                                <field name="VARNAME">pistonLocation</field>
                                                 <value name="EXPRESSION">
-                                                  <block type="changelocation" id="I2=C(^ARjW:k`+/$2^_Q">
+                                                  <block type="changelocation" id="$T+$jHxL#5Aw2zJv+}49">
                                                     <value name="LOCATION">
-                                                      <block type="varname" id="F*ew+@-]ipd}9iIGYwDv">
-                                                        <field name="VARNAME">pistonLocation</field>
+                                                      <block type="varname" id="PQ)l$/_yB#atO870.nFn">
+                                                        <field name="VARNAME">block.location</field>
                                                       </block>
                                                     </value>
                                                     <value name="DIRECTION">
-                                                      <block type="varname" id="Ye,sc*Z*gZWpDPL?ZdQC">
+                                                      <block type="varname" id="%A;GD}1.TM^yzZHc}YlK">
                                                         <field name="VARNAME">blockFace</field>
                                                       </block>
                                                     </value>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="setvariablevalue" id="*0r%7CSj@2Pos7I*2HK~">
-                                                    <field name="VARNAME">blockType</field>
+                                                  <block type="setvariablevalue" id="oV{@(XM@X:Y9Gc9s?tFa">
+                                                    <field name="VARNAME">redstoneLocation</field>
                                                     <value name="EXPRESSION">
-                                                      <block type="getblocktype" id="c0%y=bR!D((mc-x(e@Mh">
-                                                        <value name="BLOCK">
-                                                          <block type="blockatlocation" id="V)NH9b*f;R8LAf:2v0SO">
-                                                            <value name="LOCATION">
-                                                              <block type="varname" id="|+z30,sD?2;3p$DTI.B|">
-                                                                <field name="VARNAME">redstoneLocation</field>
-                                                              </block>
-                                                            </value>
+                                                      <block type="changelocation" id="I2=C(^ARjW:k`+/$2^_Q">
+                                                        <value name="LOCATION">
+                                                          <block type="varname" id="F*ew+@-]ipd}9iIGYwDv">
+                                                            <field name="VARNAME">pistonLocation</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="DIRECTION">
+                                                          <block type="varname" id="Ye,sc*Z*gZWpDPL?ZdQC">
+                                                            <field name="VARNAME">blockFace</field>
                                                           </block>
                                                         </value>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="controls_if" id="/N_QN[USJ1K|.8G_cK]L">
-                                                        <mutation else="1"></mutation>
-                                                        <value name="IF0">
-                                                          <block type="logic_compare" id="dWp2%5pEJalj~/g!/%V^">
-                                                            <field name="OP">EQ</field>
-                                                            <value name="A">
-                                                              <block type="varname" id="8l8[de+`Ov#3qp/RdT/2">
-                                                                <field name="VARNAME">blockType</field>
-                                                              </block>
-                                                            </value>
-                                                            <value name="B">
-                                                              <block type="blocktype" id="S=_%E*8lNY?2:-+%ARj]">
-                                                                <field name="BLOCKTYPE">AIR</field>
+                                                      <block type="setvariablevalue" id="*0r%7CSj@2Pos7I*2HK~">
+                                                        <field name="VARNAME">blockType</field>
+                                                        <value name="EXPRESSION">
+                                                          <block type="getblocktype" id="c0%y=bR!D((mc-x(e@Mh">
+                                                            <value name="BLOCK">
+                                                              <block type="blockatlocation" id="V)NH9b*f;R8LAf:2v0SO">
+                                                                <value name="LOCATION">
+                                                                  <block type="varname" id="|+z30,sD?2;3p$DTI.B|">
+                                                                    <field name="VARNAME">redstoneLocation</field>
+                                                                  </block>
+                                                                </value>
                                                               </block>
                                                             </value>
                                                           </block>
                                                         </value>
-                                                        <statement name="DO0">
-                                                          <block type="consolelog" id="!,R+PbY6LDQ^+M?FSXJe">
-                                                            <value name="NAME">
-                                                              <block type="varname" id="A=X:xG8`U)8QYWau7I7`">
-                                                                <field name="VARNAME">"blockType at redstoneLocation: " + blockType</field>
+                                                        <next>
+                                                          <block type="controls_if" id="/N_QN[USJ1K|.8G_cK]L">
+                                                            <mutation else="1"></mutation>
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="dWp2%5pEJalj~/g!/%V^">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="varname" id="8l8[de+`Ov#3qp/RdT/2">
+                                                                    <field name="VARNAME">blockType</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="blocktype" id="S=_%E*8lNY?2:-+%ARj]">
+                                                                    <field name="BLOCKTYPE">AIR</field>
+                                                                  </block>
+                                                                </value>
                                                               </block>
                                                             </value>
-                                                            <next>
-                                                              <block type="runexpression" id="$C@E)pJViqRp`J?tlr9-">
-                                                                <field name="EXPRESSION">clearLocations.push (pistonLocation)</field>
+                                                            <statement name="DO0">
+                                                              <block type="consolelog" id="!,R+PbY6LDQ^+M?FSXJe">
+                                                                <value name="NAME">
+                                                                  <block type="varname" id="A=X:xG8`U)8QYWau7I7`">
+                                                                    <field name="VARNAME">"blockType at redstoneLocation: " + blockType</field>
+                                                                  </block>
+                                                                </value>
                                                                 <next>
-                                                                  <block type="runexpression" id="rv5Et}K=(3by`8TO$:$u">
-                                                                    <field name="EXPRESSION">clearLocations.push (redstoneLocation)</field>
+                                                                  <block type="runexpression" id="$C@E)pJViqRp`J?tlr9-">
+                                                                    <field name="EXPRESSION">clearLocations.push (pistonLocation)</field>
                                                                     <next>
-                                                                      <block type="spawnblock" id="(W}C(q])n02XsIFD?-:X">
-                                                                        <value name="TYPE">
-                                                                          <block type="blocktype" id="5;2u(SL.^qjMnYN~QYJ+">
-                                                                            <field name="BLOCKTYPE">PISTON</field>
-                                                                          </block>
-                                                                        </value>
-                                                                        <value name="LOCATION">
-                                                                          <block type="varname" id="1cL,jAKQipq|{l(W;R8,">
-                                                                            <field name="VARNAME">pistonLocation</field>
-                                                                          </block>
-                                                                        </value>
+                                                                      <block type="runexpression" id="rv5Et}K=(3by`8TO$:$u">
+                                                                        <field name="EXPRESSION">clearLocations.push (redstoneLocation)</field>
                                                                         <next>
-                                                                          <block type="blockfacing" id="(-j[5tK0K{usC^}$`96n">
-                                                                            <value name="FACE">
-                                                                              <block type="reverseface" id=")La}Mv8nEyTop^ePxCEE">
-                                                                                <value name="DIRECTION">
-                                                                                  <block type="varname" id="3s+U}eRWp7/WTpK%S.s*">
-                                                                                    <field name="VARNAME">blockFace</field>
-                                                                                  </block>
-                                                                                </value>
+                                                                          <block type="spawnblock" id="(W}C(q])n02XsIFD?-:X">
+                                                                            <value name="TYPE">
+                                                                              <block type="blocktype" id="5;2u(SL.^qjMnYN~QYJ+">
+                                                                                <field name="BLOCKTYPE">PISTON</field>
                                                                               </block>
                                                                             </value>
                                                                             <value name="LOCATION">
-                                                                              <block type="varname" id="rZ(Nh|R;JwlvxDeS5^sB">
+                                                                              <block type="varname" id="1cL,jAKQipq|{l(W;R8,">
                                                                                 <field name="VARNAME">pistonLocation</field>
                                                                               </block>
                                                                             </value>
                                                                             <next>
-                                                                              <block type="spawnblock" id="6TtzS9N$3C?$zVU,+KXS">
-                                                                                <value name="TYPE">
-                                                                                  <block type="blocktype" id="zN8F(9VAR,H}pi*;9HKz">
-                                                                                    <field name="BLOCKTYPE">REDSTONE_BLOCK</field>
+                                                                              <block type="blockfacing" id="(-j[5tK0K{usC^}$`96n">
+                                                                                <value name="FACE">
+                                                                                  <block type="reverseface" id=")La}Mv8nEyTop^ePxCEE">
+                                                                                    <value name="DIRECTION">
+                                                                                      <block type="varname" id="3s+U}eRWp7/WTpK%S.s*">
+                                                                                        <field name="VARNAME">blockFace</field>
+                                                                                      </block>
+                                                                                    </value>
                                                                                   </block>
                                                                                 </value>
                                                                                 <value name="LOCATION">
-                                                                                  <block type="varname" id="{q7Ksk+!](gE{IM5,d^V">
-                                                                                    <field name="VARNAME">redstoneLocation</field>
+                                                                                  <block type="varname" id="rZ(Nh|R;JwlvxDeS5^sB">
+                                                                                    <field name="VARNAME">pistonLocation</field>
                                                                                   </block>
                                                                                 </value>
                                                                                 <next>
-                                                                                  <block type="delayedexecution" id="@wIGr0$Bpt3x*#^-elKB">
-                                                                                    <field name="TIMEOUT">500</field>
-                                                                                    <statement name="DELAYEDCODE">
-                                                                                      <block type="consolelog" id="*T/)|@ce$|kPk,2ClG+D">
-                                                                                        <value name="NAME">
-                                                                                          <block type="varname" id="4eH}5eflR|6GrUSd/;ua">
-                                                                                            <field name="VARNAME">"Number of locations to clear: " + clearLocations.length</field>
-                                                                                          </block>
-                                                                                        </value>
-                                                                                        <next>
-                                                                                          <block type="forlistdo" id="@zgTq|;E+Ml8iGS}MyQn">
-                                                                                            <value name="LIST">
-                                                                                              <block type="varname" id="y*rH[ornljDBV8~tLXI4">
-                                                                                                <field name="VARNAME">clearLocations</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <statement name="FORCODE">
-                                                                                              <block type="setvariablevalue" id="iHpA:@tF(:|bzHbYaYJ)">
-                                                                                                <field name="VARNAME">blockType</field>
-                                                                                                <value name="EXPRESSION">
-                                                                                                  <block type="getblocktype" id="m=k95:K$H^5OiLw?er6h">
-                                                                                                    <value name="BLOCK">
-                                                                                                      <block type="blockatlocation" id="RA|+sc,p7(CO4t}$$[oJ">
-                                                                                                        <value name="LOCATION">
-                                                                                                          <block type="varname" id="_$_C74VR}u,|u!zH)4sC">
-                                                                                                            <field name="VARNAME">clearLocations[i]</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                      </block>
-                                                                                                    </value>
-                                                                                                  </block>
-                                                                                                </value>
-                                                                                                <next>
-                                                                                                  <block type="controls_if" id="`ACci9jc+9FFG:nU[ul~">
-                                                                                                    <value name="IF0">
-                                                                                                      <block type="logic_compare" id="iD}CgK_-s{ln4H:t+=5$">
-                                                                                                        <field name="OP">NEQ</field>
-                                                                                                        <value name="A">
-                                                                                                          <block type="varname" id="q?d$Mn3~q=7:iJJXg=kg">
-                                                                                                            <field name="VARNAME">blockType</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                        <value name="B">
-                                                                                                          <block type="blocktype" id="tKtFCfz|y4hzUNKY6n9=">
-                                                                                                            <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                      </block>
-                                                                                                    </value>
-                                                                                                    <statement name="DO0">
-                                                                                                      <block type="spawnblock" id="lb+LR7+;0uJxRkV2Vf,,">
-                                                                                                        <value name="TYPE">
-                                                                                                          <block type="blocktype" id="y!G3h{SY1Ic:k9E`n?C9">
-                                                                                                            <field name="BLOCKTYPE">AIR</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                        <value name="LOCATION">
-                                                                                                          <block type="varname" id="lP67OZG7g=cTTSzVcDhj">
-                                                                                                            <field name="VARNAME">clearLocations[i]</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                      </block>
-                                                                                                    </statement>
-                                                                                                  </block>
-                                                                                                </next>
-                                                                                              </block>
-                                                                                            </statement>
-                                                                                          </block>
-                                                                                        </next>
+                                                                                  <block type="spawnblock" id="6TtzS9N$3C?$zVU,+KXS">
+                                                                                    <value name="TYPE">
+                                                                                      <block type="blocktype" id="zN8F(9VAR,H}pi*;9HKz">
+                                                                                        <field name="BLOCKTYPE">REDSTONE_BLOCK</field>
                                                                                       </block>
-                                                                                    </statement>
+                                                                                    </value>
+                                                                                    <value name="LOCATION">
+                                                                                      <block type="varname" id="{q7Ksk+!](gE{IM5,d^V">
+                                                                                        <field name="VARNAME">redstoneLocation</field>
+                                                                                      </block>
+                                                                                    </value>
                                                                                   </block>
                                                                                 </next>
                                                                               </block>
@@ -309,91 +316,82 @@
                                                                   </block>
                                                                 </next>
                                                               </block>
-                                                            </next>
-                                                          </block>
-                                                        </statement>
-                                                        <statement name="ELSE">
-                                                          <block type="setvariablevalue" id="Vd7}owq]#_02B8qz1a%S">
-                                                            <field name="VARNAME">diamondLocation</field>
-                                                            <value name="EXPRESSION">
-                                                              <block type="changelocation" id="4Y~4o/Voi?,@.Hj4J640">
-                                                                <value name="LOCATION">
-                                                                  <block type="varname" id="JOqp[){WOW|D]/h_Dny8">
-                                                                    <field name="VARNAME">block.location</field>
-                                                                  </block>
-                                                                </value>
-                                                                <value name="DIRECTION">
-                                                                  <block type="reverseface" id="7ka%+S%v/zk~3r_g|F5V">
-                                                                    <value name="DIRECTION">
-                                                                      <block type="varname" id="H:F,KBS2R6]qp!j|PFBt">
-                                                                        <field name="VARNAME">blockFace</field>
-                                                                      </block>
-                                                                    </value>
-                                                                  </block>
-                                                                </value>
-                                                              </block>
-                                                            </value>
-                                                            <next>
-                                                              <block type="spawnblock" id="K[I*gu6{y%pmBQMMr##g">
-                                                                <value name="TYPE">
-                                                                  <block type="blocktype" id="Py+zHAn9/tC$7[2roBm~">
-                                                                    <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
-                                                                  </block>
-                                                                </value>
-                                                                <value name="LOCATION">
-                                                                  <block type="varname" id="O?pLg}4_Hb]T%(2fN@!|">
-                                                                    <field name="VARNAME">diamondLocation</field>
-                                                                  </block>
-                                                                </value>
-                                                                <next>
-                                                                  <block type="spawnblock" id="!,_?wUo1w-M]D$Y0@$:k">
-                                                                    <value name="TYPE">
-                                                                      <block type="blocktype" id="zj+o}Aq/]l*(C3[lWxzI">
-                                                                        <field name="BLOCKTYPE">AIR</field>
-                                                                      </block>
-                                                                    </value>
+                                                            </statement>
+                                                            <statement name="ELSE">
+                                                              <block type="setvariablevalue" id="Vd7}owq]#_02B8qz1a%S">
+                                                                <field name="VARNAME">diamondLocation</field>
+                                                                <value name="EXPRESSION">
+                                                                  <block type="changelocation" id="4Y~4o/Voi?,@.Hj4J640">
                                                                     <value name="LOCATION">
-                                                                      <block type="varname" id="zKP*{rwGZLAQB=/2eout">
+                                                                      <block type="varname" id="JOqp[){WOW|D]/h_Dny8">
                                                                         <field name="VARNAME">block.location</field>
                                                                       </block>
                                                                     </value>
+                                                                    <value name="DIRECTION">
+                                                                      <block type="reverseface" id="7ka%+S%v/zk~3r_g|F5V">
+                                                                        <value name="DIRECTION">
+                                                                          <block type="varname" id="H:F,KBS2R6]qp!j|PFBt">
+                                                                            <field name="VARNAME">blockFace</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="spawnblock" id="K[I*gu6{y%pmBQMMr##g">
+                                                                    <value name="TYPE">
+                                                                      <block type="blocktype" id="Py+zHAn9/tC$7[2roBm~">
+                                                                        <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="LOCATION">
+                                                                      <block type="varname" id="O?pLg}4_Hb]T%(2fN@!|">
+                                                                        <field name="VARNAME">diamondLocation</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="spawnblock" id="!,_?wUo1w-M]D$Y0@$:k">
+                                                                        <value name="TYPE">
+                                                                          <block type="blocktype" id="zj+o}Aq/]l*(C3[lWxzI">
+                                                                            <field name="BLOCKTYPE">AIR</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="LOCATION">
+                                                                          <block type="varname" id="zKP*{rwGZLAQB=/2eout">
+                                                                            <field name="VARNAME">block.location</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
                                                                   </block>
                                                                 </next>
                                                               </block>
-                                                            </next>
+                                                            </statement>
                                                           </block>
-                                                        </statement>
+                                                        </next>
                                                       </block>
                                                     </next>
                                                   </block>
                                                 </next>
                                               </block>
-                                            </next>
+                                            </statement>
                                           </block>
-                                        </statement>
+                                        </next>
                                       </block>
                                     </next>
                                   </block>
                                 </next>
                               </block>
-                            </next>
+                            </statement>
                           </block>
-                        </statement>
-                        <statement name="ELSE">
-                          <block type="consolelog" id="[E9[thfgSASf[QBb9PO3">
-                            <value name="NAME">
-                              <block type="varname" id="f^vZ;_W[T1~*1YxHF0v[">
-                                <field name="VARNAME">"Ignoring: " + blockType</field>
-                              </block>
-                            </value>
-                          </block>
-                        </statement>
+                        </next>
                       </block>
                     </next>
                   </block>
-                </next>
+                </statement>
               </block>
-            </statement>
+            </next>
           </block>
         </next>
       </block>
