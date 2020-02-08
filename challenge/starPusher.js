@@ -47,6 +47,10 @@ exports.starPusher = function () {
              _location.add (1,0,0);
           }else if ((blockFace) == org.bukkit.block.BlockFace.WEST ) {
              _location.add (-1,0,0);
+          }else if ((blockFace) == org.bukkit.block.BlockFace.UP ) {
+             _location.add (0,1,0);
+          }else if ((blockFace) == org.bukkit.block.BlockFace.DOWN ) {
+             _location.add (0,-1,0);
           }
           return _location;
          })();
@@ -60,6 +64,10 @@ exports.starPusher = function () {
              _location.add (1,0,0);
           }else if ((blockFace) == org.bukkit.block.BlockFace.WEST ) {
              _location.add (-1,0,0);
+          }else if ((blockFace) == org.bukkit.block.BlockFace.UP ) {
+             _location.add (0,1,0);
+          }else if ((blockFace) == org.bukkit.block.BlockFace.DOWN ) {
+             _location.add (0,-1,0);
           }
           return _location;
          })();
@@ -111,6 +119,20 @@ exports.starPusher = function () {
           (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
           (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.WEST ) {
                _location.add (-1,0,0);
+            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.UP ) {
+               _location.add (0,1,0);
+            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.DOWN ) {
+               _location.add (0,-1,0);
             }
             return _location;
            })();
@@ -126,6 +148,10 @@ exports.starPusher = function () {
                _location.add (1,0,0);
             }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
                _location.add (-1,0,0);
+            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
+               _location.add (0,1,0);
+            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
+               _location.add (0,-1,0);
             }
             return _location;
            })();
@@ -140,6 +166,10 @@ exports.starPusher = function () {
                _location.add (1,0,0);
             }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
                _location.add (-1,0,0);
+            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
+               _location.add (0,1,0);
+            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
+               _location.add (0,-1,0);
             }
             return _location;
            })();
