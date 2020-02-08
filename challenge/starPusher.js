@@ -80,6 +80,7 @@ exports.starPusher = function () {
   var directions;
   var pistonLocation;
   var redstoneLocation;
+  var newLocation;
   var _data;
   var _block;
   var diamondLocation;
@@ -162,109 +163,163 @@ exports.starPusher = function () {
           }
           return _location;
          })();
-        blockType=(server.worlds[0].getBlockAt (redstoneLocation)==null)?null:server.worlds[0].getBlockAt (redstoneLocation).getType();
+        newLocation=(function() {
+          var _location = new org.bukkit.Location(server.worlds[0], blockLocation.x, blockLocation.y, blockLocation.z);
+          if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.NORTH ) {
+             _location.add (0,0,-1);
+          }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.SOUTH ) {
+             _location.add (0,0,1);
+          }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.EAST ) {
+             _location.add (1,0,0);
+          }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.WEST ) {
+             _location.add (-1,0,0);
+          }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.UP ) {
+             _location.add (0,1,0);
+          }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+        (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+        (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+        (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+        (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+        (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.DOWN ) {
+             _location.add (0,-1,0);
+          }
+          return _location;
+         })();
+        blockType=(server.worlds[0].getBlockAt (newLocation)==null)?null:server.worlds[0].getBlockAt (newLocation).getType();
+        console.log ( 'blockType of newLocation:' + blockType + ' location: ' + newLocation );
         if (((blockType) == (org.bukkit.Material.AIR))){
-          console.log ("blockType at redstoneLocation: " + blockType);
-          clearLocations.push (pistonLocation)
-          clearLocations.push (redstoneLocation)
-          server.worlds[0].getBlockAt (pistonLocation).setType (org.bukkit.Material.PISTON);
-          _block = server.worlds[0].getBlockAt (pistonLocation)
-          _data = _block.getBlockData();
-          _data.setFacing((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null)
-          _block.setBlockData(_data)
-          server.worlds[0].getBlockAt (redstoneLocation).setType (org.bukkit.Material.REDSTONE_BLOCK);
+          blockType=(server.worlds[0].getBlockAt (redstoneLocation)==null)?null:server.worlds[0].getBlockAt (redstoneLocation).getType();
+          if (((blockType) == (org.bukkit.Material.AIR))){
+            console.log ("blockType at redstoneLocation: " + blockType);
+            clearLocations.push (pistonLocation)
+            clearLocations.push (redstoneLocation)
+            server.worlds[0].getBlockAt (pistonLocation).setType (org.bukkit.Material.PISTON);
+            _block = server.worlds[0].getBlockAt (pistonLocation)
+            _data = _block.getBlockData();
+            _data.setFacing((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null)
+            _block.setBlockData(_data)
+            server.worlds[0].getBlockAt (redstoneLocation).setType (org.bukkit.Material.REDSTONE_BLOCK);
+          }
+          else {
+            diamondLocation=(function() {
+              var _location = new org.bukkit.Location(server.worlds[0], blockLocation.x, blockLocation.y, blockLocation.z);
+              if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.NORTH ) {
+                 _location.add (0,0,-1);
+              }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.SOUTH ) {
+                 _location.add (0,0,1);
+              }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.EAST ) {
+                 _location.add (1,0,0);
+              }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.WEST ) {
+                 _location.add (-1,0,0);
+              }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.UP ) {
+                 _location.add (0,1,0);
+              }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
+            (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
+            (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
+            (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
+            (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
+            (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.DOWN ) {
+                 _location.add (0,-1,0);
+              }
+              return _location;
+             })();
+            server.worlds[0].getBlockAt (diamondLocation).setType (org.bukkit.Material.DIAMOND_BLOCK);
+            server.worlds[0].getBlockAt (blockLocation).setType (org.bukkit.Material.AIR);
+            aboveDiamond=(function() {
+              var _location = new org.bukkit.Location(server.worlds[0], diamondLocation.x, diamondLocation.y, diamondLocation.z);
+              if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.NORTH ) {
+                 _location.add (0,0,-1);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.SOUTH ) {
+                 _location.add (0,0,1);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.EAST ) {
+                 _location.add (1,0,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
+                 _location.add (-1,0,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
+                 _location.add (0,1,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
+                 _location.add (0,-1,0);
+              }
+              return _location;
+             })();
+            server.worlds[0].getBlockAt (aboveDiamond).setType (org.bukkit.Material.DIAMOND_BLOCK);
+            aboveOld=(function() {
+              var _location = new org.bukkit.Location(server.worlds[0], blockLocation.x, blockLocation.y, blockLocation.z);
+              if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.NORTH ) {
+                 _location.add (0,0,-1);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.SOUTH ) {
+                 _location.add (0,0,1);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.EAST ) {
+                 _location.add (1,0,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
+                 _location.add (-1,0,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
+                 _location.add (0,1,0);
+              }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
+                 _location.add (0,-1,0);
+              }
+              return _location;
+             })();
+            server.worlds[0].getBlockAt (aboveOld).setType (org.bukkit.Material.AIR);
+          }
         }
         else {
-          diamondLocation=(function() {
-            var _location = new org.bukkit.Location(server.worlds[0], blockLocation.x, blockLocation.y, blockLocation.z);
-            if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.NORTH ) {
-               _location.add (0,0,-1);
-            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.SOUTH ) {
-               _location.add (0,0,1);
-            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.EAST ) {
-               _location.add (1,0,0);
-            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.WEST ) {
-               _location.add (-1,0,0);
-            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.UP ) {
-               _location.add (0,1,0);
-            }else if (((blockFace== org.bukkit.block.BlockFace.NORTH)? org.bukkit.block.BlockFace.SOUTH :
-          (blockFace== org.bukkit.block.BlockFace.SOUTH)? org.bukkit.block.BlockFace.NORTH :
-          (blockFace== org.bukkit.block.BlockFace.EAST)? org.bukkit.block.BlockFace.WEST :
-          (blockFace== org.bukkit.block.BlockFace.WEST)? org.bukkit.block.BlockFace.EAST :
-          (blockFace== org.bukkit.block.BlockFace.UP)? org.bukkit.block.BlockFace.DOWN :
-          (blockFace== org.bukkit.block.BlockFace.DOWN)? org.bukkit.block.BlockFace.UP : null) == org.bukkit.block.BlockFace.DOWN ) {
-               _location.add (0,-1,0);
-            }
-            return _location;
-           })();
-          server.worlds[0].getBlockAt (diamondLocation).setType (org.bukkit.Material.DIAMOND_BLOCK);
-          server.worlds[0].getBlockAt (blockLocation).setType (org.bukkit.Material.AIR);
-          aboveDiamond=(function() {
-            var _location = new org.bukkit.Location(server.worlds[0], diamondLocation.x, diamondLocation.y, diamondLocation.z);
-            if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.NORTH ) {
-               _location.add (0,0,-1);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.SOUTH ) {
-               _location.add (0,0,1);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.EAST ) {
-               _location.add (1,0,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
-               _location.add (-1,0,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
-               _location.add (0,1,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
-               _location.add (0,-1,0);
-            }
-            return _location;
-           })();
-          server.worlds[0].getBlockAt (aboveDiamond).setType (org.bukkit.Material.DIAMOND_BLOCK);
-          aboveOld=(function() {
-            var _location = new org.bukkit.Location(server.worlds[0], blockLocation.x, blockLocation.y, blockLocation.z);
-            if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.NORTH ) {
-               _location.add (0,0,-1);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.SOUTH ) {
-               _location.add (0,0,1);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.EAST ) {
-               _location.add (1,0,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.WEST ) {
-               _location.add (-1,0,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.UP ) {
-               _location.add (0,1,0);
-            }else if ((org.bukkit.block.BlockFace.UP) == org.bukkit.block.BlockFace.DOWN ) {
-               _location.add (0,-1,0);
-            }
-            return _location;
-           })();
-          server.worlds[0].getBlockAt (aboveOld).setType (org.bukkit.Material.AIR);
+          console.log ("Blocked by: " + blockType);
         }
       }
     }
