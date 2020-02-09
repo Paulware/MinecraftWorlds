@@ -920,72 +920,6 @@
                                                                                                                                     <field name="VARNAME">blockLocation</field>
                                                                                                                                   </block>
                                                                                                                                 </value>
-                                                                                                                                <next>
-                                                                                                                                  <block type="setvariablevalue" id="{:HTYG?2+`!AdNYqNzOz">
-                                                                                                                                    <field name="VARNAME">aboveDiamond</field>
-                                                                                                                                    <value name="EXPRESSION">
-                                                                                                                                      <block type="changelocation" id="Y[CH{E$}V(|=tlGkDJei">
-                                                                                                                                        <value name="LOCATION">
-                                                                                                                                          <block type="varname" id="CTUS#g^?:,Ui#7-Lida;">
-                                                                                                                                            <field name="VARNAME">diamondLocation</field>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                        <value name="DIRECTION">
-                                                                                                                                          <block type="blockfacingdirection" id="yJUoj2i+=[Z.,R)`*@L/">
-                                                                                                                                            <field name="DIRECTION">UP</field>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                      </block>
-                                                                                                                                    </value>
-                                                                                                                                    <next>
-                                                                                                                                      <block type="spawnblock" id="!Kf/zeDWm^w$MY+d{rQ+">
-                                                                                                                                        <value name="TYPE">
-                                                                                                                                          <block type="blocktype" id="mefeY9(xMn{euO[%hNa3">
-                                                                                                                                            <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                        <value name="LOCATION">
-                                                                                                                                          <block type="varname" id=".3Ny_mWzVd,h1j9n9eZ=">
-                                                                                                                                            <field name="VARNAME">aboveDiamond</field>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                        <next>
-                                                                                                                                          <block type="setvariablevalue" id="YRiXoc*k2:VU0(b@{{${">
-                                                                                                                                            <field name="VARNAME">aboveOld</field>
-                                                                                                                                            <value name="EXPRESSION">
-                                                                                                                                              <block type="changelocation" id="bX~|kD1dJ8.~bto]@Z!o">
-                                                                                                                                                <value name="LOCATION">
-                                                                                                                                                  <block type="varname" id="WP9Z#AQD@l|gS1DVc2uZ">
-                                                                                                                                                    <field name="VARNAME">blockLocation</field>
-                                                                                                                                                  </block>
-                                                                                                                                                </value>
-                                                                                                                                                <value name="DIRECTION">
-                                                                                                                                                  <block type="blockfacingdirection" id="f%Qw:7Pu)L^CVKQ^!neK">
-                                                                                                                                                    <field name="DIRECTION">UP</field>
-                                                                                                                                                  </block>
-                                                                                                                                                </value>
-                                                                                                                                              </block>
-                                                                                                                                            </value>
-                                                                                                                                            <next>
-                                                                                                                                              <block type="spawnblock" id="L^#3^M105P/fh.%;#1W}">
-                                                                                                                                                <value name="TYPE">
-                                                                                                                                                  <block type="blocktype" id="PS8dz/iKLK^+W)g,x6oM">
-                                                                                                                                                    <field name="BLOCKTYPE">AIR</field>
-                                                                                                                                                  </block>
-                                                                                                                                                </value>
-                                                                                                                                                <value name="LOCATION">
-                                                                                                                                                  <block type="varname" id="vN{Jc_@DXN5E_-Qhe.(K">
-                                                                                                                                                    <field name="VARNAME">aboveOld</field>
-                                                                                                                                                  </block>
-                                                                                                                                                </value>
-                                                                                                                                              </block>
-                                                                                                                                            </next>
-                                                                                                                                          </block>
-                                                                                                                                        </next>
-                                                                                                                                      </block>
-                                                                                                                                    </next>
-                                                                                                                                  </block>
-                                                                                                                                </next>
                                                                                                                               </block>
                                                                                                                             </next>
                                                                                                                           </block>
@@ -994,6 +928,72 @@
                                                                                                                     </next>
                                                                                                                   </block>
                                                                                                                 </statement>
+                                                                                                                <next>
+                                                                                                                  <block type="setvariablevalue" id="{:HTYG?2+`!AdNYqNzOz">
+                                                                                                                    <field name="VARNAME">aboveDiamond</field>
+                                                                                                                    <value name="EXPRESSION">
+                                                                                                                      <block type="changelocation" id="Y[CH{E$}V(|=tlGkDJei">
+                                                                                                                        <value name="LOCATION">
+                                                                                                                          <block type="varname" id="CTUS#g^?:,Ui#7-Lida;">
+                                                                                                                            <field name="VARNAME">diamondLocation</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <value name="DIRECTION">
+                                                                                                                          <block type="blockfacingdirection" id="yJUoj2i+=[Z.,R)`*@L/">
+                                                                                                                            <field name="DIRECTION">UP</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <next>
+                                                                                                                      <block type="spawnblock" id="!Kf/zeDWm^w$MY+d{rQ+">
+                                                                                                                        <value name="TYPE">
+                                                                                                                          <block type="blocktype" id="mefeY9(xMn{euO[%hNa3">
+                                                                                                                            <field name="BLOCKTYPE">DIAMOND_BLOCK</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <value name="LOCATION">
+                                                                                                                          <block type="varname" id=".3Ny_mWzVd,h1j9n9eZ=">
+                                                                                                                            <field name="VARNAME">aboveDiamond</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <next>
+                                                                                                                          <block type="setvariablevalue" id="YRiXoc*k2:VU0(b@{{${">
+                                                                                                                            <field name="VARNAME">aboveOld</field>
+                                                                                                                            <value name="EXPRESSION">
+                                                                                                                              <block type="changelocation" id="bX~|kD1dJ8.~bto]@Z!o">
+                                                                                                                                <value name="LOCATION">
+                                                                                                                                  <block type="varname" id="WP9Z#AQD@l|gS1DVc2uZ">
+                                                                                                                                    <field name="VARNAME">blockLocation</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <value name="DIRECTION">
+                                                                                                                                  <block type="blockfacingdirection" id="f%Qw:7Pu)L^CVKQ^!neK">
+                                                                                                                                    <field name="DIRECTION">UP</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                              </block>
+                                                                                                                            </value>
+                                                                                                                            <next>
+                                                                                                                              <block type="spawnblock" id="L^#3^M105P/fh.%;#1W}">
+                                                                                                                                <value name="TYPE">
+                                                                                                                                  <block type="blocktype" id="PS8dz/iKLK^+W)g,x6oM">
+                                                                                                                                    <field name="BLOCKTYPE">AIR</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <value name="LOCATION">
+                                                                                                                                  <block type="varname" id="vN{Jc_@DXN5E_-Qhe.(K">
+                                                                                                                                    <field name="VARNAME">aboveOld</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                              </block>
+                                                                                                                            </next>
+                                                                                                                          </block>
+                                                                                                                        </next>
+                                                                                                                      </block>
+                                                                                                                    </next>
+                                                                                                                  </block>
+                                                                                                                </next>
                                                                                                               </block>
                                                                                                             </next>
                                                                                                           </block>
