@@ -168,6 +168,7 @@
                 <field name="EXPRESSION">82</field>
                 <next>
                   <block type="forlistdo" id="Qp4bxRxZcN4+C0./[P6u">
+                    <field name="INDEX">"i"</field>
                     <value name="LIST">
                       <block type="varname" id="R?HmK1+*3@J#9Gy61k{A">
                         <field name="VARNAME">list</field>
@@ -254,6 +255,7 @@
                     </statement>
                     <next>
                       <block type="forlistdo" id="|`2AKK@-4Rq(T1_Z$V0%">
+                        <field name="INDEX">"i"</field>
                         <value name="LIST">
                           <block type="varname" id=":i9k_GaI#c~r)oD9z~}P">
                             <field name="VARNAME">diamonds</field>
@@ -349,7 +351,63 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id=")`3FL1lqcX@4z!CL7yO0" x="313" y="363">
+  <block type="scriptcraftfunction" id="pj?SbP[A(ZFf|Q(BIHeM" x="663" y="13">
+    <field name="nameOfFunction">getCh</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariablevalue" id="mq/^!!{xSXmM#!9~gUHQ">
+        <field name="VARNAME">list</field>
+        <value name="EXPRESSION">
+          <block type="lists_create_with" id="$)B^;pp7s-8FkRCD:h@k">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="varname" id="+Wa^{;]f4{WfEh|#:l`.">
+                <field name="VARNAME">"line1"</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="varname" id="wZ)OFX_m#eXF*VzwEi?c">
+                <field name="VARNAME">"Line2"</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="varname" id="qrM2DY0u[X4wU1#zOdOP">
+                <field name="VARNAME">"Line3"</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="forlistdo" id="e7V6*bjPC;-+FfD9DeUw">
+            <field name="INDEX">"j"</field>
+            <value name="LIST">
+              <block type="varname" id=")Cqpk{gbe!)}!=![(ky8">
+                <field name="VARNAME">list</field>
+              </block>
+            </value>
+            <statement name="FORCODE">
+              <block type="forchinstring" id="MT|CndM~u6Opj-S%gE,c">
+                <value name="LIST">
+                  <block type="varname" id="`rRfJkF0/wR*H:?#i39c">
+                    <field name="VARNAME">list[j]</field>
+                  </block>
+                </value>
+                <statement name="FORCODE">
+                  <block type="consolelog" id="R6_!8x_1Hu[3x%!0bwST">
+                    <value name="NAME">
+                      <block type="varname" id="nj]?M/nGm=GVMJXlRB[[">
+                        <field name="VARNAME">"Got Ch: " + _ch </field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id=")`3FL1lqcX@4z!CL7yO0" x="88" y="313">
     <field name="nameOfFunction">starPusher</field>
     <statement name="FUNCTIONCODE">
       <block type="servercommand" id="K/#6BEX;WTuz?oaWdyT:">

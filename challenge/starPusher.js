@@ -14,7 +14,7 @@ exports.challengeReset1 = function () {
   diamonds=[[-1313,-142], [-1312,-143], [-1311,-144], [-1310,-145]];
   list=[[-1310,-146], [-1309,-146], [-1308,-146], [-1308,-145], [-1309,-145], [-1310,-145], [-1311,-145], [-1309,-144], [-1310,-144], [-1311,-144], [-1312,-144], [-1310,-143], [-1311,-143], [-1312,-143], [-1313,-143], [-1311,-142], [-1312,-142], [-1313,-142], [-1314,-142], [-1312,-141], [-1313,-141], [-1314,-141], [-1314,-140], [-1313,-140], [-1312,-140]];
   y=82;
-  for (var i=0; i<list.length;i++) {
+  for (var _i=0; _i<list.length;_i++) {
     x=list[i][0];
     z=list[i][1];
     location=new org.bukkit.Location(server.worlds[0], x, y, z);
@@ -26,7 +26,7 @@ exports.challengeReset1 = function () {
      })();
     server.worlds[0].getBlockAt (upLocation).setType (org.bukkit.Material.AIR);
   };
-  for (var i=0; i<diamonds.length;i++) {
+  for (var _i=0; _i<diamonds.length;_i++) {
     x=diamonds[i][0];
     z=diamonds[i][1];
     location=new org.bukkit.Location(server.worlds[0], x, y, z);
@@ -37,6 +37,19 @@ exports.challengeReset1 = function () {
       return _location;
      })();
     server.worlds[0].getBlockAt (upLocation).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  };
+};
+
+exports.getCh = function () {
+  //Instantiations;
+  var list;
+  var _ch;
+  list=["line1", "Line2", "Line3"];
+  for (var j=0; j<list.length;j++) {
+    for (var _ch_i=0; _ch_i<list[j].length;_ch_i++) {
+      _ch = list[j].charAt(_ch_i);
+      console.log ("Got Ch: " + _ch );
+    };
   };
 };
 
