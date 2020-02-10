@@ -7,6 +7,7 @@ set blocklyroot=C:\
 set worldsroot=C:\SpigotMC
 set arduinoroot=C:\
 set plugin=C:\SpigotMC\scriptcraft\plugins\
+set project=
 
 :menuLOOP
 echo.
@@ -105,6 +106,7 @@ GOTO:menuLoop
 set source=C:\SpigotMC\MinecraftWorlds\towerDefense\*.*
 copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
 copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.yml C:\SpigotMC\
+set project=towerDefense
 GOTO:copyFiles
 
 :menu_F   git pull --all 
@@ -141,4 +143,18 @@ rmdir %destination% /q /s
 mkdir %destination%
 echo xcopy %source% %destination% /E 
 xcopy %source% %destination% /E
+GOTO:makeJoin
+
+
+  events.playerJoin( function (event) {
+    player=(event.getPlayer== null) ? null : event.getPlayer();
+    towerDefenseJoin(player);
+  });
+
+:makeJoin
+@echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\main.js 
+@echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\main.js 
+@echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\main.js 
+@echo  }); >> C:\SpigotMC\scriptcraft\plugins\main.js 
+
 GOTO:EOF
