@@ -191,6 +191,8 @@ exports.starPusher = function () {
 };
 
 exports.starPusherJoin  = function (player) {
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a instant_health 20");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a saturation");
   player.setGameMode(org.bukkit.GameMode.SURVIVAL);
   setTimeout (function () {
     player.teleport(new org.bukkit.Location(server.worlds[0], -1256, 136, -97), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);

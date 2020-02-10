@@ -1112,37 +1112,47 @@
   <block type="scriptcraftfunction" id="/EUW(u$1SRK634;dP0P#" x="88" y="2762">
     <field name="nameOfFunction">starPusherJoin (player)</field>
     <statement name="FUNCTIONCODE">
-      <block type="setgamemode" id="`r^MG/Q#cAY?ekhK_4S:">
-        <field name="GAMEMODE">SURVIVAL</field>
-        <value name="PLAYER">
-          <block type="varname" id="U_4J5}^l?F^|*,GSO4B,">
-            <field name="VARNAME">player</field>
-          </block>
-        </value>
+      <block type="servercommand" id="Ro?[t+1*G6_Cb;2]lzc8">
+        <field name="COMMAND">"effect give @a instant_health 20"</field>
         <next>
-          <block type="teleport" id="K(=@Lk8!M_eZy^=5t;{e">
-            <value name="ENTITY">
-              <block type="varname" id="2oB$,=c#}i2,[edbj4xb">
-                <field name="VARNAME">player</field>
-              </block>
-            </value>
-            <value name="LOCATION">
-              <block type="absolutelocation" id="k|r%?+.Eq{)4x^-*r3uO">
-                <field name="X">-1256</field>
-                <field name="Y">136</field>
-                <field name="Z">-97</field>
-              </block>
-            </value>
+          <block type="servercommand" id="S:]WqwbyzoR?Y}qht9do">
+            <field name="COMMAND">"effect give @a saturation"</field>
             <next>
-              <block type="clearinventory" id="^yb(xB`]eG5|b}[Tl{rK">
+              <block type="setgamemode" id="`r^MG/Q#cAY?ekhK_4S:">
+                <field name="GAMEMODE">SURVIVAL</field>
                 <value name="PLAYER">
-                  <block type="varname" id="lP@N?0{Jm6H/i$y~w]%B">
+                  <block type="varname" id="U_4J5}^l?F^|*,GSO4B,">
                     <field name="VARNAME">player</field>
                   </block>
                 </value>
                 <next>
-                  <block type="functionCall" id="d]p1910*D2mOb}/1e3-%">
-                    <field name="FUNCTIONNAME">starPusher</field>
+                  <block type="teleport" id="K(=@Lk8!M_eZy^=5t;{e">
+                    <value name="ENTITY">
+                      <block type="varname" id="2oB$,=c#}i2,[edbj4xb">
+                        <field name="VARNAME">player</field>
+                      </block>
+                    </value>
+                    <value name="LOCATION">
+                      <block type="absolutelocation" id="k|r%?+.Eq{)4x^-*r3uO">
+                        <field name="X">-1256</field>
+                        <field name="Y">136</field>
+                        <field name="Z">-97</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="clearinventory" id="^yb(xB`]eG5|b}[Tl{rK">
+                        <value name="PLAYER">
+                          <block type="varname" id="lP@N?0{Jm6H/i$y~w]%B">
+                            <field name="VARNAME">player</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="functionCall" id="d]p1910*D2mOb}/1e3-%">
+                            <field name="FUNCTIONNAME">starPusher</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
                   </block>
                 </next>
               </block>
