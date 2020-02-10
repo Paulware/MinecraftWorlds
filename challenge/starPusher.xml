@@ -407,26 +407,16 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="MdkxASF#cb9Hip~ftHIy" x="88" y="313">
-    <field name="nameOfFunction">restartStarPusher</field>
-    <statement name="FUNCTIONCODE">
-      <block type="setvariable" id="J0)bk1kRX3t.[rsL|R5O">
-        <field name="VARNAME">exports.hasRun</field>
-        <field name="EXPRESSION">null</field>
-      </block>
-    </statement>
-  </block>
   <block type="scriptcraftfunction" id=")`3FL1lqcX@4z!CL7yO0" x="88" y="388">
     <field name="nameOfFunction">starPusher</field>
     <statement name="FUNCTIONCODE">
       <block type="controls_if" id="/8C9_%FS(SD7[.Fn=!.G">
-        <mutation else="1"></mutation>
         <value name="IF0">
           <block type="logic_compare" id="rD_J%=u^IL,Linn)_yUG">
-            <field name="OP">NEQ</field>
+            <field name="OP">EQ</field>
             <value name="A">
               <block type="varname" id="Pv9@?DsRgbBk;Sb_+;3Z">
-                <field name="VARNAME">exports.hasRun</field>
+                <field name="VARNAME">exports.gameStarted</field>
               </block>
             </value>
             <value name="B">
@@ -437,17 +427,8 @@
           </block>
         </value>
         <statement name="DO0">
-          <block type="consolelog" id="Pj{Ul$|L*^sa`tS(P@f}">
-            <value name="NAME">
-              <block type="varname" id="_tmW:C;Q0PG2f]/`]4[r">
-                <field name="VARNAME">"js restartStarPusher() to restart (not necessary)"</field>
-              </block>
-            </value>
-          </block>
-        </statement>
-        <statement name="ELSE">
           <block type="setvariable" id="*XOp(LvsMKK?D7n{,=p`">
-            <field name="VARNAME">exports.hasRun</field>
+            <field name="VARNAME">exports.gameStarted</field>
             <field name="EXPRESSION">1</field>
             <next>
               <block type="removeplayersgear" id="elIh4i8e63z_t-Th.Mi=">
@@ -1125,6 +1106,49 @@
             </next>
           </block>
         </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="scriptcraftfunction" id="/EUW(u$1SRK634;dP0P#" x="88" y="2762">
+    <field name="nameOfFunction">starPusherJoin (player)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setgamemode" id="`r^MG/Q#cAY?ekhK_4S:">
+        <field name="GAMEMODE">SURVIVAL</field>
+        <value name="PLAYER">
+          <block type="varname" id="U_4J5}^l?F^|*,GSO4B,">
+            <field name="VARNAME">player</field>
+          </block>
+        </value>
+        <next>
+          <block type="teleport" id="K(=@Lk8!M_eZy^=5t;{e">
+            <value name="ENTITY">
+              <block type="varname" id="2oB$,=c#}i2,[edbj4xb">
+                <field name="VARNAME">player</field>
+              </block>
+            </value>
+            <value name="LOCATION">
+              <block type="absolutelocation" id="k|r%?+.Eq{)4x^-*r3uO">
+                <field name="X">-1256</field>
+                <field name="Y">136</field>
+                <field name="Z">-97</field>
+              </block>
+            </value>
+            <next>
+              <block type="clearinventory" id="^yb(xB`]eG5|b}[Tl{rK">
+                <value name="PLAYER">
+                  <block type="varname" id="lP@N?0{Jm6H/i$y~w]%B">
+                    <field name="VARNAME">player</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="functionCall" id="d]p1910*D2mOb}/1e3-%">
+                    <field name="FUNCTIONNAME">starPusher</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
       </block>
     </statement>
   </block>

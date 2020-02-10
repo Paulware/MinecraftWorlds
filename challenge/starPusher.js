@@ -53,10 +53,6 @@ exports.getCh = function () {
   };
 };
 
-exports.restartStarPusher = function () {
-  exports.hasRun=null;
-};
-
 exports.starPusher = function () {
   //Instantiations;
   var clearLocations;
@@ -81,11 +77,8 @@ exports.starPusher = function () {
   var _block;
   var aboveDiamond;
   var aboveOld;
-  if (((exports.hasRun) != (null))){
-    console.log ("js restartStarPusher() to restart (not necessary)");
-  }
-  else {
-    exports.hasRun=1;
+  if (((exports.gameStarted) == (null))){
+    exports.gameStarted=1;
     players = server.getOnlinePlayers();
     for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
       players[playersIndex].getInventory().clear();
@@ -195,4 +188,13 @@ exports.starPusher = function () {
       }
     });
   }
+};
+
+exports.starPusherJoin  = function (player) {
+  player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+  setTimeout (function () {
+    player.teleport(new org.bukkit.Location(server.worlds[0], -1256, 136, -97), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+  },2000);
+  player.getInventory().clear();
+  starPusher();
 };
