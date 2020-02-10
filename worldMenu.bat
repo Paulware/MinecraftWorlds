@@ -145,16 +145,11 @@ echo xcopy %source% %destination% /E
 xcopy %source% %destination% /E
 GOTO:makeJoin
 
-
-  events.playerJoin( function (event) {
-    player=(event.getPlayer== null) ? null : event.getPlayer();
-    towerDefenseJoin(player);
-  });
-
 :makeJoin
-@echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\main.js 
-@echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\main.js 
-@echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\main.js 
-@echo  }); >> C:\SpigotMC\scriptcraft\plugins\main.js 
+@echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\join.js 
+@echo   %project%(); // Start project
+@echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\join.js 
+@echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\join.js 
+@echo  }); >> C:\SpigotMC\scriptcraft\plugins\join.js 
 
 GOTO:EOF
