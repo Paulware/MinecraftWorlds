@@ -122,9 +122,10 @@ git pull --all
 cd c:\
 
 :menu_G   challenge
-set source=C:\SpigotMC\MinecraftWorlds\challenge\*.*
-copy C:\SpigotMC\MinecraftWorlds\challenge\*.js C:\SpigotMC\scriptcraft\plugins\
-copy C:\SpigotMC\MinecraftWorlds\challenge\*.yml C:\SpigotMC\
+set project=starPusher
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\*.js C:\SpigotMC\scriptcraft\plugins\
+copy C:\SpigotMC\MinecraftWorlds\%project%\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
 :menu_
@@ -148,7 +149,6 @@ GOTO:makeJoin
 
 :makeJoin
 @echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\join.js 
-@echo   %project%(); // Start project
 @echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\join.js 
 @echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\join.js 
 @echo  }); >> C:\SpigotMC\scriptcraft\plugins\join.js 
