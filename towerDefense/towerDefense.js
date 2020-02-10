@@ -105,7 +105,11 @@ exports.towerDefense = function () {
             player.setHealth(h);  }
          })();
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"USA");
-        player.setMetadata ("team", fd );
+        if (player != null) {
+          if (player.setMetadata != null ) {
+            player.setMetadata ("team", fd );
+          }
+        }
         color = org.bukkit.Color.BLUE;
         var player = player;
         var items = require ('items');
@@ -169,7 +173,11 @@ exports.towerDefense = function () {
             player.setHealth(h);  }
          })();
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,"Canada");
-        player.setMetadata ("team", fd );
+        if (player != null) {
+          if (player.setMetadata != null ) {
+            player.setMetadata ("team", fd );
+          }
+        }
         color = org.bukkit.Color.RED;
         var player = player;
         var items = require ('items');
@@ -233,54 +241,68 @@ exports.towerDefense = function () {
         projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
         player.launchProjectile(projectile.getClass());
         fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,(new Date().getTime()) + 1000);
-        player.setMetadata ("fireagain", fd );
+        if (player != null) {
+          if (player.setMetadata != null ) {
+            player.setMetadata ("fireagain", fd );
+          }
+        }
       }
     }
   });
   events.inventoryPickupItem( function (event) {
     item=(event.getItem== null) ? null : event.getItem();
-    owner=(item== null)? null : (item.getMetadata == null)?null:(item.getMetadata("owner").length == 0)?null:item.getMetadata("owner")[0].value();
-    inventory=(event.getInventory== null) ? null : event.getInventory();
-    block=server.worlds[0].getBlockAt (inventory.location);
-    blockType=(block==null)?null:block.getType();
-    if (((blockType) == (org.bukkit.Material.HOPPER))){
-      materialDropped=(item.getItemStack() == null ) ? null : (item.getItemStack().getType == null) ? null : item.getItemStack().getType();
-      if (((materialDropped) == (org.bukkit.Material.EMERALD))){
-        if (((inventory.location.x) == -6) && ((inventory.location.z) == -919)){
+    console.log ("item: " + item);
+    owner=(item== null)? null : (item.getMetadata == null)?null:(item.getMetadata("player").length == 0)?null:item.getMetadata("player")[0].value();
+    if (((owner) != (null))){
+      inventory=(event.getInventory== null) ? null : event.getInventory();
+      block=server.worlds[0].getBlockAt (inventory.location);
+      blockType=(block==null)?null:block.getType();
+      if (((blockType) == (org.bukkit.Material.HOPPER))){
+        materialDropped=(item.getItemStack() == null ) ? null : (item.getItemStack().getType == null) ? null : item.getItemStack().getType();
+        if (((materialDropped) == (org.bukkit.Material.EMERALD))){
+          if (((inventory.location.x) == -6) && ((inventory.location.z) == -919)){
+            (function () {
+              var value = ( exports.canada==null)?0:exports.canada;
+              exports.canada= value+1;
+            })();
+          }
+          else {
+            (function () {
+              var value = ( exports.usa==null)?0:exports.usa;
+              exports.usa= value+1;
+            })();
+          }
+          objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
+          objective.setDisplayName("USA: " + exports.usa + " CANADA:" + exports.canada);
+          score=(owner== null)? null : (owner.getMetadata == null)?null:(owner.getMetadata("score").length == 0)?null:owner.getMetadata("score")[0].value();
           (function () {
-            var value = ( exports.canada==null)?0:exports.canada;
-            exports.canada= value+1;
+            var value = ( score==null)?0:score;
+            score= value+1;
           })();
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,score);
+          if (owner != null) {
+            if (owner.setMetadata != null ) {
+              owner.setMetadata ("score", fd );
+            }
+          }
+          objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
+          objective.getScore(owner).setScore(score);
+          owner.setScoreboard (exports.board);
+          if (((exports.usa) > 49)){
+            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"USA Wins!\"");
+            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+          }
+          else if (((exports.canada) > 49)){
+            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"Canada Wins!\"");
+            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+          }
+          item.remove()
+          event.cancelled = true;
         }
-        else {
-          (function () {
-            var value = ( exports.usa==null)?0:exports.usa;
-            exports.usa= value+1;
-          })();
-        }
-        objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-        objective.setDisplayName("USA: " + exports.usa + " CANADA:" + exports.canada);
-        score=(owner== null)? null : (owner.getMetadata == null)?null:(owner.getMetadata("score").length == 0)?null:owner.getMetadata("score")[0].value();
-        (function () {
-          var value = ( score==null)?0:score;
-          score= value+1;
-        })();
-        fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,score);
-        owner.setMetadata ("score", fd );
-        objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-        objective.getScore(owner).setScore(score);
-        owner.setScoreboard (exports.board);
-        if (((exports.usa) > 49)){
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"USA Wins!\"");
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
-        }
-        else if (((exports.canada) > 49)){
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"Canada Wins!\"");
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
-        }
-        item.remove()
-        event.cancelled = true;
       }
+    }
+    else {
+      console.log ("owner is null");
     }
   });
   events.playerRespawn( function (event) {
@@ -309,7 +331,11 @@ exports.towerDefense = function () {
     player=(event.getPlayer== null) ? null : event.getPlayer();
     item=(event.getItemDrop== null) ? null : event.getItemDrop();
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,player);
-    item.setMetadata ("owner", fd );
+    if (item != null) {
+      if (item.setMetadata != null ) {
+        item.setMetadata ("player", fd );
+      }
+    }
     console.log ("Player: " + player.name + " dropped an item: " );
   });
   events.projectileLaunch( function (event) {
@@ -317,9 +343,17 @@ exports.towerDefense = function () {
     shooter=(projectile == null) ? null : (projectile.getShooter == null) ? null : projectile.getShooter();
     team=(shooter== null)? null : (shooter.getMetadata == null)?null:(shooter.getMetadata("team").length == 0)?null:shooter.getMetadata("team")[0].value();
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
-    projectile.setMetadata ("team", fd );
+    if (projectile != null) {
+      if (projectile.setMetadata != null ) {
+        projectile.setMetadata ("team", fd );
+      }
+    }
     fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,shooter);
-    projectile.setMetadata ("owner", fd );
+    if (projectile != null) {
+      if (projectile.setMetadata != null ) {
+        projectile.setMetadata ("owner", fd );
+      }
+    }
     inhand=(shooter== null) ? null : ( shooter.getItemInHand == null) ? null : shooter.getItemInHand();
     stack=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
     if (((stack) == "M1-Garand")){
