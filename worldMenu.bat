@@ -143,6 +143,7 @@ rmdir %destination% /q /s
 mkdir %destination%
 echo xcopy %source% %destination% /E 
 xcopy %source% %destination% /E
+copy startGame.js C:\SpigotMC\scriptcraft\plugins\
 GOTO:makeJoin
 
 :makeJoin

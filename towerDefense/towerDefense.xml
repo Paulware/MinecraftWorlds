@@ -38,7 +38,7 @@
                               <block type="servercommand" id="=hqfh@IpnnEVMu|[fgWL">
                                 <field name="COMMAND">"gamemode survival @a"</field>
                                 <next>
-                                  <block type="servercommand" id="7=~zb=q5i=%L`P^XZ:GY">
+                                  <block type="servercommand" id="7=~zb=q5i=%L`P^XZ:GY" disabled="true">
                                     <field name="COMMAND">"op " + self.name </field>
                                     <next>
                                       <block type="servercommand" id="/G1EJ[:$v#z?ir~8d)}e">
@@ -1619,20 +1619,6 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="K-8O2%;w)4_Vu:RtHJM-" x="687" y="13">
-    <field name="nameOfFunction">startGame</field>
-    <statement name="FUNCTIONCODE">
-      <block type="setvariable" id="hIGM:x}*fm5_GOwN%tl.">
-        <field name="VARNAME">exports.gameStarted</field>
-        <field name="EXPRESSION">null</field>
-        <next>
-          <block type="servercommand" id="Mj^}~jt%/eBq`xOH+st5">
-            <field name="COMMAND">"kick @a Restarting Game Yo"</field>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
   <block type="scriptcraftfunction" id="Hreq*bpf}mUF;9a^!38{" x="688" y="4088">
     <field name="nameOfFunction">towerDefenseJoin(player)</field>
     <statement name="FUNCTIONCODE">
@@ -1683,6 +1669,11 @@
                                 <field name="VARNAME">player</field>
                               </block>
                             </value>
+                            <next>
+                              <block type="functionCall" id="K`!JAD~0U%#4X5BSC@PO">
+                                <field name="FUNCTIONNAME">towerDefense</field>
+                              </block>
+                            </next>
                           </block>
                         </next>
                       </block>

@@ -32,7 +32,6 @@ exports.towerDefense = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 50 10 -914");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 50 10 -914");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "op " + self.name );
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a instant_health 20");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give @a saturation");
     exports.usa=0;
@@ -362,11 +361,6 @@ exports.towerDefense = function () {
   }
 };
 
-exports.startGame = function () {
-  exports.gameStarted=null;
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kick @a Restarting Game Yo");
-};
-
 exports.towerDefenseJoin = function (player) {
   player.setWalkSpeed (0.2)
   player.getInventory().clear();
@@ -376,4 +370,5 @@ exports.towerDefenseJoin = function (player) {
     player.teleport(new org.bukkit.Location(server.worlds[0], 50, 10, -914), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
   player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+  towerDefense();
 };
