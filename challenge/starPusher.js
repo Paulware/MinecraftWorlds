@@ -82,6 +82,7 @@ exports.starPusher = function () {
     players[playersIndex].getInventory().clear();
   }
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1256 135 -97");
   clearLocations=[];
   var myTask= setInterval (function () {
     if (((clearLocations.length) > 0)){
