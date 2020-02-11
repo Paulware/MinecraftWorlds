@@ -49,11 +49,13 @@ copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.pr
 GOTO:copyFiles
 
 :menu_5   Copy Omaha Beach 
-copy C:\SpigotMC\MinecraftWorlds\omahaBeach\server.properties C:\SpigotMC\server.properties
-copy C:\SpigotMC\MinecraftWorlds\omahaBeach\omahaRules.js C:\SpigotMC\scriptcraft\plugins\omahaRules.js
-copy C:\SpigotMC\MinecraftWorlds\omahaBeach\spigot.yml C:\SpigotMC\spigot.yml
-copy C:\SpigotMC\MinecraftWorlds\omahaBeach\bukkit.yml C:\SpigotMC\bukkit.yml
-set source=C:\SpigotMC\MinecraftWorlds\omahaBeach
+set project=omahaBeach
+copy C:\SpigotMC\MinecraftWorlds\%project%\server.properties C:\SpigotMC\server.properties
+del C:\SpigotMC\scriptcraft\plugins\omahaRules.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\omahaBeach.js C:\SpigotMC\scriptcraft\plugins\omahaBeach.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
+set source=C:\SpigotMC\MinecraftWorlds\%project%
 GOTO:copyFiles
 
 :menu_6   Prison
