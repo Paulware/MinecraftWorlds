@@ -1,7 +1,6 @@
 exports.omahaBeach = function () {
   //Instantiations;
   var players;
-  var message;
   var player;
   var team;
   var color;
@@ -30,7 +29,6 @@ exports.omahaBeach = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1203 137 -106");
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop @a");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1219 137 -91");
     players = server.getOnlinePlayers();
@@ -41,12 +39,8 @@ exports.omahaBeach = function () {
     for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
       players[playersIndex].getInventory().clear();
     }
-    events.playerCommandPreprocess( function (event) {
-      message=(event.getMessage()== null) ? null : event.getMessage()();
-      console.log ("Got a player chat message yo: [" + message + "]");
-    });
     events.playerRespawn( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
       team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_team_").length == 0)?null:player.getMetadata("_team_")[0].value();
       console.log (player.name + " respawn on team: [" + team + "]");
       if (((team) == "Attacker")){
@@ -212,14 +206,11 @@ exports.omahaBeach = function () {
       }
     });
     events.blockBreak( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
-      if (((player.name) != "Paulware")){
-        event.cancelled = true;
-      }
+      event.cancelled = true;
     });
     events.playerInteract( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
-      block=(event.getClickedBlock()== null) ? null : event.getClickedBlock()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
+      block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
       blockType=(block==null)?null:block.getType();
       if (((blockType) == (org.bukkit.Material.OAK_SIGN))){
         team=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
@@ -477,7 +468,7 @@ exports.omahaBeach = function () {
       }
     });
     events.projectileLaunch( function (event) {
-      projectile=(event.getEntity()== null) ? null : event.getEntity()();
+      projectile=(event.getEntity== null) ? null : event.getEntity();
       if (projectile.getShooter != null){
         shooter=projectile.getShooter();
         inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
@@ -502,7 +493,7 @@ exports.omahaBeach = function () {
       }
     });
     events.projectileHit( function (event) {
-      projectile=(event.getEntity()== null) ? null : event.getEntity()();
+      projectile=(event.getEntity== null) ? null : event.getEntity();
       if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
         server.worlds[0].createExplosion (projectile.location,3);
       }
@@ -514,9 +505,9 @@ exports.omahaBeach = function () {
       }
     });
     events.entityShootBow( function (event) {
-      shooter=(event.getEntity()== null) ? null : event.getEntity()();
-      projectile=(event.getProjectile()== null) ? null : event.getProjectile()();
-      bow=(event.getBow()== null) ? null : event.getBow()();
+      shooter=(event.getEntity== null) ? null : event.getEntity();
+      projectile=(event.getProjectile== null) ? null : event.getProjectile();
+      bow=(event.getBow== null) ? null : event.getBow();
       bowName=(bow== null) ? null : (bow.getItemMeta == null) ? null : (bow.getItemMeta() == null)?null:bow.getItemMeta().getDisplayName();
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,bowName);
       if (projectile != null) {
@@ -527,7 +518,7 @@ exports.omahaBeach = function () {
       console.log ("Bow [" + bowName + "] fired by " + shooter);
     });
     events.playerDeath( function (event) {
-      player=(event.getEntity()== null) ? null : event.getEntity()();
+      player=(event.getEntity== null) ? null : event.getEntity();
       if (((player) == (exports.kings[0]))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
         exports.kingsDead[0] = true;
@@ -588,7 +579,7 @@ exports.omahaBeach = function () {
       }
     });
     events.playerQuit( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + player.name + " has quit the game");
       if (((player) == (exports.kings[0]))){
         exports.kingsDead[0]=true;
@@ -604,7 +595,7 @@ exports.omahaBeach = function () {
       }
     });
     events.playerMove( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
       blockType=(server.worlds[0].getBlockAt (player.location)==null)?null:server.worlds[0].getBlockAt (player.location).getType();
       if (((blockType) == (org.bukkit.Material.COBWEB))){
         if (player.getMetadata("_barbtime_").length > 0){
