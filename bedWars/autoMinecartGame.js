@@ -115,9 +115,11 @@ exports.autoMinecartGame = function () {
   var turnDirection;
   var slope;
   var vector;
-  if (self.getMetadata("turndirection").length > 0){
-    self.removeMetadata ("turndirection", __plugin );
-  }
+  console.log ( 'self in autoMinecartGame yo' );
+  //if (self.getMetadata("turndirection").length > 0){
+  //  self.removeMetadata ("turndirection", __plugin );
+  //}
+  console.log ( 'vehicle move event yo' );
   events.vehicleMove( function (event) {
     vehicle=event.vehicle;
     if (! (event.vehicle.isEmpty())){
