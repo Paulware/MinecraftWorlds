@@ -181,13 +181,10 @@ exports.bedWarRules = function () {
   var directions = [org.bukkit.block.BlockFace.SOUTH,org.bukkit.block.BlockFace.SOUTH_SOUTH_WEST,org.bukkit.block.BlockFace.SOUTH_WEST,org.bukkit.block.BlockFace.WEST_SOUTH_WEST,org.bukkit.block.BlockFace.WEST,org.bukkit.block.BlockFace.WEST_NORTH_WEST,org.bukkit.block.BlockFace.NORTH_WEST,org.bukkit.block.BlockFace.NORTH_NORTH_WEST,org.bukkit.block.BlockFace.NORTH,org.bukkit.block.BlockFace.NORTH_NORTH_EAST,org.bukkit.block.BlockFace.NORTH_EAST,org.bukkit.block.BlockFace.EAST_NORTH_EAST,org.bukkit.block.BlockFace.EAST,org.bukkit.block.BlockFace.EAST_SOUTH_EAST,org.bukkit.block.BlockFace.SOUTH_EAST,org.bukkit.block.BlockFace.SOUTH_SOUTH_EAST];
   var looking;
   var players;
-  console.log ( 'exports.gameStarted: ' + exports.gameStarted );
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -4 117 12");
-    console.log ( 'set listening bedwars listening events' );
     events.playerMove( function (event) {
-      console.log ( 'playerMove yo' );
       player=event.player;
       name=((player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand== null) ? "" : ((player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand().getItemMeta == null ) ? "" : (player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand().getItemMeta().getDisplayName();
       if (name == "Staff of Dynamite"){
@@ -201,7 +198,6 @@ exports.bedWarRules = function () {
       }
     });
     events.playerDeath( function (event) {
-      console.log ( 'playerDeath yo' );
       org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear " + event.entity.name);
       getWinningTeam();
     });
@@ -289,7 +285,6 @@ exports.bedWarRules = function () {
       }
     });
     events.playerInteract( function (event) {
-      console.log ( 'playerInteract yo' );
       block=event.getClickedBlock();
       if (((block) != (null))){
         if (((block.getType().toString()) == "OAK_SIGN")){
@@ -334,9 +329,7 @@ exports.bedWarRules = function () {
       }
     });
     events.playerRespawn( function (event) {
-      console.log ( 'playerRespawn yo' );
       bedWarRespawn (event.player);
-      console.log ( 'Done in player Respawn' );
     });
     events.vehicleBlockCollision( function (event) {
       console.log ("Vehicle collision detected, explosion created at" + event.vehicle.location);
@@ -355,22 +348,17 @@ exports.bedWarRules = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "save -off");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear @a");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
-    console.log ( 'kill @a' );
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
     players=server.getOnlinePlayers();
     for (var i=0; i<parseInt(players.length); i++) {
       players[i].removeMetadata ("_teamcolor_", __plugin );
     }
-    console.log ( 'autominecartGame() why?' );    
     autoMinecartGame();
-    console.log ( 'say deop ' );
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say \"deop @a\"");
   }
-  console.log( 'Done in bedWarRules()' );
 };
 
 exports.bedWarsJoin  = function (player) {
-  console.log ( 'in bedWarsJoin' );
   setTimeout (function () {
     player.teleport(new org.bukkit.Location(server.worlds[0], -4, 117, 12), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
