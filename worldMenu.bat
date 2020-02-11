@@ -67,12 +67,13 @@ copy C:\SpigotMC\MinecraftWorlds\starWars\starWarsRules.js C:\SpigotMC\scriptcra
 GOTO:copyFiles
 
 :menu_8   Our bed wars
-set source=C:\SpigotMC\MinecraftWorlds\ourBedWars\*.*
-copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
-copy C:\SpigotMC\MinecraftWorlds\ourBedWars\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
-copy C:\SpigotMC\MinecraftWorlds\ourBedWars\bukkit.yml C:\SpigotMC\bukkit.yml
-copy C:\SpigotMC\MinecraftWorlds\ourBedWars\spigot.yml C:\SpigotMC\spigot.yml
-copy C:\SpigotMC\MinecraftWorlds\ourBedWars\server.properties C:\SpigotMC\server.properties
+set project=ourBedWars
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\%project%\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
 :menu_9   Run the server
