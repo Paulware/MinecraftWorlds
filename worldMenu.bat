@@ -40,19 +40,20 @@ copy C:\SpigotMC\MinecraftWorlds\airWars\spigot.yml C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\MinecraftWorlds\airWars\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
-:menu_4   Copy Castle Mob Control
-set source=C:\SpigotMC\MinecraftWorlds\Castle1\*.*
-copy C:\SpigotMC\MinecraftWorlds\Castle1\controlMob.js C:\SpigotMC\scriptcraft\plugins\controlMob.js
-copy C:\SpigotMC\MinecraftWorlds\Castle1\bukkit.yml C:\SpigotMC\bukkit.yml
-copy C:\SpigotMC\MinecraftWorlds\Castle1\spigot.yml C:\SpigotMC\spigot.yml
-copy C:\SpigotMC\MinecraftWorlds\Castle1\server.properties C:\SpigotMC\server.properties
+:menu_4   Control Mobs
+set project=controlMob
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
+copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
+copy C:\SpigotMC\MinecraftWorlds\%project%\server.properties C:\SpigotMC\server.properties
 GOTO:copyFiles
 
 :menu_5   Copy Omaha Beach 
 set project=omahaBeach
 copy C:\SpigotMC\MinecraftWorlds\%project%\server.properties C:\SpigotMC\server.properties
 del C:\SpigotMC\scriptcraft\plugins\omahaRules.js
-copy C:\SpigotMC\MinecraftWorlds\%project%\omahaBeach.js C:\SpigotMC\scriptcraft\plugins\omahaBeach.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
 set source=C:\SpigotMC\MinecraftWorlds\%project%
@@ -71,7 +72,7 @@ GOTO:copyFiles
 :menu_8   bed wars
 set project=bedWars
 set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
-copy C:\SpigotMC\MinecraftWorlds\%project%\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
 copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
@@ -106,10 +107,10 @@ git clone https://github.com/Paulware/MinecraftWorlds
 GOTO:menuLoop
 
 :menu_D   tower defense
-set source=C:\SpigotMC\MinecraftWorlds\towerDefense\*.*
-copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.js C:\SpigotMC\scriptcraft\plugins\
-copy C:\SpigotMC\MinecraftWorlds\towerDefense\*.yml C:\SpigotMC\
 set project=towerDefense
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%.js C:\SpigotMC\scriptcraft\plugins\
+copy C:\SpigotMC\MinecraftWorlds\%project%\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
 :menu_F   git pull --all 
