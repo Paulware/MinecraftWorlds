@@ -1605,7 +1605,7 @@
             </value>
             <next>
               <block type="functionCall" id="M5*u_JAKzd^?gxW}-s}/">
-                <field name="FUNCTIONNAME">controlMob()</field>
+                <field name="FUNCTIONNAME">controlMob</field>
               </block>
             </next>
           </block>
