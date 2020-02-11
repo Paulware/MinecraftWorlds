@@ -66,8 +66,8 @@ set source=C:\SpigotMC\MinecraftWorlds\starWars\*.*
 copy C:\SpigotMC\MinecraftWorlds\starWars\starWarsRules.js C:\SpigotMC\scriptcraft\plugins\starWarsRules.js
 GOTO:copyFiles
 
-:menu_8   Our bed wars
-set project=ourBedWars
+:menu_8   bed wars
+set project=bedWars
 set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
 copy C:\SpigotMC\MinecraftWorlds\%project%\bedWars.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
