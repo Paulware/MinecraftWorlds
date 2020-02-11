@@ -1789,7 +1789,7 @@
     </statement>
   </block>
   <block type="scriptcraftfunction" id="}3ah98HBFB7D~nBRC)*Y" x="162" y="688">
-    <field name="nameOfFunction">bedWarJoin (player)</field>
+    <field name="nameOfFunction">bedWarsJoin (player)</field>
     <statement name="FUNCTIONCODE">
       <block type="teleport" id="It~%.+~)n!{lz*PE0:R(">
         <value name="ENTITY">

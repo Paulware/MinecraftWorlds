@@ -358,7 +358,7 @@ exports.bedWarRules = function () {
   }
 };
 
-exports.bedWarJoin  = function (player) {
+exports.bedWarsJoin  = function (player) {
   setTimeout (function () {
     player.teleport(new org.bukkit.Location(server.worlds[0], -4, 117, 12), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
