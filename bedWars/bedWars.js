@@ -50,7 +50,7 @@ exports.bedWarRespawn  = function (player) {
   }
   teamColor=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_teamcolor_").length == 0)?null:player.getMetadata("_teamcolor_")[0].value();
   if (teamColor != null){
-    location=new org.bukkit.Location(server.worlds[0], locations[teamColor].x, locations[teamColor].y, locations[teamColor].z);
+    location=locations[teamColor].location;
     block=server.worlds[0].getBlockAt (location);
     if ((block.getType().toString().indexOf ( 'BED') > -1)){
       player.setGameMode(org.bukkit.GameMode.SURVIVAL);
@@ -105,7 +105,7 @@ exports.bedWarRespawn  = function (player) {
   }
   else {
     setTimeout (function () {
-      location=new org.bukkit.Location(server.worlds[0], locations["LOBBY"].x, locations["LOBBY"].y, locations["LOBBY"].z);
+      location=locations["LOBBY"].location;
       setTimeout (function () {
         player.teleport(location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
       },2000);
@@ -127,7 +127,7 @@ exports.destroyedBeds = function () {
   teams=['BLUE', 'RED', 'ORANGE','WHITE'];
   count=0;
   for (var i=0; i<4; i++) {
-    location=new org.bukkit.Location(server.worlds[0], locations[teams[i]].x, locations[teams[i]].y, locations[teams[i]].z);
+    location=locations[teams[i]].location;
     block=server.worlds[0].getBlockAt (location);
     if (((block.getType().toString().indexOf ( 'BED')) == -1)){
       count=count+1;
@@ -136,7 +136,7 @@ exports.destroyedBeds = function () {
   return count;
 };
 
-exports.locations={  "LOBBY":{  x:-5,y:119,z:11},"BLUE":{  x:38,y:62,z:-80},"RED":{  x:-38,y:62,z:-80},"ORANGE":{  x:80,y:62,z:38},"WHITE":{  x:-38,y:62,z:80}};
+exports.locations={  "LOBBY":{  location:new org.bukkit.Location(server.worlds[0], -5, 119, 11),},"BLUE":{  location:new org.bukkit.Location(server.worlds[0], 38, 62, -80),},"RED":{  location:new org.bukkit.Location(server.worlds[0], -38, 62, -80),},"ORANGE":{  location:new org.bukkit.Location(server.worlds[0], 80, 62, 38),},"WHITE":{  location:new org.bukkit.Location(server.worlds[0], -38, 62, 80),}};
 exports.restoreBed = function (color) {
   //Instantiations;
   var colors;
@@ -146,7 +146,7 @@ exports.restoreBed = function (color) {
   beds=[org.bukkit.Material.BLUE_BED,org.bukkit.Material.RED_BED,org.bukkit.Material.ORANGE_BED,org.bukkit.Material.WHITE_BED];
   for (var i=0; i<4; i++) {
     if (((color) == (null)) || ((color) == (colors[i]))){
-      location=new org.bukkit.Location(server.worlds[0], locations[colors[i]].x, locations[colors[i]].y, locations[colors[i]].z);
+      location=locations[colors[i]].location;
       server.worlds[0].getBlockAt (location).setType(beds[i]);
       location = new org.bukkit.Location (server.worlds[0], parseInt(location.x), parseInt(location.y), parseInt(location.z)+1);
       server.worlds[0].getBlockAt (location).setType(beds[i]);
@@ -362,7 +362,7 @@ exports.bedWarRules = function () {
 
 exports.bedWarsJoin  = function (player) {
   setTimeout (function () {
-    player.teleport(new org.bukkit.Location(server.worlds[0], -4, 117, 12), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    player.teleport(locations["LOBBY"].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
   (function() {   var h=20;
     if (player.setHealth != null) {

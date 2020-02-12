@@ -263,10 +263,8 @@
                   <block type="setvariablevalue" id="j`cHW5LusQZ/a_,9MFWo">
                     <field name="VARNAME">location</field>
                     <value name="EXPRESSION">
-                      <block type="absolutelocation" id="}UiQrSXpB^Dc=MtA%QQ$">
-                        <field name="X">locations[teamColor].x</field>
-                        <field name="Y">locations[teamColor].y</field>
-                        <field name="Z">locations[teamColor].z</field>
+                      <block type="varname" id="Z@.a,+w_gYu@sIe6`ulr">
+                        <field name="VARNAME">locations[teamColor].location</field>
                       </block>
                     </value>
                     <next>
@@ -443,10 +441,8 @@
                       <block type="setvariablevalue" id="mj81a%@OG^m-0G7:%B;d">
                         <field name="VARNAME">location</field>
                         <value name="EXPRESSION">
-                          <block type="absolutelocation" id="`T;$4t~CRp-.^e12u-$T">
-                            <field name="X">locations["LOBBY"].x</field>
-                            <field name="Y">locations["LOBBY"].y</field>
-                            <field name="Z">locations["LOBBY"].z</field>
+                          <block type="varname" id="@~kSRDxsrxLzOY,trrGi">
+                            <field name="VARNAME">locations["LOBBY"].location</field>
                           </block>
                         </value>
                         <next>
@@ -506,10 +502,8 @@
                   <block type="setvariablevalue" id=",,=Lu]ZkCoe/xOjD0I59">
                     <field name="VARNAME">location</field>
                     <value name="EXPRESSION">
-                      <block type="absolutelocation" id="y6a{557;Q{nvKf2x/eo}">
-                        <field name="X">locations[teams[i]].x</field>
-                        <field name="Y">locations[teams[i]].y</field>
-                        <field name="Z">locations[teams[i]].z</field>
+                      <block type="varname" id="j1gQS((nY:(in9dygAIu">
+                        <field name="VARNAME">locations[teams[i]].location</field>
                       </block>
                     </value>
                     <next>
@@ -565,111 +559,81 @@
       </block>
     </statement>
   </block>
-  <block type="dataexpression" id="~;$hoy`XLHc,a1I4o~gU" x="1088" y="113">
+  <block type="dataexpression" id="~;$hoy`XLHc,a1I4o~gU" x="1013" y="63">
     <field name="VARNAME">locations</field>
     <statement name="EXPRESSION">
       <block type="datavalue" id="zV_N%4sd(;+@XWXfbtE*">
         <field name="HEADER">LOBBY</field>
         <statement name="EXPRESSION">
-          <block type="namevalue" id="[WDA_*v,Mu9`~*kQB{aq">
-            <field name="VARNAME">x</field>
-            <field name="EXPRESSION">-5</field>
-            <next>
-              <block type="namevalue" id="}Kfx]0+aFnd|z;,6`^-{">
-                <field name="VARNAME">y</field>
-                <field name="EXPRESSION">119</field>
-                <next>
-                  <block type="namevalue" id="jqQZUzM0%`?K95efyo:n">
-                    <field name="VARNAME">z</field>
-                    <field name="EXPRESSION">11</field>
-                  </block>
-                </next>
+          <block type="setvariablevalue" id="]LsxpDvP$;?i%a.m_,T|">
+            <field name="VARNAME">location</field>
+            <value name="EXPRESSION">
+              <block type="absolutelocation" id="g|{|Jb{==H4rd1)qKHZf">
+                <field name="X">-5</field>
+                <field name="Y">119</field>
+                <field name="Z">11</field>
               </block>
-            </next>
+            </value>
           </block>
         </statement>
         <next>
           <block type="datavalue" id="[jn9aJQ_]kHN;.};VW_y">
             <field name="HEADER">BLUE</field>
             <statement name="EXPRESSION">
-              <block type="namevalue" id="Cx~X!6rlOt5CB?`hXVvc">
-                <field name="VARNAME">x</field>
-                <field name="EXPRESSION">38</field>
-                <next>
-                  <block type="namevalue" id="aEmA/j{/fU(E_vz%.:p#">
-                    <field name="VARNAME">y</field>
-                    <field name="EXPRESSION">62</field>
-                    <next>
-                      <block type="namevalue" id="q}[UC!dXe,(iFJ;wWM|o">
-                        <field name="VARNAME">z</field>
-                        <field name="EXPRESSION">-80</field>
-                      </block>
-                    </next>
+              <block type="setvariablevalue" id="d5S^z3Qt0VhdZz3(tyv$">
+                <field name="VARNAME">location</field>
+                <value name="EXPRESSION">
+                  <block type="absolutelocation" id="Z8.3duuKBtUiRxQRBHg:">
+                    <field name="X">38</field>
+                    <field name="Y">62</field>
+                    <field name="Z">-80</field>
                   </block>
-                </next>
+                </value>
               </block>
             </statement>
             <next>
               <block type="datavalue" id="qiB]aNXN,](k#61u?M~R">
                 <field name="HEADER">RED</field>
                 <statement name="EXPRESSION">
-                  <block type="namevalue" id="mNZb%w!uakZBxDp8J?6P">
-                    <field name="VARNAME">x</field>
-                    <field name="EXPRESSION">-38</field>
-                    <next>
-                      <block type="namevalue" id="e/#EV`9F5}@%1$w:{ITo">
-                        <field name="VARNAME">y</field>
-                        <field name="EXPRESSION">62</field>
-                        <next>
-                          <block type="namevalue" id="{tz`syLtK7kbq/~EUYAm">
-                            <field name="VARNAME">z</field>
-                            <field name="EXPRESSION">-80</field>
-                          </block>
-                        </next>
+                  <block type="setvariablevalue" id=":Xwe4c9:)l|cD#f5zXfE">
+                    <field name="VARNAME">location</field>
+                    <value name="EXPRESSION">
+                      <block type="absolutelocation" id="G}rF)!`%ec{dRJH*;g27">
+                        <field name="X">-38</field>
+                        <field name="Y">62</field>
+                        <field name="Z">-80</field>
                       </block>
-                    </next>
+                    </value>
                   </block>
                 </statement>
                 <next>
                   <block type="datavalue" id="dbB4}v?Syb!.iYQ8XxlQ">
                     <field name="HEADER">ORANGE</field>
                     <statement name="EXPRESSION">
-                      <block type="namevalue" id="0x]+R2$}5Ujy,}J2)6A*">
-                        <field name="VARNAME">x</field>
-                        <field name="EXPRESSION">80</field>
-                        <next>
-                          <block type="namevalue" id="~n]Xb/8si/2Z)ZSyGQVY">
-                            <field name="VARNAME">y</field>
-                            <field name="EXPRESSION">62</field>
-                            <next>
-                              <block type="namevalue" id="1,Uf7jL=tFa:-Wb/E/:E">
-                                <field name="VARNAME">z</field>
-                                <field name="EXPRESSION">38</field>
-                              </block>
-                            </next>
+                      <block type="setvariablevalue" id="!-W@Kevp)0cDO;ClKi4Q">
+                        <field name="VARNAME">location</field>
+                        <value name="EXPRESSION">
+                          <block type="absolutelocation" id="UB0cGsf*-hl_2ZemND?#">
+                            <field name="X">80</field>
+                            <field name="Y">62</field>
+                            <field name="Z">38</field>
                           </block>
-                        </next>
+                        </value>
                       </block>
                     </statement>
                     <next>
                       <block type="datavalue" id="M}jP4q|8iMjD=X*cPs2Y">
                         <field name="HEADER">WHITE</field>
                         <statement name="EXPRESSION">
-                          <block type="namevalue" id="ou%L5D`K]yXUz@K^M~Ow">
-                            <field name="VARNAME">x</field>
-                            <field name="EXPRESSION">-38</field>
-                            <next>
-                              <block type="namevalue" id="[U1A]vnE#YVyr]}VoHiT">
-                                <field name="VARNAME">y</field>
-                                <field name="EXPRESSION">62</field>
-                                <next>
-                                  <block type="namevalue" id="4a[Lko(:tt=xqRigKbYq">
-                                    <field name="VARNAME">z</field>
-                                    <field name="EXPRESSION">80</field>
-                                  </block>
-                                </next>
+                          <block type="setvariablevalue" id="9G,IJ3Py5roh,ais9u1#">
+                            <field name="VARNAME">location</field>
+                            <value name="EXPRESSION">
+                              <block type="absolutelocation" id="B@bxo2TW=|W:VqUGmz7u">
+                                <field name="X">-38</field>
+                                <field name="Y">62</field>
+                                <field name="Z">80</field>
                               </block>
-                            </next>
+                            </value>
                           </block>
                         </statement>
                       </block>
@@ -742,10 +706,8 @@
                       <block type="setvariablevalue" id="!_d;gJznDpLYsyK1tT:L">
                         <field name="VARNAME">location</field>
                         <value name="EXPRESSION">
-                          <block type="absolutelocation" id="oL)yOKFUipWjn7gFh(;!">
-                            <field name="X">locations[colors[i]].x</field>
-                            <field name="Y">locations[colors[i]].y</field>
-                            <field name="Z">locations[colors[i]].z</field>
+                          <block type="varname" id="@mGoEx#{jF0^;|KM^t-+">
+                            <field name="VARNAME">locations[colors[i]].location</field>
                           </block>
                         </value>
                         <next>
@@ -1808,10 +1770,8 @@
           </block>
         </value>
         <value name="LOCATION">
-          <block type="absolutelocation" id="2DH?h@jRp5bA?@_3G?@V">
-            <field name="X">-4</field>
-            <field name="Y">117</field>
-            <field name="Z">12</field>
+          <block type="varname" id="~n=Uo!X.^CQ$R=s4:j?r">
+            <field name="VARNAME">locations["LOBBY"].location</field>
           </block>
         </value>
         <next>
