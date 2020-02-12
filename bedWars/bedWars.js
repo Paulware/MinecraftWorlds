@@ -157,6 +157,7 @@ exports.restoreBed = function (color) {
 exports.bedWarRules = function () {
   //Instantiations;
   var player;
+  var stack;
   var name;
   var loc;
   var location;
@@ -186,7 +187,8 @@ exports.bedWarRules = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -4 117 12");
     events.playerMove( function (event) {
       player=event.player;
-      name=((player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand== null) ? "" : ((player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand().getItemMeta == null ) ? "" : (player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand().getItemMeta().getDisplayName();
+      stack=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
+      name=(stack== null) ? "" : (stack.getItemMeta == null ) ? "" : (stack.getItemMeta() == null ) ? "" : (stack.getItemMeta().getDisplayName == null ) ? "" : stack.getItemMeta().getDisplayName();
       if (name == "Staff of Dynamite"){
         loc=new org.bukkit.Location(server.worlds[0], player.location.x, player.location.y, player.location.z);
         server.worlds[0].getBlockAt (loc.add(1,-1,0)).setType (org.bukkit.Material.TNT);
@@ -348,7 +350,7 @@ exports.bedWarRules = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "save -off");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "clear @a");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -5 119 11");
     players=server.getOnlinePlayers();
     for (var i=0; i<parseInt(players.length); i++) {
       players[i].removeMetadata ("_teamcolor_", __plugin );
