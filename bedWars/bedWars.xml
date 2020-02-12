@@ -1763,32 +1763,42 @@
   <block type="scriptcraftfunction" id="}3ah98HBFB7D~nBRC)*Y" x="162" y="688">
     <field name="nameOfFunction">bedWarsJoin (player)</field>
     <statement name="FUNCTIONCODE">
-      <block type="teleport" id="It~%.+~)n!{lz*PE0:R(">
-        <value name="ENTITY">
-          <block type="varname" id="e%s0*M]y2I78-io=sdU#">
+      <block type="removeplayerdata" id="`Hn6wG7yxgD#Xnn`_n$8">
+        <field name="KEY">teamColor</field>
+        <value name="PLAYER">
+          <block type="varname" id="[q3/`?(rY)T8)8hO!0XN">
             <field name="VARNAME">player</field>
           </block>
         </value>
-        <value name="LOCATION">
-          <block type="varname" id="~n=Uo!X.^CQ$R=s4:j?r">
-            <field name="VARNAME">locations["LOBBY"].location</field>
-          </block>
-        </value>
         <next>
-          <block type="setplayerhealth" id="UF`fc_0BU6V9w~c%$.0{">
-            <value name="HEALTH">
-              <block type="math_number" id="qS~jWCmR9o,,megc6a+4">
-                <field name="NUM">20</field>
-              </block>
-            </value>
-            <value name="PLAYER">
-              <block type="varname" id="FL$?OEF%28/312Un`ePs">
+          <block type="teleport" id="It~%.+~)n!{lz*PE0:R(">
+            <value name="ENTITY">
+              <block type="varname" id="e%s0*M]y2I78-io=sdU#">
                 <field name="VARNAME">player</field>
               </block>
             </value>
+            <value name="LOCATION">
+              <block type="varname" id="~n=Uo!X.^CQ$R=s4:j?r">
+                <field name="VARNAME">locations["LOBBY"].location</field>
+              </block>
+            </value>
             <next>
-              <block type="runexpression" id="vfzMj=Bqb:pAKRPqP4W@">
-                <field name="EXPRESSION">bedWarRules()</field>
+              <block type="setplayerhealth" id="UF`fc_0BU6V9w~c%$.0{">
+                <value name="HEALTH">
+                  <block type="math_number" id="qS~jWCmR9o,,megc6a+4">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+                <value name="PLAYER">
+                  <block type="varname" id="FL$?OEF%28/312Un`ePs">
+                    <field name="VARNAME">player</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="runexpression" id="vfzMj=Bqb:pAKRPqP4W@">
+                    <field name="EXPRESSION">bedWarRules()</field>
+                  </block>
+                </next>
               </block>
             </next>
           </block>

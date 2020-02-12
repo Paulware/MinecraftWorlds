@@ -361,6 +361,7 @@ exports.bedWarRules = function () {
 };
 
 exports.bedWarsJoin  = function (player) {
+  player.removeMetadata ("_teamcolor_", __plugin );
   setTimeout (function () {
     player.teleport(locations["LOBBY"].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
