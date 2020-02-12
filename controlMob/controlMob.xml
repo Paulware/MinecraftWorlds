@@ -1585,7 +1585,7 @@
           </block>
         </value>
         <value name="LOCATION">
-          <block type="locationadd" id="s0JNlsGQ]`NoHQnA$2::">
+          <block type="absolutelocation" id="AdTdGiuW|YGjj5niR{3$">
             <field name="X">-586</field>
             <field name="Y">70</field>
             <field name="Z">547</field>

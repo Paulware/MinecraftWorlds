@@ -310,7 +310,7 @@ exports.controlMob = function () {
 
 exports.controlMobJoin = function (player) {
   setTimeout (function () {
-    player.teleport(.add (-586, 70, 547), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+    player.teleport(new org.bukkit.Location(server.worlds[0], -586, 70, 547), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
   (function() {   var h=20;
     if (player.setHealth != null) {
