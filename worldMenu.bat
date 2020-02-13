@@ -113,7 +113,7 @@ GOTO:menuLoop
 :menu_D   tower defense
 set project=towerDefense
 set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
-copy C:\SpigotMC\MinecraftWorlds\%project%\%project%\.js C:\SpigotMC\scriptcraft\plugins\
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\
 copy C:\SpigotMC\MinecraftWorlds\%project%\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
