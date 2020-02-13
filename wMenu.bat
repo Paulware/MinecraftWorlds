@@ -1,3 +1,4 @@
+REM
 @ECHO OFF
 REM.-- Prepare the Command Processor
 SETLOCAL ENABLEEXTENSIONS
