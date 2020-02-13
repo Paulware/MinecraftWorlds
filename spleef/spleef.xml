@@ -154,7 +154,7 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="ln0A{A*]MHmKZJojzcp#" x="612" y="63">
+  <block type="scriptcraftfunction" id="ln0A{A*]MHmKZJojzcp#" x="688" y="88">
     <field name="nameOfFunction">spleefJoin(player)</field>
     <statement name="FUNCTIONCODE">
       <block type="teleport" id="`usCJP946C4TkU}k30tt">
@@ -179,46 +179,46 @@
               </block>
             </value>
             <next>
-              <block type="sethotbar" id="th*7=-_mP8}5z(E8!6uu">
-                <field name="SLOT">1</field>
+              <block type="clearinventory" id="hXA8utJ#Ft#uv9vUcDY9">
                 <value name="PLAYER">
-                  <block type="varname" id="}M_i{AQkDLmORye)dmci">
+                  <block type="varname" id="uO~)dWP*4tPVIMQL{vmX">
                     <field name="VARNAME">player</field>
                   </block>
                 </value>
-                <value name="STACK">
-                  <block type="itemstack" id="fdNA=5g-?G7*,HygL?l-">
-                    <field name="COUNT">16</field>
-                    <value name="ITEM">
-                      <block type="blocktype" id="vVQD74AdH@r:hc^RhSi^">
-                        <field name="BLOCKTYPE">SNOW_BLOCK</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
                 <next>
-                  <block type="sethotbar" id="!kAr!9{X?C0EjVcR#7VH">
-                    <field name="SLOT">2</field>
+                  <block type="sethotbar" id="th*7=-_mP8}5z(E8!6uu">
+                    <field name="SLOT">1</field>
                     <value name="PLAYER">
-                      <block type="varname" id="!4_giApq962o@BdrY|n8">
+                      <block type="varname" id="}M_i{AQkDLmORye)dmci">
                         <field name="VARNAME">player</field>
                       </block>
                     </value>
                     <value name="STACK">
-                      <block type="itemstack" id="L+C~_4HgYf0+K,l#5G*{">
-                        <field name="COUNT">1</field>
+                      <block type="itemstack" id="fdNA=5g-?G7*,HygL?l-">
+                        <field name="COUNT">16</field>
                         <value name="ITEM">
-                          <block type="materialtype" id="Cebk+x`!avGO07cRQ4xx">
-                            <field name="MATERIAL">DIAMOND_SHOVEL</field>
+                          <block type="blocktype" id="vVQD74AdH@r:hc^RhSi^">
+                            <field name="BLOCKTYPE">SNOW_BLOCK</field>
                           </block>
                         </value>
                       </block>
                     </value>
                     <next>
-                      <block type="clearinventory" id="hXA8utJ#Ft#uv9vUcDY9">
+                      <block type="sethotbar" id="!kAr!9{X?C0EjVcR#7VH">
+                        <field name="SLOT">2</field>
                         <value name="PLAYER">
-                          <block type="varname" id="uO~)dWP*4tPVIMQL{vmX">
+                          <block type="varname" id="!4_giApq962o@BdrY|n8">
                             <field name="VARNAME">player</field>
+                          </block>
+                        </value>
+                        <value name="STACK">
+                          <block type="itemstack" id="L+C~_4HgYf0+K,l#5G*{">
+                            <field name="COUNT">1</field>
+                            <value name="ITEM">
+                              <block type="materialtype" id="Cebk+x`!avGO07cRQ4xx">
+                                <field name="MATERIAL">DIAMOND_SHOVEL</field>
+                              </block>
+                            </value>
                           </block>
                         </value>
                         <next>

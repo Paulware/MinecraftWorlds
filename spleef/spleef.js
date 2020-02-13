@@ -28,8 +28,8 @@ exports.spleefJoin = function (player) {
     player.teleport(new org.bukkit.Location(server.worlds[0], -87, 13, 132), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
   },2000);
   player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+  player.getInventory().clear();
   player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOW_BLOCK,16) );
   player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.DIAMOND_SHOVEL,1) );
-  player.getInventory().clear();
   spleef();
 };
