@@ -33,7 +33,8 @@ copy C:\SpigotMC\MinecraftWorlds\tntCannon\startGame.js C:\SpigotMC\scriptcraft\
 GOTO:copyFiles
 
 :menu_3   Copy Air Wars World
-set source=C:\SpigotMC\MinecraftWorlds\airWars\*.*
+set project=airWars
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
 copy C:\SpigotMC\MinecraftWorlds\airWars\airWars.js C:\SpigotMC\scriptcraft\plugins\airWars.js
 copy C:\SpigotMC\MinecraftWorlds\airWars\bukkit.yml C:\SpigotMC\bukkit.yml
 copy C:\SpigotMC\MinecraftWorlds\airWars\spigot.yml C:\SpigotMC\spigot.yml
