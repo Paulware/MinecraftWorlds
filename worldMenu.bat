@@ -72,7 +72,7 @@ GOTO:copyFiles
 :menu_8   bed wars
 set project=bedWars
 set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
-copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\bedWars.js
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\autoMinecartGame.js C:\SpigotMC\scriptcraft\plugins\autoMinecartGame.js
 copy C:\SpigotMC\MinecraftWorlds\%project%\bukkit.yml C:\SpigotMC\bukkit.yml
 copy C:\SpigotMC\MinecraftWorlds\%project%\spigot.yml C:\SpigotMC\spigot.yml
@@ -84,8 +84,11 @@ cd C:\SpigotMC
 call runServer.bat
 GOTO:menuLOOP
 
-:menu_A   Murder Mystery
-set source=C:\SpigotMC\worlds\VictEnglandMM\*.*
+:menu_A   Spleef
+set project=spleef
+set source=C:\SpigotMC\worlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
+
 GOTO:copyFiles
 
 :menu_B   Set Backups as destination
