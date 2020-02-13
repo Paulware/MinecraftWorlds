@@ -176,6 +176,7 @@ exports.bedWarRules = function () {
   var blockList;
   var destroyBlock;
   var bedBlock;
+  var projectile;
   var teamColor;
   var teamColors;
   var minecart;
@@ -288,13 +289,20 @@ exports.bedWarRules = function () {
     });
     events.playerInteract( function (event) {
       block=event.getClickedBlock();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
+      stack=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
+      name=(stack== null) ? "" : (stack.getItemMeta == null ) ? "" : (stack.getItemMeta() == null ) ? "" : (stack.getItemMeta().getDisplayName == null ) ? "" : stack.getItemMeta().getDisplayName();
+      if (((name) == ("arrows"))){
+        projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+        player.launchProjectile(projectile.getClass());
+      }
       if (((block) != (null))){
         if (((block.getType().toString()) == "OAK_SIGN")){
           teamColor=(block.state.getLine(1)).toUpperCase();
           fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,teamColor);
-          if (event.player != null) {
-            if (event.player.setMetadata != null ) {
-              event.player.setMetadata ("_teamcolor_", fd );
+          if (player != null) {
+            if (player.setMetadata != null ) {
+              player.setMetadata ("_teamcolor_", fd );
             }
           }
           teamColors=["RED","BLUE","ORANGE","WHITE"];
@@ -309,10 +317,10 @@ exports.bedWarRules = function () {
           }
         }
       }
-      if (event.player.getMetadata("_minecart_").length > 0){
-        minecart=event.player.getMetadata("_minecart_")[0].value();
+      if (player.getMetadata("_minecart_").length > 0){
+        minecart=player.getMetadata("_minecart_")[0].value();
         if (! (minecart.isEmpty())){
-          looking=directions[parseInt(((event.player).getLocation().getYaw() + 368.0 ) / 22.5) % 16];
+          looking=directions[parseInt(((player).getLocation().getYaw() + 368.0 ) / 22.5) % 16];
           looking=looking.toString();
         }
         console.log ("Player changing direction to " + looking);
