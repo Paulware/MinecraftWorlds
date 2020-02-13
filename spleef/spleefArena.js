@@ -1,5 +1,6 @@
 exports.spleefArena = function () {
   var location=(new org.bukkit.Location(server.worlds[0], 100, 4, 100)); 
+  location = self.location;
   var loc;
   loc = new org.bukkit.Location (server.worlds[0],parseInt(location.x)-1,parseInt(location.y)+0,parseInt(location.z)+0);
   server.worlds[0].getBlockAt(loc).setType (org.bukkit.Material.POLISHED_ANDESITE);

@@ -94,7 +94,7 @@
                                         <value name="LOCATION">
                                           <block type="absolutelocation" id="oG!3-q4PXxD@.(2$0+UM">
                                             <field name="X">-87</field>
-                                            <field name="Y">13</field>
+                                            <field name="Y">14</field>
                                             <field name="Z">132</field>
                                           </block>
                                         </value>
@@ -166,7 +166,7 @@
         <value name="LOCATION">
           <block type="absolutelocation" id="q=7Cr?``%FqS;i6}0QB%">
             <field name="X">-87</field>
-            <field name="Y">13</field>
+            <field name="Y">14</field>
             <field name="Z">132</field>
           </block>
         </value>
