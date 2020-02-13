@@ -445,14 +445,8 @@ exports.omahaBeach = function () {
         i=0;
         var test= setInterval (function () {
           i=i+1;
-          if (((player) == (exports.kings[0])) || ((player) == (exports.kings[1]))){
-            projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.TRIDENT);
-            player.launchProjectile(projectile.getClass());
-          }
-          else {
-            projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
-            player.launchProjectile(projectile.getClass());
-          }
+          projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
+          player.launchProjectile(projectile.getClass());
           if (!(i <10)) {
             clearInterval (test);
           }

@@ -1330,71 +1330,17 @@
                                                                                                                     <field name="VARNAME">i</field>
                                                                                                                     <field name="EXPRESSION">i+1</field>
                                                                                                                     <next>
-                                                                                                                      <block type="controls_if" id="PWHJp^Ca?cNPEJ+_29gx">
-                                                                                                                        <mutation else="1"></mutation>
-                                                                                                                        <value name="IF0">
-                                                                                                                          <block type="logic_operation" id="WTYYmxsZj6;zY1!rNQl@">
-                                                                                                                            <field name="OP">OR</field>
-                                                                                                                            <value name="A">
-                                                                                                                              <block type="logic_compare" id="|;Biz)qS~`+xj|?Y+)2+">
-                                                                                                                                <field name="OP">EQ</field>
-                                                                                                                                <value name="A">
-                                                                                                                                  <block type="varname" id="y!d$TAP^jw3Ku0YGNn6m">
-                                                                                                                                    <field name="VARNAME">player</field>
-                                                                                                                                  </block>
-                                                                                                                                </value>
-                                                                                                                                <value name="B">
-                                                                                                                                  <block type="varname" id="(6eQh:WQg?c-K%_lZ7vC">
-                                                                                                                                    <field name="VARNAME">exports.kings[0]</field>
-                                                                                                                                  </block>
-                                                                                                                                </value>
-                                                                                                                              </block>
-                                                                                                                            </value>
-                                                                                                                            <value name="B">
-                                                                                                                              <block type="logic_compare" id="!UT$/L~7h2mQRuDy!#cj">
-                                                                                                                                <field name="OP">EQ</field>
-                                                                                                                                <value name="A">
-                                                                                                                                  <block type="varname" id="l:?qGD91BE$S$M_aqUpf">
-                                                                                                                                    <field name="VARNAME">player</field>
-                                                                                                                                  </block>
-                                                                                                                                </value>
-                                                                                                                                <value name="B">
-                                                                                                                                  <block type="varname" id="s)Jzo(D*84Nv,e_RCp:l">
-                                                                                                                                    <field name="VARNAME">exports.kings[1]</field>
-                                                                                                                                  </block>
-                                                                                                                                </value>
-                                                                                                                              </block>
-                                                                                                                            </value>
+                                                                                                                      <block type="launchprojectile" id=",yTH`s[38/5iaA[rh_xa">
+                                                                                                                        <value name="ENTITY">
+                                                                                                                          <block type="varname" id="n2[So,h$(57!k`-a9]+;">
+                                                                                                                            <field name="VARNAME">player</field>
                                                                                                                           </block>
                                                                                                                         </value>
-                                                                                                                        <statement name="DO0">
-                                                                                                                          <block type="launchprojectile" id="$lm6isDc1?2])./B1u_k">
-                                                                                                                            <value name="ENTITY">
-                                                                                                                              <block type="varname" id=",1/bpa,xfiP^G!+__=5_">
-                                                                                                                                <field name="VARNAME">player</field>
-                                                                                                                              </block>
-                                                                                                                            </value>
-                                                                                                                            <value name="PROJECTILE">
-                                                                                                                              <block type="projectileentity" id="0Q1HwUG+t(er_1t.|--z">
-                                                                                                                                <field name="PROJECTILE">TRIDENT</field>
-                                                                                                                              </block>
-                                                                                                                            </value>
+                                                                                                                        <value name="PROJECTILE">
+                                                                                                                          <block type="projectileentity" id="fyS7@urXtN4zyzY}~DAB">
+                                                                                                                            <field name="PROJECTILE">ARROW</field>
                                                                                                                           </block>
-                                                                                                                        </statement>
-                                                                                                                        <statement name="ELSE">
-                                                                                                                          <block type="launchprojectile" id=",yTH`s[38/5iaA[rh_xa">
-                                                                                                                            <value name="ENTITY">
-                                                                                                                              <block type="varname" id="n2[So,h$(57!k`-a9]+;">
-                                                                                                                                <field name="VARNAME">player</field>
-                                                                                                                              </block>
-                                                                                                                            </value>
-                                                                                                                            <value name="PROJECTILE">
-                                                                                                                              <block type="projectileentity" id="fyS7@urXtN4zyzY}~DAB">
-                                                                                                                                <field name="PROJECTILE">ARROW</field>
-                                                                                                                              </block>
-                                                                                                                            </value>
-                                                                                                                          </block>
-                                                                                                                        </statement>
+                                                                                                                        </value>
                                                                                                                       </block>
                                                                                                                     </next>
                                                                                                                   </block>
