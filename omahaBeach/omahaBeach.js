@@ -15,7 +15,7 @@ exports.omahaBeach = function () {
   var shooter;
   var bow;
   var bowName;
-  var count;
+  var gameOver;
   var barbTime;
   var elapsedTime;
   if (((exports.gameStarted) == (null))){
@@ -519,63 +519,44 @@ exports.omahaBeach = function () {
     });
     events.playerDeath( function (event) {
       player=(event.getEntity== null) ? null : event.getEntity();
+      gameOver=false;
       if (((player) == (exports.kings[0]))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
         exports.kingsDead[0] = true;
+        if (exports.kingsDead[2]){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Defenders Win!");
+          gameOver=true;
+        }
       }
       else if (((player) == (exports.kings[1]))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Defender has died\"");
         exports.kingsDead[1] = true;
+        if (exports.kingsDead[3]){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Attackers Win!");
+          gameOver=true;
+        }
       }
       else if (((player) == (exports.kings[2]))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Airforce has died\"");
         exports.kingsDead[2] = true;
+        if (exports.kingsDead[0]){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Defenders Win!");
+          gameOver=true;
+        }
       }
       else if (((player) == (exports.kings[3]))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Artillery has died\"");
         exports.kingsDead[3] = true;
+        if (exports.kingsDead[1]){
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Attackers Win!");
+          gameOver=true;
+        }
       }
-      count=(function() {
-        var count = 0;
-        for (var i=0; i<exports.kings.length; i++) {
-           if (exports.kings[i] == null) {
-              count = count + 1;
-           }
-        }
-        return count; })();
-      if (((count) == 0)){
-        count=(function() {
-          var count = 0;
-          for (var i=0; i<exports.kingsDead.length; i++) {
-             if (exports.kingsDead[i] == true) {
-                count = count + 1;
-             }
-          }
-          return count; })();
-        if (((count) == 3)){
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a game over");
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a *************");
-          if (!exports.kingsDead[0]){
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Attackers Win!");
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Attackers Win!");
-          }
-          else if (!exports.kingsDead[1]){
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Defenders Win!");
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Defenders Win!");
-          }
-          else if (!exports.kingsDead[2]){
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Artillery Wins!");
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Artillery Wins!");
-          }
-          else {
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Airforce Wins!");
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a Airforce Wins!");
-          }
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a GAME OVER!");
-          setTimeout (function () {
-            org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
-          },5000);
-        }
+      if (gameOver){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a GAME OVER!");
+        setTimeout (function () {
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
+        },5000);
       }
     });
     events.playerQuit( function (event) {
