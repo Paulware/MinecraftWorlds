@@ -289,11 +289,11 @@ exports.towerDefense = function () {
             objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
             objective.getScore(owner).setScore(score);
             owner.setScoreboard (exports.board);
-            if (((exports.usa) > 49)){
+            if (((exports.usa) > 99)){
               org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"USA Wins!\"");
               org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
             }
-            else if (((exports.canada) > 49)){
+            else if (((exports.canada) > 99)){
               org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"Canada Wins!\"");
               org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kill @a");
             }
