@@ -87,7 +87,7 @@ GOTO:menuLOOP
 
 :menu_A   Spleef
 set project=spleef
-set source=C:\SpigotMC\worlds\%project%\*.*
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
 copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
 
 GOTO:copyFiles
