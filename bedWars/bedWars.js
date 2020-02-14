@@ -185,7 +185,6 @@ exports.bedWarRules = function () {
   var players;
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule keepInventory true");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -4 117 12");
     events.playerMove( function (event) {
       player=event.player;
