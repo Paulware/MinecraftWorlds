@@ -23,128 +23,146 @@
             <field name="VARNAME">exports.gameStarted</field>
             <field name="EXPRESSION">1</field>
             <next>
-              <block type="eventlistener" id="$qg_cbZ}2OkZ].H#iJ2=">
-                <field name="LISTENERTYPE">playerRespawn</field>
-                <statement name="LISTENERCODE">
-                  <block type="setvariablevalue" id="I|9EvkN%$3,6Rkd_U@oC">
-                    <field name="VARNAME">player</field>
-                    <value name="EXPRESSION">
-                      <block type="eventinfo" id=".MLYYa7?^I.7X}$Cp5+,">
-                        <field name="INFORMATION">getPlayer</field>
+              <block type="getnewboard" id="$CL*kMwR~0)U$5Kj/_ql">
+                <next>
+                  <block type="scoreboardtitle" id="cB7l!Pe#q*x)a;jXLF7y">
+                    <value name="TITLE">
+                      <block type="text" id="f}osk,uuV%{0$fO5F}.l">
+                        <field name="TEXT">Welcome to Spleef yo</field>
                       </block>
                     </value>
                     <next>
-                      <block type="clearinventory" id="Q.ia8z,m}*@;Fl,M7Zyj">
-                        <value name="PLAYER">
-                          <block type="varname" id="ziWjmdC3+aIGCb1!:tTl">
-                            <field name="VARNAME">player</field>
-                          </block>
-                        </value>
+                      <block type="eventlistener" id="jsD}F%Zs92wMMx+srIbL">
+                        <field name="LISTENERTYPE">playerMove</field>
                         <next>
-                          <block type="setgamemode" id="Z[On=+,@0qp9ZRxosc4W">
-                            <field name="GAMEMODE">SURVIVAL</field>
-                            <value name="PLAYER">
-                              <block type="varname" id="9Qpm+Tluy~Bbj0ZitfhI">
+                          <block type="eventlistener" id="$qg_cbZ}2OkZ].H#iJ2=">
+                            <field name="LISTENERTYPE">playerRespawn</field>
+                            <statement name="LISTENERCODE">
+                              <block type="setvariablevalue" id="I|9EvkN%$3,6Rkd_U@oC">
                                 <field name="VARNAME">player</field>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="sethotbar" id="u2UXFu%*6lq;ysR5+DB/">
-                                <field name="SLOT">1</field>
-                                <value name="PLAYER">
-                                  <block type="varname" id="=A|5uUJX0TtJ`as*)V9@">
-                                    <field name="VARNAME">player</field>
-                                  </block>
-                                </value>
-                                <value name="STACK">
-                                  <block type="itemstack" id="jo8q5sE]?Q:tgU216yoj">
-                                    <field name="COUNT">16</field>
-                                    <value name="ITEM">
-                                      <block type="blocktype" id="SU4Su%kFc%GL,JV1b7_A">
-                                        <field name="BLOCKTYPE">SNOW_BLOCK</field>
-                                      </block>
-                                    </value>
+                                <value name="EXPRESSION">
+                                  <block type="eventinfo" id=".MLYYa7?^I.7X}$Cp5+,">
+                                    <field name="INFORMATION">getPlayer</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="sethotbar" id="F=90G/|/7{OE|,-s_BkC">
-                                    <field name="SLOT">2</field>
+                                  <block type="clearinventory" id="Q.ia8z,m}*@;Fl,M7Zyj">
                                     <value name="PLAYER">
-                                      <block type="varname" id="ox=2+Q}@wRtd%V:mDa9h">
+                                      <block type="varname" id="ziWjmdC3+aIGCb1!:tTl">
                                         <field name="VARNAME">player</field>
                                       </block>
                                     </value>
-                                    <value name="STACK">
-                                      <block type="itemstack" id="-KF,.Ca6~kXrlY?wnkih">
-                                        <field name="COUNT">1</field>
-                                        <value name="ITEM">
-                                          <block type="materialtype" id="Nc_N*K+HIt;l}BQ[[):M">
-                                            <field name="MATERIAL">DIAMOND_SHOVEL</field>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </value>
                                     <next>
-                                      <block type="teleport" id="Rm!/vlc084[jddi^9kpV">
-                                        <value name="ENTITY">
-                                          <block type="varname" id=",vm9VB3v=7?Ff6^z68im">
+                                      <block type="setgamemode" id="Z[On=+,@0qp9ZRxosc4W">
+                                        <field name="GAMEMODE">SURVIVAL</field>
+                                        <value name="PLAYER">
+                                          <block type="varname" id="9Qpm+Tluy~Bbj0ZitfhI">
                                             <field name="VARNAME">player</field>
                                           </block>
                                         </value>
-                                        <value name="LOCATION">
-                                          <block type="absolutelocation" id="oG!3-q4PXxD@.(2$0+UM">
-                                            <field name="X">-87</field>
-                                            <field name="Y">14</field>
-                                            <field name="Z">132</field>
+                                        <next>
+                                          <block type="sethotbar" id="u2UXFu%*6lq;ysR5+DB/">
+                                            <field name="SLOT">1</field>
+                                            <value name="PLAYER">
+                                              <block type="varname" id="=A|5uUJX0TtJ`as*)V9@">
+                                                <field name="VARNAME">player</field>
+                                              </block>
+                                            </value>
+                                            <value name="STACK">
+                                              <block type="itemstack" id="jo8q5sE]?Q:tgU216yoj">
+                                                <field name="COUNT">16</field>
+                                                <value name="ITEM">
+                                                  <block type="blocktype" id="SU4Su%kFc%GL,JV1b7_A">
+                                                    <field name="BLOCKTYPE">SNOW_BLOCK</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="sethotbar" id="F=90G/|/7{OE|,-s_BkC">
+                                                <field name="SLOT">2</field>
+                                                <value name="PLAYER">
+                                                  <block type="varname" id="ox=2+Q}@wRtd%V:mDa9h">
+                                                    <field name="VARNAME">player</field>
+                                                  </block>
+                                                </value>
+                                                <value name="STACK">
+                                                  <block type="itemstack" id="-KF,.Ca6~kXrlY?wnkih">
+                                                    <field name="COUNT">1</field>
+                                                    <value name="ITEM">
+                                                      <block type="materialtype" id="Nc_N*K+HIt;l}BQ[[):M">
+                                                        <field name="MATERIAL">DIAMOND_SHOVEL</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="teleport" id="Rm!/vlc084[jddi^9kpV">
+                                                    <value name="ENTITY">
+                                                      <block type="varname" id=",vm9VB3v=7?Ff6^z68im">
+                                                        <field name="VARNAME">player</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="LOCATION">
+                                                      <block type="absolutelocation" id="oG!3-q4PXxD@.(2$0+UM">
+                                                        <field name="X">-87</field>
+                                                        <field name="Y">14</field>
+                                                        <field name="Z">132</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
                                           </block>
-                                        </value>
+                                        </next>
                                       </block>
                                     </next>
                                   </block>
                                 </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="eventlistener" id="8TkkBH$.r=~/{-2v-YP+">
+                                <field name="LISTENERTYPE">blockBreak</field>
+                                <statement name="LISTENERCODE">
+                                  <block type="setvariable" id="Iu(b@?PXe,|i.eVC{u[-">
+                                    <field name="VARNAME">block</field>
+                                    <field name="EXPRESSION">event.getBlock()</field>
+                                    <next>
+                                      <block type="controls_if" id="qzO_TMuV-SB@cz5xC;Km">
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="Lr@:5^mjGdl;B=}~IO~4">
+                                            <field name="OP">NEQ</field>
+                                            <value name="A">
+                                              <block type="getblocktype" id="le`,_3Za`ghFm;m:y}tK">
+                                                <value name="BLOCK">
+                                                  <block type="varname" id="u%We5F`52RDs^NDnW1k(">
+                                                    <field name="VARNAME">block</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="blocktype" id="VZM7:_Q_z6Hf3keuDO!6">
+                                                <field name="BLOCKTYPE">SNOW_BLOCK</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="eventcancel" id="c`)e46#^S*eiwRpF6.8I"></block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
                               </block>
                             </next>
                           </block>
                         </next>
                       </block>
                     </next>
-                  </block>
-                </statement>
-                <next>
-                  <block type="eventlistener" id="8TkkBH$.r=~/{-2v-YP+">
-                    <field name="LISTENERTYPE">blockBreak</field>
-                    <statement name="LISTENERCODE">
-                      <block type="setvariable" id="Iu(b@?PXe,|i.eVC{u[-">
-                        <field name="VARNAME">block</field>
-                        <field name="EXPRESSION">event.getBlock()</field>
-                        <next>
-                          <block type="controls_if" id="qzO_TMuV-SB@cz5xC;Km">
-                            <value name="IF0">
-                              <block type="logic_compare" id="Lr@:5^mjGdl;B=}~IO~4">
-                                <field name="OP">NEQ</field>
-                                <value name="A">
-                                  <block type="getblocktype" id="le`,_3Za`ghFm;m:y}tK">
-                                    <value name="BLOCK">
-                                      <block type="varname" id="u%We5F`52RDs^NDnW1k(">
-                                        <field name="VARNAME">block</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </value>
-                                <value name="B">
-                                  <block type="blocktype" id="VZM7:_Q_z6Hf3keuDO!6">
-                                    <field name="BLOCKTYPE">SNOW_BLOCK</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <statement name="DO0">
-                              <block type="eventcancel" id="c`)e46#^S*eiwRpF6.8I"></block>
-                            </statement>
-                          </block>
-                        </next>
-                      </block>
-                    </statement>
                   </block>
                 </next>
               </block>
@@ -154,76 +172,105 @@
       </block>
     </statement>
   </block>
-  <block type="scriptcraftfunction" id="ln0A{A*]MHmKZJojzcp#" x="688" y="88">
+  <block type="scriptcraftfunction" id="ln0A{A*]MHmKZJojzcp#" x="788" y="288">
     <field name="nameOfFunction">spleefJoin(player)</field>
     <statement name="FUNCTIONCODE">
-      <block type="teleport" id="`usCJP946C4TkU}k30tt">
-        <value name="ENTITY">
-          <block type="varname" id="l4{Z#arH6n[R#y3jLb^i">
+      <block type="setplayerdata" id="Qo6l].%XA1enE!Kz;h,_">
+        <field name="KEY">score</field>
+        <value name="VALUE">
+          <block type="math_number" id="#FI=}e/@zR*^G_PaK4=n">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="PLAYER">
+          <block type="varname" id="Zd1+eUY_3#f{!yB%v@Je">
             <field name="VARNAME">player</field>
           </block>
         </value>
-        <value name="LOCATION">
-          <block type="absolutelocation" id="q=7Cr?``%FqS;i6}0QB%">
-            <field name="X">-87</field>
-            <field name="Y">14</field>
-            <field name="Z">132</field>
-          </block>
-        </value>
         <next>
-          <block type="setgamemode" id="%AnF!%4u3]{QUlUT-Z*7">
-            <field name="GAMEMODE">SURVIVAL</field>
-            <value name="PLAYER">
-              <block type="varname" id="M|QKg[aYGmKke,r|)h$d">
+          <block type="teleport" id="`usCJP946C4TkU}k30tt">
+            <value name="ENTITY">
+              <block type="varname" id="l4{Z#arH6n[R#y3jLb^i">
                 <field name="VARNAME">player</field>
               </block>
             </value>
+            <value name="LOCATION">
+              <block type="absolutelocation" id="q=7Cr?``%FqS;i6}0QB%">
+                <field name="X">-87</field>
+                <field name="Y">14</field>
+                <field name="Z">132</field>
+              </block>
+            </value>
             <next>
-              <block type="clearinventory" id="hXA8utJ#Ft#uv9vUcDY9">
+              <block type="setgamemode" id="%AnF!%4u3]{QUlUT-Z*7">
+                <field name="GAMEMODE">SURVIVAL</field>
                 <value name="PLAYER">
-                  <block type="varname" id="uO~)dWP*4tPVIMQL{vmX">
+                  <block type="varname" id="M|QKg[aYGmKke,r|)h$d">
                     <field name="VARNAME">player</field>
                   </block>
                 </value>
                 <next>
-                  <block type="sethotbar" id="th*7=-_mP8}5z(E8!6uu">
-                    <field name="SLOT">1</field>
+                  <block type="clearinventory" id="hXA8utJ#Ft#uv9vUcDY9">
                     <value name="PLAYER">
-                      <block type="varname" id="}M_i{AQkDLmORye)dmci">
+                      <block type="varname" id="uO~)dWP*4tPVIMQL{vmX">
                         <field name="VARNAME">player</field>
                       </block>
                     </value>
-                    <value name="STACK">
-                      <block type="itemstack" id="fdNA=5g-?G7*,HygL?l-">
-                        <field name="COUNT">16</field>
-                        <value name="ITEM">
-                          <block type="blocktype" id="vVQD74AdH@r:hc^RhSi^">
-                            <field name="BLOCKTYPE">SNOW_BLOCK</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
                     <next>
-                      <block type="sethotbar" id="!kAr!9{X?C0EjVcR#7VH">
-                        <field name="SLOT">2</field>
+                      <block type="sethotbar" id="th*7=-_mP8}5z(E8!6uu">
+                        <field name="SLOT">1</field>
                         <value name="PLAYER">
-                          <block type="varname" id="!4_giApq962o@BdrY|n8">
+                          <block type="varname" id="}M_i{AQkDLmORye)dmci">
                             <field name="VARNAME">player</field>
                           </block>
                         </value>
                         <value name="STACK">
-                          <block type="itemstack" id="L+C~_4HgYf0+K,l#5G*{">
-                            <field name="COUNT">1</field>
+                          <block type="itemstack" id="fdNA=5g-?G7*,HygL?l-">
+                            <field name="COUNT">16</field>
                             <value name="ITEM">
-                              <block type="materialtype" id="Cebk+x`!avGO07cRQ4xx">
-                                <field name="MATERIAL">DIAMOND_SHOVEL</field>
+                              <block type="blocktype" id="vVQD74AdH@r:hc^RhSi^">
+                                <field name="BLOCKTYPE">SNOW_BLOCK</field>
                               </block>
                             </value>
                           </block>
                         </value>
                         <next>
-                          <block type="functionCall" id="mj3*e?Hbp{`6hj.b8$L~">
-                            <field name="FUNCTIONNAME">spleef()</field>
+                          <block type="sethotbar" id="!kAr!9{X?C0EjVcR#7VH">
+                            <field name="SLOT">2</field>
+                            <value name="PLAYER">
+                              <block type="varname" id="!4_giApq962o@BdrY|n8">
+                                <field name="VARNAME">player</field>
+                              </block>
+                            </value>
+                            <value name="STACK">
+                              <block type="itemstack" id="L+C~_4HgYf0+K,l#5G*{">
+                                <field name="COUNT">1</field>
+                                <value name="ITEM">
+                                  <block type="materialtype" id="Cebk+x`!avGO07cRQ4xx">
+                                    <field name="MATERIAL">DIAMOND_SHOVEL</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="functionCall" id="mj3*e?Hbp{`6hj.b8$L~">
+                                <field name="FUNCTIONNAME">spleef()</field>
+                                <next>
+                                  <block type="setscore" id="a)UA.^694qLR}2.oaBx|">
+                                    <value name="PLAYER">
+                                      <block type="varname" id="Y_i^mMmnUEiR}pO|3nW^">
+                                        <field name="VARNAME">player</field>
+                                      </block>
+                                    </value>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="8EQ^bKPH4A!T~Y_-(.}%">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
                           </block>
                         </next>
                       </block>
