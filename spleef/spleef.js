@@ -14,13 +14,15 @@ exports.spleef  = function () {
     objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective.setDisplayName("Welcome to Spleef yo");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn -87 14 132");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setspawn -87 14 132");
     events.playerDeath( function (event) {
       player=(event.getPlayer== null) ? null : event.getPlayer();
       players=server.getOnlinePlayers();
       for (var i=0; i<players.length;i++) {
         (function() {
           if (players[i] != null ) {
-             players[i].sendMessage (players[i].name + " died yo");
+             players[i].sendMessage (players[i].name + " died");
           }
          })();
         if (((players[i]) != (player))){
