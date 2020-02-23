@@ -514,9 +514,184 @@
   <block type="scriptcraftfunction" id="IM%Mao$509[_]dX6a2f#" x="138" y="1237">
     <field name="nameOfFunction">battlefield</field>
     <statement name="FUNCTIONCODE">
-      <block type="setvariable" id="5hoON%Z1dGDF8r-g,L{_" disabled="true">
-        <field name="VARNAME">beacons</field>
-        <field name="EXPRESSION">[[</field>
+      <block type="setvariable" id="[D[HdhJ#p3S1}fE;Qm01">
+        <field name="VARNAME">exports.redScore</field>
+        <field name="EXPRESSION">0</field>
+        <next>
+          <block type="setvariable" id="=H4lvziXeP8ZV/PtK+}t">
+            <field name="VARNAME">exports.blueScore</field>
+            <field name="EXPRESSION">0</field>
+            <next>
+              <block type="getnewboard" id="2.K#1K-/PI$k_MlAfs46">
+                <next>
+                  <block type="scoreboardtitle" id="JBc.6?)hf^+]}5R`g8[4">
+                    <value name="TITLE">
+                      <block type="varname" id="1(1jm-]BH@fACO_zqQYT">
+                        <field name="VARNAME">"Battlefield Red Team: 0  Blue Team: 0"</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setscore" id="dLz7GxyPL;/AUzc;rGYe">
+                        <value name="PLAYER">
+                          <block type="varname" id="3wi7G~5mKgs+gD52d%A2">
+                            <field name="VARNAME">self</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number" id="Z@~]ESmyC7_]0v6Q`pvU">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setvariable" id="5hoON%Z1dGDF8r-g,L{_">
+                            <field name="VARNAME">beacons</field>
+                            <field name="EXPRESSION">[[552,101,-1115]]</field>
+                            <next>
+                              <block type="repeatexecution" id="WU(e^DaiqR{4Y*p#$zu2">
+                                <field name="NAME">yo</field>
+                                <field name="TIMEOUT">3000</field>
+                                <field name="CONTINUE">true</field>
+                                <statement name="CODE">
+                                  <block type="forlistdo" id="Sny:ga$9!dHQ1Vy@/8}6">
+                                    <field name="INDEX">i</field>
+                                    <value name="LIST">
+                                      <block type="varname" id="Pm[mYy%V=,D#_GHu4Kcm">
+                                        <field name="VARNAME">beacons</field>
+                                      </block>
+                                    </value>
+                                    <statement name="FORCODE">
+                                      <block type="setvariable" id="i@RoBPu[tm+]`JqD,2uj">
+                                        <field name="VARNAME">x</field>
+                                        <field name="EXPRESSION">beacons[i][0]</field>
+                                        <next>
+                                          <block type="setvariable" id="rYfJZ-rV|}0Ulj`rS$XG">
+                                            <field name="VARNAME">y</field>
+                                            <field name="EXPRESSION">beacons[i][1] + 1</field>
+                                            <next>
+                                              <block type="setvariable" id="s8`tK]k;eN?BEAJB2r2c">
+                                                <field name="VARNAME">z</field>
+                                                <field name="EXPRESSION">beacons[i][2]</field>
+                                                <next>
+                                                  <block type="setvariablevalue" id="XaRPtTN{0Rq0PeYf%YQv">
+                                                    <field name="VARNAME">block</field>
+                                                    <value name="EXPRESSION">
+                                                      <block type="blockatlocation" id="i_JAPVOYn0a]u@Yg@cfj">
+                                                        <value name="LOCATION">
+                                                          <block type="absolutelocation" id="owI^Rd4+)Fnydt*6?;%s">
+                                                            <field name="X">x</field>
+                                                            <field name="Y">y</field>
+                                                            <field name="Z">z</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="setvariablevalue" id="+WWG:{CClMQp3YqmRy%E">
+                                                        <field name="VARNAME">blockType</field>
+                                                        <value name="EXPRESSION">
+                                                          <block type="getblocktype" id="t`ea-+27N:zz0c)C:e;3">
+                                                            <value name="BLOCK">
+                                                              <block type="varname" id="#|![S5aC:C$zE}*)svOn">
+                                                                <field name="VARNAME">block</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="controls_if" id=")Z[tJRoR%0CZkiJ8)i;(">
+                                                            <mutation elseif="1"></mutation>
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="6qOY|NiPcI8bt(EvMCsA">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="varname" id="[p.Ovjhv7@]8kT0B{Z1B">
+                                                                    <field name="VARNAME">blockType</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="blocktype" id="w*v@s+V6RIZ,%DR]kzJ|">
+                                                                    <field name="BLOCKTYPE">BLUE_STAINED_GLASS</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="increment" id=".tY,G``:_6ULyX:[ifgR">
+                                                                <value name="VARIABLE">
+                                                                  <block type="varname" id="$s0]zoRvh{FK!rIhFzqo">
+                                                                    <field name="VARNAME">exports.blueScore</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <value name="IF1">
+                                                              <block type="logic_compare" id="GZR*(%xu_4P!jB}uVWrO">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="varname" id="[z.[J~#94sl:NU%_B1Zb">
+                                                                    <field name="VARNAME">blockType</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="blocktype" id="q-Ncq$mc_}n#_-shL#oj">
+                                                                    <field name="BLOCKTYPE">RED_STAINED_GLASS</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO1">
+                                                              <block type="increment" id=")_SJoPF1p@x9,0jk]MVP">
+                                                                <value name="VARIABLE">
+                                                                  <block type="varname" id="z/NdCiDia[/^2ypX:n[u">
+                                                                    <field name="VARNAME">exports.redScore</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="scoreboardtitle" id="!EUGyptg~ZYK(1vs96~C">
+                                                                <value name="TITLE">
+                                                                  <block type="varname" id="^80#uK;-d_+yu4LPcn-$">
+                                                                    <field name="VARNAME">"Battlefield Red Team:" + exports.redScore + "  Blue Team: " + exports.blueScore</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="consolelog" id="$7o3uHC7.b}ZVmI(]d5_">
+                                                                    <value name="NAME">
+                                                                      <block type="varname" id="+7=#IMh2LMCz`-!/2;}j">
+                                                                        <field name="VARNAME">blockType</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
       </block>
     </statement>
   </block>
