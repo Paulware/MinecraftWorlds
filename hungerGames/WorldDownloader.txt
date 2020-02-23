@@ -1,4 +1,0 @@
-#These settings are used for a single world in a multiworld server.
-#Tue Jul 16 17:40:39 CEST 2019
-WorldName=PVP3
-LastSaved=1563291637800
