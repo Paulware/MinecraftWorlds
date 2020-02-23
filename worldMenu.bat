@@ -23,8 +23,8 @@ GOTO:menuLOOP
 :: menu functions follow below here
 ::-----------------------------------------------------------
 
-:menu_1   Copy Hunger Games World 
-set source=C:\SpigotMC\MinecraftWorlds\hungerGames\*.*
+:menu_1   Copy Battlefield/Hunger Games world 
+set source=C:\SpigotMC\MinecraftWorlds\battlefield\*.*
 GOTO:copyFiles
 
 :menu_2   Copy TNT Cannon
