@@ -40,6 +40,7 @@ exports.teamBeacon  = function (location) {
 exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 456 54 -1203");
   player.removeMetadata ("_team_", __plugin );
   battlefield();
   objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
@@ -75,6 +76,9 @@ exports.battlefield = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn 456 54 -1203");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 456 54 -1203");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 456 54 -1203");
     var yo= setInterval (function () {
       for (var i=0; i<beacons.length;i++) {
         x=beacons[i][0];
