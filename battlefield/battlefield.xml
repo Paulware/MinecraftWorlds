@@ -533,7 +533,7 @@
                         <next>
                           <block type="setvariable" id="5hoON%Z1dGDF8r-g,L{_">
                             <field name="VARNAME">beacons</field>
-                            <field name="EXPRESSION">[[552,101,-1115]]</field>
+                            <field name="EXPRESSION">[[552,101,-1115],[573,75,-1259]]</field>
                             <next>
                               <block type="repeatexecution" id="WU(e^DaiqR{4Y*p#$zu2">
                                 <field name="NAME">yo</field>

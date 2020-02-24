@@ -109,6 +109,9 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:desert_hills": "2020-02-24 09:57:50 -0600",
+      "minecraft:desert": "2020-02-24 09:57:06 -0600",
+      "minecraft:river": "2020-02-24 09:57:05 -0600",
       "minecraft:birch_forest_hills": "2019-11-04 15:49:05 -0600"
     },
     "done": false
