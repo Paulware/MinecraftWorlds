@@ -38,8 +38,13 @@ exports.teamBeacon  = function (location) {
 };
 
 exports.battlefieldJoin  = function (player) {
+  //Instantiations;
+  var objective;
   player.removeMetadata ("_team_", __plugin );
   battlefield();
+  objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
+  objective.getScore(player).setScore(0);
+  player.setScoreboard (exports.board);
 };
 
 exports.battlefield = function () {
@@ -62,9 +67,6 @@ exports.battlefield = function () {
     objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective.setDisplayName("Battlefield Red Team: 0  Blue Team: 0");
-    objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-    objective.getScore(self).setScore(0);
-    self.setScoreboard (exports.board);
     beacons=[[552,102,-1115],[573,75,-1259],[455,64,-1306],[353,103,-1162]];
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
@@ -92,9 +94,6 @@ exports.battlefield = function () {
             exports.redScore= value+1;
           })();
         }
-        else {
-          console.log ("block for beacon [" + i + "]: " + blockType);
-        }
         if (((exports.redScore) == 100)){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + "Red Team Wins! yo");
           exports.gameStarted=null;
@@ -107,7 +106,6 @@ exports.battlefield = function () {
         }
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
         objective.setDisplayName("Battlefield Red Team:" + exports.redScore + "  Blue Team: " + exports.blueScore);
-        console.log (blockType);
       };
       if (!(true)) {
         clearInterval (yo);
