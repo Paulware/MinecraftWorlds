@@ -24,6 +24,7 @@ GOTO:menuLOOP
 ::-----------------------------------------------------------
 
 :menu_1   Copy Battlefield/Hunger Games world 
+set project=battlefield
 set source=C:\SpigotMC\MinecraftWorlds\battlefield\*.*
 GOTO:copyFiles
 
