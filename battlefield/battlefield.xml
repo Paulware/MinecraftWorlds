@@ -242,38 +242,38 @@
                                                           </block>
                                                         </value>
                                                         <next>
-                                                          <block type="spawnblock" id="nkQ.^a.=gR-z^y~aZD~t">
+                                                          <block type="spawnblock" id="s16OCT9`$|UUbn|j4aZ#">
                                                             <value name="TYPE">
-                                                              <block type="blocktype" id="#9FB18I}b4,h0T+N-wu|">
-                                                                <field name="BLOCKTYPE">LEVER</field>
+                                                              <block type="blocktype" id="bBN~N#$hL2JZfuX$hAfI">
+                                                                <field name="BLOCKTYPE">IRON_BLOCK</field>
                                                               </block>
                                                             </value>
                                                             <value name="LOCATION">
-                                                              <block type="locationadd" id="I2q`$f%Ck^^`]jGkmv%T">
+                                                              <block type="locationadd" id="PqFzubUi]vKN!fgm-Rew">
                                                                 <field name="X">3</field>
                                                                 <field name="Y">0</field>
                                                                 <field name="Z">0</field>
                                                                 <value name="LOCATION">
-                                                                  <block type="varname" id="1O2:z]C3ON!LH0OC34g=">
+                                                                  <block type="varname" id="rnUx0-Qb1C@K3E%br.V9">
                                                                     <field name="VARNAME">location</field>
                                                                   </block>
                                                                 </value>
                                                               </block>
                                                             </value>
                                                             <next>
-                                                              <block type="blockfacing" id=".]D{l-z0:WN-tUQtegKv">
-                                                                <value name="FACE">
-                                                                  <block type="blockfacingdirection" id="*D0Ps|$_:K,!lqo2#oeX">
-                                                                    <field name="DIRECTION">EAST</field>
+                                                              <block type="spawnblock" id="nkQ.^a.=gR-z^y~aZD~t">
+                                                                <value name="TYPE">
+                                                                  <block type="blocktype" id="#9FB18I}b4,h0T+N-wu|">
+                                                                    <field name="BLOCKTYPE">OAK_BUTTON</field>
                                                                   </block>
                                                                 </value>
                                                                 <value name="LOCATION">
-                                                                  <block type="locationadd" id="idX@D6{qvfTjTm-MpUwf">
+                                                                  <block type="locationadd" id="I2q`$f%Ck^^`]jGkmv%T">
                                                                     <field name="X">3</field>
-                                                                    <field name="Y">0</field>
+                                                                    <field name="Y">1</field>
                                                                     <field name="Z">0</field>
                                                                     <value name="LOCATION">
-                                                                      <block type="varname" id="dAVc!j#K!~ew0i,Mw2S7">
+                                                                      <block type="varname" id="1O2:z]C3ON!LH0OC34g=">
                                                                         <field name="VARNAME">location</field>
                                                                       </block>
                                                                     </value>
@@ -299,169 +299,157 @@
                                                                       </block>
                                                                     </value>
                                                                     <next>
-                                                                      <block type="spawnblock" id="@d~I/-PIqeI{))`Q?}^_">
+                                                                      <block type="spawnblock" id="=Nx(Ip?DY(=Zr7ZNR$)^">
                                                                         <value name="TYPE">
-                                                                          <block type="blocktype" id="geE{dxd{`z;+E?*GU[ZB">
-                                                                            <field name="BLOCKTYPE">LEVER</field>
+                                                                          <block type="blocktype" id=",Bxe^.On1rHo5Xm}qUUG">
+                                                                            <field name="BLOCKTYPE">IRON_BLOCK</field>
                                                                           </block>
                                                                         </value>
                                                                         <value name="LOCATION">
-                                                                          <block type="locationadd" id=";NS0mqz)~nZnv4jO^mbE">
+                                                                          <block type="locationadd" id="Luz_iy:^^ug6bQ#ql6nj">
                                                                             <field name="X">-3</field>
                                                                             <field name="Y">0</field>
                                                                             <field name="Z">0</field>
                                                                             <value name="LOCATION">
-                                                                              <block type="varname" id="kKVmsv.(0PrEM.I3rN00">
+                                                                              <block type="varname" id="3K@~hoXU3gg7a0{5,m{]">
                                                                                 <field name="VARNAME">location</field>
                                                                               </block>
                                                                             </value>
                                                                           </block>
                                                                         </value>
                                                                         <next>
-                                                                          <block type="blockfacing" id="?vetI_*z*aobiprSmG_4">
-                                                                            <value name="FACE">
-                                                                              <block type="blockfacingdirection" id="ayrLg$u7ULipGk5)$m#)">
-                                                                                <field name="DIRECTION">WEST</field>
+                                                                          <block type="spawnblock" id="@d~I/-PIqeI{))`Q?}^_">
+                                                                            <value name="TYPE">
+                                                                              <block type="blocktype" id="geE{dxd{`z;+E?*GU[ZB">
+                                                                                <field name="BLOCKTYPE">OAK_BUTTON</field>
                                                                               </block>
                                                                             </value>
                                                                             <value name="LOCATION">
-                                                                              <block type="locationadd" id="p8,p,E`1Zyr`^R1}W.-6">
+                                                                              <block type="locationadd" id=";NS0mqz)~nZnv4jO^mbE">
                                                                                 <field name="X">-3</field>
-                                                                                <field name="Y">0</field>
+                                                                                <field name="Y">1</field>
                                                                                 <field name="Z">0</field>
                                                                                 <value name="LOCATION">
-                                                                                  <block type="varname" id="nCh`;$TbM#OX%/=c``z]">
+                                                                                  <block type="varname" id="kKVmsv.(0PrEM.I3rN00">
                                                                                     <field name="VARNAME">location</field>
                                                                                   </block>
                                                                                 </value>
                                                                               </block>
                                                                             </value>
                                                                             <next>
-                                                                              <block type="setvariablevalue" id="50{XA_E@DUA0-Z$]J^/%">
-                                                                                <field name="VARNAME">b</field>
-                                                                                <value name="EXPRESSION">
-                                                                                  <block type="absolutelocation" id="Ym(95hw)h!osp!~B,NVQ">
-                                                                                    <field name="X">100</field>
-                                                                                    <field name="Y">100</field>
-                                                                                    <field name="Z">100</field>
+                                                                              <block type="spawnblock" id="ht}eBJ+eA)wJi.00ABEn">
+                                                                                <value name="TYPE">
+                                                                                  <block type="blocktype" id=".3pu8!pD+#hQS~NixHZ:">
+                                                                                    <field name="BLOCKTYPE">PISTON</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="LOCATION">
+                                                                                  <block type="locationadd" id="Vg^.(5WwP^@tOp|(Ch74">
+                                                                                    <field name="X">2</field>
+                                                                                    <field name="Y">1</field>
+                                                                                    <field name="Z">0</field>
+                                                                                    <value name="LOCATION">
+                                                                                      <block type="varname" id="6qwOk=G1nEzeuj2L/7R4">
+                                                                                        <field name="VARNAME">location</field>
+                                                                                      </block>
+                                                                                    </value>
                                                                                   </block>
                                                                                 </value>
                                                                                 <next>
-                                                                                  <block type="spawnblock" id="ht}eBJ+eA)wJi.00ABEn">
+                                                                                  <block type="spawnblock" id="L2]I#=A?HlDh58)*z?}P">
                                                                                     <value name="TYPE">
-                                                                                      <block type="blocktype" id=".3pu8!pD+#hQS~NixHZ:">
-                                                                                        <field name="BLOCKTYPE">PISTON</field>
+                                                                                      <block type="blocktype" id="X0~rr#4/4[3r1DcYnp#r">
+                                                                                        <field name="BLOCKTYPE">BLUE_STAINED_GLASS</field>
                                                                                       </block>
                                                                                     </value>
                                                                                     <value name="LOCATION">
-                                                                                      <block type="locationadd" id="Vg^.(5WwP^@tOp|(Ch74">
-                                                                                        <field name="X">2</field>
+                                                                                      <block type="locationadd" id="yt{?=6]E`hz#T1#:PpM;">
+                                                                                        <field name="X">1</field>
                                                                                         <field name="Y">1</field>
                                                                                         <field name="Z">0</field>
                                                                                         <value name="LOCATION">
-                                                                                          <block type="varname" id="6qwOk=G1nEzeuj2L/7R4">
+                                                                                          <block type="varname" id="oF;OGFmcpvzWWb^-NE~p">
                                                                                             <field name="VARNAME">location</field>
                                                                                           </block>
                                                                                         </value>
                                                                                       </block>
                                                                                     </value>
                                                                                     <next>
-                                                                                      <block type="spawnblock" id="L2]I#=A?HlDh58)*z?}P">
-                                                                                        <value name="TYPE">
-                                                                                          <block type="blocktype" id="X0~rr#4/4[3r1DcYnp#r">
-                                                                                            <field name="BLOCKTYPE">BLUE_STAINED_GLASS</field>
+                                                                                      <block type="blockfacing" id="p?Be!0{E/rZy(Sb8w!m5">
+                                                                                        <value name="FACE">
+                                                                                          <block type="blockfacingdirection" id="W0@ojhX0~lkWch,6vL(~">
+                                                                                            <field name="DIRECTION">WEST</field>
                                                                                           </block>
                                                                                         </value>
                                                                                         <value name="LOCATION">
-                                                                                          <block type="locationadd" id="yt{?=6]E`hz#T1#:PpM;">
-                                                                                            <field name="X">1</field>
+                                                                                          <block type="locationadd" id="*X*rLsK]limmZvbg4w*V">
+                                                                                            <field name="X">2</field>
                                                                                             <field name="Y">1</field>
                                                                                             <field name="Z">0</field>
                                                                                             <value name="LOCATION">
-                                                                                              <block type="varname" id="oF;OGFmcpvzWWb^-NE~p">
+                                                                                              <block type="varname" id="1%?Owh1OWy25OcQ+H$~7">
                                                                                                 <field name="VARNAME">location</field>
                                                                                               </block>
                                                                                             </value>
                                                                                           </block>
                                                                                         </value>
                                                                                         <next>
-                                                                                          <block type="blockfacing" id="p?Be!0{E/rZy(Sb8w!m5">
-                                                                                            <value name="FACE">
-                                                                                              <block type="blockfacingdirection" id="W0@ojhX0~lkWch,6vL(~">
-                                                                                                <field name="DIRECTION">WEST</field>
+                                                                                          <block type="spawnblock" id="5+s,Qx_1XxFJequpd:=I">
+                                                                                            <value name="TYPE">
+                                                                                              <block type="blocktype" id="87CzTIU_tT7R13/u+gn/">
+                                                                                                <field name="BLOCKTYPE">PISTON</field>
                                                                                               </block>
                                                                                             </value>
                                                                                             <value name="LOCATION">
-                                                                                              <block type="locationadd" id="*X*rLsK]limmZvbg4w*V">
-                                                                                                <field name="X">2</field>
+                                                                                              <block type="locationadd" id="RxZEGKmsfH`yoN#e?5_)">
+                                                                                                <field name="X">-2</field>
                                                                                                 <field name="Y">1</field>
                                                                                                 <field name="Z">0</field>
                                                                                                 <value name="LOCATION">
-                                                                                                  <block type="varname" id="1%?Owh1OWy25OcQ+H$~7">
+                                                                                                  <block type="varname" id="~uZBCoDD?b7qGYy(zky}">
                                                                                                     <field name="VARNAME">location</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                               </block>
                                                                                             </value>
                                                                                             <next>
-                                                                                              <block type="spawnblock" id="5+s,Qx_1XxFJequpd:=I">
-                                                                                                <value name="TYPE">
-                                                                                                  <block type="blocktype" id="87CzTIU_tT7R13/u+gn/">
-                                                                                                    <field name="BLOCKTYPE">PISTON</field>
+                                                                                              <block type="blockfacing" id="p`X?nY[vxEi}J*8YlwS(">
+                                                                                                <value name="FACE">
+                                                                                                  <block type="blockfacingdirection" id="T]0A4u$eby+}ZquNrokl">
+                                                                                                    <field name="DIRECTION">EAST</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                                 <value name="LOCATION">
-                                                                                                  <block type="locationadd" id="RxZEGKmsfH`yoN#e?5_)">
+                                                                                                  <block type="locationadd" id="/$NjrAfd.rK6,t9iHh#o">
                                                                                                     <field name="X">-2</field>
                                                                                                     <field name="Y">1</field>
                                                                                                     <field name="Z">0</field>
                                                                                                     <value name="LOCATION">
-                                                                                                      <block type="varname" id="~uZBCoDD?b7qGYy(zky}">
+                                                                                                      <block type="varname" id="Dei]z?~E_B$Mj%0psjUU">
                                                                                                         <field name="VARNAME">location</field>
                                                                                                       </block>
                                                                                                     </value>
                                                                                                   </block>
                                                                                                 </value>
                                                                                                 <next>
-                                                                                                  <block type="blockfacing" id="p`X?nY[vxEi}J*8YlwS(">
-                                                                                                    <value name="FACE">
-                                                                                                      <block type="blockfacingdirection" id="T]0A4u$eby+}ZquNrokl">
-                                                                                                        <field name="DIRECTION">EAST</field>
+                                                                                                  <block type="spawnblock" id="hnhHGOh,*(+Wm@(H!u4[">
+                                                                                                    <value name="TYPE">
+                                                                                                      <block type="blocktype" id="Q`wo,kQOawbJSSWT1-I#">
+                                                                                                        <field name="BLOCKTYPE">RED_STAINED_GLASS</field>
                                                                                                       </block>
                                                                                                     </value>
                                                                                                     <value name="LOCATION">
-                                                                                                      <block type="locationadd" id="/$NjrAfd.rK6,t9iHh#o">
-                                                                                                        <field name="X">-2</field>
+                                                                                                      <block type="locationadd" id="oZAHtdx?EUL9G|Ik3O3/">
+                                                                                                        <field name="X">-1</field>
                                                                                                         <field name="Y">1</field>
                                                                                                         <field name="Z">0</field>
                                                                                                         <value name="LOCATION">
-                                                                                                          <block type="varname" id="Dei]z?~E_B$Mj%0psjUU">
+                                                                                                          <block type="varname" id="|C/Zitu{xUY^Mm@{/mfJ">
                                                                                                             <field name="VARNAME">location</field>
                                                                                                           </block>
                                                                                                         </value>
                                                                                                       </block>
                                                                                                     </value>
-                                                                                                    <next>
-                                                                                                      <block type="spawnblock" id="hnhHGOh,*(+Wm@(H!u4[">
-                                                                                                        <value name="TYPE">
-                                                                                                          <block type="blocktype" id="Q`wo,kQOawbJSSWT1-I#">
-                                                                                                            <field name="BLOCKTYPE">RED_STAINED_GLASS</field>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                        <value name="LOCATION">
-                                                                                                          <block type="locationadd" id="oZAHtdx?EUL9G|Ik3O3/">
-                                                                                                            <field name="X">-1</field>
-                                                                                                            <field name="Y">1</field>
-                                                                                                            <field name="Z">0</field>
-                                                                                                            <value name="LOCATION">
-                                                                                                              <block type="varname" id="|C/Zitu{xUY^Mm@{/mfJ">
-                                                                                                                <field name="VARNAME">location</field>
-                                                                                                              </block>
-                                                                                                            </value>
-                                                                                                          </block>
-                                                                                                        </value>
-                                                                                                      </block>
-                                                                                                    </next>
                                                                                                   </block>
                                                                                                 </next>
                                                                                               </block>
