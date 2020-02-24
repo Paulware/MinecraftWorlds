@@ -58,6 +58,8 @@ exports.battlefield = function () {
   var block;
   var blockType;
   var value;
+  var player;
+  var team;
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
     exports.redScore=0;
@@ -115,5 +117,38 @@ exports.battlefield = function () {
         clearInterval (yo);
       }
     }, 3000);
+    events.blockBreak( function (event) {
+      event.cancelled = true;
+    });
+    events.playerInteract( function (event) {
+      player=(event.getPlayer== null) ? null : event.getPlayer();
+      block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
+      blockType=(block==null)?null:block.getType();
+      if (((blockType) == (org.bukkit.Material.OAK_SIGN))){
+        team=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
+        console.log (player.name + " has selected team [" + team + "]");
+        if (((team) == ("Red"))){
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
+          if (player != null) {
+            if (player.setMetadata != null ) {
+              player.setMetadata ("_team_", fd );
+            }
+          }
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " player.name + " 437 90 -1135");
+        }
+        else if (((team) == ("Blue"))){
+          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
+          if (player != null) {
+            if (player.setMetadata != null ) {
+              player.setMetadata ("_team_", fd );
+            }
+          }
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " player.name + " 508 66 -1262");
+        }
+        else {
+          console.log ("Unknown team selected: " + team );
+        }
+      }
+    });
   }
 };
