@@ -2,6 +2,10 @@ copy C:\SpigotMC\scriptcraft\plugins\battlefield.js0
 copy C:\SpigotMC\scriptcraft\plugins\m1Garand.js
 copy C:\SpigotMC\scriptcraft\plugins\getTeamSign.js
 copy C:\SpigotMC\scriptcraft\plugins\explodeSnowballs.js
+copy C:\SpigotMC\scriptcraft\plugins\friendlyNearby.js
+copy C:\SpigotMC\scriptcraft\plugins\tagProjectile.js
+copy C:\SpigotMC\scriptcraft\plugins\xml\tagProjectile.xml
+copy C:\SpigotMC\scriptcraft\plugins\xml\friendlyNearby.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\explodeSnowballs.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\battlefield.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\m1Garand.xml

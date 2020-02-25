@@ -1,0 +1,74 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="xBciwglkY[,,[.t0d82*" x="-462" y="437">
+    <field name="nameOfFunction">tagProjectile (event)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariablevalue" id="KB.McI#H*8e`.~28G,pV">
+        <field name="VARNAME">projectile</field>
+        <value name="EXPRESSION">
+          <block type="eventinfo" id="/l!t1y60B:@Cn1yOT0$D">
+            <field name="INFORMATION">getEntity</field>
+          </block>
+        </value>
+        <next>
+          <block type="setvariablevalue" id="Rh(l*#xU9ugwQ@wO{z!b">
+            <field name="VARNAME">shooter</field>
+            <value name="EXPRESSION">
+              <block type="getshooter" id=",:3O5.$abI{dtQj6MNZS">
+                <value name="PROJECTILE">
+                  <block type="varname" id="CEN6VVf7O.DqH=*FGxvg">
+                    <field name="VARNAME">projectile</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="setvariablevalue" id="Vw8ro#v{V5ytR$9fHJ)d">
+                <field name="VARNAME">team</field>
+                <value name="EXPRESSION">
+                  <block type="getplayerdata2" id="+nIr4l=:w%#^d-TX}e/f">
+                    <field name="KEY">team</field>
+                    <value name="PLAYER">
+                      <block type="varname" id="2vIP,Zd8@C8Y/n+#f6[T">
+                        <field name="VARNAME">shooter</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="setplayerdata" id="Vzy2{8#SzZu2r^.c2+7^">
+                    <field name="KEY">team</field>
+                    <value name="VALUE">
+                      <block type="varname" id="Nb589$Qc.Bos_?~dacPF">
+                        <field name="VARNAME">team</field>
+                      </block>
+                    </value>
+                    <value name="PLAYER">
+                      <block type="varname" id="=;~U5^)^a9-}8*i;2ef8">
+                        <field name="VARNAME">projectile</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setplayerdata" id="fM2;Lp~p.g)!XE|7r]lg">
+                        <field name="KEY">owner</field>
+                        <value name="VALUE">
+                          <block type="varname" id="B0ox~ypBC2|G}^?N#zZU">
+                            <field name="VARNAME">shooter</field>
+                          </block>
+                        </value>
+                        <value name="PLAYER">
+                          <block type="varname" id="ih3RN9ZvmCoE.Pda)_Q.">
+                            <field name="VARNAME">projectile</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
