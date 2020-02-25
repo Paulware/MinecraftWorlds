@@ -139,39 +139,20 @@ exports.battlefield = function () {
       event.cancelled = true;
     });
     events.playerInteract( function (event) {
-      console.log ( "playerInteract yo" );
-      m1Garand(event);
       player=(event.getPlayer== null) ? null : event.getPlayer();
-      block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
-      blockType=(block==null)?null:block.getType();
-      if (((blockType) == (org.bukkit.Material.OAK_SIGN))){
-        team=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
-        console.log (player.name + " has selected team [" + team + "]");
-        if (((team) == ("Red"))){
-          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
-          if (player != null) {
-            if (player.setMetadata != null ) {
-              player.setMetadata ("_team_", fd );
-            }
-          }
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 437 90 -1135");
-        }
-        else if (((team) == ("Blue"))){
-          fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
-          if (player != null) {
-            if (player.setMetadata != null ) {
-              player.setMetadata ("_team_", fd );
-            }
-          }
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 508 66 -1262");
-        }
-        else {
-          console.log ("Unknown team selected: " + team );
-        }
+      m1Garand(event);
+      team=getTeamSign (event, ["Red","Blue"], 1) ;
+      if (((team) == ("Red"))){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 437 90 -1135");
+      }
+      else if (((team) == ("Blue"))){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 508 66 -1262");
+      }
+      else {
+        console.log ("Unknown team selected: " + team );
       }
     });
     events.projectileLaunch( function (event) {
-      console.log ( "projectileLaunch yo" );
       m1Garand (event);
     });
   }
