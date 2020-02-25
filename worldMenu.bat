@@ -25,7 +25,8 @@ GOTO:menuLOOP
 
 :menu_1   Copy Battlefield/Hunger Games world 
 set project=battlefield
-set source=C:\SpigotMC\MinecraftWorlds\battlefield\*.*
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\*.js C:\SpigotMC\scriptcraft\plugins\
 GOTO:copyFiles
 
 :menu_2   Copy TNT Cannon
@@ -151,9 +152,8 @@ GOTO:EOF
 echo remove %destination%
 rmdir %destination% /q /s
 mkdir %destination%
-echo xcopy %source% %destination% /E 
 xcopy %source% %destination% /E
-copy startGame.js C:\SpigotMC\scriptcraft\plugins\
+rem copy startGame.js C:\SpigotMC\scriptcraft\plugins\
 GOTO:makeJoin
 
 :makeJoin
