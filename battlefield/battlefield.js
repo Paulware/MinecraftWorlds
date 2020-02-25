@@ -37,6 +37,24 @@ exports.teamBeacon  = function (location) {
   server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.RED_STAINED_GLASS);
 };
 
+exports.nearFriendly  = function ( player, location, radius) {
+  //Instantiations;
+  var near;
+  var players;
+  var distance;
+  near=false;
+  players=server.getOnlinePlayers();
+  for (var i=0; i<players.length;i++) {
+    if (((player) != (players[i]))){
+      distance=location.distance(players[i].location);
+      if (((distance) <= (radius))){
+        near=true;
+        break;}
+    }
+  };
+  return near;
+};
+
 exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
@@ -100,27 +118,29 @@ exports.battlefield = function () {
             exports.redScore= value+1;
           })();
         }
-        if (((exports.redScore) == 100)){
+        if (((exports.redScore) >= 100)){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + "Red Team Wins! yo");
           exports.gameStarted=null;
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kick @a");
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kick @a \"Red Team Wins! yo\"");
         }
-        else if (((exports.blueScore) == 100)){
+        else if (((exports.blueScore) >= 100)){
           org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a " + "Blue Team Wins! yo");
           exports.gameStarted=null;
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kick @a");
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "kick @a \"Blue Team Wins! yo\"");
         }
         objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
         objective.setDisplayName("Battlefield Red Team:" + exports.redScore + "  Blue Team: " + exports.blueScore);
       };
-      if (!(true)) {
+      if (!(exports.gameStarted != null)) {
         clearInterval (yo);
       }
-    }, 3000);
+    }, 10000);
     events.blockBreak( function (event) {
       event.cancelled = true;
     });
     events.playerInteract( function (event) {
+      console.log ( "playerInteract yo" );
+      m1Garand(event);
       player=(event.getPlayer== null) ? null : event.getPlayer();
       block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
       blockType=(block==null)?null:block.getType();
@@ -134,7 +154,7 @@ exports.battlefield = function () {
               player.setMetadata ("_team_", fd );
             }
           }
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " player.name + " 437 90 -1135");
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 437 90 -1135");
         }
         else if (((team) == ("Blue"))){
           fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,team);
@@ -143,12 +163,16 @@ exports.battlefield = function () {
               player.setMetadata ("_team_", fd );
             }
           }
-          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " player.name + " 508 66 -1262");
+          org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 508 66 -1262");
         }
         else {
           console.log ("Unknown team selected: " + team );
         }
       }
+    });
+    events.projectileLaunch( function (event) {
+      console.log ( "projectileLaunch yo" );
+      m1Garand (event);
     });
   }
 };
