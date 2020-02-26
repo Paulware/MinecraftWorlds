@@ -1,12 +1,10 @@
-copy C:\SpigotMC\scriptcraft\plugins\battlefield.js
+copy C:\SpigotMC\scriptcraft\plugins\battlefield.js0
 copy C:\SpigotMC\scriptcraft\plugins\m1Garand.js
 copy C:\SpigotMC\scriptcraft\plugins\getTeamSign.js
 copy C:\SpigotMC\scriptcraft\plugins\explodeSnowballs.js
 copy C:\SpigotMC\scriptcraft\plugins\friendlyNearby.js
 copy C:\SpigotMC\scriptcraft\plugins\tagProjectile.js
 copy C:\SpigotMC\scriptcraft\plugins\cancelFriendlyDamage.js
-copy C:\SpigotMC\scriptcraft\plugins\locationNear.js
-copy C:\SpigotMC\scriptcraft\plugins\xml\locationNear.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\cancelFriendlyDamage.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\tagProjectile.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\friendlyNearby.xml

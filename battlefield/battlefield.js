@@ -1,3 +1,60 @@
+exports.teamBeacon  = function (location) {
+  //Instantiations; 
+  var block;
+  var data;
+  var sign;
+  var _data;
+  var _block;
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + -1;var z = location.z + 1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 0;var y = location.y + -1;var z = location.z + 1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 1;var y = location.y + -1;var z = location.z + 1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + -1;var z = location.z + -1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 0;var y = location.y + -1;var z = location.z + -1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 1;var y = location.y + -1;var z = location.z + -1;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + -1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 1;var y = location.y + -1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 0;var y = location.y + -1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.DIAMOND_BLOCK);
+  server.worlds[0].getBlockAt (location).setType (org.bukkit.Material.BEACON);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 1;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 2;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 3;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 3;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.OAK_BUTTON);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -2;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -3;var y = location.y + 0;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.IRON_BLOCK);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -3;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.OAK_BUTTON);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 2;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.PISTON);
+  server.worlds[0].getBlockAt ((function() { var x = location.x + 1;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.BLUE_STAINED_GLASS);
+  _block = server.worlds[0].getBlockAt ((function() { var x = location.x + 2;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })())
+  _data = _block.getBlockData();
+  _data.setFacing(org.bukkit.block.BlockFace.WEST)
+  _block.setBlockData(_data)
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -2;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.PISTON);
+  _block = server.worlds[0].getBlockAt ((function() { var x = location.x + -2;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })())
+  _data = _block.getBlockData();
+  _data.setFacing(org.bukkit.block.BlockFace.EAST)
+  _block.setBlockData(_data)
+  server.worlds[0].getBlockAt ((function() { var x = location.x + -1;var y = location.y + 1;var z = location.z + 0;var loc = new org.bukkit.Location(server.worlds[0],x,y,z);return loc; })()).setType (org.bukkit.Material.RED_STAINED_GLASS);
+};
+
+exports.nearFriendly  = function ( player, location, radius) {
+  //Instantiations;
+  var near;
+  var players;
+  var distance;
+  near=false;
+  players=server.getOnlinePlayers();
+  for (var i=0; i<players.length;i++) {
+    if (((player) != (players[i]))){
+      distance=location.distance(players[i].location);
+      if (((distance) <= (radius))){
+        near=true;
+        break;}
+    }
+  };
+  return near;
+};
+
 exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
@@ -12,6 +69,7 @@ exports.battlefieldJoin  = function (player) {
 exports.battlefield = function () {
   //Instantiations;
   var objective;
+  var beacons;
   var x;
   var y;
   var z;
@@ -20,7 +78,6 @@ exports.battlefield = function () {
   var value;
   var player;
   var team;
-  var loc;
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
     exports.redScore=0;
@@ -31,11 +88,7 @@ exports.battlefield = function () {
     objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective.setDisplayName("Battlefield Red Team: 0  Blue Team: 0");
-    exports.beacons=[];
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 552, 102, -1115))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 573, 75, -1259))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 455, 64, -1306))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 353, 103, -1162))
+    beacons=[[552,102,-1115],[573,75,-1259],[455,64,-1306],[353,103,-1162]];
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
@@ -46,15 +99,11 @@ exports.battlefield = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn 456 54 -1203");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 456 54 -1203");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 456 54 -1203");
-    players = server.getOnlinePlayers();
-    for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
-      players[playersIndex].getInventory().clear();
-    }
     var yo= setInterval (function () {
-      for (var i=0; i<exports.beacons.length;i++) {
-        x=exports.beacons[i].x;
-        y=exports.beacons[i].y;
-        z=exports.beacons[i].z;
+      for (var i=0; i<beacons.length;i++) {
+        x=beacons[i][0];
+        y=beacons[i][1];
+        z=beacons[i][2];
         block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x, y, z));
         blockType=(block==null)?null:block.getType();
         if (((blockType) == (org.bukkit.Material.BLUE_STAINED_GLASS))){
@@ -89,9 +138,6 @@ exports.battlefield = function () {
     events.blockBreak( function (event) {
       event.cancelled = true;
     });
-    events.entityDamage( function (event) {
-      cancelFriendlyDamage(event);
-    });
     events.playerInteract( function (event) {
       player=(event.getPlayer== null) ? null : event.getPlayer();
       m1Garand(event);
@@ -107,24 +153,7 @@ exports.battlefield = function () {
       }
     });
     events.projectileLaunch( function (event) {
-      tagProjectile(event);
       m1Garand (event);
-    });
-    events.projectileHit( function (event) {
-      team=((event.getEntity== null) ? null : event.getEntity()== null)? null : ((event.getEntity== null) ? null : event.getEntity().getMetadata == null)?null:((event.getEntity== null) ? null : event.getEntity().getMetadata("_team_").length == 0)?null:(event.getEntity== null) ? null : event.getEntity().getMetadata("_team_")[0].value();
-      loc=event.entity.location;
-      console.log ("Projectile has team: [" + team + "]" );
-      if (friendlyNearby ( team, loc, 4)){
-        console.log ("Explosion too close to friendly forces" );
-      }
-      else {
-        if (locationNear (loc, exports.beacons, 6)){
-          console.log ("explosion  too close to beacon");
-        }
-        else {
-          explodeSnowballs(event);
-        }
-      }
     });
   }
 };
