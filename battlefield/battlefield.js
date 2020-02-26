@@ -1,5 +1,5 @@
 exports.teamBeacon  = function (location) {
-  //Instantiations;
+  //Instantiations; 
   var block;
   var data;
   var sign;
