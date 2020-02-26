@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="scriptcraftfunction" id="j%WKk:zL@(I?dY=xw)nU" x="-163" y="438">
+  <block type="scriptcraftfunction" id="j%WKk:zL@(I?dY=xw)nU" x="38" y="413">
     <field name="nameOfFunction">cancelFriendlyDamage (event)</field>
     <statement name="FUNCTIONCODE">
       <block type="setvariablevalue" id="9oe:4?JuRx@}J77QR-]O">
@@ -112,6 +112,7 @@
                                 </statement>
                                 <statement name="ELSE">
                                   <block type="controls_if" id="u7brjr^x}a]lW-=f%o+X">
+                                    <mutation else="1"></mutation>
                                     <value name="IF0">
                                       <block type="logic_compare" id="?y$c`aWKv]StLxSVQ9y#">
                                         <field name="OP">EQ</field>
@@ -148,6 +149,21 @@
                                             </next>
                                           </block>
                                         </next>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="setplayerdata" id="^h75L*klQ:q*N!CeNt},">
+                                        <field name="KEY">attacker</field>
+                                        <value name="VALUE">
+                                          <block type="varname" id="ZyQnBS_?BjP(Umdf!U~:">
+                                            <field name="VARNAME">attacker</field>
+                                          </block>
+                                        </value>
+                                        <value name="PLAYER">
+                                          <block type="varname" id="2YRVwQ]U$Q8H/6.4r2Z?">
+                                            <field name="VARNAME">target</field>
+                                          </block>
+                                        </value>
                                       </block>
                                     </statement>
                                   </block>

@@ -28,5 +28,13 @@ exports.cancelFriendlyDamage  = function (event) {
        })();
       event.cancelled = true;
     }
+    else {
+      fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,attacker);
+      if (target != null) {
+        if (target.setMetadata != null ) {
+          target.setMetadata ("_attacker_", fd );
+        }
+      }
+    }
   }
 };
