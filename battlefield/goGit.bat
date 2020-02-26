@@ -1,4 +1,4 @@
-copy C:\SpigotMC\scriptcraft\plugins\battlefield.js0
+copy C:\SpigotMC\scriptcraft\plugins\battlefield.js
 copy C:\SpigotMC\scriptcraft\plugins\m1Garand.js
 copy C:\SpigotMC\scriptcraft\plugins\getTeamSign.js
 copy C:\SpigotMC\scriptcraft\plugins\explodeSnowballs.js
