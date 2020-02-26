@@ -1,0 +1,170 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="j%WKk:zL@(I?dY=xw)nU" x="-163" y="438">
+    <field name="nameOfFunction">cancelFriendlyDamage (event)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariablevalue" id="9oe:4?JuRx@}J77QR-]O">
+        <field name="VARNAME">target</field>
+        <value name="EXPRESSION">
+          <block type="eventinfo" id="~l7a.nt0Z8@!J*BWKU~B">
+            <field name="INFORMATION">getEntity</field>
+          </block>
+        </value>
+        <next>
+          <block type="setvariablevalue" id="FqJ7a$u{7?z[fS}#b#Aj">
+            <field name="VARNAME">team1</field>
+            <value name="EXPRESSION">
+              <block type="getplayerdata2" id="m1qhk%N3=:2zYboBwa@O">
+                <field name="KEY">team</field>
+                <value name="PLAYER">
+                  <block type="varname" id=",{6Z4EY%WNiLPNg{,Z08">
+                    <field name="VARNAME">target</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="setvariablevalue" id="?s[59k=H|[CS[{0u2RD9">
+                <field name="VARNAME">attacker</field>
+                <value name="EXPRESSION">
+                  <block type="eventinfo" id="dz=rm.L]On}=}bKCIA!%">
+                    <field name="INFORMATION">getDamager</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="consolelog" id="C]%G$CKF2,O#)hsiaM1`">
+                    <value name="NAME">
+                      <block type="varname" id="W)08BX+t~BA:yU(qN{dj">
+                        <field name="VARNAME">target + " was damaged by: " + attacker </field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setvariablevalue" id=",K4Mn-=9KhdzS{)O~Sy-">
+                        <field name="VARNAME">team2</field>
+                        <value name="EXPRESSION">
+                          <block type="getplayerdata2" id="u9![UAfRIC+]3ZiF.Y}!">
+                            <field name="KEY">team</field>
+                            <value name="PLAYER">
+                              <block type="varname" id="~k?J.;KNuDcR08~x.V.L">
+                                <field name="VARNAME">attacker</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setvariablevalue" id="/]!E$8{eKkdyBE9]|kG?">
+                            <field name="VARNAME">owner</field>
+                            <value name="EXPRESSION">
+                              <block type="getplayerdata2" id="@1S8KZGuAnc;}ypQ?@}z">
+                                <field name="KEY">owner</field>
+                                <value name="PLAYER">
+                                  <block type="varname" id="q+Qd[D9]^Z7[ul=g4j=,">
+                                    <field name="VARNAME">attacker</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="1Vk(OV/cdcspR6t]Ez$`">
+                                <mutation else="1"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_operation" id="D)hkfrv}c!c-)XP5eX{?">
+                                    <field name="OP">OR</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="i,)k(h(K8S+.K027--P~">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="^!M!?ZU[MWM/m_@$qAR`">
+                                            <field name="VARNAME">team1</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="varname" id="Y]wzla{QgN9sx8!e$yMV">
+                                            <field name="VARNAME">null</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="K$R[(TPTZ@fgc,:$G!9G">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="sHeOK/kL59qjLog5I/5C">
+                                            <field name="VARNAME">team2</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="varname" id="zT$RGb`}DU{BBic%~SDE">
+                                            <field name="VARNAME">null</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="consolelog" id="^1PE_SLg2MMh$^(@R^!=">
+                                    <value name="NAME">
+                                      <block type="varname" id="Ep4p]$0D4o/C!}4${qpj">
+                                        <field name="VARNAME">"Got a null team"</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <statement name="ELSE">
+                                  <block type="controls_if" id="u7brjr^x}a]lW-=f%o+X">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="?y$c`aWKv]StLxSVQ9y#">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="`a$b)[S3lA,xYNmJWZ_l">
+                                            <field name="VARNAME">team1</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="varname" id="6DQ%)9e.QhUHUC8hKC7=">
+                                            <field name="VARNAME">team2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="sendmessage" id="2TN^r]d}aejnHA:^{{t%">
+                                        <field name="MESSAGE">"Ouch! we are on the same team yo"</field>
+                                        <value name="PLAYER">
+                                          <block type="varname" id=":?1YW,-LuiLEF#l_k2E?">
+                                            <field name="VARNAME">attacker</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="sendmessage" id="Xvk7gz7Phw~M:`q!K#2=">
+                                            <field name="MESSAGE">"Stop! we are friends"</field>
+                                            <value name="PLAYER">
+                                              <block type="varname" id="Au|D@}A[NDYgx:xnSyXD">
+                                                <field name="VARNAME">owner</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="eventcancel" id=",IA(_pmqw3;cs.XIb:?)"></block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
