@@ -27,6 +27,7 @@ exports.battlefield = function () {
   var block;
   var blockType;
   var value;
+  var command;
   var player;
   var attacker;
   var score;
@@ -35,24 +36,6 @@ exports.battlefield = function () {
   var _player;
   var loc;
   if (((exports.gameStarted) == (null))){
-    // Change renderer for all maps
-    var renderers;
-    var mapView;
-    var count = 0;
-    while (true) {
-      mapView = server.getMap (count);
-      if (mapView == undefined) {
-        console.log ( 'Aborting at mapId=' + count );
-        break;
-      } else {
-        renderers = mapView.getRenderers ();
-        for (var j=0; j<renderers.length; j++ ){
-          mapView.removeRenderer (renderers[j]);
-        }
-        mapView.addRenderer (render);
-      }
-      count = count + 1;
-    }
     exports.gameStarted=1;
     exports.redScore=0;
     exports.blueScore=0;
@@ -133,6 +116,14 @@ exports.battlefield = function () {
         clearInterval (yo);
       }
     }, 10000);
+    events.playerCommandPreprocess( function (event) {
+      command=(event.getMessage== null) ? null : event.getMessage();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
+      console.log ("Player entered the command: [" + command + "]");
+      if (((command) == "/map")){
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "give " + player.name + " map 1" );
+      }
+    });
     events.playerDeath( function (event) {
       player=(event.getPlayer== null) ? null : event.getPlayer();
       attacker=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_attacker_").length == 0)?null:player.getMetadata("_attacker_")[0].value();
