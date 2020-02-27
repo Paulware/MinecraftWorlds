@@ -516,7 +516,88 @@
                                                                                                               <block type="eventlistener" id="DZ$~~.D#e#x]ZppFS$yQ">
                                                                                                                 <field name="LISTENERTYPE">blockBreak</field>
                                                                                                                 <statement name="LISTENERCODE">
-                                                                                                                  <block type="eventcancel" id="wuAq6MV)_kZ:]|yz@ck|"></block>
+                                                                                                                  <block type="setvariablevalue" id="54e=NYJV1@Z]/K_S|g?d">
+                                                                                                                    <field name="VARNAME">block</field>
+                                                                                                                    <value name="EXPRESSION">
+                                                                                                                      <block type="eventinfo" id="U8SleyhuiC?.GeZzpkk8">
+                                                                                                                        <field name="INFORMATION">getBlock</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <next>
+                                                                                                                      <block type="setvariablevalue" id="E=H-UZD]4E1~~/Nu~84w">
+                                                                                                                        <field name="VARNAME">blockType</field>
+                                                                                                                        <value name="EXPRESSION">
+                                                                                                                          <block type="getblocktype" id="x2q|=!YIhx,s|te,C=7+">
+                                                                                                                            <value name="BLOCK">
+                                                                                                                              <block type="varname" id="jA]HpO/mCr1tdH0z|g:V">
+                                                                                                                                <field name="VARNAME">block</field>
+                                                                                                                              </block>
+                                                                                                                            </value>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <next>
+                                                                                                                          <block type="setvariablevalue" id="5NNUE/[7_!K`z36G7QcA">
+                                                                                                                            <field name="VARNAME">canBreak</field>
+                                                                                                                            <value name="EXPRESSION">
+                                                                                                                              <block type="lists_create_with" id="f*3BV~#NZB2*h*C@%}1H">
+                                                                                                                                <mutation items="2"></mutation>
+                                                                                                                                <value name="ADD0">
+                                                                                                                                  <block type="blocktype" id=".~^rz!yDsM0SzIy:[}a4">
+                                                                                                                                    <field name="BLOCKTYPE">OAK_LOG</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <value name="ADD1">
+                                                                                                                                  <block type="blocktype" id="xKg1sB5VF$OapH=+{vdh">
+                                                                                                                                    <field name="BLOCKTYPE">SAND</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                              </block>
+                                                                                                                            </value>
+                                                                                                                            <next>
+                                                                                                                              <block type="controls_if" id="pjzH*J}xObd6f5MW`T|3">
+                                                                                                                                <mutation else="1"></mutation>
+                                                                                                                                <value name="IF0">
+                                                                                                                                  <block type="valueinlist" id="RwOBwA?bq%V*?2VO-v*;">
+                                                                                                                                    <value name="VALUE">
+                                                                                                                                      <block type="varname" id="HSu_H3JLl.4DO1.02Y2)">
+                                                                                                                                        <field name="VARNAME">blockType</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                    <value name="LIST">
+                                                                                                                                      <block type="varname" id="y,i(w8seT7$VC}L/GufQ">
+                                                                                                                                        <field name="VARNAME">canBreak</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <statement name="DO0">
+                                                                                                                                  <block type="consolelog" id="x4b_0.?:=LSA3d0da`$-">
+                                                                                                                                    <value name="NAME">
+                                                                                                                                      <block type="varname" id="}QIaQMh({ARAwS~]ir+~">
+                                                                                                                                        <field name="VARNAME">"Broken block: " + blockType</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                  </block>
+                                                                                                                                </statement>
+                                                                                                                                <statement name="ELSE">
+                                                                                                                                  <block type="consolelog" id="1y1+^@x2ibo0++wWps%|">
+                                                                                                                                    <value name="NAME">
+                                                                                                                                      <block type="varname" id="BgWBT6)O;bQz3UAjVYoT">
+                                                                                                                                        <field name="VARNAME">"Can not break: [" + blockType + "]"</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                    <next>
+                                                                                                                                      <block type="eventcancel" id="wuAq6MV)_kZ:]|yz@ck|"></block>
+                                                                                                                                    </next>
+                                                                                                                                  </block>
+                                                                                                                                </statement>
+                                                                                                                              </block>
+                                                                                                                            </next>
+                                                                                                                          </block>
+                                                                                                                        </next>
+                                                                                                                      </block>
+                                                                                                                    </next>
+                                                                                                                  </block>
                                                                                                                 </statement>
                                                                                                                 <next>
                                                                                                                   <block type="eventlistener" id="sa;8z.$$+zbyyz5.AWF$">
@@ -530,26 +611,26 @@
                                                                                                                       <block type="eventlistener" id="+$l5/+{:i}*{z6(9PZ]O">
                                                                                                                         <field name="LISTENERTYPE">playerInteract</field>
                                                                                                                         <statement name="LISTENERCODE">
-                                                                                                                          <block type="setvariablevalue" id="JvvxF.bUh9u|R{W?w/2+">
-                                                                                                                            <field name="VARNAME">player</field>
-                                                                                                                            <value name="EXPRESSION">
-                                                                                                                              <block type="eventinfo" id="wO.6M:*v:w%m@,u#Bzgf">
-                                                                                                                                <field name="INFORMATION">getPlayer</field>
-                                                                                                                              </block>
-                                                                                                                            </value>
+                                                                                                                          <block type="functionCall" id="2ja3TT+M_+DKIV)]YC.#">
+                                                                                                                            <field name="FUNCTIONNAME">m1Garand(event)</field>
                                                                                                                             <next>
-                                                                                                                              <block type="functionCall" id="2ja3TT+M_+DKIV)]YC.#">
-                                                                                                                                <field name="FUNCTIONNAME">m1Garand(event)</field>
+                                                                                                                              <block type="functionCall" id="f{9[r9Q_g?*J+F7pz/;%">
+                                                                                                                                <field name="FUNCTIONNAME">minigun(event)</field>
                                                                                                                                 <next>
-                                                                                                                                  <block type="functionCall" id="f{9[r9Q_g?*J+F7pz/;%">
-                                                                                                                                    <field name="FUNCTIONNAME">minigun(event)</field>
+                                                                                                                                  <block type="setvariable" id="b+1$F,tb/.PT`+,5vD]+">
+                                                                                                                                    <field name="VARNAME">team</field>
+                                                                                                                                    <field name="EXPRESSION">getTeamSign (event, ["Red","Blue"], 1) </field>
                                                                                                                                     <next>
-                                                                                                                                      <block type="setvariable" id="b+1$F,tb/.PT`+,5vD]+">
-                                                                                                                                        <field name="VARNAME">team</field>
-                                                                                                                                        <field name="EXPRESSION">getTeamSign (event, ["Red","Blue"], 1) </field>
+                                                                                                                                      <block type="setvariablevalue" id="JvvxF.bUh9u|R{W?w/2+">
+                                                                                                                                        <field name="VARNAME">player</field>
+                                                                                                                                        <value name="EXPRESSION">
+                                                                                                                                          <block type="eventinfo" id="wO.6M:*v:w%m@,u#Bzgf">
+                                                                                                                                            <field name="INFORMATION">getPlayer</field>
+                                                                                                                                          </block>
+                                                                                                                                        </value>
                                                                                                                                         <next>
                                                                                                                                           <block type="controls_if" id="[Aq_wwf_m3;tKZAdQ^^B">
-                                                                                                                                            <mutation elseif="1" else="1"></mutation>
+                                                                                                                                            <mutation elseif="1"></mutation>
                                                                                                                                             <value name="IF0">
                                                                                                                                               <block type="logic_compare" id="t(q%YyAaceg91M61=zu0">
                                                                                                                                                 <field name="OP">EQ</field>
@@ -616,15 +697,6 @@
                                                                                                                                                     <field name="COMMAND">"tp " + player.name + " 508 66 -1262"</field>
                                                                                                                                                   </block>
                                                                                                                                                 </next>
-                                                                                                                                              </block>
-                                                                                                                                            </statement>
-                                                                                                                                            <statement name="ELSE">
-                                                                                                                                              <block type="consolelog" id="|Dld)IXL}/{dAdDJIngz">
-                                                                                                                                                <value name="NAME">
-                                                                                                                                                  <block type="varname" id="bL7ehv{pflrVxf#b=[x4">
-                                                                                                                                                    <field name="VARNAME">"Unknown team selected: " + team </field>
-                                                                                                                                                  </block>
-                                                                                                                                                </value>
                                                                                                                                               </block>
                                                                                                                                             </statement>
                                                                                                                                           </block>
