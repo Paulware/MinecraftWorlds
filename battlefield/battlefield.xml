@@ -9,7 +9,7 @@
             <field name="COMMAND">"spawnpoint " + player.name + " 456 54 -1203"</field>
             <next>
               <block type="servercommand" id="OzS%j!m+EaB5@0;Hy$NC">
-                <field name="COMMAND">"gamemode survival  " + player.name</field>
+                <field name="COMMAND">"gamemode survival " + player.name</field>
                 <next>
                   <block type="removeplayerdata" id="GHv/!a+nLKC:%Ic770z]">
                     <field name="KEY">team</field>
