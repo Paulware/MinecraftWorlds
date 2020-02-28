@@ -2,6 +2,7 @@ exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 456 54 -1203");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " 456 54 -1203);
   player.removeMetadata ("_team_", __plugin );
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,0);
   if (player != null) {
@@ -59,7 +60,12 @@ exports.battlefield = function () {
     exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 573, 75, -1259))
     exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 455, 64, -1306))
     exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 353, 103, -1162))
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
+    exports.beacons=[
+      new org.bukkit.Location(server.worlds[0], 573, 75, -1259),
+      new org.bukkit.Location(server.worlds[0], 455, 64, -1306),
+      new org.bukkit.Location(server.worlds[0], 552, 102, -1115),
+      new org.bukkit.Location(server.worlds[0], 353, 103, -1162)
+    ];
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "weather clear");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doWeatherCycle false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule keepInventory true");
@@ -67,8 +73,6 @@ exports.battlefield = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn 456 54 -1203");
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 456 54 -1203");
-    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 456 54 -1203");
     for (var i=0; i<exports.beacons.length;i++) {
       x=exports.beacons[i].x;
       y=exports.beacons[i].y;
@@ -159,7 +163,10 @@ exports.battlefield = function () {
     events.blockBreak( function (event) {
       block=(event.getBlock== null) ? null : event.getBlock();
       blockType=(block==null)?null:block.getType();
-      canBreak=[org.bukkit.Material.OAK_LOG, org.bukkit.Material.SAND];
+      canBreak=[
+        org.bukkit.Material.OAK_LOG,
+        org.bukkit.Material.SAND
+      ];
       if ((canBreak.indexOf ( blockType) >= 0)){
         console.log ("Broken block: " + blockType);
       }
@@ -249,5 +256,6 @@ exports.battlefield = function () {
         }
       }
     });
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival @a");
   }
 };
