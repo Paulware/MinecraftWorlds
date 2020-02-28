@@ -31,6 +31,7 @@ exports.battlefield = function () {
   var player;
   var attacker;
   var score;
+  var canBreak;
   var team;
   var color;
   var _player;
@@ -68,6 +69,17 @@ exports.battlefield = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn 456 54 -1203");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a 456 54 -1203");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a 456 54 -1203");
+    for (var i=0; i<exports.beacons.length;i++) {
+      x=exports.beacons[i].x;
+      y=exports.beacons[i].y;
+      z=exports.beacons[i].z;
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x, y+1, z));
+      block.setType(org.bukkit.Material.AIR);
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x+1, y+1, z));
+      block.setType(org.bukkit.Material.BLUE_STAINED_GLASS);
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x-1, y+1, z));
+      block.setType(org.bukkit.Material.RED_STAINED_GLASS);
+    };
     players = server.getOnlinePlayers();
     for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
       players[playersIndex].getInventory().clear();
@@ -145,16 +157,25 @@ exports.battlefield = function () {
       }
     });
     events.blockBreak( function (event) {
-      event.cancelled = true;
+      block=(event.getBlock== null) ? null : event.getBlock();
+      blockType=(block==null)?null:block.getType();
+      canBreak=[org.bukkit.Material.OAK_LOG, org.bukkit.Material.SAND];
+      if ((canBreak.indexOf ( blockType) >= 0)){
+        console.log ("Broken block: " + blockType);
+      }
+      else {
+        console.log ("Can not break: [" + blockType + "]");
+        event.cancelled = true;
+      }
     });
     events.entityDamage( function (event) {
       cancelFriendlyDamage(event);
     });
     events.playerInteract( function (event) {
-      player=(event.getPlayer== null) ? null : event.getPlayer();
       m1Garand(event);
       minigun(event);
       team=getTeamSign (event, ["Red","Blue"], 1) ;
+      player=(event.getPlayer== null) ? null : event.getPlayer();
       if (((team) == ("Red"))){
         color = org.bukkit.Color.RED;
         _player = player;
@@ -206,9 +227,6 @@ exports.battlefield = function () {
         legs.itemMeta = legsMeta;
         _player.equipment.leggings = legs;
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 508 66 -1262");
-      }
-      else {
-        console.log ("Unknown team selected: " + team );
       }
     });
     events.projectileLaunch( function (event) {
