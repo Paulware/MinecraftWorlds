@@ -3,6 +3,7 @@ exports.battlefieldJoin  = function (player) {
   var objective;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 456 54 -1203");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " 456 54 -1203);
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival  " + player.name);
   player.removeMetadata ("_team_", __plugin );
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,0);
   if (player != null) {

@@ -8,41 +8,46 @@
           <block type="servercommand" id="PVQJV|V*~MD5|hzjt26w">
             <field name="COMMAND">"spawnpoint " + player.name + " 456 54 -1203</field>
             <next>
-              <block type="removeplayerdata" id="GHv/!a+nLKC:%Ic770z]">
-                <field name="KEY">team</field>
-                <value name="PLAYER">
-                  <block type="varname" id="AG3F#)q-^B,sSFIq6TSb">
-                    <field name="VARNAME">player</field>
-                  </block>
-                </value>
+              <block type="servercommand" id="OzS%j!m+EaB5@0;Hy$NC">
+                <field name="COMMAND">"gamemode survival  " + player.name</field>
                 <next>
-                  <block type="setplayerdata" id="p:Yl*Kdt-A80$8fXFq(%">
-                    <field name="KEY">score</field>
-                    <value name="VALUE">
-                      <block type="math_number" id="6Nz#|pF,WqsuevFGpstq">
-                        <field name="NUM">0</field>
-                      </block>
-                    </value>
+                  <block type="removeplayerdata" id="GHv/!a+nLKC:%Ic770z]">
+                    <field name="KEY">team</field>
                     <value name="PLAYER">
-                      <block type="varname" id="-?i[K=Wm0L3`!pmq9E$B">
+                      <block type="varname" id="AG3F#)q-^B,sSFIq6TSb">
                         <field name="VARNAME">player</field>
                       </block>
                     </value>
                     <next>
-                      <block type="functionCall" id="Z1FrS03DK|-{W)g9aGVB">
-                        <field name="FUNCTIONNAME">battlefield</field>
+                      <block type="setplayerdata" id="p:Yl*Kdt-A80$8fXFq(%">
+                        <field name="KEY">score</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="6Nz#|pF,WqsuevFGpstq">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="PLAYER">
+                          <block type="varname" id="-?i[K=Wm0L3`!pmq9E$B">
+                            <field name="VARNAME">player</field>
+                          </block>
+                        </value>
                         <next>
-                          <block type="setscore" id="6D!ms8rpB]~KBN_G}.{7">
-                            <value name="PLAYER">
-                              <block type="varname" id="O_67uQ$@+|2^j_/nJoJD">
-                                <field name="VARNAME">player</field>
+                          <block type="functionCall" id="Z1FrS03DK|-{W)g9aGVB">
+                            <field name="FUNCTIONNAME">battlefield</field>
+                            <next>
+                              <block type="setscore" id="6D!ms8rpB]~KBN_G}.{7">
+                                <value name="PLAYER">
+                                  <block type="varname" id="O_67uQ$@+|2^j_/nJoJD">
+                                    <field name="VARNAME">player</field>
+                                  </block>
+                                </value>
+                                <value name="VALUE">
+                                  <block type="math_number" id="cE1Z9`^MzEc/wqgY{;1F">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
                               </block>
-                            </value>
-                            <value name="VALUE">
-                              <block type="math_number" id="cE1Z9`^MzEc/wqgY{;1F">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
+                            </next>
                           </block>
                         </next>
                       </block>
