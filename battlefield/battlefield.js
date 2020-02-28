@@ -31,7 +31,6 @@ exports.battlefield = function () {
   var player;
   var attacker;
   var score;
-  var canBreak;
   var team;
   var color;
   var _player;
@@ -146,16 +145,7 @@ exports.battlefield = function () {
       }
     });
     events.blockBreak( function (event) {
-      block=(event.getBlock== null) ? null : event.getBlock();
-      blockType=(block==null)?null:block.getType();
-      canBreak=[org.bukkit.Material.OAK_LOG, org.bukkit.Material.SAND];
-      if ((canBreak.indexOf ( blockType) >= 0)){
-        console.log ("Broken block: " + blockType);
-      }
-      else {
-        console.log ("Can not break: [" + blockType + "]");
-        event.cancelled = true;
-      }
+      event.cancelled = true;
     });
     events.entityDamage( function (event) {
       cancelFriendlyDamage(event);
