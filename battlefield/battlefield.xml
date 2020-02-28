@@ -201,7 +201,7 @@
                                                                                                                     <value name="LOCATION">
                                                                                                                       <block type="absolutelocation" id="5m-~/w%FVS-f%?8!$xSL">
                                                                                                                         <field name="X">x</field>
-                                                                                                                        <field name="Y">y+1</field>
+                                                                                                                        <field name="Y">y</field>
                                                                                                                         <field name="Z">z</field>
                                                                                                                       </block>
                                                                                                                     </value>
@@ -227,7 +227,7 @@
                                                                                                                             <value name="LOCATION">
                                                                                                                               <block type="absolutelocation" id="E9p|V39_`A(J[~};m#Jg">
                                                                                                                                 <field name="X">x+1</field>
-                                                                                                                                <field name="Y">y+1</field>
+                                                                                                                                <field name="Y">y</field>
                                                                                                                                 <field name="Z">z</field>
                                                                                                                               </block>
                                                                                                                             </value>
@@ -253,7 +253,7 @@
                                                                                                                                     <value name="LOCATION">
                                                                                                                                       <block type="absolutelocation" id="eP(c!.3X!kbE(Vy4}R,:">
                                                                                                                                         <field name="X">x-1</field>
-                                                                                                                                        <field name="Y">y+1</field>
+                                                                                                                                        <field name="Y">y</field>
                                                                                                                                         <field name="Z">z</field>
                                                                                                                                       </block>
                                                                                                                                     </value>
@@ -529,7 +529,7 @@
                                                                                                                                 </value>
                                                                                                                                 <value name="B">
                                                                                                                                   <block type="text" id="^XDDSoySqsGTy0Oi7N^X">
-                                                                                                                                    <field name="TEXT">/map</field>
+                                                                                                                                    <field name="TEXT">map</field>
                                                                                                                                   </block>
                                                                                                                                 </value>
                                                                                                                               </block>

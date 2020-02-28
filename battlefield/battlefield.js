@@ -73,11 +73,11 @@ exports.battlefield = function () {
       x=exports.beacons[i].x;
       y=exports.beacons[i].y;
       z=exports.beacons[i].z;
-      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x, y+1, z));
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x, y, z));
       block.setType(org.bukkit.Material.AIR);
-      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x+1, y+1, z));
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x+1, y, z));
       block.setType(org.bukkit.Material.BLUE_STAINED_GLASS);
-      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x-1, y+1, z));
+      block=server.worlds[0].getBlockAt (new org.bukkit.Location(server.worlds[0], x-1, y, z));
       block.setType(org.bukkit.Material.RED_STAINED_GLASS);
     };
     players = server.getOnlinePlayers();
@@ -132,7 +132,7 @@ exports.battlefield = function () {
       command=(event.getMessage== null) ? null : event.getMessage();
       player=(event.getPlayer== null) ? null : event.getPlayer();
       console.log ("Player entered the command: [" + command + "]");
-      if (((command) == "/map")){
+      if (((command) == "map")){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "give " + player.name + " map 1" );
       }
     });
