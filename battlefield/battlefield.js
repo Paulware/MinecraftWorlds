@@ -1,9 +1,39 @@
+exports.randomizeChests = function (goodies) {
+  //Instantiations;
+  var w;
+  var chunks;
+  var chunk;
+  var blocks;
+  var blockType;
+  var inventory;
+  w=server.worlds[0];
+  chunks=w.getLoadedChunks();
+  for (var i=0; i<chunks.length;i++) {
+    chunk=chunks[i];
+    blocks=chunk.getTileEntities();
+    for (var j=0; j<blocks.length;j++) {
+      blockType=(blocks[j]==null)?null:blocks[j].getType();
+      if (((blockType) == (org.bukkit.Material.CHEST))){
+        inventory=blocks[j].getBlockInventory();
+        inventory.clear()
+        for (var k=0; k<goodies.length;k++) {
+          if (((parseInt (Math.random () * (100-1)) + 1) > 50)){
+            inventory.addItem (goodies[k]);
+          }
+        };
+      }
+    };
+  };
+  console.log ("Updated chests");
+};
+
 exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 456 54 -1203");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " 456 54 -1203");
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamemode survival " + player.name);
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "effect give " + player.name + " instant_health 20");
   player.removeMetadata ("_team_", __plugin );
   fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,0);
   if (player != null) {
@@ -21,6 +51,9 @@ exports.battlefieldJoin  = function (player) {
 
 exports.battlefield = function () {
   //Instantiations;
+  var meta;
+  var stack;
+  var goodies;
   var objective;
   var players;
   var x;
@@ -40,6 +73,14 @@ exports.battlefield = function () {
   var loc;
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
+    goodies=[
+      new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1),
+      new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,16),
+      new org.bukkit.inventory.ItemStack (org.bukkit.Material.FIREWORK_ROCKET,16),
+      (function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("M1-Garand");  s.setItemMeta(m);  return s; })(),
+      (function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })()
+    ];
+    randomizeChests(goodies);
     exports.redScore=0;
     exports.blueScore=0;
     var manager = org.bukkit.Bukkit.getScoreboardManager();
@@ -47,7 +88,7 @@ exports.battlefield = function () {
     var objective = exports.board.registerNewObjective("objective1", "HEALTH", "Scoreboard");
     objective.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
     objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-    objective.setDisplayName("Battlefield Red Team: 0  Blue Team: 0");
+    objective.setDisplayName("Red: 0  Blue: 0");
     // Update scoreboard for all players
     players=server.getOnlinePlayers();
     for (var playerIndex=0; playerIndex<players.length;playerIndex++) {
@@ -56,11 +97,6 @@ exports.battlefield = function () {
       objective.getScore(players[playerIndex]).setScore(score);
       players[playerIndex].setScoreboard (exports.board);
     };
-    exports.beacons=[];
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 552, 102, -1115))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 573, 75, -1259))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 455, 64, -1306))
-    exports.beacons.push ( new org.bukkit.Location(server.worlds[0], 353, 103, -1162))
     exports.beacons=[
       new org.bukkit.Location(server.worlds[0], 573, 75, -1259),
       new org.bukkit.Location(server.worlds[0], 455, 64, -1306),
@@ -120,7 +156,7 @@ exports.battlefield = function () {
         }
       };
       objective = exports.board.getObjective (org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
-      objective.setDisplayName("Battlefield Red Team:" + exports.redScore + "  Blue Team: " + exports.blueScore);
+      objective.setDisplayName("Red:" + exports.redScore + "  Blue: " + exports.blueScore);
       // Update scoreboard for all players
       players=server.getOnlinePlayers();
       for (var playerIndex=0; playerIndex<players.length;playerIndex++) {
@@ -208,6 +244,7 @@ exports.battlefield = function () {
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
         _player.equipment.leggings = legs;
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " 437 90 -1135");
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 437 90 -1135");
       }
       else if (((team) == ("Blue"))){
@@ -234,6 +271,7 @@ exports.battlefield = function () {
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
         _player.equipment.leggings = legs;
+        org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " 508 66 -1262");
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " 508 66 -1262");
       }
     });
