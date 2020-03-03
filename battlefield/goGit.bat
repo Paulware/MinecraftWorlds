@@ -7,6 +7,8 @@ copy C:\SpigotMC\scriptcraft\plugins\tagProjectile.js
 copy C:\SpigotMC\scriptcraft\plugins\cancelFriendlyDamage.js
 copy C:\SpigotMC\scriptcraft\plugins\minigun.js
 copy C:\SpigotMC\scriptcraft\plugins\locationNear.js
+copy C:\SpigotMC\scriptcraft\plugins\randomizeChests.js
+copy C:\SpigotMC\scriptcraft\plugins\xml\randomizeChests.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\locationNear.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\minigun.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\cancelFriendlyDamage.xml
