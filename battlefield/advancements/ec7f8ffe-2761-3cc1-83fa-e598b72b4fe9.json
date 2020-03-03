@@ -1,17 +1,5 @@
 {
-  "minecraft:recipes/decorations/campfire": {
-    "criteria": {
-      "has_stick": "2020-02-25 21:14:10 -0600"
-    },
-    "done": true
-  },
   "minecraft:recipes/combat/wooden_sword": {
-    "criteria": {
-      "has_stick": "2020-02-25 21:14:10 -0600"
-    },
-    "done": true
-  },
-  "minecraft:recipes/tools/wooden_pickaxe": {
     "criteria": {
       "has_stick": "2020-02-25 21:14:10 -0600"
     },
@@ -32,6 +20,53 @@
   "minecraft:recipes/transportation/dark_oak_boat": {
     "criteria": {
       "in_water": "2020-02-25 21:05:07 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/repeater": {
+    "criteria": {
+      "has_redstone_torch": "2020-03-03 14:05:57 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2020-02-25 21:14:10 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/jungle_planks": {
+    "criteria": {
+      "has_log": "2020-03-03 14:13:52 -0600"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:desert_hills": "2020-02-25 21:12:55 -0600",
+      "minecraft:desert": "2020-02-25 21:04:57 -0600",
+      "minecraft:jungle_hills": "2020-02-25 20:57:39 -0600",
+      "minecraft:beach": "2020-02-25 21:04:55 -0600",
+      "minecraft:river": "2020-02-25 21:04:56 -0600",
+      "minecraft:birch_forest_hills": "2020-02-25 20:55:05 -0600"
+    },
+    "done": false
+  },
+  "minecraft:recipes/decorations/campfire": {
+    "criteria": {
+      "has_stick": "2020-02-25 21:14:10 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/charcoal": {
+    "criteria": {
+      "has_log": "2020-03-03 14:13:52 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_pickaxe": {
+    "criteria": {
+      "has_stick": "2020-02-25 21:14:10 -0600"
     },
     "done": true
   },
@@ -101,9 +136,9 @@
     },
     "done": true
   },
-  "minecraft:recipes/tools/wooden_hoe": {
+  "minecraft:recipes/building_blocks/jungle_wood": {
     "criteria": {
-      "has_stick": "2020-02-25 21:14:10 -0600"
+      "has_log": "2020-03-03 14:13:52 -0600"
     },
     "done": true
   },
@@ -113,9 +148,21 @@
     },
     "done": true
   },
+  "minecraft:recipes/redstone/redstone_lamp": {
+    "criteria": {
+      "has_glowstone": "2020-03-03 14:07:08 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/transportation/jungle_boat": {
     "criteria": {
       "in_water": "2020-02-25 21:05:07 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/yellow_dye_from_dandelion": {
+    "criteria": {
+      "has_yellow_flower": "2020-03-03 14:13:09 -0600"
     },
     "done": true
   },
@@ -124,17 +171,6 @@
       "in_water": "2020-02-25 21:05:07 -0600"
     },
     "done": true
-  },
-  "minecraft:adventure/adventuring_time": {
-    "criteria": {
-      "minecraft:desert_hills": "2020-02-25 21:12:55 -0600",
-      "minecraft:desert": "2020-02-25 21:04:57 -0600",
-      "minecraft:jungle_hills": "2020-02-25 20:57:39 -0600",
-      "minecraft:beach": "2020-02-25 21:04:55 -0600",
-      "minecraft:river": "2020-02-25 21:04:56 -0600",
-      "minecraft:birch_forest_hills": "2020-02-25 20:55:05 -0600"
-    },
-    "done": false
   },
   "DataVersion": 1976
 }
