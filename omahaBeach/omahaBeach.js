@@ -506,7 +506,7 @@ exports.omahaBeach = function () {
         }
         else {
           if (blockInRadius (projectile.location, 4, org.bukkit.Material.COMMAND_BLOCK)){
-            console.log ("Explosion too close to a chest");
+            console.log ("Explosion too close to a command block");
           }
           else {
             if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
