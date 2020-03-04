@@ -8,6 +8,8 @@ copy C:\SpigotMC\scriptcraft\plugins\cancelFriendlyDamage.js
 copy C:\SpigotMC\scriptcraft\plugins\minigun.js
 copy C:\SpigotMC\scriptcraft\plugins\locationNear.js
 copy C:\SpigotMC\scriptcraft\plugins\randomizeChests.js
+copy C:\SpigotMC\scriptcraft\plugins\blockInRadius.js
+copy C:\SpigotMC\scriptcraft\plugins\xml\blockInRadius.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\randomizeChests.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\locationNear.xml
 copy C:\SpigotMC\scriptcraft\plugins\xml\minigun.xml

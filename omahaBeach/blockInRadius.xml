@@ -1,0 +1,152 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="!o!Rie4%|(dx#7kU_j^7" x="-187" y="-138">
+    <field name="nameOfFunction">blockInRadius (location,radius,blockType)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariable" id="$bmc_t*{I@!4mx`?SVs}">
+        <field name="VARNAME">found</field>
+        <field name="EXPRESSION">false</field>
+        <next>
+          <block type="controls_repeat_ext" id="_;p3}p#/V8lhU5z5h@z+">
+            <field name="VAR">x</field>
+            <value name="TIMES">
+              <shadow type="math_number" id="_?S7s;Gd+KF@;@XusCXv">
+                <field name="NUM">10</field>
+              </shadow>
+              <block type="varname" id="h5Vg5f6OhZRVM{)$6i]7">
+                <field name="VARNAME">radius*2</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_repeat_ext" id="Hv8zU8-T=c+h#=aHJ)K1">
+                <field name="VAR">y</field>
+                <value name="TIMES">
+                  <shadow type="math_number" id="_?S7s;Gd+KF@;@XusCXv">
+                    <field name="NUM">10</field>
+                  </shadow>
+                  <block type="varname" id="9ljh/H8IrP4iPZwzuavz">
+                    <field name="VARNAME">radius*2</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_repeat_ext" id="T7`7YAl8sswg+j!:x[=C">
+                    <field name="VAR">z</field>
+                    <value name="TIMES">
+                      <shadow type="math_number" id="_?S7s;Gd+KF@;@XusCXv">
+                        <field name="NUM">10</field>
+                      </shadow>
+                      <block type="varname" id="A^EIkh0Z%snTX)xyI-Va">
+                        <field name="VARNAME">radius*2</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="setvariablevalue" id=",e(RJmFtr{E4!XWx@FP+">
+                        <field name="VARNAME">loc</field>
+                        <value name="EXPRESSION">
+                          <block type="locationadd" id="9*%@yh$ucRUSn7Cs%f[o">
+                            <field name="X">x-radius</field>
+                            <field name="Y">y-radius</field>
+                            <field name="Z">z-radius</field>
+                            <value name="LOCATION">
+                              <block type="varname" id="w./L6@oV+_M/yF?HYVX*">
+                                <field name="VARNAME">location</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setvariablevalue" id="@9=[T0AL{ZWBW-8$70+f">
+                            <field name="VARNAME">block</field>
+                            <value name="EXPRESSION">
+                              <block type="getBlock" id="wMp+/pdccZnfS})4StzT">
+                                <value name="LOCATION">
+                                  <block type="varname" id="cO5lNn$@TS:^*`)TKWQJ">
+                                    <field name="VARNAME">loc</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="setvariablevalue" id=".]GC|Y(W]`[l1iN5iKI]">
+                                <field name="VARNAME">bType</field>
+                                <value name="EXPRESSION">
+                                  <block type="getblocktype" id="gtuVoYILf9pg$4*NZAYQ">
+                                    <value name="BLOCK">
+                                      <block type="varname" id="^VCFe*a{My21{2wSi*fe">
+                                        <field name="VARNAME">block</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="In:6ZcuRdV0a7{3{daZ6">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="P(,%YcP9/Wa;aG(SC%Dt">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="varname" id="{(oHQk+b=_U}1M~NBW2/">
+                                            <field name="VARNAME">bType</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="varname" id="pf0mt~ohC,P/V}8sg{Ul">
+                                            <field name="VARNAME">blockType</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="setvariable" id="C#N4~y`%tr/QDonr)3SO">
+                                        <field name="VARNAME">found</field>
+                                        <field name="EXPRESSION">true</field>
+                                        <next>
+                                          <block type="breakoutofloop" id="7a(COiaoRI_rcy^yyJc~"></block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="|XQe_J|IKN?DQY=_GOv;">
+                        <value name="IF0">
+                          <block type="varname" id="!gj0$F`g[%|GpaMz.%Yo">
+                            <field name="VARNAME">found</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="breakoutofloop" id="s=Ra+Nk6vGly=~$F}$Bn"></block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="M4KF8HJaiU[L-f0Bej2W">
+                    <value name="IF0">
+                      <block type="varname" id="Txr[|*L3m06Ce8r!pxvJ">
+                        <field name="VARNAME">found</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="breakoutofloop" id="F321`d;6NL*H5W]?DXs3"></block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="returnVariable" id="(gjRouz*@JBu~ye:=|#)">
+                <field name="RETURNVARIABLE">found</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
