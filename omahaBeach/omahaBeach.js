@@ -4,6 +4,7 @@ exports.omahaBeach = function () {
   var player;
   var team;
   var color;
+  var _player;
   var block;
   var blockType;
   var meta;
@@ -13,6 +14,7 @@ exports.omahaBeach = function () {
   var i;
   var projectile;
   var shooter;
+  var loc;
   var bow;
   var bowName;
   var gameOver;
@@ -29,6 +31,7 @@ exports.omahaBeach = function () {
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule commandBlockOutput false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule doDaylightCycle false");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint @a -1203 137 -106");
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "setworldspawn -1203 137 -106");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "time set day");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -1219 137 -91");
     players = server.getOnlinePlayers();
@@ -39,6 +42,9 @@ exports.omahaBeach = function () {
     for (var playersIndex=0; playersIndex<players.length; playersIndex++) {
       players[playersIndex].getInventory().clear();
     }
+    events.entityDamage( function (event) {
+      cancelFriendlyDamage(event);
+    });
     events.playerRespawn( function (event) {
       player=(event.getPlayer== null) ? null : event.getPlayer();
       team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_team_").length == 0)?null:player.getMetadata("_team_")[0].value();
@@ -57,28 +63,28 @@ exports.omahaBeach = function () {
         }
         else {
           color = org.bukkit.Color.RED;
-          var player = player;
+          _player = player;
           var items = require ('items');
           var helmet = items.leatherHelmet(1);
           var helmetMeta = helmet.itemMeta;
           helmetMeta.color = color;
           helmet.itemMeta = helmetMeta;
-          player.equipment.helmet = helmet;
+          _player.equipment.helmet = helmet;
           var boots = items.leatherBoots(1);
           var bootsMeta = boots.itemMeta;
           bootsMeta.color = color;
           boots.itemMeta = bootsMeta;
-          player.equipment.boots = boots;
+          _player.equipment.boots = boots;
           var chest = items.leatherChestplate(1);
           var chestMeta = chest.itemMeta;
           chestMeta.color = color;
           chest.itemMeta = chestMeta;
-          player.equipment.chestplate = chest;
+          _player.equipment.chestplate = chest;
           var legs = items.leatherLeggings(1);
           var legsMeta = legs.itemMeta;
           legsMeta.color = color;
           legs.itemMeta = legsMeta;
-          player.equipment.leggings = legs;
+          _player.equipment.leggings = legs;
           setTimeout (function () {
             player.teleport(exports.kings[0].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
@@ -98,28 +104,28 @@ exports.omahaBeach = function () {
         }
         else {
           color = org.bukkit.Color.BLUE;
-          var player = player;
+          _player = player;
           var items = require ('items');
           var helmet = items.leatherHelmet(1);
           var helmetMeta = helmet.itemMeta;
           helmetMeta.color = color;
           helmet.itemMeta = helmetMeta;
-          player.equipment.helmet = helmet;
+          _player.equipment.helmet = helmet;
           var boots = items.leatherBoots(1);
           var bootsMeta = boots.itemMeta;
           bootsMeta.color = color;
           boots.itemMeta = bootsMeta;
-          player.equipment.boots = boots;
+          _player.equipment.boots = boots;
           var chest = items.leatherChestplate(1);
           var chestMeta = chest.itemMeta;
           chestMeta.color = color;
           chest.itemMeta = chestMeta;
-          player.equipment.chestplate = chest;
+          _player.equipment.chestplate = chest;
           var legs = items.leatherLeggings(1);
           var legsMeta = legs.itemMeta;
           legsMeta.color = color;
           legs.itemMeta = legsMeta;
-          player.equipment.leggings = legs;
+          _player.equipment.leggings = legs;
           setTimeout (function () {
             player.teleport(exports.kings[1].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
@@ -135,28 +141,28 @@ exports.omahaBeach = function () {
           player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         }
         color = org.bukkit.Color.RED;
-        var player = player;
+        _player = player;
         var items = require ('items');
         var helmet = items.leatherHelmet(1);
         var helmetMeta = helmet.itemMeta;
         helmetMeta.color = color;
         helmet.itemMeta = helmetMeta;
-        player.equipment.helmet = helmet;
+        _player.equipment.helmet = helmet;
         var boots = items.leatherBoots(1);
         var bootsMeta = boots.itemMeta;
         bootsMeta.color = color;
         boots.itemMeta = bootsMeta;
-        player.equipment.boots = boots;
+        _player.equipment.boots = boots;
         var chest = items.leatherChestplate(1);
         var chestMeta = chest.itemMeta;
         chestMeta.color = color;
         chest.itemMeta = chestMeta;
-        player.equipment.chestplate = chest;
+        _player.equipment.chestplate = chest;
         var legs = items.leatherLeggings(1);
         var legsMeta = legs.itemMeta;
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
-        player.equipment.leggings = legs;
+        _player.equipment.leggings = legs;
         player.getInventory().setItem (2,new org.bukkit.inventory.ItemStack (org.bukkit.Material.LEGACY_ELYTRA,1) );
         setTimeout (function () {
           player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
@@ -172,28 +178,28 @@ exports.omahaBeach = function () {
           player.setGameMode(org.bukkit.GameMode.SPECTATOR);
         }
         color = org.bukkit.Color.BLUE;
-        var player = player;
+        _player = player;
         var items = require ('items');
         var helmet = items.leatherHelmet(1);
         var helmetMeta = helmet.itemMeta;
         helmetMeta.color = color;
         helmet.itemMeta = helmetMeta;
-        player.equipment.helmet = helmet;
+        _player.equipment.helmet = helmet;
         var boots = items.leatherBoots(1);
         var bootsMeta = boots.itemMeta;
         bootsMeta.color = color;
         boots.itemMeta = bootsMeta;
-        player.equipment.boots = boots;
+        _player.equipment.boots = boots;
         var chest = items.leatherChestplate(1);
         var chestMeta = chest.itemMeta;
         chestMeta.color = color;
         chest.itemMeta = chestMeta;
-        player.equipment.chestplate = chest;
+        _player.equipment.chestplate = chest;
         var legs = items.leatherLeggings(1);
         var legsMeta = legs.itemMeta;
         legsMeta.color = color;
         legs.itemMeta = legsMeta;
-        player.equipment.leggings = legs;
+        _player.equipment.leggings = legs;
         setTimeout (function () {
           player.teleport(exports.kings[3].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
         },2000);
@@ -257,28 +263,28 @@ exports.omahaBeach = function () {
                   player.teleport(exports.kings[0].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
                 },2000);
                 color = org.bukkit.Color.RED;
-                var player = player;
+                _player = player;
                 var items = require ('items');
                 var helmet = items.leatherHelmet(1);
                 var helmetMeta = helmet.itemMeta;
                 helmetMeta.color = color;
                 helmet.itemMeta = helmetMeta;
-                player.equipment.helmet = helmet;
+                _player.equipment.helmet = helmet;
                 var boots = items.leatherBoots(1);
                 var bootsMeta = boots.itemMeta;
                 bootsMeta.color = color;
                 boots.itemMeta = bootsMeta;
-                player.equipment.boots = boots;
+                _player.equipment.boots = boots;
                 var chest = items.leatherChestplate(1);
                 var chestMeta = chest.itemMeta;
                 chestMeta.color = color;
                 chest.itemMeta = chestMeta;
-                player.equipment.chestplate = chest;
+                _player.equipment.chestplate = chest;
                 var legs = items.leatherLeggings(1);
                 var legsMeta = legs.itemMeta;
                 legsMeta.color = color;
                 legs.itemMeta = legsMeta;
-                player.equipment.leggings = legs;
+                _player.equipment.leggings = legs;
               }
             }
           }
@@ -312,28 +318,28 @@ exports.omahaBeach = function () {
                   player.teleport(exports.kings[1].location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
                 },2000);
                 color = org.bukkit.Color.BLUE;
-                var player = player;
+                _player = player;
                 var items = require ('items');
                 var helmet = items.leatherHelmet(1);
                 var helmetMeta = helmet.itemMeta;
                 helmetMeta.color = color;
                 helmet.itemMeta = helmetMeta;
-                player.equipment.helmet = helmet;
+                _player.equipment.helmet = helmet;
                 var boots = items.leatherBoots(1);
                 var bootsMeta = boots.itemMeta;
                 bootsMeta.color = color;
                 boots.itemMeta = bootsMeta;
-                player.equipment.boots = boots;
+                _player.equipment.boots = boots;
                 var chest = items.leatherChestplate(1);
                 var chestMeta = chest.itemMeta;
                 chestMeta.color = color;
                 chest.itemMeta = chestMeta;
-                player.equipment.chestplate = chest;
+                _player.equipment.chestplate = chest;
                 var legs = items.leatherLeggings(1);
                 var legsMeta = legs.itemMeta;
                 legsMeta.color = color;
                 legs.itemMeta = legsMeta;
-                player.equipment.leggings = legs;
+                _player.equipment.leggings = legs;
               }
             }
           }
@@ -360,28 +366,28 @@ exports.omahaBeach = function () {
             }
             else {
               color = org.bukkit.Color.RED;
-              var player = player;
+              _player = player;
               var items = require ('items');
               var helmet = items.leatherHelmet(1);
               var helmetMeta = helmet.itemMeta;
               helmetMeta.color = color;
               helmet.itemMeta = helmetMeta;
-              player.equipment.helmet = helmet;
+              _player.equipment.helmet = helmet;
               var boots = items.leatherBoots(1);
               var bootsMeta = boots.itemMeta;
               bootsMeta.color = color;
               boots.itemMeta = bootsMeta;
-              player.equipment.boots = boots;
+              _player.equipment.boots = boots;
               var chest = items.leatherChestplate(1);
               var chestMeta = chest.itemMeta;
               chestMeta.color = color;
               chest.itemMeta = chestMeta;
-              player.equipment.chestplate = chest;
+              _player.equipment.chestplate = chest;
               var legs = items.leatherLeggings(1);
               var legsMeta = legs.itemMeta;
               legsMeta.color = color;
               legs.itemMeta = legsMeta;
-              player.equipment.leggings = legs;
+              _player.equipment.leggings = legs;
             }
             setTimeout (function () {
               player.teleport(new org.bukkit.Location(server.worlds[0], -1231, 63, -616), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
@@ -410,28 +416,28 @@ exports.omahaBeach = function () {
             }
             else {
               color = org.bukkit.Color.BLUE;
-              var player = player;
+              _player = player;
               var items = require ('items');
               var helmet = items.leatherHelmet(1);
               var helmetMeta = helmet.itemMeta;
               helmetMeta.color = color;
               helmet.itemMeta = helmetMeta;
-              player.equipment.helmet = helmet;
+              _player.equipment.helmet = helmet;
               var boots = items.leatherBoots(1);
               var bootsMeta = boots.itemMeta;
               bootsMeta.color = color;
               boots.itemMeta = bootsMeta;
-              player.equipment.boots = boots;
+              _player.equipment.boots = boots;
               var chest = items.leatherChestplate(1);
               var chestMeta = chest.itemMeta;
               chestMeta.color = color;
               chest.itemMeta = chestMeta;
-              player.equipment.chestplate = chest;
+              _player.equipment.chestplate = chest;
               var legs = items.leatherLeggings(1);
               var legsMeta = legs.itemMeta;
               legsMeta.color = color;
               legs.itemMeta = legsMeta;
-              player.equipment.leggings = legs;
+              _player.equipment.leggings = legs;
             }
             setTimeout (function () {
               player.teleport(new org.bukkit.Location(server.worlds[0], -1248, 86, -380), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
@@ -463,6 +469,7 @@ exports.omahaBeach = function () {
     });
     events.projectileLaunch( function (event) {
       projectile=(event.getEntity== null) ? null : event.getEntity();
+      tagProjectile(event);
       if (projectile.getShooter != null){
         shooter=projectile.getShooter();
         inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
@@ -488,13 +495,20 @@ exports.omahaBeach = function () {
     });
     events.projectileHit( function (event) {
       projectile=(event.getEntity== null) ? null : event.getEntity();
-      if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
-        server.worlds[0].createExplosion (projectile.location,3);
+      team=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_team_").length == 0)?null:projectile.getMetadata("_team_")[0].value();
+      loc=projectile.location;
+      if (friendlyNearby(team,loc,4)){
+        console.log ("Explosion too close to fiendly");
       }
-      if (projectile.getMetadata("_name_").length > 0){
-        name=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_name_").length == 0)?null:projectile.getMetadata("_name_")[0].value();
-        if (((name) == "bazooka")){
+      else {
+        if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
           server.worlds[0].createExplosion (projectile.location,3);
+        }
+        if (projectile.getMetadata("_name_").length > 0){
+          name=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_name_").length == 0)?null:projectile.getMetadata("_name_")[0].value();
+          if (((name) == "bazooka")){
+            server.worlds[0].createExplosion (projectile.location,3);
+          }
         }
       }
     });
