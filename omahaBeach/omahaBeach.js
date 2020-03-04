@@ -501,13 +501,23 @@ exports.omahaBeach = function () {
         console.log ("Explosion too close to fiendly");
       }
       else {
-        if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
-          server.worlds[0].createExplosion (projectile.location,3);
+        if (blockInRadius (projectile.location, 4, org.bukkit.Material.CHEST)){
+          console.log ("Explosion too close to a chest");
         }
-        if (projectile.getMetadata("_name_").length > 0){
-          name=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_name_").length == 0)?null:projectile.getMetadata("_name_")[0].value();
-          if (((name) == "bazooka")){
-            server.worlds[0].createExplosion (projectile.location,3);
+        else {
+          if (blockInRadius (projectile.location, 4, org.bukkit.Material.COMMAND_BLOCK)){
+            console.log ("Explosion too close to a chest");
+          }
+          else {
+            if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
+              server.worlds[0].createExplosion (projectile.location,3);
+            }
+            if (projectile.getMetadata("_name_").length > 0){
+              name=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_name_").length == 0)?null:projectile.getMetadata("_name_")[0].value();
+              if (((name) == "bazooka")){
+                server.worlds[0].createExplosion (projectile.location,3);
+              }
+            }
           }
         }
       }
