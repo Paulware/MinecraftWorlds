@@ -45,6 +45,7 @@ exports.bedWarRespawn  = function (player) {
   var block;
   var inventory;
   var color;
+  var _player;
   if (player.getMetadata("_turndirection_").length > 0){
     player.removeMetadata ("_turndirection_", __plugin );
   }
@@ -60,28 +61,28 @@ exports.bedWarRespawn  = function (player) {
       inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.SNOWBALL,16));
       inventory.addItem (new org.bukkit.inventory.ItemStack (org.bukkit.Material.WHITE_WOOL,32));
       eval ( "color = org.bukkit.Color." + teamColor);
-      var player = player;
+      _player = player;
       var items = require ('items');
       var helmet = items.leatherHelmet(1);
       var helmetMeta = helmet.itemMeta;
       helmetMeta.color = color;
       helmet.itemMeta = helmetMeta;
-      player.equipment.helmet = helmet;
+      _player.equipment.helmet = helmet;
       var boots = items.leatherBoots(1);
       var bootsMeta = boots.itemMeta;
       bootsMeta.color = color;
       boots.itemMeta = bootsMeta;
-      player.equipment.boots = boots;
+      _player.equipment.boots = boots;
       var chest = items.leatherChestplate(1);
       var chestMeta = chest.itemMeta;
       chestMeta.color = color;
       chest.itemMeta = chestMeta;
-      player.equipment.chestplate = chest;
+      _player.equipment.chestplate = chest;
       var legs = items.leatherLeggings(1);
       var legsMeta = legs.itemMeta;
       legsMeta.color = color;
       legs.itemMeta = legsMeta;
-      player.equipment.leggings = legs;
+      _player.equipment.leggings = legs;
     }
     else {
       (function() {
@@ -185,6 +186,7 @@ exports.bedWarRules = function () {
   var players;
   if (((exports.gameStarted) == (null))){
     exports.gameStarted=1;
+    org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "gamerule keepInventory true");
     org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp @a -4 117 12");
     events.playerMove( function (event) {
       player=event.player;
@@ -241,7 +243,7 @@ exports.bedWarRules = function () {
     });
     events.blockBreak( function (event) {
       block=(event.block==null)?null:event.block.getType().toString();
-      breakBlocks=["WHITE_WOOL","RED_BED", "BLUE_BED", "ORANGE_BED", "WHITE_BED"];
+      breakBlocks=["WHITE_WOOL","RED_BED", "BLUE_BED", "YELLOW_BED", "WHITE_BED"];
       console.log ("Block broken: " + block);
       if (breakBlocks.indexOf(block) > -1){
         if (block.indexOf ( "BED" ) > -1){

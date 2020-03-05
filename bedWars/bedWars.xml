@@ -1160,7 +1160,7 @@
                                             <next>
                                               <block type="setvariable" id="TZoLd8Vzl|+?fzm86+de">
                                                 <field name="VARNAME">breakBlocks</field>
-                                                <field name="EXPRESSION">["WHITE_WOOL","RED_BED", "BLUE_BED", "ORANGE_BED", "WHITE_BED"]</field>
+                                                <field name="EXPRESSION">["WHITE_WOOL","RED_BED", "BLUE_BED", "YELLOW_BED", "WHITE_BED"]</field>
                                                 <next>
                                                   <block type="consolelog" id="M9FoKhL2Xj_~J;3$p0h*">
                                                     <value name="NAME">
