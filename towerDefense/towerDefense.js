@@ -157,6 +157,7 @@ exports.towerDefense = function () {
           }
           else if (((line) == "Knight")){
             player.getInventory().setItem (0,new org.bukkit.inventory.ItemStack (org.bukkit.Material.DIAMOND_SWORD,1) );
+            player.getInventory().setItem (1,new org.bukkit.inventory.ItemStack (org.bukkit.Material.SHIELD,1) );
             setTimeout (function () {
               player.teleport(new org.bukkit.Location(server.worlds[0], 84, 12, -917), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
             },2000);
