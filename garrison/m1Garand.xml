@@ -1,0 +1,288 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="`?Dg)=O$YgZBbd/KqQk~" x="-12" y="163">
+    <field name="nameOfFunction">m1Garand (event)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="controls_if" id="e.Y2wdB@h`1tGrO%eynl">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <block type="varname" id="qX#|OBEO*veC-^^u|ILj">
+            <field name="VARNAME">event instanceof org.bukkit.event.player.PlayerInteractEvent</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="setvariablevalue" id="3b0QMF!NSRJv2W!o*u`T">
+            <field name="VARNAME">player</field>
+            <value name="EXPRESSION">
+              <block type="eventinfo" id="WUy=X*]}vI%Z%3m]QR!}">
+                <field name="INFORMATION">getPlayer</field>
+              </block>
+            </value>
+            <next>
+              <block type="setvariablevalue" id="`x+Z[ewa,ur8SH%|oa3B">
+                <field name="VARNAME">inhand</field>
+                <value name="EXPRESSION">
+                  <block type="iteminhandis" id=";X4qC!L||KgM#TJtSJ]1">
+                    <value name="PLAYER">
+                      <block type="varname" id="~AO7?!WS|dlO.@)?37:]">
+                        <field name="VARNAME">player</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="setvariablevalue" id="aMDNAn6b2jZ5zBx8-I)#">
+                    <field name="VARNAME">stack</field>
+                    <value name="EXPRESSION">
+                      <block type="nameofstack" id="XJvY2fjL+^InZPrL/f89">
+                        <value name="STACK">
+                          <block type="varname" id="CTpOlEy6#.w/E*biU6~a">
+                            <field name="VARNAME">inhand</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="k7)~)`E@g|N0#xS$j51o">
+                        <value name="IF0">
+                          <block type="logic_compare" id="yzHf!pdRG|w_hZz.Kdx^">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="varname" id="~hqdJSC?Sh0G}Z#?AgnO">
+                                <field name="VARNAME">stack</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="TrbC%m|n_HNP[_,q;2RW">
+                                <field name="TEXT">M1-Garand</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="setvariablevalue" id="TBS0$X?sJ}.yTz4Vs_sl">
+                            <field name="VARNAME">fireAgain</field>
+                            <value name="EXPRESSION">
+                              <block type="getplayerdata2" id="#P3V)S[w+k@k#=pj8uKm">
+                                <field name="KEY">fireAgain</field>
+                                <value name="PLAYER">
+                                  <block type="varname" id="p;lzC8d-?}dJ]VH!mHV6">
+                                    <field name="VARNAME">player</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="2Ee{lv*..~K?l@+aFYQ+">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="Q;^:XA~]#eI-Rq+So*GB">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="millis" id="I*:b#,8kbFXw/w1uN2=]"></block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="varname" id="r_XbE`R.7x+c5XMU66!G">
+                                        <field name="VARNAME">fireAgain</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="launchprojectile" id="BhTabUmitA%xLJySG]:r">
+                                    <value name="ENTITY">
+                                      <block type="varname" id="|CxNe)Y|s):kpUzC+n)|">
+                                        <field name="VARNAME">player</field>
+                                      </block>
+                                    </value>
+                                    <value name="PROJECTILE">
+                                      <block type="projectileentity" id="B){d`=2[jwp_`2|}Qfdq">
+                                        <field name="PROJECTILE">ARROW</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="setplayerdata" id="V5Wo|w!LfhC/iCn?b6;G">
+                                        <field name="KEY">fireAgain</field>
+                                        <value name="VALUE">
+                                          <block type="math_arithmetic" id="-3QhJSPR.^;pQi4P@sO5">
+                                            <field name="OP">ADD</field>
+                                            <value name="A">
+                                              <shadow type="math_number" id="YU}[8.M?jCy*rumSZ[U(">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="millis" id="B,6w=DZN$*)s:b7#Vq;3"></block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="math_number" id="tzcYTDDfwb9f?9dqZ?E6">
+                                                <field name="NUM">1000</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="PLAYER">
+                                          <block type="varname" id="X`#|uRRT{oIYgm/)-a@*">
+                                            <field name="VARNAME">player</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="varname" id="zJHtHj#[+73)w/E]ne8q">
+            <field name="VARNAME">event instanceof org.bukkit.event.entity.ProjectileLaunchEvent</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="setvariablevalue" id="KB.McI#H*8e`.~28G,pV">
+            <field name="VARNAME">projectile</field>
+            <value name="EXPRESSION">
+              <block type="eventinfo" id="/l!t1y60B:@Cn1yOT0$D">
+                <field name="INFORMATION">getEntity</field>
+              </block>
+            </value>
+            <next>
+              <block type="setvariablevalue" id="Rh(l*#xU9ugwQ@wO{z!b">
+                <field name="VARNAME">shooter</field>
+                <value name="EXPRESSION">
+                  <block type="getshooter" id=",:3O5.$abI{dtQj6MNZS">
+                    <value name="PROJECTILE">
+                      <block type="varname" id="CEN6VVf7O.DqH=*FGxvg">
+                        <field name="VARNAME">projectile</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="setvariablevalue" id="Vw8ro#v{V5ytR$9fHJ)d">
+                    <field name="VARNAME">team</field>
+                    <value name="EXPRESSION">
+                      <block type="getplayerdata2" id="+nIr4l=:w%#^d-TX}e/f">
+                        <field name="KEY">team</field>
+                        <value name="PLAYER">
+                          <block type="varname" id="2vIP,Zd8@C8Y/n+#f6[T">
+                            <field name="VARNAME">shooter</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setplayerdata" id="Vzy2{8#SzZu2r^.c2+7^">
+                        <field name="KEY">team</field>
+                        <value name="VALUE">
+                          <block type="varname" id="Nb589$Qc.Bos_?~dacPF">
+                            <field name="VARNAME">team</field>
+                          </block>
+                        </value>
+                        <value name="PLAYER">
+                          <block type="varname" id="=;~U5^)^a9-}8*i;2ef8">
+                            <field name="VARNAME">projectile</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="setplayerdata" id="fM2;Lp~p.g)!XE|7r]lg">
+                            <field name="KEY">owner</field>
+                            <value name="VALUE">
+                              <block type="varname" id="B0ox~ypBC2|G}^?N#zZU">
+                                <field name="VARNAME">shooter</field>
+                              </block>
+                            </value>
+                            <value name="PLAYER">
+                              <block type="varname" id="ih3RN9ZvmCoE.Pda)_Q.">
+                                <field name="VARNAME">projectile</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="setvariablevalue" id="#w#E9}=^gK+vQH5SO:%R">
+                                <field name="VARNAME">inhand</field>
+                                <value name="EXPRESSION">
+                                  <block type="iteminhandis" id="x[.8edHP0,Om+`Wl6D~g">
+                                    <value name="PLAYER">
+                                      <block type="varname" id="Z$U.m?=^CK8wv+ZF]QJj">
+                                        <field name="VARNAME">shooter</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="setvariablevalue" id="Zjxm{JNfk;?hr+9+1_L0">
+                                    <field name="VARNAME">stack</field>
+                                    <value name="EXPRESSION">
+                                      <block type="nameofstack" id="I:#2*kR8djIsDlxG7x4S">
+                                        <value name="STACK">
+                                          <block type="varname" id="[(gmS@=id6ZVB0QySKB}">
+                                            <field name="VARNAME">inhand</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_if" id="+Rt7Txdw,8vSYd/{6djU">
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="+;3p/xttR(?dG2yK,VHC">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="varname" id="TIDC6GnUI}3=(kir)99,">
+                                                <field name="VARNAME">stack</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="text" id="XBK:PaU2CcfoV$EH-}II">
+                                                <field name="TEXT">M1-Garand</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="setprojectilespeed" id="z2$TDnfI}VW+rJtSo9RU">
+                                            <value name="SPEED">
+                                              <block type="math_number" id="*Slu*d[QeY=71,%J)A09">
+                                                <field name="NUM">7</field>
+                                              </block>
+                                            </value>
+                                            <value name="PROJECTILE">
+                                              <block type="varname" id="g?j}5]?H[d}$-J.`z2}/">
+                                                <field name="VARNAME">projectile</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="consolelog" id=",WPnx5$KT?8FNq$`a^%r" disabled="true">
+            <value name="NAME">
+              <block type="varname" id="I)f3Sg8apMf%3trrZhbA">
+                <field name="VARNAME">"m1Garand event not handled: " + event</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

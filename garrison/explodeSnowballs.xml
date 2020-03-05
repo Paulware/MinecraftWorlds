@@ -1,0 +1,44 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="scriptcraftfunction" id="kx=vYTs{_o/bq[.5y%Y9" x="387" y="3613">
+    <field name="nameOfFunction">explodeSnowballs(event)</field>
+    <statement name="FUNCTIONCODE">
+      <block type="setvariablevalue" id="5@w{lNQ.;KbFhxt(7@rs">
+        <field name="VARNAME">projectile</field>
+        <value name="EXPRESSION">
+          <block type="eventinfo" id="V`99YrcqGUfMglvB:oLN">
+            <field name="INFORMATION">getEntity</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="~P9|(``p$~Q*xy_%rH,2">
+            <value name="IF0">
+              <block type="logic_compare" id="m`uGDzHF9DiO#GWBFxHC">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="varname" id="/}HHp7zlzb-(ki]vqi:H">
+                    <field name="VARNAME">projectile.getType()</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="projectileentity" id="%x}xI*5l$3t-caVjR.Q@">
+                    <field name="PROJECTILE">SNOWBALL</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="explosion" id="tXMT)pe5Jn3F`XzO}X]:">
+                <field name="SIZE">3</field>
+                <value name="LOCATION">
+                  <block type="varname" id="Q_br3n)Yo4n}wL[%9Q2@">
+                    <field name="VARNAME">projectile.location</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
