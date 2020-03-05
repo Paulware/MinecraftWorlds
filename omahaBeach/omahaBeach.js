@@ -504,7 +504,7 @@ exports.omahaBeach = function () {
       else {
         if (function(){var _found;var _block;var _loc;_found=false;
         for (var x=-4; x<parseInt(4*2); x++){for (var y=-4; y<parseInt(4*2); y++) {for (var z=-4; z<parseInt(4*2); z++) {
-        _loc=(function() { var _x = loc.x + x;var _y = loc.y + y;var _z = loc.z + z;var loc = new org.bukkit.Location(server.worlds[0],_x,_y,_z);return loc; })();
+        _loc=(function() { var _x = loc.x + x;var _y = loc.y + y;var _z = loc.z + z;var _locBlockInRadius = new org.bukkit.Location(server.worlds[0],_x,_y,_z);return _locBlockInRadius; })();
         _block=server.worlds[0].getBlockAt (_loc);
         if ((((_block==null)?null:_block.getType()) == (org.bukkit.Material.CHEST))){
         _found=true;break;}}if (_found){break;}}if (_found){break;}}
@@ -515,7 +515,7 @@ exports.omahaBeach = function () {
         else {
           if (function(){var _found;var _block;var _loc;_found=false;
           for (var x=-4; x<parseInt(4*2); x++){for (var y=-4; y<parseInt(4*2); y++) {for (var z=-4; z<parseInt(4*2); z++) {
-          _loc=(function() { var _x = loc.x + x;var _y = loc.y + y;var _z = loc.z + z;var loc = new org.bukkit.Location(server.worlds[0],_x,_y,_z);return loc; })();
+          _loc=(function() { var _x = loc.x + x;var _y = loc.y + y;var _z = loc.z + z;var _locBlockInRadius = new org.bukkit.Location(server.worlds[0],_x,_y,_z);return _locBlockInRadius; })();
           _block=server.worlds[0].getBlockAt (_loc);
           if ((((_block==null)?null:_block.getType()) == (org.bukkit.Material.COMMAND_BLOCK))){
           _found=true;break;}}if (_found){break;}}if (_found){break;}}
