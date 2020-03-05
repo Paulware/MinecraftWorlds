@@ -777,25 +777,45 @@
                                                                                                                               </block>
                                                                                                                             </value>
                                                                                                                             <next>
-                                                                                                                              <block type="servercommand" id="6q|4To|[$o)%z(!D/W3i">
-                                                                                                                                <field name="COMMAND">"spawnpoint " + player.name + " 25 12 -915"</field>
+                                                                                                                              <block type="sethotbar" id="{@=5}~Ra|k`D|_-@e_uI">
+                                                                                                                                <field name="SLOT">2</field>
+                                                                                                                                <value name="PLAYER">
+                                                                                                                                  <block type="varname" id="amD$@5;x+DpeNn8j@a4t">
+                                                                                                                                    <field name="VARNAME">player</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <value name="STACK">
+                                                                                                                                  <block type="itemstack" id="Ag+AnsF!9s%oKfXrcPd/">
+                                                                                                                                    <field name="COUNT">1</field>
+                                                                                                                                    <value name="ITEM">
+                                                                                                                                      <block type="materialtype" id="A$0BC47Cl010Ly#H:ZJW">
+                                                                                                                                        <field name="MATERIAL">SHIELD</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                  </block>
+                                                                                                                                </value>
                                                                                                                                 <next>
-                                                                                                                                  <block type="teleport" id="Se:#v4WMc$c_wbjC|_AE">
-                                                                                                                                    <value name="ENTITY">
-                                                                                                                                      <block type="varname" id="tf)q^X`ikMOxUGuEol4!">
-                                                                                                                                        <field name="VARNAME">player</field>
-                                                                                                                                      </block>
-                                                                                                                                    </value>
-                                                                                                                                    <value name="LOCATION">
-                                                                                                                                      <block type="absolutelocation" id="eeNB-y#E^1R{vC~b1uSu">
-                                                                                                                                        <field name="X">25</field>
-                                                                                                                                        <field name="Y">12</field>
-                                                                                                                                        <field name="Z">-915</field>
-                                                                                                                                      </block>
-                                                                                                                                    </value>
+                                                                                                                                  <block type="servercommand" id="6q|4To|[$o)%z(!D/W3i">
+                                                                                                                                    <field name="COMMAND">"spawnpoint " + player.name + " 25 12 -915"</field>
                                                                                                                                     <next>
-                                                                                                                                      <block type="runexpression" id="6/b#tYq}GiC}S9ae-.!:">
-                                                                                                                                        <field name="EXPRESSION">player.setWalkSpeed (0.2)</field>
+                                                                                                                                      <block type="teleport" id="Se:#v4WMc$c_wbjC|_AE">
+                                                                                                                                        <value name="ENTITY">
+                                                                                                                                          <block type="varname" id="tf)q^X`ikMOxUGuEol4!">
+                                                                                                                                            <field name="VARNAME">player</field>
+                                                                                                                                          </block>
+                                                                                                                                        </value>
+                                                                                                                                        <value name="LOCATION">
+                                                                                                                                          <block type="absolutelocation" id="eeNB-y#E^1R{vC~b1uSu">
+                                                                                                                                            <field name="X">25</field>
+                                                                                                                                            <field name="Y">12</field>
+                                                                                                                                            <field name="Z">-915</field>
+                                                                                                                                          </block>
+                                                                                                                                        </value>
+                                                                                                                                        <next>
+                                                                                                                                          <block type="runexpression" id="6/b#tYq}GiC}S9ae-.!:">
+                                                                                                                                            <field name="EXPRESSION">player.setWalkSpeed (0.2)</field>
+                                                                                                                                          </block>
+                                                                                                                                        </next>
                                                                                                                                       </block>
                                                                                                                                     </next>
                                                                                                                                   </block>
