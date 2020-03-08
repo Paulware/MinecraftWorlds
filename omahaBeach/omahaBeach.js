@@ -495,10 +495,12 @@ exports.omahaBeach = function () {
       projectile=(event.getEntity== null) ? null : event.getEntity();
       team=(projectile== null)? null : (projectile.getMetadata == null)?null:(projectile.getMetadata("_team_").length == 0)?null:projectile.getMetadata("_team_")[0].value();
       loc=projectile.location;
-      if (false){
-        console.log ("Found a chest yo");
-      }
-      if (friendlyNearby(team,loc,4)){
+      if (function () { var _near;var _players;var _distance;_near=false;
+      _players=server.getOnlinePlayers();
+      for (var _i=0; _i<_players.length;_i++) {
+      _distance=loc.distance(_players[_i].location);
+      if(_distance <= 4){if ((team== ((_players[_i]== null)? null : (_players[_i].getMetadata == null)?null:(_players[_i].getMetadata("_team_").length == 0)?null:_players[_i].getMetadata("_team_")[0].value()))){_near=true;break;}}}
+      return _near;}()){
         console.log ("Explosion too close to fiendly");
       }
       else {
@@ -661,7 +663,6 @@ exports.omahaBeachJoin = function (player) {
       player.setHealth(h);  }
    })();
   player.setGameMode(org.bukkit.GameMode.SURVIVAL);
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "deop " + player.name);
   org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "spawnpoint " + player.name + " -1203 137 -106");
   player.getInventory().clear();
   omahaBeach();
