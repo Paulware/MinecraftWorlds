@@ -59,8 +59,8 @@ exports.battlefield = function () {
     _blockType=(blocks[_blockIndex]==null)?null:_blocks[_blockIndex].getType();
     if (_blockType == org.bukkit.Material.CHEST){
     _inventory=blocks[_blockIndex].getBlockInventory();_inventory.clear();
-    for (var _goodieIndex=0;_goodieIndex<goodies.length;goodieIndex++) {
-    if ((parseInt (Math.random () * (100-1)) + 1) > 50){inventory.addItem (goodies[]);
+    for (var _goodieIndex=0;_goodieIndex<goodies.length;_goodieIndex++) {
+    if ((parseInt (Math.random () * (100-1)) + 1) > 50){inventory.addItem (goodies[_goodieIndex]);
     }}}}}})();
     exports.redScore=0;
     exports.blueScore=0;
