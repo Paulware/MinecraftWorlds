@@ -1,32 +1,3 @@
-exports.randomizeChests = function (goodies) {
-  //Instantiations;
-  var w;
-  var chunks;
-  var chunk;
-  var blocks;
-  var blockType;
-  var inventory;
-  w=server.worlds[0];
-  chunks=w.getLoadedChunks();
-  for (var i=0; i<chunks.length;i++) {
-    chunk=chunks[i];
-    blocks=chunk.getTileEntities();
-    for (var j=0; j<blocks.length;j++) {
-      blockType=(blocks[j]==null)?null:blocks[j].getType();
-      if (((blockType) == (org.bukkit.Material.CHEST))){
-        inventory=blocks[j].getBlockInventory();
-        inventory.clear()
-        for (var k=0; k<goodies.length;k++) {
-          if (((parseInt (Math.random () * (100-1)) + 1) > 50)){
-            inventory.addItem (goodies[k]);
-          }
-        };
-      }
-    };
-  };
-  console.log ("Updated chests");
-};
-
 exports.battlefieldJoin  = function (player) {
   //Instantiations;
   var objective;
@@ -80,7 +51,17 @@ exports.battlefield = function () {
       (function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("M1-Garand");  s.setItemMeta(m);  return s; })(),
       (function() {   var s = new org.bukkit.inventory.ItemStack (org.bukkit.Material.STICK,1);  var m = s.getItemMeta();  m.setDisplayName ("minigun");  s.setItemMeta(m);  return s; })()
     ];
-    randomizeChests(goodies);
+    (function () {var _world;var _chunks;var _chunk;var _blocks;var _blockType;var _inventory;
+    _world=server.worlds[0];_chunks=_world.getLoadedChunks();
+    for (var _chunkIndex=0; _chunkIndex<_chunks.length;_chunkIndex++) {
+    _chunk=_chunks[_chunkIndex];_blocks=_chunk.getTileEntities();
+    for (var _blockIndex=0; _blockIndex<_blocks.length;_blockIndex++) {
+    _blockType=(blocks[_blockIndex]==null)?null:_blocks[_blockIndex].getType();
+    if (_blockType == org.bukkit.Material.CHEST){
+    _inventory=blocks[_blockIndex].getBlockInventory();_inventory.clear();
+    for (var _goodieIndex=0;_goodieIndex<goodies.length;goodieIndex++) {
+    if ((parseInt (Math.random () * (100-1)) + 1) > 50){inventory.addItem (goodies[]);
+    }}}}}})();
     exports.redScore=0;
     exports.blueScore=0;
     var manager = org.bukkit.Bukkit.getScoreboardManager();
