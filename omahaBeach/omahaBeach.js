@@ -443,7 +443,7 @@ exports.omahaBeach = function () {
           }
         }
       }
-      (function (event) {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
+      (function () {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
       if (event instanceof org.bukkit.event.player.PlayerInteractEvent){
       _player=(event.getPlayer== null) ? null : event.getPlayer();
       _inhand=(_player== null) ? null :(_player.getItemInHand == null)?null:_player.getItemInHand();
@@ -483,7 +483,7 @@ exports.omahaBeach = function () {
     events.projectileLaunch( function (event) {
       projectile=(event.getEntity== null) ? null : event.getEntity();
       tagProjectile(event);
-      (function (event) {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
+      (function () {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
       if (event instanceof org.bukkit.event.player.PlayerInteractEvent){
       _player=(event.getPlayer== null) ? null : event.getPlayer();
       _inhand=(_player== null) ? null :(_player.getItemInHand == null)?null:_player.getItemInHand();
