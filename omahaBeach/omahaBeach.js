@@ -443,7 +443,26 @@ exports.omahaBeach = function () {
           }
         }
       }
-      inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
+      (function (event) {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
+      if (event instanceof org.bukkit.event.player.PlayerInteractEvent){
+      _player=(event.getPlayer== null) ? null : event.getPlayer();
+      _inhand=(_player== null) ? null :(_player.getItemInHand == null)?null:_player.getItemInHand();
+      _stack=(_inhand== null) ? null : (_inhand.getItemMeta == null) ? null : (_inhand.getItemMeta() == null)?null:_inhand.getItemMeta().getDisplayName();
+      if (_stack == "M1-Garand"){
+      _fireAgain=(_player== null)? null : (_player.getMetadata == null)?null:(_player.getMetadata("_fireagain_").length == 0)?null:_player.getMetadata("_fireagain_")[0].value();
+      if ((new Date().getTime()) > _fireAgain){
+      _projectile=server.worlds[0].spawnEntity(_player.location,org.bukkit.entity.EntityType.ARROW);_player.launchProjectile(_projectile.getClass());_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,(new Date().getTime()) + 1000);
+      if (_player != null) {
+      if (_player.setMetadata != null ) {
+      _player.setMetadata ("_fireagain_", _fd );
+      }}}}
+      }else if (event instanceof org.bukkit.event.entity.ProjectileLaunchEvent){
+      _projectile=(event.getEntity== null) ? null : event.getEntity();_shooter=(_projectile == null) ? null : (_projectile.getShooter == null) ? null : _projectile.getShooter();_team=(_shooter== null)? null :(_shooter.getMetadata == null)?null:(_shooter.getMetadata("_team_").length == 0)?null:_shooter.getMetadata("_team_")[0].value();_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,_team);
+      if (_projectile != null) {if (_projectile.setMetadata != null ) {_projectile.setMetadata ("_team_", _fd );
+      }}_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,_shooter);if (_projectile != null) {if (_projectile.setMetadata != null ) {_projectile.setMetadata ("_owner_", _fd );}}
+      _inhand=(_shooter== null) ? null : ( _shooter.getItemInHand == null) ? null : _shooter.getItemInHand();_stack=(_inhand== null) ? null : (_inhand.getItemMeta == null) ? null : (_inhand.getItemMeta() == null)?null:_inhand.getItemMeta().getDisplayName();
+      if (stack == "M1-Garand"){(function() {var _vector = _projectile.getVelocity().normalize().multiply(7);if (!isNaN(_vector.x)){_projectile.setVelocity(_vector);}})();
+      }}}());inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
       name=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
       if (((name) == "minigun")){
         i=0;
@@ -460,28 +479,35 @@ exports.omahaBeach = function () {
         projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.WITHER_SKULL);
         player.launchProjectile(projectile.getClass());
       }
-      else if (((name) == "M1-Garand")){
-        projectile=server.worlds[0].spawnEntity(player.location,org.bukkit.entity.EntityType.ARROW);
-        player.launchProjectile(projectile.getClass());
-      }
     });
     events.projectileLaunch( function (event) {
       projectile=(event.getEntity== null) ? null : event.getEntity();
       tagProjectile(event);
-      if (projectile.getShooter != null){
+      (function (event) {var _player;var _inhand;var _stack;var _fireAgain;var _projectile;var _shooter;var _team;var _fd;
+      if (event instanceof org.bukkit.event.player.PlayerInteractEvent){
+      _player=(event.getPlayer== null) ? null : event.getPlayer();
+      _inhand=(_player== null) ? null :(_player.getItemInHand == null)?null:_player.getItemInHand();
+      _stack=(_inhand== null) ? null : (_inhand.getItemMeta == null) ? null : (_inhand.getItemMeta() == null)?null:_inhand.getItemMeta().getDisplayName();
+      if (_stack == "M1-Garand"){
+      _fireAgain=(_player== null)? null : (_player.getMetadata == null)?null:(_player.getMetadata("_fireagain_").length == 0)?null:_player.getMetadata("_fireagain_")[0].value();
+      if ((new Date().getTime()) > _fireAgain){
+      _projectile=server.worlds[0].spawnEntity(_player.location,org.bukkit.entity.EntityType.ARROW);_player.launchProjectile(_projectile.getClass());_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,(new Date().getTime()) + 1000);
+      if (_player != null) {
+      if (_player.setMetadata != null ) {
+      _player.setMetadata ("_fireagain_", _fd );
+      }}}}
+      }else if (event instanceof org.bukkit.event.entity.ProjectileLaunchEvent){
+      _projectile=(event.getEntity== null) ? null : event.getEntity();_shooter=(_projectile == null) ? null : (_projectile.getShooter == null) ? null : _projectile.getShooter();_team=(_shooter== null)? null :(_shooter.getMetadata == null)?null:(_shooter.getMetadata("_team_").length == 0)?null:_shooter.getMetadata("_team_")[0].value();_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,_team);
+      if (_projectile != null) {if (_projectile.setMetadata != null ) {_projectile.setMetadata ("_team_", _fd );
+      }}_fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,_shooter);if (_projectile != null) {if (_projectile.setMetadata != null ) {_projectile.setMetadata ("_owner_", _fd );}}
+      _inhand=(_shooter== null) ? null : ( _shooter.getItemInHand == null) ? null : _shooter.getItemInHand();_stack=(_inhand== null) ? null : (_inhand.getItemMeta == null) ? null : (_inhand.getItemMeta() == null)?null:_inhand.getItemMeta().getDisplayName();
+      if (stack == "M1-Garand"){(function() {var _vector = _projectile.getVelocity().normalize().multiply(7);if (!isNaN(_vector.x)){_projectile.setVelocity(_vector);}})();
+      }}}());if (projectile.getShooter != null){
         shooter=projectile.getShooter();
         inhand=(player== null) ? null : ( player.getItemInHand == null) ? null : player.getItemInHand();
         name=(inhand== null) ? null : (inhand.getItemMeta == null) ? null : (inhand.getItemMeta() == null)?null:inhand.getItemMeta().getDisplayName();
         console.log ("In hand: " + name );
-        if (((name) == "M1-Garand")){
-          (function() {
-            var vector = projectile.getVelocity().normalize().multiply(7);
-            if (!isNaN(vector.x)) {
-               projectile.setVelocity (vector);
-            }
-           })();
-        }
-        else if (((name) == "bazooka")){
+        if (((name) == "bazooka")){
           (function() {
             var vector = projectile.getVelocity().normalize().multiply(7);
             if (!isNaN(vector.x)) {
