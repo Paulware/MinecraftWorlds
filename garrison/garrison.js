@@ -4,7 +4,7 @@ exports.garrisonJoin  = function (player) {
   player.getInventory().clear();
   player.removeMetadata ("_team_", __plugin );
   garrison();
-  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1219 137 -91");
+  org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "tp " + player.name + " -1203 138 -106");
 };
 
 exports.garrison  = function () {
@@ -324,7 +324,7 @@ exports.garrison  = function () {
       else {
         console.log ("player must join team");
         setTimeout (function () {
-          player.teleport(new org.bukkit.Location(server.worlds[0], -1219, 137, -91), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          player.teleport(new org.bukkit.Location(server.worlds[0], -1203, 138, -106), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
         },2000);
       }
     });
