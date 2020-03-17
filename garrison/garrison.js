@@ -249,7 +249,23 @@ exports.garrison  = function () {
           }
         }
       }
-    });
+      (function () {var _player;var _inhand;var _name;var _i;var _projectile;
+      if (event instanceof org.bukkit.event.player.PlayerInteractEvent){
+      _player=(event.getPlayer== null) ? null : event.getPlayer();
+      _inhand=(_player== null)?null:( _player.getItemInHand == null) ? null : _player.getItemInHand();
+      _name=(_inhand== null)?null:(_inhand.getItemMeta==null)?null:(_inhand.getItemMeta()==null)?null:_inhand.getItemMeta().getDisplayName();
+      if (_name == "minigun"){
+      _i=0;var _test= setInterval (function () {
+      _i=_i+1;
+      _projectile=server.worlds[0].spawnEntity(_player.location,org.bukkit.entity.EntityType.ARROW);
+      _player.launchProjectile(_projectile.getClass());
+      if (!(_i<10)) {
+      clearInterval (_test);
+      }
+      }, 200);
+      }
+      }
+      }());});
     events.playerRespawn( function (event) {
       player=(event.getPlayer== null) ? null : event.getPlayer();
       team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_team_").length == 0)?null:player.getMetadata("_team_")[0].value();
@@ -272,8 +288,8 @@ exports.garrison  = function () {
           },2000);
         }
       }
-      else if (((team) == "Deffender")){
-        if (((exports.kingDeffender == null ) ? false : exports.kingDeffender.isDead()) || ((exports.kingDeffender == null ) ? false : (exports.kingDeffender.getGameMode().toString() == "SPECTATOR"))){
+      else if (((team) == "Defender")){
+        if (((exports.kingDefender == null ) ? false : exports.kingDefender.isDead()) || ((exports.kingDefender == null ) ? false : (exports.kingDefender.getGameMode().toString() == "SPECTATOR"))){
           (function() {
             if (player != null ) {
                player.sendMessage ("Your king is dead you are now spectator");
@@ -286,7 +302,7 @@ exports.garrison  = function () {
         }
         else {
           setTimeout (function () {
-            player.teleport(exports.kingDeffender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+            player.teleport(exports.kingDefender.location, org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
           },2000);
         }
       }

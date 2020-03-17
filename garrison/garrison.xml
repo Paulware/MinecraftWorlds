@@ -779,6 +779,9 @@
                                                                         </next>
                                                                       </block>
                                                                     </statement>
+                                                                    <next>
+                                                                      <block type="minigun" id="cZk}SRtrAS}bAiPorS/."></block>
+                                                                    </next>
                                                                   </block>
                                                                 </next>
                                                               </block>
@@ -924,7 +927,7 @@
                                                                             </value>
                                                                             <value name="B">
                                                                               <block type="text" id="p$=gx@n6Tu@B`b?Uu0YB">
-                                                                                <field name="TEXT">Deffender</field>
+                                                                                <field name="TEXT">Defender</field>
                                                                               </block>
                                                                             </value>
                                                                           </block>
@@ -939,7 +942,7 @@
                                                                                   <block type="entitydead" id="jsmBT`T1hnM3oK3ITIu[">
                                                                                     <value name="ENTITY">
                                                                                       <block type="varname" id="(nrzp]ZxG;aH@6}L/2aS">
-                                                                                        <field name="VARNAME">exports.kingDeffender</field>
+                                                                                        <field name="VARNAME">exports.kingDefender</field>
                                                                                       </block>
                                                                                     </value>
                                                                                   </block>
@@ -948,7 +951,7 @@
                                                                                   <block type="isspectator" id="`~%zpt#9H}QCoANUMw;X">
                                                                                     <value name="PLAYER">
                                                                                       <block type="varname" id="qTw0QqhE?.}9Sbf.4:dN">
-                                                                                        <field name="VARNAME">exports.kingDeffender</field>
+                                                                                        <field name="VARNAME">exports.kingDefender</field>
                                                                                       </block>
                                                                                     </value>
                                                                                   </block>
@@ -1000,7 +1003,7 @@
                                                                                 </value>
                                                                                 <value name="LOCATION">
                                                                                   <block type="varname" id="w5Oj9Hi??e}ta+t7b(kf">
-                                                                                    <field name="VARNAME">exports.kingDeffender.location</field>
+                                                                                    <field name="VARNAME">exports.kingDefender.location</field>
                                                                                   </block>
                                                                                 </value>
                                                                               </block>
