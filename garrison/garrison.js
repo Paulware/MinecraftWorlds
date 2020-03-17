@@ -39,8 +39,8 @@ exports.garrison  = function () {
       event.cancelled = true;
     });
     events.playerInteract( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
-      block=(event.getClickedBlock()== null) ? null : event.getClickedBlock()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
+      block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
       blockType=(block==null)?null:block.getType();
       if (((blockType) == (org.bukkit.Material.OAK_SIGN))){
         team=(block==null)?null: (block.state.getLine == null)?null:block.state.getLine(1);
@@ -251,7 +251,7 @@ exports.garrison  = function () {
       }
     });
     events.playerRespawn( function (event) {
-      player=(event.getPlayer()== null) ? null : event.getPlayer()();
+      player=(event.getPlayer== null) ? null : event.getPlayer();
       team=(player== null)? null : (player.getMetadata == null)?null:(player.getMetadata("_team_").length == 0)?null:player.getMetadata("_team_")[0].value();
       console.log (player.name+"respawn on team: {'team'}");
       if (((team) == "Attacker")){
@@ -329,13 +329,13 @@ exports.garrison  = function () {
       }
     });
     events.projectileHit( function (event) {
-      projectile=(event.getEntity()== null) ? null : event.getEntity()();
+      projectile=(event.getEntity== null) ? null : event.getEntity();
       if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
         server.worlds[0].createExplosion (projectile.location,2);
       }
     });
     events.playerDeath( function (event) {
-      player=(event.getEntity()== null) ? null : event.getEntity()();
+      player=(event.getEntity== null) ? null : event.getEntity();
       if (((player) == (exports.kingAttacker))){
         org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "say @a \"King Attacker has died\"");
       }
@@ -344,9 +344,9 @@ exports.garrison  = function () {
       }
     });
     events.entityShootBow( function (event) {
-      shooter=(event.getEntity()== null) ? null : event.getEntity()();
-      projectile=(event.getProjectile()== null) ? null : event.getProjectile()();
-      bow=(event.getBow()== null) ? null : event.getBow()();
+      shooter=(event.getEntity== null) ? null : event.getEntity();
+      projectile=(event.getProjectile== null) ? null : event.getProjectile();
+      bow=(event.getBow== null) ? null : event.getBow();
       bowName=(bow== null) ? null : (bow.getItemMeta == null) ? null : (bow.getItemMeta() == null)?null:bow.getItemMeta().getDisplayName();
       fd = new org.bukkit.metadata.FixedMetadataValue (__plugin,bowName);
       if (projectile != null) {
@@ -357,7 +357,7 @@ exports.garrison  = function () {
       console.log ("Bow [" + bowName + "] fired by" + shooter);
     });
     events.projectileHit( function (event) {
-      projectile=(event.getEntity()== null) ? null : event.getEntity()();
+      projectile=(event.getEntity== null) ? null : event.getEntity();
       if (((projectile.getType()) == (org.bukkit.entity.EntityType.SNOWBALL))){
         server.worlds[0].createExplosion (projectile.location,2);
       }
