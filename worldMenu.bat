@@ -67,9 +67,10 @@ set source=C:\SpigotMC\MinecraftWorlds\prison\*.*
 copy C:\SpigotMC\MinecraftWorlds\prison\prisonRules.js C:\SpigotMC\scriptcraft\plugins\prisonRules.js
 GOTO:copyFiles
 
-:menu_7   Star Wars
-set source=C:\SpigotMC\MinecraftWorlds\starWars\*.*
-copy C:\SpigotMC\MinecraftWorlds\starWars\starWarsRules.js C:\SpigotMC\scriptcraft\plugins\starWarsRules.js
+:menu_7   Garrison
+set project=garrison
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
 GOTO:copyFiles
 
 :menu_8   bed wars
