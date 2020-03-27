@@ -12,6 +12,10 @@ To copy over a world to your C:\SpigotMC\World directory:
 <li>Select the number of the world</li>
 <li>The world will then be copied to C:\SpigotMC\world directory</li>
 <li>Run the server (option 9)</li>
+<li>Run minecraft</li>
+<li>Select Multiplayer, Direct Connect, localhost</li>
+<li>To let others play on your local lan network, get the ip address of your computer using the DOS command: ipconfig</li>
+<li>To let others in the world play your game, use origin</li>
 </ul>
 
 Scriptcraft should be installed using the instructions found <a href="https://github.com/walterhiggins/ScriptCraft#installation">here</a>

@@ -1,0 +1,1375 @@
+{
+    "pools": [
+        {
+            "rolls": {
+                "min": 1,
+                "max": 2
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:record_ward",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_attributes",
+                            "modifiers": [
+                                {
+                                    "attribute": "generic.armor",
+                                    "name": "More Armor",
+                                    "amount": {
+                                        "min": 0,
+                                        "max": 20
+                                    },
+                                    "operation": "addition",
+                                    "slot": [
+                                        "offhand"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Enchanted Bagpipes\"}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:record_cat",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_attributes",
+                            "modifiers": [
+                                {
+                                    "attribute": "generic.movementSpeed",
+                                    "name": "More Speed",
+                                    "amount": {
+                                        "min": 0,
+                                        "max": 0.10
+                                    },
+                                    "operation": "addition",
+                                    "slot": [
+                                        "offhand"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Enchanted Flute\"}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:record_13",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_attributes",
+                            "modifiers": [
+                                {
+                                    "attribute": "generic.maxHealth",
+                                    "name": "More Health",
+                                    "amount": {
+                                        "min": 0,
+                                        "max": 10
+                                    },
+                                    "operation": "addition",
+                                    "slot": [
+                                        "offhand"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Enchanted Flute\"}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:record_far",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_attributes",
+                            "modifiers": [
+                                {
+                                    "attribute": "generic.attackDamage",
+                                    "name": "More Attack Damage",
+                                    "amount": {
+                                        "min": 0,
+                                        "max": 5
+                                    },
+                                    "operation": "addition",
+                                    "slot": [
+                                        "offhand"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Enchanted Horn\"}}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:stone_sword",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Dagger\"}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:diamond_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:diamond_sword",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:stone_axe",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "set_nbt",
+                            "tag": "{display:{Name:\"Hammer\"}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:diamond_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:diamond_axe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:stone_shovel",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_shovel",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:bow",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:bow",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:shield",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:shield",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:arrow",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "min": 4,
+                                "max": 32
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:dye",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "min": 4,
+                                "max": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:emerald",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:leather_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:leather_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:leather_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:leather_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:golden_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:chainmail_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_damage",
+                            "damage": {
+                                "min": 0.1,
+                                "max": 0.9
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:book",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:enchant_randomly"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:strength\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:regeneration\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:healing\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:swiftness\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:fire_resistance\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:leaping\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potion",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:invisibility\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:splash_potion",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:poison\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:splash_potion",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:weakness\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:splash_potion",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:harming\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:splash_potion",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{Potion:\"minecraft:slowness\"}"
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:fish",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:stick",
+                    "weight": 3
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:apple",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:mushroom_stew",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:bread",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:porkchop",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:beef",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:chicken",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:rotten_flesh",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:carrot",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:potato",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:poisonous_potato",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:rabbit",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:rabbit_stew",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:mutton",
+                    "weight": 5
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:bowl",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:egg",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:wheat",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:string",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:iron_ingot",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:gold_ingot",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:gold_nugget",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:bone",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:book",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:map",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:fermented_spider_eye",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:spider_eye",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:blaze_powder",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:magma_cream",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:rabbit_foot",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:dye",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:sugar",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:nether_wart",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:glowstone_dust",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:coal",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_apple",
+                    "weight": 1
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_apple",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 1
+                        }
+                    ]
+                },
+				{
+                    "type": "item",
+                    "name": "minecraft:golden_carrot",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

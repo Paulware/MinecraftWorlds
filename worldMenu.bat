@@ -138,6 +138,12 @@ copy C:\SpigotMC\MinecraftWorlds\%project%\*.js C:\SpigotMC\scriptcraft\plugins\
 copy C:\SpigotMC\MinecraftWorlds\%project%\*.yml C:\SpigotMC\
 GOTO:copyFiles
 
+:menu_H   Denalia Dungeon
+set project=denaliaDungeon
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+rem copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
+GOTO:copyFiles
+
 :menu_
 
 :menu_T   Tip
