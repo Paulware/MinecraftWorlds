@@ -92,14 +92,13 @@ GOTO:menuLOOP
 set project=spleef
 set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
 copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
-
 GOTO:copyFiles
 
-:menu_B   Set Backups as destination
-set blocklyroot=C:\backups
-set worldsroot=C:\backups
-set arduinoroot=C:\backups
-GOTO:menuLoop
+:menu_B   Dungeons and Dragons
+set project=dungeonsAndDragons
+set source=C:\SpigotMC\MinecraftWorlds\%project%\*.*
+rem copy C:\SpigotMC\MinecraftWorlds\%project%\%project%.js C:\SpigotMC\scriptcraft\plugins\%project%.js
+GOTO:copyFiles
 
 :menu_C   git clone Arduino 
 cd %arduinoroot%
