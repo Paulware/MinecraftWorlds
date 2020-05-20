@@ -54,6 +54,9 @@ exports.spleef  = function () {
     if ((((block==null)?null:block.getType()) == (org.bukkit.Material.OAK_SIGN))){
       teamColor=(block.state.getLine(1)).toUpperCase();
       console.log ("got teamColor: " + teamColor);
+      if ((["WHITE", "RED", "BLUE", "ORANGE"].indexOf ( teamColor) >= 0)){
+        console.log ("got team: " + teamColor);
+      }
     }
   });
   events.playerDeath( function (event) {
