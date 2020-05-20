@@ -163,9 +163,9 @@ rem copy startGame.js C:\SpigotMC\scriptcraft\plugins\
 GOTO:makeJoin
 
 :makeJoin
-@echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\join.js 
-@echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\join.js 
-@echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\join.js 
-@echo  }); >> C:\SpigotMC\scriptcraft\plugins\join.js 
+rem @echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\join.js 
+rem @echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\join.js 
+rem @echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\join.js 
+rem @echo  }); >> C:\SpigotMC\scriptcraft\plugins\join.js 
 
 GOTO:EOF
