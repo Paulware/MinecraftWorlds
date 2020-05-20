@@ -5,6 +5,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/red_glazed_terracotta": {
+    "criteria": {
+      "has_red_terracotta": "2020-05-20 09:27:34 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/polished_andesite_slab": {
     "criteria": {
       "has_polished_andesite": "2020-05-19 21:21:07 -0500"
@@ -34,6 +40,12 @@
       "minecraft:plains": "2020-05-19 15:05:46 -0500"
     },
     "done": false
+  },
+  "minecraft:recipes/decorations/white_glazed_terracotta": {
+    "criteria": {
+      "has_white_terracotta": "2020-05-20 09:26:32 -0500"
+    },
+    "done": true
   },
   "DataVersion": 1976
 }
