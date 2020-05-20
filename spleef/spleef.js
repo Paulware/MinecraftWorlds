@@ -50,11 +50,22 @@ exports.spleef  = function () {
     }
   });
   events.playerInteract( function (event) {
+    player=(event.getPlayer== null) ? null : event.getPlayer();
     block=(event.getClickedBlock== null) ? null : event.getClickedBlock();
     if ((((block==null)?null:block.getType()) == (org.bukkit.Material.OAK_SIGN))){
       teamColor=(block.state.getLine(1)).toUpperCase();
       console.log ("got teamColor: " + teamColor);
       if ((["WHITE", "RED", "BLUE", "ORANGE"].indexOf ( teamColor) >= 0)){
+        if (((teamColor) == ("ORANGE"))){
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -93, 16, 123), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2000);
+        }
+        else if (((teamColor) == ("BLUE"))){
+          setTimeout (function () {
+            player.teleport(new org.bukkit.Location(server.worlds[0], -93, 16, 137), org.bukkit.event.player.PlayerTeleportEvent.TeleportCause.PLUGIN);
+          },2000);
+        }
         console.log ("got team: " + teamColor);
       }
     }
