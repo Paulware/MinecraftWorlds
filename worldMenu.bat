@@ -159,13 +159,7 @@ echo remove %destination%
 rmdir %destination% /q /s
 mkdir %destination%
 xcopy %source% %destination% /E
-rem copy startGame.js C:\SpigotMC\scriptcraft\plugins\
 GOTO:makeJoin
 
 :makeJoin
-rem @echo events.playerJoin ( function (event) { > C:\SpigotMC\scriptcraft\plugins\join.js 
-rem @echo   player = (event.player==null) ? null : event.getPlayer(); >> C:\SpigotMC\scriptcraft\plugins\join.js 
-rem @echo   %project%Join(player); >> C:\SpigotMC\scriptcraft\plugins\join.js 
-rem @echo  }); >> C:\SpigotMC\scriptcraft\plugins\join.js 
-
 GOTO:EOF
