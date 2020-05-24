@@ -1,5 +1,5 @@
 copy C:\SpigotMC\scriptcraft\plugins\spleef.js
-copy C:\SpigotMC\scriptcraft\plugins\xml\spleef.xml
+copy C:\SpigotMC\scriptcraft\plugins\spleef.xml
 copy C:\SpigotMC\spigot.yml
 copy C:\SpigotMC\bukkit.yml
 cd ..
